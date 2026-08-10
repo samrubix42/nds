@@ -45,26 +45,26 @@
             <div class="lg:col-span-7 flex flex-col gap-6">
                 <!-- Pill chip -->
                 <div class="self-start">
-                    <span class="inline-block px-5 py-2 bg-white text-coffee font-extrabold text-xs tracking-wider uppercase rounded-full shadow-md shadow-caramel/10 border border-cream/80">
+                    <span class="inline-block px-5 py-2 bg-white text-coffee font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-md shadow-caramel/10 border border-cream/80">
                         Who We Are ~
                     </span>
                 </div>
 
                 <!-- Heading -->
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-brownie leading-tight">
+                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-brownie leading-tight">
                     The <span class="text-coffee">Most Trusted</span> Name in Security Services in Noida
                 </h2>
 
                 <!-- Content text with left accent border -->
                 <div class="border-caramel/70 py-1">
-                    <p class="text-xs md:text-sm text-coffee/90 leading-relaxed font-medium">
+                    <p class="text-sm sm:text-base md:text-lg text-coffee/90 leading-relaxed font-medium">
                         Founded with a vision to deliver unmatched safety, NDS Security Services is Noida's leading private security provider. We cater to over 150+ corporate clients, manage deployments across 200+ secured locations in Noida & Delhi NCR, and employ a force of over 500+ highly trained guards. As a premier security partner, NDS is renowned for its PSARA-compliant Manned Guarding, 24/7 Command Center monitoring, electronic surveillance integration, executive VIP escorts, and comprehensive site risk assessments. We ensure your assets, employees, and premises remain protected round the clock with tactical precision.
                     </p>
                 </div>
 
                 <!-- Gradient pill button -->
                 <div class="self-start">
-                    <a href="#" class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs font-bold uppercase tracking-wider py-3 px-8 rounded-full shadow-md shadow-caramel/25 transition-all inline-flex items-center gap-2 cursor-pointer mt-4">
+                    <a href="#" class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-8 rounded-full shadow-md shadow-caramel/25 transition-all inline-flex items-center gap-2 cursor-pointer mt-4">
                         Learn More <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
@@ -76,7 +76,7 @@
     <div class="relative w-full bg-gradient-to-r from-caramel via-[#cf9562] to-coffee text-white py-3.5 border-y border-cream/20 overflow-hidden select-none pointer-events-none z-10">
         <div class="flex animate-marquee whitespace-nowrap w-max items-center">
             <!-- Group 1 -->
-            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-[11px] font-black uppercase tracking-widest">
+            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-xs sm:text-sm font-black uppercase tracking-widest">
                 <span class="flex items-center gap-2">
                     <i class="ri-shield-check-fill text-cream text-sm"></i>
                     <strong class="text-cream font-black">PSARA Certified</strong> Security
@@ -103,7 +103,7 @@
                 </span>
             </div>
             <!-- Group 2 -->
-            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-[11px] font-black uppercase tracking-widest">
+            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-xs sm:text-sm font-black uppercase tracking-widest">
                 <span class="flex items-center gap-2">
                     <i class="ri-shield-check-fill text-cream text-sm"></i>
                     <strong class="text-cream font-black">PSARA Certified</strong> Security
@@ -159,7 +159,7 @@
             <!-- Section Heading -->
             <div class="flex flex-col items-center text-center gap-2 sm:gap-3 mb-10 sm:mb-12 lg:mb-16">
 
-                <span class="text-[10px] sm:text-xs font-extrabold tracking-widest text-caramel uppercase">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">
                     NDS Global Impact
                 </span>
 
@@ -591,8 +591,8 @@
         @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div class="flex flex-col items-center text-center gap-3 mb-16">
-                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
-                <h2 class="text-2xl md:text-3xl font-black tracking-tight text-brownie">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
                     Trusted by Noida's Leading Landmarks
                 </h2>
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
@@ -684,188 +684,208 @@
         </div>
     </section>
 
-    <!-- Services Bento Grid Section (Expertise - Premium Cards) -->
-    <section class="bg-cream/15 py-24 border-y border-cream/50">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
+    <!-- Services Bento Grid Section (Expertise - Clean & Modern Layout) -->
+    <section class="bg-cream/15 py-20 sm:py-24 border-y border-cream/50 relative overflow-hidden">
+        <!-- Subtle Grid Background -->
+        <div class="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="home-services-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(192,133,82,0.12)" stroke-width="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#home-services-grid)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
             <div class="flex flex-col items-center text-center gap-3 mb-16">
-                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Our Expertise</span>
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                    Comprehensive Security Modules
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
+                    <i class="ri-shield-star-fill text-sm"></i> Services
+                </span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-brownie max-w-2xl leading-tight">
+                    Comprehensive <span class="text-caramel">security</span> and surveillance solutions
                 </h2>
-                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
+                <div class="w-12 h-1 bg-caramel mt-2 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                 <!-- Card 1: Physical Guarding -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLsV-SoJDZgIiLPzKak3XtVbnVX5XnElfRbSkQYICqCOVcycOg3d1s828xbjfSmsyrTmGlCuMgdu-zYwid1ZkyzhIoGHnuDB1j1j-QfB4LoH0SSgIjOh-u1QbqH63jFLpa-mN1ZboHEE789M-9-4rkZ9GDgmjCDIXcUz4o_fDyJq_wCg7_cXNCwEvpN377TtvamcMDwA22uFkHw6cWJLD9B4Lb5us4ZtbwNemca1asUusaUVYJj8zLe0nbxO"
                             alt="Security Guard"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-shield-star-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">Manned Guarding</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Physical Guarding</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            Vigilant, disciplined physical security guards trained for industrial complexes, retail malls, IT parks, and residential neighborhoods.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-shield-star-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Physical Guarding
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                Vigilant, disciplined physical security guards trained for industrial complexes, retail malls, IT parks, and residential neighborhoods.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 2: Corporate Security -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLs9GDpOIG8v_zrMNLzN1ZWLKuiXBgbety7WqPbN63CW2rOl2Rqj_Esuv-IOyhAO3lj-XXAbR0jcKTob8wSDGHcJBlbWR4R6Vax643wA2jey5tPsUPI7z3l8kDGjRZA9qS7Qtb6BiCD7pBj2exLlzIuhED9zcJS_YF200wmbHk0RH0PJrIhQOCJESBD4q7wTm_EObRytDfWN5okLtKYiPKG9yvLsERs1GqapQjgjd9znPe2MVlTxL5OO_Gs"
                             alt="Corporate Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-building-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">Access Management</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Corporate Security</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            Integrated corporate facility security, digital gate-pass tracking, and front-desk receptionist-guard protocols.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-building-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Corporate Security
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                Integrated corporate facility security, digital gate-pass tracking, and front-desk receptionist-guard protocols.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 3: Armed Escorts -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLvIHW23j_OUjwvXqlEeitUANjVbDzIZZ-FuEFvMemmRCO6egwo9SIXBbo10oOOE2IEZLW27ahSHbum1PyB9o5BoPC9wcAbRpCZ64gwouwKGQisazj2i8n_zRImx_e6tG4nEVR1UTvop7fm45lPEWcHg-1AAbNFMGH4L5xgryo7DPB7YnpbXtPasJt2h5cGoEqfDD_9mNu9UgoGnx0MLTdc9puKJkpwMJU6YlV_8KcHtBjEGxu5zEeXCKtBm"
                             alt="Escort Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-roadster-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">VIP Escort</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Armed Escorts</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            Elite personal protective guards and armed transit protection for executives, VVIPs, and critical cash transit.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-user-star-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Armed Escorts
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                Elite personal protective guards and armed transit protection for executives, VVIPs, and critical cash transit.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 4: Electronic Surveillance -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="{{ asset('command_center.png') }}"
                             alt="Electronic Surveillance Control Room"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-radar-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">CCTV & Smart AI</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Electronic Surveillance</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            24/7 centralized command monitoring, smart AI-driven CCTV integrations, thermal imaging, and perimeter intrusion detection.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-radar-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Electronic Surveillance
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                24/7 centralized command monitoring, smart AI-driven CCTV integrations, thermal imaging, and perimeter intrusion detection.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 5: Event Security Management -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLsnr0nCqgBFokwmrnxmAUVtAeJNt-nhkcJhehbgISmRSxUV_d5Y--Ep0kBLFtTmbp2noGJ_OXHU5-ucAYqHazKbHOfLh_PElXVh09yjMf67799TggbUrBb8djUWjLXGXy4nRrUcxRg1ka-jV75zhKLGoYfuDiftNVte3InfxGT4eOR8xq4jMZOx2wNPz6TsyqxOvy2OtFrqMcchpTDHAE5aPUfddNOZ_QsQHayyYFpBnJrHW6qWdodo8O1w"
                             alt="Event Crowd Control Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-group-2-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">Crowd & VIP Routing</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Event Security</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            Tactical crowd management, VIP routing plans, rapid evacuation drills, and comprehensive security coordination for corporate and high-profile events.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-group-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Event Security
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                Tactical crowd management, VIP routing plans, rapid evacuation drills, and comprehensive security coordination for corporate events.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 6: Risk Assessment & Audit -->
-                <div class="group bg-white border border-cream/80 rounded-[12px] overflow-hidden flex flex-col hover:shadow-xl hover:shadow-caramel/5 transition-all duration-300">
-                    <div class="h-56 relative overflow-hidden bg-cream">
+                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLtyBG6H2kDhbY3d3BTw7l3dichQuqW7371O7Sd2S51O2_iLMOBHrjQ_-Ccre68Wcvq8huiXsb7FqveSxZRAIhf-FmBWLbXXkpQpIHbqVqWm6ZDNb5pkqer42NC2QJEkOQ1LRfcENWYgd6Noqi-GFk_17XCVcvZXq7nFUyf5MjGRXuMvSYj55l0qjJFInPJ-i40uXI8M3Mjm8dc6BFyz1eMI2CTqu2fxV7Yo3awlz2PgrGyqV_-mlJ5ujQ1C"
                             alt="Security Audit Inspection"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/80 via-brownie/20 to-transparent"></div>
-
-                        <!-- Floating Icon Badge -->
-                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-caramel shadow-sm z-10 transition-transform duration-300 group-hover:rotate-6">
-                            <i class="ri-file-shield-2-line text-lg"></i>
-                        </div>
-
-                        <div class="absolute bottom-4 left-5">
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-caramel/90 bg-caramel/10 px-2.5 py-1 rounded-[4px] backdrop-blur-sm border border-caramel/25">Security Audits</span>
-                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider mt-2.5">Risk Assessment</h3>
-                        </div>
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between bg-white/80">
-                        <p class="text-xs text-coffee/90 leading-relaxed mb-6 font-semibold">
-                            Detailed safety audit sweeps, fire-safety protocol checks, perimeter threat assessments, and security compliance reports.
-                        </p>
-                        <a href="#" class="text-xs font-extrabold text-caramel hover:text-brownie flex items-center gap-1.5 transition-colors uppercase tracking-wider self-start group/link">
-                            Learn More
-                            <i class="ri-arrow-right-line transform transition-transform group-hover/link:translate-x-1"></i>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="ri-file-shield-2-fill"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
+                                Risk Assessment
+                            </h3>
+                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
+                                Detailed safety audit sweeps, fire-safety protocol checks, perimeter threat assessments, and security compliance reports.
+                            </p>
+                        </div>
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -915,8 +935,8 @@
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
             <div class="flex flex-col items-center text-center gap-3 mb-16">
-                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Client Reviews</span>
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brownie">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Client Reviews</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
                     What Our Clients Say
                 </h2>
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
@@ -941,7 +961,7 @@
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
                                     <!-- Quote Text -->
-                                    <p class="text-xs text-coffee/95 font-medium leading-relaxed italic">
+                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
                                         "NDS has been managing our manned guarding and command center operations for over 3 years. Their discipline, regular operations audits, and rapid command responsiveness are unmatched in Delhi NCR. They run like mathematical clockwork."
                                     </p>
                                 </div>
@@ -951,8 +971,8 @@
                                         AS
                                     </div>
                                     <div>
-                                        <h4 class="text-[11px] font-bold text-brownie uppercase tracking-wide">Amit Sharma</h4>
-                                        <p class="text-[9px] text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">DLF Tech Park Noida</p>
+                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Amit Sharma</h4>
+                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">DLF Tech Park Noida</p>
                                     </div>
                                 </div>
                             </div>
@@ -971,7 +991,7 @@
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
                                     <!-- Quote Text -->
-                                    <p class="text-xs text-coffee/95 font-medium leading-relaxed italic">
+                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
                                         "Securing a high-footfall mall requires swift coordination. NDS deployed a highly disciplined crowd control squad and optimized our parking patrol loop. They have significantly improved our operational security standards."
                                     </p>
                                 </div>
@@ -981,8 +1001,8 @@
                                         PG
                                     </div>
                                     <div>
-                                        <h4 class="text-[11px] font-bold text-brownie uppercase tracking-wide">Priya Goel</h4>
-                                        <p class="text-[9px] text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Gaur City Mall Noida</p>
+                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Priya Goel</h4>
+                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Gaur City Mall Noida</p>
                                     </div>
                                 </div>
                             </div>
@@ -1001,7 +1021,7 @@
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
                                     <!-- Quote Text -->
-                                    <p class="text-xs text-coffee/95 font-medium leading-relaxed italic">
+                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
                                         "With NDS, our residents feel completely secure. Their app-integrated visitor verification protocols at access gates and polite, background-verified guards are highly professional. The best security partner we have had."
                                     </p>
                                 </div>
@@ -1011,8 +1031,8 @@
                                         RM
                                     </div>
                                     <div>
-                                        <h4 class="text-[11px] font-bold text-brownie uppercase tracking-wide">Rohan Mehta</h4>
-                                        <p class="text-[9px] text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Emerald Heights Noida</p>
+                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Rohan Mehta</h4>
+                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Emerald Heights Noida</p>
                                     </div>
                                 </div>
                             </div>
@@ -1031,7 +1051,7 @@
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
                                     <!-- Quote Text -->
-                                    <p class="text-xs text-coffee/95 font-medium leading-relaxed italic">
+                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
                                         "The electronic surveillance and access control solutions deployed by NDS have streamlined our visitor tracking. Their 24/7 command center integration has made security management seamless for us."
                                     </p>
                                 </div>
@@ -1041,8 +1061,8 @@
                                         VS
                                     </div>
                                     <div>
-                                        <h4 class="text-[11px] font-bold text-brownie uppercase tracking-wide">Vikram Singh</h4>
-                                        <p class="text-[9px] text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Tech Mahindra Noida</p>
+                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Vikram Singh</h4>
+                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Tech Mahindra Noida</p>
                                     </div>
                                 </div>
                             </div>
@@ -1061,7 +1081,7 @@
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
                                     <!-- Quote Text -->
-                                    <p class="text-xs text-coffee/95 font-medium leading-relaxed italic">
+                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
                                         "We rely on NDS for our VIP escort guarding and major events security. Their guards are immaculate, polite, and exceptionally alert. Their threat assessments are highly detailed and helpful."
                                     </p>
                                 </div>
@@ -1071,8 +1091,8 @@
                                         AS
                                     </div>
                                     <div>
-                                        <h4 class="text-[11px] font-bold text-brownie uppercase tracking-wide">Ananya Sen</h4>
-                                        <p class="text-[9px] text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Radisson Blu Noida</p>
+                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Ananya Sen</h4>
+                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Radisson Blu Noida</p>
                                     </div>
                                 </div>
                             </div>
@@ -1106,8 +1126,8 @@
     <section class="bg-white py-16 border-t border-cream/50" x-data="{ activeFaq: null }">
         <div class="w-full px-6 md:px-12">
             <div class="flex flex-col items-center text-center gap-3 mb-12">
-                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Common Queries</span>
-                <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-brownie">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Common Queries</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-brownie">
                     Frequently Asked Questions
                 </h2>
                 <div class="w-12 h-1 bg-caramel mt-1"></div>
@@ -1117,12 +1137,12 @@
                 <!-- FAQ 1 -->
                 <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
                     <button @click="activeFaq = (activeFaq === 1 ? null : 1)"
-                        class="w-full flex justify-between items-center p-4 text-left text-xs font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
                         <span>Are your security guards PSARA certified?</span>
                         <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 1 ? 'rotate-180 text-caramel' : ''"></i>
                     </button>
                     <div x-show="activeFaq === 1" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-xs text-coffee leading-relaxed font-semibold">
+                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
                             Yes, 100% of our security personnel are compliant with the PSARA Act 2005. Every guard undergoes mandatory character validation, medical fitness screening, and a background verification check before deployment.
                         </p>
                     </div>
@@ -1131,12 +1151,12 @@
                 <!-- FAQ 2 -->
                 <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
                     <button @click="activeFaq = (activeFaq === 2 ? null : 2)"
-                        class="w-full flex justify-between items-center p-4 text-left text-xs font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
                         <span>What is the emergency response time in Noida & NCR?</span>
                         <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 2 ? 'rotate-180 text-caramel' : ''"></i>
                     </button>
                     <div x-show="activeFaq === 2" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-xs text-coffee leading-relaxed font-semibold">
+                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
                             We operate a 24/7 central command room that coordinates quick response alerts. For any emergency at our secured Noida or NCR facilities, backup guards and field operations supervisors respond to the site in under 15 minutes.
                         </p>
                     </div>
@@ -1145,12 +1165,12 @@
                 <!-- FAQ 3 -->
                 <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
                     <button @click="activeFaq = (activeFaq === 3 ? null : 3)"
-                        class="w-full flex justify-between items-center p-4 text-left text-xs font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
                         <span>How do you monitor guard attendance and patrols?</span>
                         <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 3 ? 'rotate-180 text-caramel' : ''"></i>
                     </button>
                     <div x-show="activeFaq === 3" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-xs text-coffee leading-relaxed font-semibold">
+                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
                             Our security guards use real-time digital logging and biometric devices at client entries. Patrol paths are managed through barcode/RFID tags placed across the facility perimeter, which update the Noida Command Center instantly.
                         </p>
                     </div>
@@ -1159,12 +1179,12 @@
                 <!-- FAQ 4 -->
                 <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
                     <button @click="activeFaq = (activeFaq === 4 ? null : 4)"
-                        class="w-full flex justify-between items-center p-4 text-left text-xs font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
                         <span>Can you customize configurations for retail and high-footfall sites?</span>
                         <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 4 ? 'rotate-180 text-caramel' : ''"></i>
                     </button>
                     <div x-show="activeFaq === 4" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-xs text-coffee leading-relaxed font-semibold">
+                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
                             Absolutely. We specialize in custom security deployments for high-footfall commercial zones like shopping centers and tech parks (e.g., Gaur City Mall). We coordinate physical guarding, vehicle flow, entry checkpoints, and central CCTV monitoring.
                         </p>
                     </div>
@@ -1183,15 +1203,15 @@
             <div class="text-brownie">
                 <i class="ri-shield-keyhole-line text-4xl"></i>
             </div>
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Need Immediate Security Audits?</h2>
-            <p class="text-xs md:text-sm text-coffee max-w-xl leading-relaxed font-semibold">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Need Immediate Security Audits?</h2>
+            <p class="text-sm sm:text-base md:text-lg text-coffee max-w-xl leading-relaxed font-medium">
                 Talk to our security engineers today. We conduct physical site audits and provide PSARA compliant deployment plans for commercial and residential sites in Noida.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-                <a href="tel:+919999988888" class="bg-brownie hover:bg-coffee text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-[4px] transition-all shadow-md flex items-center justify-center gap-2">
+                <a href="tel:+919999988888" class="bg-brownie hover:bg-coffee text-white font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-6 rounded-[4px] transition-all shadow-md flex items-center justify-center gap-2">
                     <i class="ri-phone-fill"></i> +91 99999 88888
                 </a>
-                <a href="#" class="border border-brownie/35 hover:bg-cream/65 text-brownie font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-[4px] transition-all flex items-center justify-center">
+                <a href="#" class="border border-brownie/35 hover:bg-cream/65 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-6 rounded-[4px] transition-all flex items-center justify-center">
                     Request Site Audit
                 </a>
             </div>
