@@ -18,7 +18,9 @@
     <section class="py-20 w-full bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
             <!-- Left Side: Image with dot decoration (5 columns) -->
-            <div class="lg:col-span-5 relative flex items-center justify-center p-4">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
+                 class="lg:col-span-5 relative flex items-center justify-center p-4 transition-all duration-[1400ms] ease-out">
                 <!-- Dotted Grid Decoration (Reference details) -->
                 <div class="absolute -top-4 -right-4 w-32 h-44 z-0 opacity-30 select-none hidden sm:block">
                     <svg width="120" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +44,9 @@
             </div>
 
             <!-- Right Side: Content with Left Accent Border (7 columns) -->
-            <div class="lg:col-span-7 flex flex-col gap-6">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
+                 class="lg:col-span-7 flex flex-col gap-6 transition-all duration-[1400ms] ease-out">
                 <!-- Pill chip -->
                 <div class="self-start">
                     <span class="inline-block px-5 py-2 bg-white text-coffee font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-md shadow-caramel/10 border border-cream/80">
@@ -133,436 +137,175 @@
     </div>
 
 
-    <!-- Our Strengths Section (Interactive Running Numbers on Scroll - Premium Cards) -->
-    <section class="bg-gradient-to-b from-cream/25 to-cream/60 py-12 sm:py-16 lg:py-20 border-b border-cream relative overflow-hidden">
-
-        <!-- Background Grid -->
-        <div class="absolute inset-0 z-0 opacity-45 pointer-events-none select-none">
+    <!-- Advanced Features & Impact Stats Section (Tailored specifically for NDS Security Guard Company) -->
+    <section class="relative w-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-16 sm:py-24 border-y border-caramel/35 overflow-hidden">
+        <!-- Organic Background Wave & Subtle Light Glow -->
+        <div class="absolute inset-0 z-0 opacity-15 pointer-events-none select-none">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path
-                            d="M 40 0 L 0 0 0 40"
-                            fill="none"
-                            stroke="rgba(192,133,82,0.08)"
-                            stroke-width="1" />
+                    <pattern id="feature-grid" width="44" height="44" patternUnits="userSpaceOnUse">
+                        <path d="M 44 0 L 0 0 0 44" fill="none" stroke="rgba(207,149,98,0.3)" stroke-width="1" />
                     </pattern>
                 </defs>
-
-                <rect width="100%" height="100%" fill="url(#grid)" />
+                <rect width="100%" height="100%" fill="url(#feature-grid)" />
             </svg>
         </div>
+        <div class="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-caramel/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-coffee/25 rounded-full blur-[100px] pointer-events-none"></div>
 
+        <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+             class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full transition-all duration-[1400ms] ease-out">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <!-- Top Tier: Headline + Animated Circular Contact Badge -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-16">
+                <div class="flex flex-col gap-3.5 max-w-2xl">
+                    <!-- Pill Chip Tag -->
+                    <div class="self-start">
+                        <span class="inline-flex items-center gap-2 px-4.5 py-1.5 bg-caramel/20 border border-caramel/40 text-cream text-xs sm:text-sm font-extrabold tracking-wider uppercase rounded-full shadow-sm backdrop-blur-sm">
+                            <i class="ri-shield-check-fill text-caramel"></i> WHY NDS SECURITY ~
+                        </span>
+                    </div>
 
-            <!-- Section Heading -->
-            <div class="flex flex-col items-center text-center gap-2 sm:gap-3 mb-10 sm:mb-12 lg:mb-16">
+                    <!-- Main Title -->
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.15]">
+                        Trained Security Force & <span class="text-caramel underline decoration-caramel/40 underline-offset-8">24/7 Tactical Command</span> Protection
+                    </h2>
+                </div>
 
-                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">
-                    NDS Global Impact
-                </span>
-
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                    Our Strengths
-                </h2>
-
-                <div class="w-10 sm:w-12 h-0.5 bg-caramel mt-1"></div>
-
+                <!-- Rotating Circular Contact Badge -->
+                <a href="tel:+919999988888" class="relative shrink-0 group flex items-center justify-center cursor-pointer mt-2 md:mt-0">
+                    <!-- Animated SVG Rotating Circular Text -->
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 animate-[spin_14s_linear_infinite]">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-cream/80 fill-current">
+                            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+                            <text class="text-[10px] font-bold uppercase tracking-[2.5px]">
+                                <textPath href="#circlePath">
+                                    Contact Now • Contact Now •
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <!-- Center Badge Icon -->
+                    <div class="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white shadow-2xl shadow-caramel/30 flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-cream group-hover:text-brownie">
+                        <i class="ri-phone-fill"></i>
+                    </div>
+                </a>
             </div>
 
-
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-8">
-
-
-                <!-- STAT 1 -->
-                <div
-                    x-data="{ 
-                    count: 0,
-                    target: 30,
-                    duration: 1500,
-
-                    startCounter() {
-                        let start = null;
-
-                        const step = (timestamp) => {
-                            if (!start) start = timestamp;
-
-                            const progress = Math.min(
-                                (timestamp - start) / this.duration,
-                                1
-                            );
-
-                            this.count = Math.floor(
-                                progress * this.target
-                            );
-
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            } else {
-                                this.count = this.target;
-                            }
-                        };
-
-                        window.requestAnimationFrame(step);
-                    },
-
-                    init() {
-                        let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => {
-                                if (e.isIntersecting) {
-                                    this.startCounter();
-                                    obs.disconnect();
-                                }
-                            });
-                        }, { threshold: 0.1 });
-
-                        obs.observe(this.$el);
-                    }
-                }"
-                    class="group w-full bg-white/90 backdrop-blur-sm
-                       border border-cream/80 rounded-xl
-                       p-4 sm:p-6 lg:p-8
-                       flex flex-col items-center text-center
-                       gap-3 sm:gap-5 lg:gap-6
-                       transition-all duration-300
-                       hover:-translate-y-1.5
-                       hover:shadow-xl
-                       hover:shadow-caramel/5
-                       hover:border-caramel/40">
-
-                    <div class="w-10 h-10 sm:w-12 sm:h-12
-                            rounded-full bg-caramel/10
-                            flex items-center justify-center
-                            text-caramel
-                            group-hover:bg-caramel
-                            group-hover:text-white
-                            transition-all duration-300
-                            group-hover:scale-105">
-
-                        <i class="ri-award-line text-xl sm:text-2xl"></i>
-
+            <!-- Middle Tier: 4 Feature Items Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-14 border-b border-cream/15">
+                <!-- Feature 1 -->
+                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
+                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
+                        <i class="ri-user-shield-fill text-2xl"></i>
                     </div>
-
-                    <div class="w-full">
-
-                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
-                               font-black
-                               bg-clip-text text-transparent
-                               bg-gradient-to-r from-brownie to-caramel
-                               tracking-tight">
-
-                            <span x-text="count">0</span>+
-
-                        </h3>
-
-                        <p class="text-[9px] sm:text-[10px] md:text-xs
-                              font-bold tracking-wider
-                              text-coffee uppercase
-                              mt-1 sm:mt-2
-                              leading-relaxed">
-
-                            Years of<br>experience
-
-                        </p>
-
-                    </div>
-
+                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
+                        PSARA-Certified Force
+                    </h3>
+                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
+                        Rigorously vetted, background-verified security guards trained for industrial complexes, corporate IT parks, and residential townships.
+                    </p>
                 </div>
 
-
-                <!-- STAT 2 -->
-                <div
-                    x-data="{ 
-                    count: 0,
-                    target: 19000,
-                    duration: 1800,
-
-                    startCounter() {
-                        let start = null;
-
-                        const step = (timestamp) => {
-                            if (!start) start = timestamp;
-
-                            const progress = Math.min(
-                                (timestamp - start) / this.duration,
-                                1
-                            );
-
-                            this.count = Math.floor(
-                                progress * this.target
-                            );
-
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            } else {
-                                this.count = this.target;
-                            }
-                        };
-
-                        window.requestAnimationFrame(step);
-                    },
-
-                    init() {
-                        let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => {
-                                if (e.isIntersecting) {
-                                    this.startCounter();
-                                    obs.disconnect();
-                                }
-                            });
-                        }, { threshold: 0.1 });
-
-                        obs.observe(this.$el);
-                    }
-                }"
-                    class="group w-full bg-white/90 backdrop-blur-sm
-                       border border-cream/80 rounded-xl
-                       p-4 sm:p-6 lg:p-8
-                       flex flex-col items-center text-center
-                       gap-3 sm:gap-5 lg:gap-6
-                       transition-all duration-300
-                       hover:-translate-y-1.5
-                       hover:shadow-xl
-                       hover:shadow-caramel/5
-                       hover:border-caramel/40">
-
-                    <div class="w-10 h-10 sm:w-12 sm:h-12
-                            rounded-full bg-caramel/10
-                            flex items-center justify-center
-                            text-caramel
-                            group-hover:bg-caramel
-                            group-hover:text-white
-                            transition-all duration-300
-                            group-hover:scale-105">
-
-                        <i class="ri-global-line text-xl sm:text-2xl"></i>
-
+                <!-- Feature 2 -->
+                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
+                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
+                        <i class="ri-radar-fill text-2xl"></i>
                     </div>
-
-                    <div class="w-full">
-
-                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
-                               font-black
-                               bg-clip-text text-transparent
-                               bg-gradient-to-r from-brownie to-caramel
-                               tracking-tight">
-
-                            <span x-text="count.toLocaleString()">0</span>+
-
-                        </h3>
-
-                        <p class="text-[9px] sm:text-[10px] md:text-xs
-                              font-bold tracking-wider
-                              text-coffee uppercase
-                              mt-1 sm:mt-2
-                              leading-relaxed">
-
-                            Sites served<br>worldwide
-
-                        </p>
-
-                    </div>
-
+                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
+                        24/7 Command Patrol
+                    </h3>
+                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
+                        Real-time GPS patrol monitoring, digital incident logging, and a 15-minute rapid emergency response team active round the clock.
+                    </p>
                 </div>
 
-
-                <!-- STAT 3 -->
-                <div
-                    x-data="{ 
-                    count: 0,
-                    target: 100000,
-                    duration: 2000,
-
-                    startCounter() {
-                        let start = null;
-
-                        const step = (timestamp) => {
-                            if (!start) start = timestamp;
-
-                            const progress = Math.min(
-                                (timestamp - start) / this.duration,
-                                1
-                            );
-
-                            this.count = Math.floor(
-                                progress * this.target
-                            );
-
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            } else {
-                                this.count = this.target;
-                            }
-                        };
-
-                        window.requestAnimationFrame(step);
-                    },
-
-                    init() {
-                        let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => {
-                                if (e.isIntersecting) {
-                                    this.startCounter();
-                                    obs.disconnect();
-                                }
-                            });
-                        }, { threshold: 0.1 });
-
-                        obs.observe(this.$el);
-                    }
-                }"
-                    class="group w-full bg-white/90 backdrop-blur-sm
-                       border border-cream/80 rounded-xl
-                       p-4 sm:p-6 lg:p-8
-                       flex flex-col items-center text-center
-                       gap-3 sm:gap-5 lg:gap-6
-                       transition-all duration-300
-                       hover:-translate-y-1.5
-                       hover:shadow-xl
-                       hover:shadow-caramel/5
-                       hover:border-caramel/40">
-
-                    <div class="w-10 h-10 sm:w-12 sm:h-12
-                            rounded-full bg-caramel/10
-                            flex items-center justify-center
-                            text-caramel
-                            group-hover:bg-caramel
-                            group-hover:text-white
-                            transition-all duration-300
-                            group-hover:scale-105">
-
-                        <i class="ri-group-line text-xl sm:text-2xl"></i>
-
+                <!-- Feature 3 -->
+                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
+                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
+                        <i class="ri-building-4-fill text-2xl"></i>
                     </div>
-
-                    <div class="w-full">
-
-                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
-                               font-black
-                               bg-clip-text text-transparent
-                               bg-gradient-to-r from-brownie to-caramel
-                               tracking-tight">
-
-                            <span x-text="count.toLocaleString()">0</span>+
-
-                        </h3>
-
-                        <p class="text-[9px] sm:text-[10px] md:text-xs
-                              font-bold tracking-wider
-                              text-coffee uppercase
-                              mt-1 sm:mt-2
-                              leading-relaxed">
-
-                            Professionals<br>deployed
-
-                        </p>
-
-                    </div>
-
+                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
+                        Corporate Protection
+                    </h3>
+                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
+                        Polite front-desk reception guards, automated digital visitor gate-pass management, and multi-tier access control protocols.
+                    </p>
                 </div>
 
-
-                <!-- STAT 4 -->
-                <div
-                    x-data="{ 
-                    count: 0,
-                    target: 78,
-                    duration: 1500,
-
-                    startCounter() {
-                        let start = null;
-
-                        const step = (timestamp) => {
-                            if (!start) start = timestamp;
-
-                            const progress = Math.min(
-                                (timestamp - start) / this.duration,
-                                1
-                            );
-
-                            this.count = Math.floor(
-                                progress * this.target
-                            );
-
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            } else {
-                                this.count = this.target;
-                            }
-                        };
-
-                        window.requestAnimationFrame(step);
-                    },
-
-                    init() {
-                        let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => {
-                                if (e.isIntersecting) {
-                                    this.startCounter();
-                                    obs.disconnect();
-                                }
-                            });
-                        }, { threshold: 0.1 });
-
-                        obs.observe(this.$el);
-                    }
-                }"
-                    class="group w-full bg-white/90 backdrop-blur-sm
-                       border border-cream/80 rounded-xl
-                       p-4 sm:p-6 lg:p-8
-                       flex flex-col items-center text-center
-                       gap-3 sm:gap-5 lg:gap-6
-                       transition-all duration-300
-                       hover:-translate-y-1.5
-                       hover:shadow-xl
-                       hover:shadow-caramel/5
-                       hover:border-caramel/40">
-
-                    <div class="w-10 h-10 sm:w-12 sm:h-12
-                            rounded-full bg-caramel/10
-                            flex items-center justify-center
-                            text-caramel
-                            group-hover:bg-caramel
-                            group-hover:text-white
-                            transition-all duration-300
-                            group-hover:scale-105">
-
-                        <i class="ri-building-4-line text-xl sm:text-2xl"></i>
-
+                <!-- Feature 4 -->
+                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
+                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
+                        <i class="ri-shield-star-fill text-2xl"></i>
                     </div>
-
-                    <div class="w-full">
-
-                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
-                               font-black
-                               bg-clip-text text-transparent
-                               bg-gradient-to-r from-brownie to-caramel
-                               tracking-tight">
-
-                            <span x-text="count">0</span>+
-
-                        </h3>
-
-                        <p class="text-[9px] sm:text-[10px] md:text-xs
-                              font-bold tracking-wider
-                              text-coffee uppercase
-                              mt-1 sm:mt-2
-                              leading-relaxed">
-
-                            Offices<br>globally
-
-                        </p>
-
-                    </div>
-
+                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
+                        VVIP & Armed Escorts
+                    </h3>
+                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
+                        Disciplined ex-servicemen & personal security officers (PSOs) specialized in executive escorts, cash transit, and event safety.
+                    </p>
                 </div>
-
             </div>
 
+            <!-- Bottom Tier: 5 Counter Stats with Vertical Separator Lines -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12 items-center text-center">
+                <!-- Stat 1 -->
+                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
+                     x-data="{ count: 0, target: 220, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
+                        <span x-text="count">0</span>+
+                    </h4>
+                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
+                        Residential Townships
+                    </p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
+                     x-data="{ count: 0, target: 30, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
+                        <span x-text="count">0</span>+
+                    </h4>
+                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
+                        Malls & Complexes
+                    </p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
+                     x-data="{ count: 0, target: 100, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
+                        <span x-text="count">0</span>+
+                    </h4>
+                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
+                        Corporate Towers
+                    </p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
+                     x-data="{ count: 0, target: 500, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
+                        <span x-text="count">0</span>+
+                    </h4>
+                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
+                        Guards Deployed
+                    </p>
+                </div>
+
+                <!-- Stat 5 -->
+                <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1"
+                     x-data="{ count: 0, target: 25, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
+                        <span x-text="count">0</span>+
+                    </h4>
+                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
+                        Years of Trust
+                    </p>
+                </div>
+            </div>
         </div>
-
     </section>
 
 
@@ -590,7 +333,9 @@
              }"
         @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
-            <div class="flex flex-col items-center text-center gap-3 mb-16">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
                     Trusted by Noida's Leading Landmarks
@@ -699,7 +444,9 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
-            <div class="flex flex-col items-center text-center gap-3 mb-16">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
                 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
                     <i class="ri-shield-star-fill text-sm"></i> Services
                 </span>
@@ -711,7 +458,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                 <!-- Card 1: Physical Guarding -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-100 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLsV-SoJDZgIiLPzKak3XtVbnVX5XnElfRbSkQYICqCOVcycOg3d1s828xbjfSmsyrTmGlCuMgdu-zYwid1ZkyzhIoGHnuDB1j1j-QfB4LoH0SSgIjOh-u1QbqH63jFLpa-mN1ZboHEE789M-9-4rkZ9GDgmjCDIXcUz4o_fDyJq_wCg7_cXNCwEvpN377TtvamcMDwA22uFkHw6cWJLD9B4Lb5us4ZtbwNemca1asUusaUVYJj8zLe0nbxO"
                             alt="Security Guard"
@@ -741,7 +490,9 @@
                 </div>
 
                 <!-- Card 2: Corporate Security -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-200 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLs9GDpOIG8v_zrMNLzN1ZWLKuiXBgbety7WqPbN63CW2rOl2Rqj_Esuv-IOyhAO3lj-XXAbR0jcKTob8wSDGHcJBlbWR4R6Vax643wA2jey5tPsUPI7z3l8kDGjRZA9qS7Qtb6BiCD7pBj2exLlzIuhED9zcJS_YF200wmbHk0RH0PJrIhQOCJESBD4q7wTm_EObRytDfWN5okLtKYiPKG9yvLsERs1GqapQjgjd9znPe2MVlTxL5OO_Gs"
                             alt="Corporate Security"
@@ -771,7 +522,9 @@
                 </div>
 
                 <!-- Card 3: Armed Escorts -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-300 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLvIHW23j_OUjwvXqlEeitUANjVbDzIZZ-FuEFvMemmRCO6egwo9SIXBbo10oOOE2IEZLW27ahSHbum1PyB9o5BoPC9wcAbRpCZ64gwouwKGQisazj2i8n_zRImx_e6tG4nEVR1UTvop7fm45lPEWcHg-1AAbNFMGH4L5xgryo7DPB7YnpbXtPasJt2h5cGoEqfDD_9mNu9UgoGnx0MLTdc9puKJkpwMJU6YlV_8KcHtBjEGxu5zEeXCKtBm"
                             alt="Escort Security"
@@ -801,7 +554,9 @@
                 </div>
 
                 <!-- Card 4: Electronic Surveillance -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-200 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="{{ asset('command_center.png') }}"
                             alt="Electronic Surveillance Control Room"
@@ -831,7 +586,9 @@
                 </div>
 
                 <!-- Card 5: Event Security Management -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-300 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLsnr0nCqgBFokwmrnxmAUVtAeJNt-nhkcJhehbgISmRSxUV_d5Y--Ep0kBLFtTmbp2noGJ_OXHU5-ucAYqHazKbHOfLh_PElXVh09yjMf67799TggbUrBb8djUWjLXGXy4nRrUcxRg1ka-jV75zhKLGoYfuDiftNVte3InfxGT4eOR8xq4jMZOx2wNPz6TsyqxOvy2OtFrqMcchpTDHAE5aPUfddNOZ_QsQHayyYFpBnJrHW6qWdodo8O1w"
                             alt="Event Crowd Control Security"
@@ -861,7 +618,9 @@
                 </div>
 
                 <!-- Card 6: Risk Assessment & Audit -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-400 ease-out flex flex-col items-center text-center">
                     <div class="relative w-full h-52 overflow-hidden bg-cream">
                         <img src="https://lh3.googleusercontent.com/aida/AP1WRLtyBG6H2kDhbY3d3BTw7l3dichQuqW7371O7Sd2S51O2_iLMOBHrjQ_-Ccre68Wcvq8huiXsb7FqveSxZRAIhf-FmBWLbXXkpQpIHbqVqWm6ZDNb5pkqer42NC2QJEkOQ1LRfcENWYgd6Noqi-GFk_17XCVcvZXq7nFUyf5MjGRXuMvSYj55l0qjJFInPJ-i40uXI8M3Mjm8dc6BFyz1eMI2CTqu2fxV7Yo3awlz2PgrGyqV_-mlJ5ujQ1C"
                             alt="Security Audit Inspection"
@@ -893,14 +652,13 @@
         </div>
     </section>
 
-    <!-- Testimonial Slider Section (Multiple Card Slider) -->
-    <section class="bg-gradient-to-b from-cream/25 to-cream/60 py-20 border-t border-cream relative overflow-hidden"
+    <!-- Testimonial Slider Section (Showing 2 cards at a time, Photo-less design matching theme) -->
+    <section class="bg-gradient-to-b from-cream/20 via-white to-cream/30 py-20 border-t border-cream relative overflow-hidden"
         x-data="{ 
                  activeIndex: 0, 
-                 totalCards: 5,
+                 totalCards: 4,
                  getVisibleCards() {
-                     if (window.innerWidth >= 1024) return 3;
-                     if (window.innerWidth >= 768) return 2;
+                     if (window.innerWidth >= 640) return 2;
                      return 1;
                  },
                  next() {
@@ -918,206 +676,204 @@
                      } else {
                          this.activeIndex = this.totalCards - visible; // Loop to end
                      }
+                 },
+                 init() {
+                     setInterval(() => {
+                         this.next();
+                     }, 4500);
                  }
              }"
         @resize.window="if (activeIndex > totalCards - getVisibleCards()) activeIndex = totalCards - getVisibleCards()">
         <!-- Faint background accent pattern -->
-        <div class="absolute inset-0 z-0 opacity-30 pointer-events-none select-none">
+        <div class="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <defs>
-                    <pattern id="testi-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="1.5" fill="rgba(192,133,82,0.15)" />
+                    <pattern id="testi-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                        <circle cx="3" cy="3" r="1.5" fill="rgba(192,133,82,0.15)" />
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#testi-dots)" />
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
-            <div class="flex flex-col items-center text-center gap-3 mb-16">
-                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Client Reviews</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                    What Our Clients Say
+        <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+             class="max-w-6xl mx-auto px-6 md:px-12 w-full relative z-10 transition-all duration-[1400ms] ease-out">
+            
+            <!-- Section Header (Matching Reference Design) -->
+            <div class="flex flex-col items-center text-center gap-3 mb-14">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
+                    <i class="ri-chat-voice-fill text-sm"></i> TESTIMONIALS
+                </span>
+                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-brownie">
+                    Trusted feedback <span class="text-caramel">from our clients</span>
                 </h2>
-                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <!-- Card Slider Viewport -->
+            <!-- Card Slider Viewport (2 Cards Visible Side by Side) -->
             <div class="relative w-full">
-                <!-- Slider Wrapper with overflow-hidden -->
-                <div class="overflow-hidden py-4 -mx-3">
-                    <div class="flex transition-transform duration-500 ease-out"
+                <div class="overflow-hidden py-3 -mx-3">
+                    <div class="flex transition-transform duration-600 ease-out"
                         :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'">
-                        <!-- Card 1: Amit Sharma -->
+                        
+                        <!-- Card 1: Amit Sharma / DLF Tech Park -->
                         <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
+                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
                                 <div>
-                                    <!-- Star Rating -->
-                                    <div class="flex gap-1 text-caramel mb-5">
+                                    <!-- Top Row: Name & Title (Left) + Red Accent Quote Icon (Right) - NO PHOTO -->
+                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                        <div>
+                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                Amit Sharma
+                                            </h3>
+                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                Chief Executive Officer, DLF Tech Park
+                                            </p>
+                                        </div>
+                                        <div class="text-caramel/80 shrink-0">
+                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle: 5 Stars Rating -->
+                                    <div class="flex gap-1 text-caramel my-5">
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
-                                    <!-- Quote Text -->
-                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
-                                        "NDS has been managing our manned guarding and command center operations for over 3 years. Their discipline, regular operations audits, and rapid command responsiveness are unmatched in Delhi NCR. They run like mathematical clockwork."
+
+                                    <!-- Bottom: Testimonial Quote -->
+                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                        "NDS has been managing our manned guarding and 24/7 command center operations for over 3 years. Their discipline, regular operations audits, and emergency response time are unmatched in Delhi NCR. Highly recommend their services!"
                                     </p>
-                                </div>
-                                <!-- Author Meta -->
-                                <div class="flex items-center gap-4 mt-8 pt-6 border-t border-cream/50">
-                                    <div class="w-10 h-10 rounded-full bg-caramel/10 border border-caramel/20 flex items-center justify-center text-caramel font-extrabold text-xs shadow-inner">
-                                        AS
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Amit Sharma</h4>
-                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">DLF Tech Park Noida</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card 2: Priya Goel -->
+                        <!-- Card 2: Priya Goel / Gaur City Mall -->
                         <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
+                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
                                 <div>
-                                    <!-- Star Rating -->
-                                    <div class="flex gap-1 text-caramel mb-5">
+                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
+                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                        <div>
+                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                Priya Goel
+                                            </h3>
+                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                Operations Director, Gaur City Mall
+                                            </p>
+                                        </div>
+                                        <div class="text-caramel/80 shrink-0">
+                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle: 5 Stars Rating -->
+                                    <div class="flex gap-1 text-caramel my-5">
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
-                                    <!-- Quote Text -->
-                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
-                                        "Securing a high-footfall mall requires swift coordination. NDS deployed a highly disciplined crowd control squad and optimized our parking patrol loop. They have significantly improved our operational security standards."
+
+                                    <!-- Bottom: Testimonial Quote -->
+                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                        "Securing a high-footfall mall requires swift coordination. NDS deployed a highly trained crowd control squad and optimized our parking patrol loop. Their team is always alert and professional."
                                     </p>
-                                </div>
-                                <!-- Author Meta -->
-                                <div class="flex items-center gap-4 mt-8 pt-6 border-t border-cream/50">
-                                    <div class="w-10 h-10 rounded-full bg-caramel/10 border border-caramel/20 flex items-center justify-center text-caramel font-extrabold text-xs shadow-inner">
-                                        PG
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Priya Goel</h4>
-                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Gaur City Mall Noida</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card 3: Rohan Mehta -->
+                        <!-- Card 3: Rohan Mehta / Emerald Heights -->
                         <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
+                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
                                 <div>
-                                    <!-- Star Rating -->
-                                    <div class="flex gap-1 text-caramel mb-5">
+                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
+                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                        <div>
+                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                Rohan Mehta
+                                            </h3>
+                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                President, RWA Emerald Heights
+                                            </p>
+                                        </div>
+                                        <div class="text-caramel/80 shrink-0">
+                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle: 5 Stars Rating -->
+                                    <div class="flex gap-1 text-caramel my-5">
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
-                                    <!-- Quote Text -->
-                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
-                                        "With NDS, our residents feel completely secure. Their app-integrated visitor verification protocols at access gates and polite, background-verified guards are highly professional. The best security partner we have had."
+
+                                    <!-- Bottom: Testimonial Quote -->
+                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                        "With NDS Security, our township residents feel completely safe. Their digital visitor verification protocols and polite, background-verified guards are outstanding. The best security partner!"
                                     </p>
-                                </div>
-                                <!-- Author Meta -->
-                                <div class="flex items-center gap-4 mt-8 pt-6 border-t border-cream/50">
-                                    <div class="w-10 h-10 rounded-full bg-caramel/10 border border-caramel/20 flex items-center justify-center text-caramel font-extrabold text-xs shadow-inner">
-                                        RM
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Rohan Mehta</h4>
-                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Emerald Heights Noida</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card 4: Vikram Singh -->
+                        <!-- Card 4: Vikram Singh / Tech Mahindra -->
                         <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
+                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
                                 <div>
-                                    <!-- Star Rating -->
-                                    <div class="flex gap-1 text-caramel mb-5">
+                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
+                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                        <div>
+                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                Vikram Singh
+                                            </h3>
+                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                Facility Head, Tech Mahindra Noida
+                                            </p>
+                                        </div>
+                                        <div class="text-caramel/80 shrink-0">
+                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle: 5 Stars Rating -->
+                                    <div class="flex gap-1 text-caramel my-5">
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                         <i class="ri-star-fill text-sm"></i>
                                     </div>
-                                    <!-- Quote Text -->
-                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
-                                        "The electronic surveillance and access control solutions deployed by NDS have streamlined our visitor tracking. Their 24/7 command center integration has made security management seamless for us."
+
+                                    <!-- Bottom: Testimonial Quote -->
+                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                        "The access control systems and manned guarding deployed by NDS have streamlined our corporate visitor tracking. Their 24/7 command center support is top notch."
                                     </p>
-                                </div>
-                                <!-- Author Meta -->
-                                <div class="flex items-center gap-4 mt-8 pt-6 border-t border-cream/50">
-                                    <div class="w-10 h-10 rounded-full bg-caramel/10 border border-caramel/20 flex items-center justify-center text-caramel font-extrabold text-xs shadow-inner">
-                                        VS
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Vikram Singh</h4>
-                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Tech Mahindra Noida</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card 5: Ananya Sen -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
-                                <div>
-                                    <!-- Star Rating -->
-                                    <div class="flex gap-1 text-caramel mb-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-                                    <!-- Quote Text -->
-                                    <p class="text-sm sm:text-base text-coffee/95 font-medium leading-relaxed italic">
-                                        "We rely on NDS for our VIP escort guarding and major events security. Their guards are immaculate, polite, and exceptionally alert. Their threat assessments are highly detailed and helpful."
-                                    </p>
-                                </div>
-                                <!-- Author Meta -->
-                                <div class="flex items-center gap-4 mt-8 pt-6 border-t border-cream/50">
-                                    <div class="w-10 h-10 rounded-full bg-caramel/10 border border-caramel/20 flex items-center justify-center text-caramel font-extrabold text-xs shadow-inner">
-                                        AS
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-brownie uppercase tracking-wide">Ananya Sen</h4>
-                                        <p class="text-xs text-coffee/70 font-semibold uppercase tracking-wider mt-0.5">Radisson Blu Noida</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Floating Absolute Arrow Controls -->
-                <button @click="prev()"
-                    class="absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
-                    <i class="ri-arrow-left-s-line text-xl"></i>
-                </button>
-                <button @click="next()"
-                    class="absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
-                    <i class="ri-arrow-right-s-line text-xl"></i>
-                </button>
-            </div>
-
-            <!-- Dynamic Dot Indicators (Centered Below) -->
-            <div class="flex justify-center gap-2 mt-8">
-                <template x-for="i in (totalCards - getVisibleCards() + 1)" :key="i">
-                    <button @click="activeIndex = i - 1"
-                        class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer"
-                        :class="activeIndex === (i - 1) ? 'bg-caramel w-5' : 'bg-cream'"></button>
-                </template>
+                <!-- Bottom Centered Arrow Controls (Matching Reference Screenshot) -->
+                <div class="flex items-center justify-center gap-3 mt-8">
+                    <button @click="prev()"
+                        class="w-10 h-10 rounded-full bg-white border border-cream/90 shadow-sm hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all cursor-pointer">
+                        <i class="ri-arrow-left-s-line text-xl"></i>
+                    </button>
+                    <button @click="next()"
+                        class="w-10 h-10 rounded-full bg-white border border-cream/90 shadow-sm hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -1125,7 +881,9 @@
     <!-- FAQ Section (SIS & Securitas Interactive Accordion Pattern) -->
     <section class="bg-white py-16 border-t border-cream/50" x-data="{ activeFaq: null }">
         <div class="w-full px-6 md:px-12">
-            <div class="flex flex-col items-center text-center gap-3 mb-12">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                 class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1300ms] ease-out">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Common Queries</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-brownie">
                     Frequently Asked Questions
@@ -1133,7 +891,9 @@
                 <div class="w-12 h-1 bg-caramel mt-1"></div>
             </div>
 
-            <div class="max-w-3xl mx-auto flex flex-col gap-3">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
+                 class="max-w-3xl mx-auto flex flex-col gap-3 transition-all duration-[1400ms] delay-150 ease-out">
                 <!-- FAQ 1 -->
                 <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
                     <button @click="activeFaq = (activeFaq === 1 ? null : 1)"
@@ -1193,27 +953,62 @@
         </div>
     </section>
 
-    <!-- Consultation Call Section (Balanced Cream Theme - Full Screen Width) -->
-    <section class="bg-cream text-brownie py-14 px-6 md:px-12 text-center border-t border-b border-caramel/30 relative overflow-hidden">
-        <!-- Accent circles -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-coffee/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-caramel/10 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+    <!-- Consultation Call Section (Premium High-Impact CTA Banner) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 md:px-12 w-full bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full">
+            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
+                 :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-16'"
+                 class="relative rounded-3xl sm:rounded-[36px] bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white p-8 sm:p-12 md:p-16 shadow-2xl shadow-caramel/15 border border-caramel/30 overflow-hidden text-center transition-all duration-[1400ms] ease-out">
+                
+                <!-- Clean Soft Gradient Background Glows (No ribbed lines) -->
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-caramel/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-coffee/30 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-5">
-            <div class="text-brownie">
-                <i class="ri-shield-keyhole-line text-4xl"></i>
-            </div>
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Need Immediate Security Audits?</h2>
-            <p class="text-sm sm:text-base md:text-lg text-coffee max-w-xl leading-relaxed font-medium">
-                Talk to our security engineers today. We conduct physical site audits and provide PSARA compliant deployment plans for commercial and residential sites in Noida.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-                <a href="tel:+919999988888" class="bg-brownie hover:bg-coffee text-white font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-6 rounded-[4px] transition-all shadow-md flex items-center justify-center gap-2">
-                    <i class="ri-phone-fill"></i> +91 99999 88888
-                </a>
-                <a href="#" class="border border-brownie/35 hover:bg-cream/65 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-6 rounded-[4px] transition-all flex items-center justify-center">
-                    Request Site Audit
-                </a>
+                <!-- Content Container -->
+                <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-6">
+                    <!-- Glowing Pill Chip Tag -->
+                    <span class="inline-flex items-center gap-2 px-5 py-2 bg-caramel/20 border border-caramel/40 text-cream text-xs sm:text-sm font-extrabold tracking-wider uppercase rounded-full shadow-inner backdrop-blur-md">
+                        <i class="ri-shield-flash-fill text-caramel"></i> INSTANT CONSULTATION & SITE AUDIT
+                    </span>
+
+                    <!-- Main Headline -->
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+                        Need Immediate <span class="text-caramel underline decoration-caramel/40 underline-offset-8">Security Guard Deployment</span> or Risk Audit?
+                    </h2>
+
+                    <!-- Description -->
+                    <p class="text-xs sm:text-base md:text-lg text-cream/85 max-w-2xl leading-relaxed font-medium">
+                        Talk to our tactical security advisors today. We conduct physical site risk assessments within 24 hours and deliver customized, PSARA-compliant security guard deployment plans across Noida & Delhi NCR.
+                    </p>
+
+                    <!-- Dual Interactive CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mt-3 w-full sm:w-auto">
+                        <a href="tel:+919999988888" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-full shadow-xl shadow-caramel/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2.5">
+                            <i class="ri-phone-fill text-base"></i>
+                            <span>Call +91 99999 88888</span>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="ri-file-search-line text-base text-caramel"></i>
+                            <span>Request Free Site Audit</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators Footer Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-8 mt-2 border-t border-cream/15 w-full text-xs font-bold text-cream/75 uppercase tracking-wider">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-shield-check-fill text-caramel text-base"></i>
+                            <span>100% PSARA Licensed</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-flashlight-fill text-caramel text-base"></i>
+                            <span>15-Min Rapid Response</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-radar-fill text-caramel text-base"></i>
+                            <span>24/7 Noida Command Desk</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -54,19 +54,20 @@
     <div class="w-full bg-cream/80 backdrop-blur-sm text-brownie py-1">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center relative">
             <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-1.5 py-1">
-                <a href="{{ route('home') }}" class="relative group py-2 px-4.5 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 rounded-full bg-caramel/20 text-brownie hover:bg-caramel/30">
-                    Home
-                    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-0.5 bg-caramel rounded-full transition-all duration-300"></span>
+            <nav class="hidden md:flex items-center gap-1 sm:gap-1.5 py-1">
+            
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Who We Are
+                    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-4.5 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
-                    About Us
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Leadership
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
 
                 <!-- Services Dropdown -->
                 <div class="relative" @click.away="servicesOpen = false" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
-                    <button @click="servicesOpen = !servicesOpen" class="relative group py-2 px-4.5 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie flex items-center gap-1">
+                    <button @click="servicesOpen = !servicesOpen" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie flex items-center gap-1">
                         <span>Services</span>
                         <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="servicesOpen ? 'rotate-180 text-caramel' : ''"></i>
                         <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
@@ -104,19 +105,31 @@
                     </div>
                 </div>
 
-                <a href="#" class="relative group py-2 px-4.5 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
-                    Solutions
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Training
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-4.5 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
-                    Contact Page
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Clientele
+                    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
+                </a>
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Career
+                    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
+                </a>
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Gallery
+                    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
+                </a>
+                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Contact Us
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
             </nav>
 
             <!-- CTA Button -->
-            <div class="hidden md:block py-1.5">
-                <a href="#" class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2 px-6 rounded-full shadow-md shadow-caramel/25 hover:shadow-caramel/40 transition-all duration-300 inline-flex items-center gap-1.5 hover:scale-105 active:scale-95 group">
+            <div class="hidden xl:block py-1.5">
+                <a href="#" class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2 px-5 rounded-full shadow-md shadow-caramel/25 hover:shadow-caramel/40 transition-all duration-300 inline-flex items-center gap-1.5 hover:scale-105 active:scale-95 group">
                     <span>Get a Quote</span>
                     <i class="ri-arrow-right-up-line text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
@@ -137,7 +150,8 @@
             <span>Home</span>
             <i class="ri-home-5-fill text-caramel"></i>
         </a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">About Us</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Who We Are</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Leadership</a>
 
         <!-- Mobile Dropdown Services -->
         <div x-data="{ mobileServicesOpen: false }" class="flex flex-col">
@@ -146,16 +160,19 @@
                 <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="mobileServicesOpen ? 'rotate-180 text-caramel' : ''"></i>
             </button>
             <div x-show="mobileServicesOpen" x-cloak class="flex flex-col pl-4 mt-1 gap-1 border-l-2 border-caramel/40 py-2">
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Facility Management</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Facility Management</a>
             </div>
         </div>
 
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Solutions</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Contact Page</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Training</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Clientele</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Career</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Gallery</a>
+        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Contact Us</a>
 
         <div class="mt-3 pt-3 border-t border-cream">
             <a href="#" class="w-full text-center bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2.5 rounded-xl shadow-md transition-all active:scale-95 block">
