@@ -953,60 +953,35 @@
         </div>
     </section>
 
-    <!-- Consultation Call Section (Premium High-Impact CTA Banner) -->
-    <section class="py-16 sm:py-20 px-4 sm:px-6 md:px-12 w-full bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full">
+    <!-- Consultation Call Section (Clean & Lightweight CTA Banner) -->
+    <section class="py-12 px-4 sm:px-6 md:px-12 w-full bg-white relative">
+        <div class="max-w-5xl mx-auto w-full">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-16'"
-                 class="relative rounded-3xl sm:rounded-[36px] bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white p-8 sm:p-12 md:p-16 shadow-2xl shadow-caramel/15 border border-caramel/30 overflow-hidden text-center transition-all duration-[1400ms] ease-out">
+                 :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-98 translate-y-8'"
+                 class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-brownie via-[#2e1d11] to-brownie text-white p-6 sm:p-10 shadow-lg border border-caramel/25 overflow-hidden transition-all duration-[1200ms] ease-out">
                 
-                <!-- Clean Soft Gradient Background Glows (No ribbed lines) -->
-                <div class="absolute top-0 left-1/4 w-96 h-96 bg-caramel/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-coffee/30 rounded-full blur-3xl pointer-events-none"></div>
-
-                <!-- Content Container -->
-                <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-6">
-                    <!-- Glowing Pill Chip Tag -->
-                    <span class="inline-flex items-center gap-2 px-5 py-2 bg-caramel/20 border border-caramel/40 text-cream text-xs sm:text-sm font-extrabold tracking-wider uppercase rounded-full shadow-inner backdrop-blur-md">
-                        <i class="ri-shield-flash-fill text-caramel"></i> INSTANT CONSULTATION & SITE AUDIT
-                    </span>
-
-                    <!-- Main Headline -->
-                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                        Need Immediate <span class="text-caramel underline decoration-caramel/40 underline-offset-8">Security Guard Deployment</span> or Risk Audit?
-                    </h2>
-
-                    <!-- Description -->
-                    <p class="text-xs sm:text-base md:text-lg text-cream/85 max-w-2xl leading-relaxed font-medium">
-                        Talk to our tactical security advisors today. We conduct physical site risk assessments within 24 hours and deliver customized, PSARA-compliant security guard deployment plans across Noida & Delhi NCR.
-                    </p>
-
-                    <!-- Dual Interactive CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 mt-3 w-full sm:w-auto">
-                        <a href="tel:+919999988888" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-full shadow-xl shadow-caramel/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2.5">
-                            <i class="ri-phone-fill text-base"></i>
-                            <span>Call +91 99999 88888</span>
-                        </a>
-                        <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
-                            <i class="ri-file-search-line text-base text-caramel"></i>
-                            <span>Request Free Site Audit</span>
-                        </a>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                    <div class="flex flex-col gap-2 max-w-xl">
+                        <span class="inline-flex items-center gap-1.5 text-caramel text-xs font-black uppercase tracking-widest self-center md:self-start">
+                            <i class="ri-shield-flash-fill"></i> Instant Consultation & Site Audit
+                        </span>
+                        <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
+                            Need Immediate <span class="text-caramel">Security Deployment</span> in Noida?
+                        </h2>
+                        <p class="text-xs sm:text-sm text-cream/80 font-medium">
+                            Physical site risk assessments delivered within 24 hours across Noida & Delhi NCR.
+                        </p>
                     </div>
 
-                    <!-- Trust Indicators Footer Row -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-8 mt-2 border-t border-cream/15 w-full text-xs font-bold text-cream/75 uppercase tracking-wider">
-                        <div class="flex items-center justify-center gap-2">
-                            <i class="ri-shield-check-fill text-caramel text-base"></i>
-                            <span>100% PSARA Licensed</span>
-                        </div>
-                        <div class="flex items-center justify-center gap-2">
-                            <i class="ri-flashlight-fill text-caramel text-base"></i>
-                            <span>15-Min Rapid Response</span>
-                        </div>
-                        <div class="flex items-center justify-center gap-2">
-                            <i class="ri-radar-fill text-caramel text-base"></i>
-                            <span>24/7 Noida Command Desk</span>
-                        </div>
+                    <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                        <a href="tel:+919999988888" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                            <i class="ri-phone-fill"></i>
+                            <span>Call +91 99999 88888</span>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+                            <i class="ri-file-search-line text-caramel"></i>
+                            <span>Request Audit</span>
+                        </a>
                     </div>
                 </div>
             </div>
