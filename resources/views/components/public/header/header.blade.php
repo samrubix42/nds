@@ -1,14 +1,14 @@
 <header class="relative w-full flex flex-col z-50 bg-white" x-data="{ mobileMenuOpen: false, servicesOpen: false }">
     <!-- Top Tier: Logo & Contact Info -->
     <div class="w-full border-b border-cream/50 py-3 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
-            <!-- Logo Only -->
-            <a href="{{ route('home') }}" class="flex items-center">
-                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-14 w-auto object-contain" />
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center gap-4 w-full">
+            <!-- Logo -->
+            <a href="{{ route('home') }}" class="flex items-center shrink-0">
+                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-10 md:h-14 w-auto object-contain" />
             </a>
-
-            <!-- Contact Info -->
-            <div class="hidden md:flex items-center gap-8 text-sm">
+ 
+            <!-- Contact Info (Desktop Only) -->
+            <div class="hidden md:flex items-center gap-8 text-sm ml-auto">
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-[4px] bg-cream flex items-center justify-center text-brownie">
                         <i class="ri-phone-line text-lg"></i>
@@ -37,14 +37,14 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Mobile Menu Toggle & Contact Button -->
-            <div class="flex items-center gap-4 md:hidden w-full justify-between">
-                <a href="tel:+919999988888" class="flex items-center gap-1.5 text-brownie font-bold text-xs bg-cream py-1.5 px-3 rounded-[4px]">
-                    <i class="ri-phone-fill"></i> Call
+ 
+            <!-- Mobile Menu Toggle & Contact Button (Mobile Only) -->
+            <div class="flex items-center gap-2 md:hidden">
+                <a href="tel:+919999988888" class="w-9 h-9 rounded-full bg-cream text-brownie hover:bg-caramel/20 flex items-center justify-center transition-colors" title="Call Us">
+                    <i class="ri-phone-fill"></i>
                 </a>
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-1.5 text-brownie hover:bg-cream/40 rounded-[4px] flex items-center justify-center">
-                    <i class="text-2xl" :class="mobileMenuOpen ? 'ri-close-line' : 'ri-menu-line'"></i>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="w-9 h-9 rounded-full bg-cream text-brownie hover:bg-caramel/20 flex items-center justify-center transition-colors" title="Toggle Menu">
+                    <i class="text-lg" :class="mobileMenuOpen ? 'ri-close-line' : 'ri-menu-line'"></i>
                 </button>
             </div>
         </div>
@@ -58,8 +58,8 @@
                 <a href="{{ route('home') }}" class="py-3 px-5 text-xs font-semibold tracking-wide uppercase hover:bg-caramel/20 hover:text-brownie transition-colors border-b-2 border-transparent hover:border-caramel bg-caramel/15">Home</a>
                 <a href="#" class="py-3 px-5 text-xs font-semibold tracking-wide uppercase hover:bg-caramel/20 hover:text-brownie transition-colors border-b-2 border-transparent hover:border-caramel">About Us</a>
 
-                <!-- Services Dropdown using Alpine.js -->
-                <div class="relative" @click.away="servicesOpen = false">
+                <!-- Services Dropdown using Alpine.js (Supports hover/mouse over on desktop) -->
+                <div class="relative" @click.away="servicesOpen = false" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
                     <button @click="servicesOpen = !servicesOpen" class="py-3 px-5 text-xs font-semibold tracking-wide uppercase hover:bg-caramel/20 hover:text-brownie transition-colors border-b-2 border-transparent hover:border-caramel flex items-center gap-0.5">
                         Services <i class="ri-arrow-down-s-line transition-transform duration-200" :class="servicesOpen ? 'rotate-180' : ''"></i>
                     </button>

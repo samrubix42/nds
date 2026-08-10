@@ -134,161 +134,442 @@
 
 
     <!-- Our Strengths Section (Interactive Running Numbers on Scroll - Premium Cards) -->
-    <section class="bg-gradient-to-b from-cream/25 to-cream/60 py-24 border-b border-cream relative overflow-hidden">
-        <!-- Faint grid pattern overlay for a high-end, unique texture -->
+    <section class="bg-gradient-to-b from-cream/25 to-cream/60 py-12 sm:py-16 lg:py-20 border-b border-cream relative overflow-hidden">
+
+        <!-- Background Grid -->
         <div class="absolute inset-0 z-0 opacity-45 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(192,133,82,0.08)" stroke-width="1" />
+                        <path
+                            d="M 40 0 L 0 0 0 40"
+                            fill="none"
+                            stroke="rgba(192,133,82,0.08)"
+                            stroke-width="1" />
                     </pattern>
                 </defs>
+
                 <rect width="100%" height="100%" fill="url(#grid)" />
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-            <div class="flex flex-col items-center text-center gap-3 mb-16">
-                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">NDS Global Impact</span>
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brownie">Our Strengths</h2>
-                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+
+            <!-- Section Heading -->
+            <div class="flex flex-col items-center text-center gap-2 sm:gap-3 mb-10 sm:mb-12 lg:mb-16">
+
+                <span class="text-[10px] sm:text-xs font-extrabold tracking-widest text-caramel uppercase">
+                    NDS Global Impact
+                </span>
+
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
+                    Our Strengths
+                </h2>
+
+                <div class="w-10 sm:w-12 h-0.5 bg-caramel mt-1"></div>
+
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Stat 1: Years of experience -->
-                <div x-data="{ count: 0, target: 30, duration: 1500, startCounter() {
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-8">
+
+
+                <!-- STAT 1 -->
+                <div
+                    x-data="{ 
+                    count: 0,
+                    target: 30,
+                    duration: 1500,
+
+                    startCounter() {
                         let start = null;
+
                         const step = (timestamp) => {
                             if (!start) start = timestamp;
-                            const progress = Math.min((timestamp - start) / this.duration, 1);
-                            this.count = Math.floor(progress * this.target);
-                            if (progress < 1) window.requestAnimationFrame(step);
-                            else this.count = this.target;
+
+                            const progress = Math.min(
+                                (timestamp - start) / this.duration,
+                                1
+                            );
+
+                            this.count = Math.floor(
+                                progress * this.target
+                            );
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                this.count = this.target;
+                            }
                         };
+
                         window.requestAnimationFrame(step);
                     },
+
                     init() {
                         let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => { if(e.isIntersecting) { this.startCounter(); obs.disconnect(); } });
+                            entries.forEach(e => {
+                                if (e.isIntersecting) {
+                                    this.startCounter();
+                                    obs.disconnect();
+                                }
+                            });
                         }, { threshold: 0.1 });
+
                         obs.observe(this.$el);
                     }
-                }" class="group bg-white/90 backdrop-blur-sm border border-cream/80 rounded-[12px] p-8 flex flex-col gap-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caramel/5 hover:border-caramel/40">
-                    <div class="w-12 h-12 rounded-full bg-caramel/10 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-350 transform group-hover:scale-105">
-                        <i class="ri-award-line text-2xl"></i>
+                }"
+                    class="group w-full bg-white/90 backdrop-blur-sm
+                       border border-cream/80 rounded-xl
+                       p-4 sm:p-6 lg:p-8
+                       flex flex-col items-center text-center
+                       gap-3 sm:gap-5 lg:gap-6
+                       transition-all duration-300
+                       hover:-translate-y-1.5
+                       hover:shadow-xl
+                       hover:shadow-caramel/5
+                       hover:border-caramel/40">
+
+                    <div class="w-10 h-10 sm:w-12 sm:h-12
+                            rounded-full bg-caramel/10
+                            flex items-center justify-center
+                            text-caramel
+                            group-hover:bg-caramel
+                            group-hover:text-white
+                            transition-all duration-300
+                            group-hover:scale-105">
+
+                        <i class="ri-award-line text-xl sm:text-2xl"></i>
+
                     </div>
-                    <div>
-                        <h3 class="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-brownie to-caramel tracking-tight">
+
+                    <div class="w-full">
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
+                               font-black
+                               bg-clip-text text-transparent
+                               bg-gradient-to-r from-brownie to-caramel
+                               tracking-tight">
+
                             <span x-text="count">0</span>+
+
                         </h3>
-                        <p class="text-[10px] md:text-xs font-bold tracking-wider text-coffee uppercase mt-2 leading-relaxed">
-                            Years of<br />experience
+
+                        <p class="text-[9px] sm:text-[10px] md:text-xs
+                              font-bold tracking-wider
+                              text-coffee uppercase
+                              mt-1 sm:mt-2
+                              leading-relaxed">
+
+                            Years of<br>experience
+
                         </p>
+
                     </div>
+
                 </div>
 
-                <!-- Stat 2: Sites served worldwide -->
-                <div x-data="{ count: 0, target: 19000, duration: 1800, startCounter() {
+
+                <!-- STAT 2 -->
+                <div
+                    x-data="{ 
+                    count: 0,
+                    target: 19000,
+                    duration: 1800,
+
+                    startCounter() {
                         let start = null;
+
                         const step = (timestamp) => {
                             if (!start) start = timestamp;
-                            const progress = Math.min((timestamp - start) / this.duration, 1);
-                            this.count = Math.floor(progress * this.target);
-                            if (progress < 1) window.requestAnimationFrame(step);
-                            else this.count = this.target;
+
+                            const progress = Math.min(
+                                (timestamp - start) / this.duration,
+                                1
+                            );
+
+                            this.count = Math.floor(
+                                progress * this.target
+                            );
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                this.count = this.target;
+                            }
                         };
+
                         window.requestAnimationFrame(step);
                     },
+
                     init() {
                         let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => { if(e.isIntersecting) { this.startCounter(); obs.disconnect(); } });
+                            entries.forEach(e => {
+                                if (e.isIntersecting) {
+                                    this.startCounter();
+                                    obs.disconnect();
+                                }
+                            });
                         }, { threshold: 0.1 });
+
                         obs.observe(this.$el);
                     }
-                }" class="group bg-white/90 backdrop-blur-sm border border-cream/80 rounded-[12px] p-8 flex flex-col gap-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caramel/5 hover:border-caramel/40">
-                    <div class="w-12 h-12 rounded-full bg-caramel/10 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-350 transform group-hover:scale-105">
-                        <i class="ri-global-line text-2xl"></i>
+                }"
+                    class="group w-full bg-white/90 backdrop-blur-sm
+                       border border-cream/80 rounded-xl
+                       p-4 sm:p-6 lg:p-8
+                       flex flex-col items-center text-center
+                       gap-3 sm:gap-5 lg:gap-6
+                       transition-all duration-300
+                       hover:-translate-y-1.5
+                       hover:shadow-xl
+                       hover:shadow-caramel/5
+                       hover:border-caramel/40">
+
+                    <div class="w-10 h-10 sm:w-12 sm:h-12
+                            rounded-full bg-caramel/10
+                            flex items-center justify-center
+                            text-caramel
+                            group-hover:bg-caramel
+                            group-hover:text-white
+                            transition-all duration-300
+                            group-hover:scale-105">
+
+                        <i class="ri-global-line text-xl sm:text-2xl"></i>
+
                     </div>
-                    <div>
-                        <h3 class="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-brownie to-caramel tracking-tight">
+
+                    <div class="w-full">
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
+                               font-black
+                               bg-clip-text text-transparent
+                               bg-gradient-to-r from-brownie to-caramel
+                               tracking-tight">
+
                             <span x-text="count.toLocaleString()">0</span>+
+
                         </h3>
-                        <p class="text-[10px] md:text-xs font-bold tracking-wider text-coffee uppercase mt-2 leading-relaxed">
-                            Sites served<br />worldwide
+
+                        <p class="text-[9px] sm:text-[10px] md:text-xs
+                              font-bold tracking-wider
+                              text-coffee uppercase
+                              mt-1 sm:mt-2
+                              leading-relaxed">
+
+                            Sites served<br>worldwide
+
                         </p>
+
                     </div>
+
                 </div>
 
-                <!-- Stat 3: Professionals -->
-                <div x-data="{ count: 0, target: 100000, duration: 2000, startCounter() {
+
+                <!-- STAT 3 -->
+                <div
+                    x-data="{ 
+                    count: 0,
+                    target: 100000,
+                    duration: 2000,
+
+                    startCounter() {
                         let start = null;
+
                         const step = (timestamp) => {
                             if (!start) start = timestamp;
-                            const progress = Math.min((timestamp - start) / this.duration, 1);
-                            this.count = Math.floor(progress * this.target);
-                            if (progress < 1) window.requestAnimationFrame(step);
-                            else this.count = this.target;
+
+                            const progress = Math.min(
+                                (timestamp - start) / this.duration,
+                                1
+                            );
+
+                            this.count = Math.floor(
+                                progress * this.target
+                            );
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                this.count = this.target;
+                            }
                         };
+
                         window.requestAnimationFrame(step);
                     },
+
                     init() {
                         let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => { if(e.isIntersecting) { this.startCounter(); obs.disconnect(); } });
+                            entries.forEach(e => {
+                                if (e.isIntersecting) {
+                                    this.startCounter();
+                                    obs.disconnect();
+                                }
+                            });
                         }, { threshold: 0.1 });
+
                         obs.observe(this.$el);
                     }
-                }" class="group bg-white/90 backdrop-blur-sm border border-cream/80 rounded-[12px] p-8 flex flex-col gap-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caramel/5 hover:border-caramel/40">
-                    <div class="w-12 h-12 rounded-full bg-caramel/10 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-350 transform group-hover:scale-105">
-                        <i class="ri-group-line text-2xl"></i>
+                }"
+                    class="group w-full bg-white/90 backdrop-blur-sm
+                       border border-cream/80 rounded-xl
+                       p-4 sm:p-6 lg:p-8
+                       flex flex-col items-center text-center
+                       gap-3 sm:gap-5 lg:gap-6
+                       transition-all duration-300
+                       hover:-translate-y-1.5
+                       hover:shadow-xl
+                       hover:shadow-caramel/5
+                       hover:border-caramel/40">
+
+                    <div class="w-10 h-10 sm:w-12 sm:h-12
+                            rounded-full bg-caramel/10
+                            flex items-center justify-center
+                            text-caramel
+                            group-hover:bg-caramel
+                            group-hover:text-white
+                            transition-all duration-300
+                            group-hover:scale-105">
+
+                        <i class="ri-group-line text-xl sm:text-2xl"></i>
+
                     </div>
-                    <div>
-                        <h3 class="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-brownie to-caramel tracking-tight">
+
+                    <div class="w-full">
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
+                               font-black
+                               bg-clip-text text-transparent
+                               bg-gradient-to-r from-brownie to-caramel
+                               tracking-tight">
+
                             <span x-text="count.toLocaleString()">0</span>+
+
                         </h3>
-                        <p class="text-[10px] md:text-xs font-bold tracking-wider text-coffee uppercase mt-2 leading-relaxed">
-                            Professionals<br />deployed
+
+                        <p class="text-[9px] sm:text-[10px] md:text-xs
+                              font-bold tracking-wider
+                              text-coffee uppercase
+                              mt-1 sm:mt-2
+                              leading-relaxed">
+
+                            Professionals<br>deployed
+
                         </p>
+
                     </div>
+
                 </div>
 
-                <!-- Stat 4: Offices globally -->
-                <div x-data="{ count: 0, target: 78, duration: 1500, startCounter() {
+
+                <!-- STAT 4 -->
+                <div
+                    x-data="{ 
+                    count: 0,
+                    target: 78,
+                    duration: 1500,
+
+                    startCounter() {
                         let start = null;
+
                         const step = (timestamp) => {
                             if (!start) start = timestamp;
-                            const progress = Math.min((timestamp - start) / this.duration, 1);
-                            this.count = Math.floor(progress * this.target);
-                            if (progress < 1) window.requestAnimationFrame(step);
-                            else this.count = this.target;
+
+                            const progress = Math.min(
+                                (timestamp - start) / this.duration,
+                                1
+                            );
+
+                            this.count = Math.floor(
+                                progress * this.target
+                            );
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                this.count = this.target;
+                            }
                         };
+
                         window.requestAnimationFrame(step);
                     },
+
                     init() {
                         let obs = new IntersectionObserver((entries) => {
-                            entries.forEach(e => { if(e.isIntersecting) { this.startCounter(); obs.disconnect(); } });
+                            entries.forEach(e => {
+                                if (e.isIntersecting) {
+                                    this.startCounter();
+                                    obs.disconnect();
+                                }
+                            });
                         }, { threshold: 0.1 });
+
                         obs.observe(this.$el);
                     }
-                }" class="group bg-white/90 backdrop-blur-sm border border-cream/80 rounded-[12px] p-8 flex flex-col gap-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caramel/5 hover:border-caramel/40">
-                    <div class="w-12 h-12 rounded-full bg-caramel/10 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-350 transform group-hover:scale-105">
-                        <i class="ri-building-4-line text-2xl"></i>
+                }"
+                    class="group w-full bg-white/90 backdrop-blur-sm
+                       border border-cream/80 rounded-xl
+                       p-4 sm:p-6 lg:p-8
+                       flex flex-col items-center text-center
+                       gap-3 sm:gap-5 lg:gap-6
+                       transition-all duration-300
+                       hover:-translate-y-1.5
+                       hover:shadow-xl
+                       hover:shadow-caramel/5
+                       hover:border-caramel/40">
+
+                    <div class="w-10 h-10 sm:w-12 sm:h-12
+                            rounded-full bg-caramel/10
+                            flex items-center justify-center
+                            text-caramel
+                            group-hover:bg-caramel
+                            group-hover:text-white
+                            transition-all duration-300
+                            group-hover:scale-105">
+
+                        <i class="ri-building-4-line text-xl sm:text-2xl"></i>
+
                     </div>
-                    <div>
-                        <h3 class="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-brownie to-caramel tracking-tight">
+
+                    <div class="w-full">
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl
+                               font-black
+                               bg-clip-text text-transparent
+                               bg-gradient-to-r from-brownie to-caramel
+                               tracking-tight">
+
                             <span x-text="count">0</span>+
+
                         </h3>
-                        <p class="text-[10px] md:text-xs font-bold tracking-wider text-coffee uppercase mt-2 leading-relaxed">
-                            Offices<br />globally
+
+                        <p class="text-[9px] sm:text-[10px] md:text-xs
+                              font-bold tracking-wider
+                              text-coffee uppercase
+                              mt-1 sm:mt-2
+                              leading-relaxed">
+
+                            Offices<br>globally
+
                         </p>
+
                     </div>
+
                 </div>
-              </div>
+
+            </div>
+
         </div>
+
     </section>
+
+
 
     <!-- Client Logo Alpine Slider Section (No arrow controls, auto sliding transition) -->
     <section class="bg-white py-20 border-b border-cream/30 overflow-hidden relative z-10"
-             x-data="{ 
+        x-data="{ 
                  activeIndex: 0, 
                  totalLogos: 26,
                  getVisibleLogos() {
@@ -307,8 +588,7 @@
                      }, 2800);
                  }
              }"
-             @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()"
-    >
+        @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div class="flex flex-col items-center text-center gap-3 mb-16">
                 <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
@@ -319,9 +599,8 @@
             </div>
 
             <div class="relative w-full overflow-hidden">
-                <div class="flex transition-transform duration-500 ease-out items-center" 
-                     :style="'width: ' + (totalLogos / getVisibleLogos() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalLogos)) + '%)'"
-                >
+                <div class="flex transition-transform duration-500 ease-out items-center"
+                    :style="'width: ' + (totalLogos / getVisibleLogos() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalLogos)) + '%)'">
                     <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
                         <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
                     </div>
@@ -595,8 +874,8 @@
     </section>
 
     <!-- Testimonial Slider Section (Multiple Card Slider) -->
-    <section class="bg-cream/10 py-24 border-t border-cream relative overflow-hidden" 
-             x-data="{ 
+    <section class="bg-gradient-to-b from-cream/25 to-cream/60 py-20 border-t border-cream relative overflow-hidden"
+        x-data="{ 
                  activeIndex: 0, 
                  totalCards: 5,
                  getVisibleCards() {
@@ -621,8 +900,7 @@
                      }
                  }
              }"
-             @resize.window="if (activeIndex > totalCards - getVisibleCards()) activeIndex = totalCards - getVisibleCards()"
-    >
+        @resize.window="if (activeIndex > totalCards - getVisibleCards()) activeIndex = totalCards - getVisibleCards()">
         <!-- Faint background accent pattern -->
         <div class="absolute inset-0 z-0 opacity-30 pointer-events-none select-none">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -648,9 +926,8 @@
             <div class="relative w-full">
                 <!-- Slider Wrapper with overflow-hidden -->
                 <div class="overflow-hidden py-4 -mx-3">
-                    <div class="flex transition-transform duration-500 ease-out" 
-                         :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'"
-                    >
+                    <div class="flex transition-transform duration-500 ease-out"
+                        :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'">
                         <!-- Card 1: Amit Sharma -->
                         <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
                             <div class="bg-white border border-cream rounded-[16px] p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
@@ -804,12 +1081,12 @@
                 </div>
 
                 <!-- Floating Absolute Arrow Controls -->
-                <button @click="prev()" 
-                        class="absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
+                <button @click="prev()"
+                    class="absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
                     <i class="ri-arrow-left-s-line text-xl"></i>
                 </button>
-                <button @click="next()" 
-                        class="absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
+                <button @click="next()"
+                    class="absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-cream shadow-md hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all z-20 cursor-pointer">
                     <i class="ri-arrow-right-s-line text-xl"></i>
                 </button>
             </div>
@@ -817,9 +1094,9 @@
             <!-- Dynamic Dot Indicators (Centered Below) -->
             <div class="flex justify-center gap-2 mt-8">
                 <template x-for="i in (totalCards - getVisibleCards() + 1)" :key="i">
-                    <button @click="activeIndex = i - 1" 
-                            class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer" 
-                            :class="activeIndex === (i - 1) ? 'bg-caramel w-5' : 'bg-cream'"></button>
+                    <button @click="activeIndex = i - 1"
+                        class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer"
+                        :class="activeIndex === (i - 1) ? 'bg-caramel w-5' : 'bg-cream'"></button>
                 </template>
             </div>
         </div>
