@@ -4,36 +4,36 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center gap-4 w-full">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center shrink-0">
-                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-10 md:h-14 w-auto object-contain" />
+                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-12 md:h-16 w-auto object-contain" />
             </a>
  
             <!-- Contact Info (Desktop Only) -->
             <div class="hidden md:flex items-center gap-8 text-sm ml-auto">
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-[4px] bg-cream flex items-center justify-center text-brownie">
-                        <i class="ri-phone-line text-lg"></i>
+                        <i class="ri-phone-line text-xs"></i>
                     </div>
                     <div>
                         <p class="text-[10px] text-coffee font-semibold uppercase tracking-wider">Call 24/7 Support</p>
-                        <p class="text-brownie font-bold">+91 99999 88888</p>
+                        <p class="text-brownie font-bold text-xs">+91 99999 88888</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-[4px] bg-cream flex items-center justify-center text-brownie">
-                        <i class="ri-mail-line text-lg"></i>
+                        <i class="ri-mail-line text-xs"></i>
                     </div>
                     <div>
                         <p class="text-[10px] text-coffee font-semibold uppercase tracking-wider">Email Us</p>
-                        <p class="text-brownie font-bold">info@ndssecurity.com</p>
+                        <p class="text-brownie font-bold text-xs">info@ndssecurity.com</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-[4px] bg-cream flex items-center justify-center text-brownie">
-                        <i class="ri-map-pin-line text-lg"></i>
+                        <i class="ri-map-pin-line text-xs"></i>
                     </div>
                     <div>
                         <p class="text-[10px] text-coffee font-semibold uppercase tracking-wider">Our Office</p>
-                        <p class="text-brownie font-bold">Noida, Uttar Pradesh</p>
+                        <p class="text-brownie font-bold text-xs">Noida, Uttar Pradesh</p>
                     </div>
                 </div>
             </div>
