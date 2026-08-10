@@ -90,7 +90,7 @@
                     <strong class="text-cream font-black">15 Mins</strong> Emergency Response
                 </span>
                 <span class="flex items-center gap-2">
-                    <i class="ri-user-shield-fill text-cream text-sm"></i>
+                    <i class="ri-shield-user-fill text-cream text-sm"></i>
                     <strong class="text-cream font-black">Background Verified</strong> Guards
                 </span>
                 <span class="flex items-center gap-2">
@@ -117,7 +117,7 @@
                     <strong class="text-cream font-black">15 Mins</strong> Emergency Response
                 </span>
                 <span class="flex items-center gap-2">
-                    <i class="ri-user-shield-fill text-cream text-sm"></i>
+                    <i class="ri-shield-user-fill text-cream text-sm"></i>
                     <strong class="text-cream font-black">Background Verified</strong> Guards
                 </span>
                 <span class="flex items-center gap-2">
@@ -198,7 +198,7 @@
                 <!-- Feature 1 -->
                 <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
                     <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
-                        <i class="ri-user-shield-fill text-2xl"></i>
+                        <i class="ri-shield-user-fill text-2xl"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
                         PSARA-Certified Force
