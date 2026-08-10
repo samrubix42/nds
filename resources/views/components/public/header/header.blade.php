@@ -82,23 +82,23 @@
                          x-transition:leave-start="opacity-100 translate-y-0 scale-100" 
                          x-transition:leave-end="opacity-0 -translate-y-2 scale-95" 
                          class="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-md text-brownie shadow-2xl rounded-2xl p-2 ring-1 ring-caramel/20 z-50">
-                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Security Guard Services</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Corporate Security</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>CCTV & Surveillance</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Executive Escort Guard</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Facility Management</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
@@ -160,11 +160,11 @@
                 <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="mobileServicesOpen ? 'rotate-180 text-caramel' : ''"></i>
             </button>
             <div x-show="mobileServicesOpen" x-cloak class="flex flex-col pl-4 mt-1 gap-1 border-l-2 border-caramel/40 py-2">
-                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
-                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
-                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
-                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
-                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Facility Management</a>
+                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
+                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
+                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
+                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
+                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Facility Management</a>
             </div>
         </div>
 

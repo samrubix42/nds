@@ -480,7 +480,7 @@
                                 Vigilant, disciplined physical security guards trained for industrial complexes, retail malls, IT parks, and residential neighborhoods.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -512,7 +512,7 @@
                                 Integrated corporate facility security, digital gate-pass tracking, and front-desk receptionist-guard protocols.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -544,7 +544,7 @@
                                 Elite personal protective guards and armed transit protection for executives, VVIPs, and critical cash transit.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -576,7 +576,7 @@
                                 24/7 centralized command monitoring, smart AI-driven CCTV integrations, thermal imaging, and perimeter intrusion detection.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -608,7 +608,7 @@
                                 Tactical crowd management, VIP routing plans, rapid evacuation drills, and comprehensive security coordination for corporate events.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -640,7 +640,7 @@
                                 Detailed safety audit sweeps, fire-safety protocol checks, perimeter threat assessments, and security compliance reports.
                             </p>
                         </div>
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
