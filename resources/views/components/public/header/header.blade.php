@@ -1,4 +1,4 @@
-<header class="w-full flex flex-col z-50 bg-white" x-data="{ mobileMenuOpen: false, servicesOpen: false }">
+<header class="relative w-full flex flex-col z-50 bg-white" x-data="{ mobileMenuOpen: false, servicesOpen: false }">
     <!-- Top Tier: Logo & Contact Info -->
     <div class="w-full border-b border-cream/50 py-3 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -78,7 +78,7 @@
 
             <!-- CTA Button -->
             <div class="hidden md:block py-2">
-                <a href="#" class="bg-brownie hover:bg-coffee text-white font-bold text-xs uppercase tracking-wider py-1.5 px-4 rounded-[4px] transition-all inline-block shadow-sm">
+                <a href="#" class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white font-bold text-xs uppercase tracking-wider py-2 px-6 rounded-full shadow-md shadow-caramel/15 transition-all inline-block hover:scale-[1.02] active:scale-[0.98]">
                     Get a Quote
                 </a>
             </div>
@@ -109,7 +109,7 @@
         <a href="#" class="py-2 px-3 rounded-[4px] hover:bg-caramel/10 text-brownie font-bold text-xs uppercase tracking-wide">Contact Page</a>
 
         <div class="mt-3 pt-3 border-t border-caramel/20">
-            <a href="#" class="w-full text-center bg-brownie hover:bg-coffee text-white font-bold text-xs uppercase tracking-wider py-2 rounded-[4px] transition-all block">
+            <a href="#" class="w-full text-center bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white font-bold text-xs uppercase tracking-wider py-2.5 rounded-full transition-all block">
                 Get a Quote
             </a>
         </div>
