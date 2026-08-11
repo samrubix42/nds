@@ -5,7 +5,6 @@
             <div class="flex flex-col gap-4">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-10 w-auto object-contain" />
-                    <span class="text-base font-black tracking-wider uppercase text-brownie">NDS Security</span>
                 </div>
                 <p class="text-xs text-coffee/95 leading-relaxed font-medium">
                     Delivering institutional trust, strength, and precision. Noida's premier security guard & facility management provider.
