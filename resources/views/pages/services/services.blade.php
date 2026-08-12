@@ -1,17 +1,7 @@
 <div class="w-full bg-white flex flex-col">
     <!-- Hero Banner Section -->
     <section class="relative w-full py-16 sm:py-24 bg-gradient-to-b from-cream to-white overflow-hidden border-b border-cream">
-        <!-- Background Grid Decoration -->
-        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="services-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(192,133,82,0.1)" stroke-width="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#services-hero-grid)" />
-            </svg>
-        </div>
+
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center gap-4">
             <!-- Breadcrumb Pill -->
@@ -33,17 +23,7 @@
 
     <!-- Main Services Grid Section (Matching Reference Layout & Color Scheme) -->
     <section class="py-20 sm:py-24 bg-cream/10 relative overflow-hidden">
-        <!-- Subtle Grid Background -->
-        <div class="absolute inset-0 z-0 opacity-30 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="services-cards-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(192,133,82,0.12)" stroke-width="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#services-cards-grid)" />
-            </svg>
-        </div>
+
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
             <!-- Section Header -->
@@ -85,7 +65,7 @@
                                 We provide professional CCTV installation services offering high-quality cameras, clear night-vision optics, and remote mobile monitoring.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -115,7 +95,7 @@
                                 Centralized command room oversight with real-time video surveillance analysis and instant dispatch response across Noida.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'monitoring-services']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -145,7 +125,7 @@
                                 Complete residential intruder detection, video doorbells, smart lock control, and app-based entry permissions.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'home-security-systems']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -175,7 +155,7 @@
                                 Biometric readers, turnstile gates, RFID keycard credentials, and employee time-attendance sync.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -205,7 +185,7 @@
                                 Seamless IoT sensor sync, automated lighting triggers, glass-break detectors, and centralized security hubs.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'smart-home-integration']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
@@ -235,7 +215,7 @@
                                 Fire, smoke, and intrusion alarms connected directly to quick response teams for under 15-minute emergency arrival.
                             </p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                        <a href="{{ route('service.detail', ['slug' => 'alarm-systems-installation']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                             <span>Discover More</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>

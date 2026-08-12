@@ -27,11 +27,11 @@
             <div>
                 <h4 class="text-xs font-black tracking-widest text-brownie uppercase mb-5">Quick Links</h4>
                 <ul class="flex flex-col gap-3 text-xs font-semibold text-coffee/85">
-                    <li><a href="#" class="hover:text-caramel transition-colors">Home</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">Solutions</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">Major Projects</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">Contact Us</a></li>
+                    <li><a href="{{ route('home') }}" class="hover:text-caramel transition-colors">Home</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-caramel transition-colors">About Us</a></li>
+                    <li><a href="{{ route('services') }}" class="hover:text-caramel transition-colors">Solutions</a></li>
+                    <li><a href="{{ route('clientele') }}" class="hover:text-caramel transition-colors">Major Projects</a></li>
+                    <li><a href="{{ route('contact') }}" class="hover:text-caramel transition-colors">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -39,11 +39,11 @@
             <div>
                 <h4 class="text-xs font-black tracking-widest text-brownie uppercase mb-5">Our Services</h4>
                 <ul class="flex flex-col gap-3 text-xs font-semibold text-coffee/85">
-                    <li><a href="#" class="hover:text-caramel transition-colors">Security Guard Services</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">Corporate Protection</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">CCTV & Wireless Surveillance</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">VIP / Escort Guard</a></li>
-                    <li><a href="#" class="hover:text-caramel transition-colors">Facility & Manpower</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'monitoring-services']) }}" class="hover:text-caramel transition-colors">Security Guard Services</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="hover:text-caramel transition-colors">Corporate Protection</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="hover:text-caramel transition-colors">CCTV & Wireless Surveillance</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'alarm-systems-installation']) }}" class="hover:text-caramel transition-colors">VIP / Escort Guard</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'smart-home-integration']) }}" class="hover:text-caramel transition-colors">Facility & Manpower</a></li>
                 </ul>
             </div>
 
