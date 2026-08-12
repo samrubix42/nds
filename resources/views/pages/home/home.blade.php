@@ -1,14 +1,173 @@
 <div class="w-full bg-white flex flex-col">
-    <!-- Hero Section: Simple Video Playing (No text/overlays) -->
-    <section class="relative w-full h-[80vh] min-h-[650px] overflow-hidden bg-cream">
-        <!-- Background Video (YouTube Embed - Cropped to hide title text and shadow overlays) -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <iframe src="https://www.youtube.com/embed/ApLnqFUtHWc?autoplay=1&mute=1&loop=1&playlist=ApLnqFUtHWc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
-                class="absolute top-1/2 left-1/2 w-[115vw] h-[65vw] min-h-[120vh] min-w-[204vh] -translate-x-1/2 -translate-y-1/2 scale-125 opacity-100"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen>
-            </iframe>
+    <!-- Hero Banner: Clean, Modern, Fully Responsive Auto Slider Banner -->
+    <section x-data="{ 
+        activeSlide: 0, 
+        fallbackImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1920&auto=format&fit=crop',
+        slides: [
+       
+            {
+                title: '24/7 Command Center & Rapid Response',
+                subtitle: 'Real-time CCTV surveillance monitoring and guaranteed 15-minute emergency response unit.',
+                badge: '24/7 TACTICAL COMMAND',
+                badgeIcon: 'ri-radar-line',
+                image: '{{ asset('command_center.png') }}',
+                primaryBtnText: 'Explore Command',
+                primaryBtnLink: '#services',
+                secondaryBtnText: 'Emergency Call',
+                secondaryBtnLink: 'tel:+919999988888'
+            },
+       
+            {
+                title: 'Commercial & Industrial Asset Shield',
+                subtitle: 'Advanced access control, automated visitor tracking, and site risk management for 150+ corporate sites.',
+                badge: '150+ SITES PROTECTED',
+                badgeIcon: 'ri-building-2-line',
+                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop',
+                primaryBtnText: 'Consult Experts',
+                primaryBtnLink: '#contact',
+                secondaryBtnText: 'About Us',
+                secondaryBtnLink: '/about'
+            },
+            {
+                title: 'Smart Electronic CCTV Integration',
+                subtitle: 'State-of-the-art IP surveillance cameras, AI perimeter detection, and integrated access control.',
+                badge: 'SMART SURVEILLANCE',
+                badgeIcon: 'ri-eye-line',
+                image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1920&auto=format&fit=crop',
+                primaryBtnText: 'CCTV Solutions',
+                primaryBtnLink: '#services',
+                secondaryBtnText: 'Contact Us',
+                secondaryBtnLink: '#contact'
+            },
+          
+        ],
+        timer: null,
+        startAutoSlide() {
+            this.stopAutoSlide();
+            this.timer = setInterval(() => {
+                this.nextSlide();
+            }, 5500);
+        },
+        stopAutoSlide() {
+            if(this.timer) clearInterval(this.timer);
+        },
+        nextSlide() {
+            this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+        },
+        prevSlide() {
+            this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+        },
+        goToSlide(index) {
+            this.activeSlide = index;
+            this.startAutoSlide();
+        },
+        handleImageError(event) {
+            event.target.onerror = null;
+            event.target.src = this.fallbackImage;
+        }
+    }" 
+    x-init="startAutoSlide()" 
+    @mouseenter="stopAutoSlide()" 
+    @mouseleave="startAutoSlide()" 
+    class="relative w-full h-auto min-h-[520px] sm:h-[72vh] sm:min-h-[500px] max-h-[680px] py-14 sm:py-0 bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b] overflow-hidden group select-none flex items-center">
+        
+        <!-- Background Image Slides with Automatic Fallback Handling -->
+        <template x-for="(slide, index) in slides" :key="index">
+            <div x-show="activeSlide === index"
+                 x-transition:enter="transition ease-out duration-1000"
+                 x-transition:enter-start="opacity-0 scale-105"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-700"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b]">
+                <!-- Main Image with Error Fallback -->
+                <img :src="slide.image" 
+                     :alt="slide.title" 
+                     x-on:error="handleImageError($event)"
+                     class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-[7000ms] ease-out" />
+                
+                <!-- Balanced Soft Light Vignette Overlays -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20 sm:from-black/65 sm:via-black/35 sm:to-black/10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
+            </div>
+        </template>
+
+        <!-- Slide Content Overlay Container (Proportionate & Responsive layout) -->
+        <div class="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-6 md:px-12 flex flex-col justify-center">
+            <div class="max-w-2xl flex flex-col gap-3.5 sm:gap-4">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <div x-show="activeSlide === index"
+                         x-transition:enter="transition ease-out duration-600 delay-200"
+                         x-transition:enter-start="opacity-0 translate-y-6"
+                         x-transition:enter-end="opacity-100 translate-y-0"
+                         x-transition:leave="transition ease-in duration-200"
+                         x-transition:leave-start="opacity-100 translate-y-0"
+                         x-transition:leave-end="opacity-0 -translate-y-4"
+                         class="flex flex-col gap-3.5 sm:gap-4">
+                        
+                        <!-- Balanced Pill Chip Tag -->
+                        <div class="self-start">
+                            <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 bg-caramel/30 border border-caramel/50 backdrop-blur-md text-cream text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-full shadow-sm">
+                                <i :class="slide.badgeIcon" class="text-caramel text-xs sm:text-sm"></i>
+                                <span x-text="slide.badge"></span>
+                            </span>
+                        </div>
+
+                        <!-- Fully Responsive & Harmonized Title -->
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight drop-shadow-sm" x-text="slide.title"></h1>
+
+                        <!-- Fully Responsive Subtitle -->
+                        <p class="text-xs sm:text-base md:text-lg text-cream/90 font-medium leading-relaxed max-w-xl drop-shadow-sm" x-text="slide.subtitle"></p>
+
+                        <!-- Mobile & Desktop Responsive Buttons -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mt-2">
+                            <!-- Primary Button -->
+                            <a :href="slide.primaryBtnLink" 
+                               class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full shadow-md transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer border border-caramel/40 active:scale-95 text-center">
+                                <span x-text="slide.primaryBtnText"></span>
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </a>
+                            
+                            <!-- Secondary Button -->
+                            <a :href="slide.secondaryBtnLink" 
+                               class="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs sm:text-sm font-medium tracking-wider py-3 px-6 rounded-full border border-white/25 shadow-sm transition-all duration-200 inline-flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 text-center">
+                                <span x-text="slide.secondaryBtnText"></span>
+                                <i class="ri-arrow-right-s-line text-sm opacity-70"></i>
+                            </a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Slider Controls: Previous & Next Arrow Buttons (HIDDEN ON PHONE VIEW, SHOWN ON TABLET & DESKTOP) -->
+        <button @click="prevSlide()" 
+                type="button"
+                aria-label="Previous Slide"
+                class="hidden sm:flex absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
+            <i class="ri-arrow-left-s-line"></i>
+        </button>
+
+        <button @click="nextSlide()" 
+                type="button"
+                aria-label="Next Slide"
+                class="hidden sm:flex absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
+            <i class="ri-arrow-right-s-line"></i>
+        </button>
+
+        <!-- Bottom Controls Bar (Sleek Clean Bullets) -->
+        <div class="absolute bottom-4 sm:bottom-6 inset-x-0 z-30 flex items-center justify-center pointer-events-none">
+            <div class="flex items-center gap-2 sm:gap-2.5 pointer-events-auto bg-black/30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border border-white/10">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <button @click="goToSlide(index)"
+                            type="button"
+                            :aria-label="'Go to slide ' + (index + 1)"
+                            class="h-2 sm:h-2.5 rounded-full transition-all duration-300 focus:outline-none"
+                            :class="activeSlide === index ? 'w-6 sm:w-8 bg-caramel shadow-md' : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/70'">
+                    </button>
+                </template>
+            </div>
         </div>
     </section>
 

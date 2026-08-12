@@ -5,7 +5,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 new #[Title('NDS Security Services - Premium Security Guard Solutions Noida')]
-#[Layout('layouts.app2')]
+#[Layout('layouts.app')]
 class extends Component
 {
     //
