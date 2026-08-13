@@ -1,27 +1,54 @@
 <?php
 
+use App\Models\AppliedJobs;
+use App\Models\JobPost;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
-new #[Title('Careers - Join NDS Security')] class extends Component
+new #[Title('Careers - Join NDS Security')]
+#[Layout('layouts.app3')]
+class extends Component
 {
+    use WithFileUploads;
+
+    public string $position = '';
+
+    public ?int $selectedJobId = null;
+
     public string $name = '';
 
     public string $email = '';
 
     public string $phone = '';
 
-    public string $position = '';
+    public string $address = '';
 
     public string $experience = '';
 
     public string $message = '';
 
+    /**
+     * @var mixed
+     */
+    public $resume;
+
     public string $successMessage = '';
 
-    public function selectJob(string $jobSlug): void
+    public function selectJob(string|int $jobIdentifier): void
     {
-        $this->position = $jobSlug;
+        if (is_numeric($jobIdentifier)) {
+            $job = JobPost::find($jobIdentifier);
+            if ($job) {
+                $this->selectedJobId = $job->id;
+                $this->position = $job->title;
+            }
+        } else {
+            $this->position = $jobIdentifier;
+            $this->selectedJobId = null;
+        }
+
         $this->successMessage = '';
         $this->dispatch('job-selected');
     }
@@ -29,12 +56,13 @@ new #[Title('Careers - Join NDS Security')] class extends Component
     public function submitApplication(): void
     {
         $this->validate([
-            'name' => 'required|min:3|max:100',
+            'name' => 'required|string|min:3|max:100',
             'email' => 'required|email|max:100',
             'phone' => 'required|numeric|digits_between:10,15',
-            'position' => 'required',
+            'position' => 'required|string',
             'experience' => 'required|numeric|min:0|max:50',
-            'message' => 'required|min:10|max:1000',
+            'address' => 'required|string|min:5|max:255',
+            'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
         ], [
             'name.required' => 'Please enter your full name.',
             'name.min' => 'Name must be at least 3 characters.',
@@ -46,16 +74,35 @@ new #[Title('Careers - Join NDS Security')] class extends Component
             'position.required' => 'Please select a job position to apply.',
             'experience.required' => 'Please enter your experience in years.',
             'experience.numeric' => 'Experience must be a number.',
-            'experience.min' => 'Experience cannot be negative.',
-            'message.required' => 'Please share a brief note about yourself or cover details.',
-            'message.min' => 'Note must be at least 10 characters.',
+            'address.required' => 'Please enter your address.',
+            'resume.required' => 'Please upload your resume file.',
+            'resume.mimes' => 'Resume must be a PDF, DOC, or DOCX document.',
+            'resume.max' => 'Resume file size cannot exceed 10MB.',
         ]);
 
-        // In a real application, we would handle resume file uploads and database records.
-        // For the purposes of this task, we simulate success.
+        $resumePath = $this->resume->store('resumes', 'public');
 
-        $this->successMessage = 'Your application for the '.ucwords(str_replace('-', ' ', $this->position)).' position has been logged. The NDS HR Desk will review your application and contact you soon.';
+        AppliedJobs::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'experience' => $this->experience,
+            'resume' => $resumePath,
+            'status' => 'open',
+        ]);
 
-        $this->reset(['name', 'email', 'phone', 'position', 'experience', 'message']);
+        $this->successMessage = 'Your application and resume for the "'.$this->position.'" position have been successfully submitted. The NDS HR Desk will review your resume and contact you soon.';
+
+        $this->reset(['name', 'email', 'phone', 'address', 'experience', 'message', 'resume']);
+    }
+
+    public function render(): mixed
+    {
+        $jobs = JobPost::where('status', 'open')->latest()->get();
+
+        return view('pages.career.career', [
+            'jobs' => $jobs,
+        ]);
     }
 };
