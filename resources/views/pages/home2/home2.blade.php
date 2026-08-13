@@ -1,990 +1,913 @@
-<div class="w-full bg-white flex flex-col">
-    <!-- Hero Section: Simple Video Playing (No text/overlays) -->
-    <section class="relative w-full h-[80vh] min-h-[650px] overflow-hidden bg-cream">
-        <!-- Background Video (YouTube Embed - Cropped to hide title text and shadow overlays) -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <iframe src="https://www.youtube.com/embed/ApLnqFUtHWc?autoplay=1&mute=1&loop=1&playlist=ApLnqFUtHWc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
-                class="absolute top-1/2 left-1/2 w-[115vw] h-[65vw] min-h-[120vh] min-w-[204vh] -translate-x-1/2 -translate-y-1/2 scale-125 opacity-100"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section>
+<div class="w-full bg-white flex flex-col min-h-screen">
 
+    <!-- 1. HERO SECTION: Sleek & Clean with Intro Animation -->
+    <section class="relative w-full py-8 lg:py-12 overflow-hidden bg-gradient-to-b from-cream/20 via-white to-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- LEFT SIDE CONTENT (7 Columns on LG) -->
+                <div x-data="{ shown: false }" 
+                     x-init="setTimeout(() => shown = true, 100)"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-[0.98]'"
+                     class="lg:col-span-7 flex flex-col gap-5 transition-all duration-1000 ease-out">
+                    
+                    <!-- Clean Pill Tag -->
+                    <div class="self-start">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1 bg-caramel/10 border border-caramel/25 text-brownie font-bold text-xs tracking-wider uppercase rounded-full">
+                            <span class="w-2 h-2 rounded-full bg-caramel animate-ping"></span>
+                            <span>PSARA Certified Security Agency</span>
+                        </span>
+                    </div>
 
+                    <!-- Clean Main Headline -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-brownie leading-[1.15]">
+                        Tactical Protection & <br class="hidden sm:inline" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-coffee via-caramel to-brownie">Security Excellence</span> in Noida
+                    </h1>
 
-    <!-- Who We Are Section (Reference Pattern: Image Left, Content Right - Centered in 7xl Screen) -->
-    <section class="py-20 w-full bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
-            <!-- Left Side: Image with dot decoration (5 columns) -->
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
-                 class="lg:col-span-5 relative flex items-center justify-center p-4 transition-all duration-[1400ms] ease-out">
-                <!-- Dotted Grid Decoration (Reference details) -->
-                <div class="absolute -top-4 -right-4 w-32 h-44 z-0 opacity-30 select-none hidden sm:block">
-                    <svg width="120" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <pattern id="dot-pattern" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
-                                <circle cx="3" cy="3" r="2" fill="var(--color-primary-caramel)" />
-                            </pattern>
-                        </defs>
-                        <rect width="120" height="160" fill="url(#dot-pattern)" />
-                    </svg>
-                </div>
-                <!-- Small floating accent circle -->
-                <div class="absolute top-8 -right-6 w-5 h-5 bg-caramel/30 rounded-full z-0 hidden sm:block"></div>
-
-                <!-- Main Image -->
-                <div class="relative z-10 w-full h-[380px] rounded-[24px] overflow-hidden border border-cream shadow-md">
-                    <img src="{{ asset('image/image1.webp') }}"
-                        alt="NDS Security Operations"
-                        class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-103" />
-                </div>
-            </div>
-
-            <!-- Right Side: Content with Left Accent Border (7 columns) -->
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
-                 class="lg:col-span-7 flex flex-col gap-6 transition-all duration-[1400ms] ease-out">
-                <!-- Pill chip -->
-                <div class="self-start">
-                    <span class="inline-block px-5 py-2 bg-white text-coffee font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-md shadow-caramel/10 border border-cream/80">
-                        Who We Are ~
-                    </span>
-                </div>
-
-                <!-- Heading -->
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-brownie leading-tight">
-                    The <span class="text-coffee">Most Trusted</span> Name in Security Services in Noida
-                </h2>
-
-                <!-- Content text with left accent border -->
-                <div class="border-caramel/70 py-1">
-                    <p class="text-sm sm:text-base md:text-lg text-coffee/90 leading-relaxed font-medium">
-                        Founded with a vision to deliver unmatched safety, NDS Security Services is Noida's leading private security provider. We cater to over 150+ corporate clients, manage deployments across 200+ secured locations in Noida & Delhi NCR, and employ a force of over 500+ highly trained guards. As a premier security partner, NDS is renowned for its PSARA-compliant Manned Guarding, 24/7 Command Center monitoring, electronic surveillance integration, executive VIP escorts, and comprehensive site risk assessments. We ensure your assets, employees, and premises remain protected round the clock with tactical precision.
+                    <!-- Clean Subtitle -->
+                    <p class="text-sm sm:text-base text-brownie/80 font-medium leading-relaxed max-w-xl">
+                        PSARA-compliant manned guarding, 24/7 central command surveillance, corporate asset protection, and executive escorts across 150+ sites in Delhi NCR.
                     </p>
+
+                    <!-- Key Feature Bullet Points (Compact 2-Column) -->
+                    <div class="grid grid-cols-2 gap-2.5 py-1 text-xs sm:text-sm font-semibold text-brownie/90 max-w-lg">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-checkbox-circle-fill text-caramel text-base"></i>
+                            <span>500+ Verified Guards</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-checkbox-circle-fill text-caramel text-base"></i>
+                            <span>24/7 Command Sync</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-checkbox-circle-fill text-caramel text-base"></i>
+                            <span>15-Min SLA Response</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-checkbox-circle-fill text-caramel text-base"></i>
+                            <span>100-Hr Vetted Training</span>
+                        </div>
+                    </div>
+
+                    <!-- Sleek Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                        <a href="#contact" 
+                           class="group bg-brownie hover:bg-caramel text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-7 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center gap-2 text-center">
+                            <span>Request Security Audit</span>
+                            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        
+                        <a href="{{ route('services') }}" 
+                           class="bg-white hover:bg-cream/40 text-brownie text-xs sm:text-sm font-bold tracking-wider py-3.5 px-6 rounded-full border border-brownie/20 hover:border-caramel shadow-sm transition-all duration-300 inline-flex items-center justify-center gap-2 text-center">
+                            <span>View All Services</span>
+                            <i class="ri-shield-check-line text-caramel"></i>
+                        </a>
+                    </div>
+
+                    <!-- Sleek Trust Stats Bar -->
+                    <div class="pt-3 border-t border-cream/80 flex items-center gap-6">
+                        <div>
+                            <div class="text-lg font-black text-brownie">15+ Years</div>
+                            <div class="text-[11px] text-brownie/60 font-medium">Industry Experience</div>
+                        </div>
+                        <div class="h-6 w-px bg-cream"></div>
+                        <div>
+                            <div class="text-lg font-black text-brownie">150+ Sites</div>
+                            <div class="text-[11px] text-brownie/60 font-medium">Noida & NCR Shielded</div>
+                        </div>
+                        <div class="h-6 w-px bg-cream"></div>
+                        <div>
+                            <div class="text-lg font-black text-brownie">99.8%</div>
+                            <div class="text-[11px] text-brownie/60 font-medium">Client Satisfaction</div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Gradient pill button -->
-                <div class="self-start">
-                    <a href="#" class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-8 rounded-full shadow-md shadow-caramel/25 transition-all inline-flex items-center gap-2 cursor-pointer mt-4">
-                        Learn More <i class="ri-arrow-right-line"></i>
-                    </a>
+                <!-- RIGHT SIDE: CLEAN SLIDER (5 Columns on LG) -->
+                <div x-data="{ shown: false }" 
+                     x-init="setTimeout(() => shown = true, 250)"
+                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-[0.98]'"
+                     class="lg:col-span-5 relative w-full transition-all duration-1000 ease-out">
+                    <div x-data="{ 
+                        activeSlide: 0,
+                        images: [
+                            '{{ asset('image/PIC_3766.webp') }}',
+                            '{{ asset('image/PIC_3788.webp') }}',
+                            '{{ asset('image/PIC_3792.webp') }}',
+                            '{{ asset('image/PIC_3795.webp') }}',
+                            '{{ asset('image/PIC_3861.webp') }}',
+                            '{{ asset('image/PIC_4855.webp') }}',
+                            '{{ asset('image/PIC_4880.webp') }}'
+                        ],
+                        timer: null,
+                        startAutoSlide() {
+                            this.stopAutoSlide();
+                            this.timer = setInterval(() => {
+                                this.nextSlide();
+                            }, 4000);
+                        },
+                        stopAutoSlide() {
+                            if(this.timer) clearInterval(this.timer);
+                        },
+                        nextSlide() {
+                            this.activeSlide = (this.activeSlide + 1) % this.images.length;
+                        },
+                        prevSlide() {
+                            this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
+                        },
+                        goToSlide(index) {
+                            this.activeSlide = index;
+                            this.startAutoSlide();
+                        }
+                    }"
+                    x-init="startAutoSlide()"
+                    @mouseenter="stopAutoSlide()"
+                    @mouseleave="startAutoSlide()"
+                    class="relative w-full h-[360px] sm:h-[440px] rounded-2xl overflow-hidden shadow-lg border border-cream transition-all duration-500 select-none group bg-gray-100">
+
+                        <!-- Clean Rectangle Images -->
+                        <template x-for="(img, index) in images" :key="index">
+                            <div x-show="activeSlide === index"
+                                 x-transition:enter="transition ease-out duration-700"
+                                 x-transition:enter-start="opacity-0 scale-102"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 x-transition:leave="transition ease-in duration-500"
+                                 x-transition:leave-start="opacity-100 scale-100"
+                                 x-transition:leave-end="opacity-0 scale-98"
+                                 class="absolute inset-0 w-full h-full">
+                                <img :src="img" 
+                                     alt="NDS Security Operations"
+                                     class="w-full h-full object-cover object-top" />
+                            </div>
+                        </template>
+
+                        <!-- Bullet Dots -->
+                        <div class="absolute bottom-3 inset-x-0 z-20 flex items-center justify-center px-4 pointer-events-none">
+                            <div class="flex items-center gap-1.5 pointer-events-auto bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
+                                <template x-for="(img, index) in images" :key="index">
+                                    <button @click="goToSlide(index)" 
+                                            type="button"
+                                            :aria-label="'Go to image ' + (index + 1)"
+                                            :class="activeSlide === index ? 'w-5 bg-caramel' : 'w-1.5 bg-white/50 hover:bg-white'"
+                                            class="h-1.5 rounded-full transition-all duration-300 focus:outline-none">
+                                    </button>
+                                </template>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Text Marquee Section (Immediately after Who We Are) -->
-    <div class="relative w-full bg-gradient-to-r from-caramel via-[#cf9562] to-coffee text-white py-3.5 border-y border-cream/20 overflow-hidden select-none pointer-events-none z-10">
-        <div class="flex animate-marquee whitespace-nowrap w-max items-center">
-            <!-- Group 1 -->
-            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-xs sm:text-sm font-black uppercase tracking-widest">
-                <span class="flex items-center gap-2">
-                    <i class="ri-shield-check-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">PSARA Certified</strong> Security
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-flashlight-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">15 Mins</strong> Emergency Response
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-shield-user-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">Background Verified</strong> Guards
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-radar-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">24/7 Command Center</strong> Monitoring
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">150+ Corporate</strong> Sites Noida
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-focus-3-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">Regular Tactical</strong> Training
-                </span>
+    <!-- 2. INFINITE SECURITY MARQUEE TICKER -->
+    <div class="w-full bg-brownie py-3.5 text-white overflow-hidden shadow-inner select-none">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <div class="flex items-center gap-10 text-xs font-bold tracking-widest uppercase">
+                <span class="inline-flex items-center gap-2"><i class="ri-shield-check-fill text-caramel"></i> PSARA Certified Agency</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-radar-fill text-caramel"></i> 24/7 Live Command Center</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-building-4-fill text-caramel"></i> 150+ Corporate Sites Shielded</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-timer-flash-fill text-caramel"></i> 15-Min Rapid Emergency Unit</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-user-star-fill text-caramel"></i> Executive VIP Officers</span>
+                <span class="text-caramel/40">•</span>
             </div>
-            <!-- Group 2 -->
-            <div class="flex gap-16 items-center whitespace-nowrap px-8 text-xs sm:text-sm font-black uppercase tracking-widest">
-                <span class="flex items-center gap-2">
-                    <i class="ri-shield-check-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">PSARA Certified</strong> Security
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-flashlight-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">15 Mins</strong> Emergency Response
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-shield-user-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">Background Verified</strong> Guards
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-radar-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">24/7 Command Center</strong> Monitoring
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">150+ Corporate</strong> Sites Noida
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="ri-focus-3-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">Regular Tactical</strong> Training
-                </span>
+            <div class="flex items-center gap-10 text-xs font-bold tracking-widest uppercase pl-10">
+                <span class="inline-flex items-center gap-2"><i class="ri-shield-check-fill text-caramel"></i> PSARA Certified Agency</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-radar-fill text-caramel"></i> 24/7 Live Command Center</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-building-4-fill text-caramel"></i> 150+ Corporate Sites Shielded</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-timer-flash-fill text-caramel"></i> 15-Min Rapid Emergency Unit</span>
+                <span class="text-caramel/40">•</span>
+                <span class="inline-flex items-center gap-2"><i class="ri-user-star-fill text-caramel"></i> Executive VIP Officers</span>
+                <span class="text-caramel/40">•</span>
             </div>
         </div>
     </div>
 
-
-    <!-- Advanced Features & Impact Stats Section (Tailored specifically for NDS Security Guard Company) -->
-    <section class="relative w-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-16 sm:py-24 border-y border-caramel/35 overflow-hidden">
-        <!-- Organic Background Wave & Subtle Light Glow -->
-        <div class="absolute inset-0 z-0 opacity-15 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="feature-grid" width="44" height="44" patternUnits="userSpaceOnUse">
-                        <path d="M 44 0 L 0 0 0 44" fill="none" stroke="rgba(207,149,98,0.3)" stroke-width="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#feature-grid)" />
-            </svg>
+    <!-- 3. SLIDING CLIENTELE SECTION (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-12 w-full bg-white overflow-hidden border-b border-cream select-none relative transition-all duration-1000 ease-out">
+        
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-4 mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div class="flex flex-col gap-1">
+                    <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Our Elite Clientele Portfolio</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-brownie tracking-tight">Trusted by Premier Corporates, Plazas & Townships</h2>
+                </div>
+                <a href="{{ route('clientele') }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-caramel hover:text-coffee transition-colors group">
+                    <span>Explore Full Portfolio</span>
+                    <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
         </div>
-        <div class="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-caramel/15 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-coffee/25 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-             class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full transition-all duration-[1400ms] ease-out">
+        <!-- Fade Gradients at Edges -->
+        <div class="absolute left-0 top-16 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-16 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
 
-            <!-- Top Tier: Headline + Animated Circular Contact Badge -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-16">
-                <div class="flex flex-col gap-3.5 max-w-2xl">
-                    <!-- Pill Chip Tag -->
-                    <div class="self-start">
-                        <span class="inline-flex items-center gap-2 px-4.5 py-1.5 bg-caramel/20 border border-caramel/40 text-cream text-xs sm:text-sm font-extrabold tracking-wider uppercase rounded-full shadow-sm backdrop-blur-sm">
-                            <i class="ri-shield-check-fill text-caramel"></i> WHY NDS SECURITY ~
-                        </span>
+        <!-- Marquee Track Container with FULL COLOR LOGOS inside uniform cards -->
+        <div class="w-full flex overflow-hidden py-2">
+            <div class="flex whitespace-nowrap animate-marquee items-center gap-6 shrink-0 min-w-full justify-around">
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+            </div>
+
+            <!-- Duplicate track for seamless loop -->
+            <div class="flex whitespace-nowrap animate-marquee items-center gap-6 shrink-0 min-w-full justify-around" aria-hidden="true">
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
+                    <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHO WE ARE SECTION (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-white transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left Image with Clean Border -->
+            <div class="lg:col-span-5 relative group">
+                <div class="relative w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-cream">
+                    <img src="{{ asset('image/PIC_3766.webp') }}" 
+                         alt="NDS Guarding Force" 
+                         class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <!-- Clean Accent Pill Overlay -->
+                <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg border border-cream flex items-center gap-3 hover:-translate-y-1 transition-transform">
+                    <div class="w-10 h-10 rounded-lg bg-caramel/15 text-caramel flex items-center justify-center text-xl font-bold">
+                        <i class="ri-shield-user-fill"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-black uppercase tracking-wider text-brownie">PSARA Approved</div>
+                        <div class="text-[11px] text-brownie/60 font-semibold">Government Regulated</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content & Pillars -->
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                
+                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Who We Are</span>
+                
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-brownie leading-tight">
+                    Noida's Premier & Most Trusted Security Service Partner
+                </h2>
+
+                <p class="text-sm sm:text-base text-brownie/80 font-medium leading-relaxed">
+                    Founded with a core mission to protect people, property, and corporate assets, NDS Security Services operates across Noida, Greater Noida, and the Delhi NCR region. We deploy highly trained, background-checked personnel equipped with tactical training and backed by our 24/7 central command center.
+                </p>
+
+                <!-- Interactive Accordion Details -->
+                <div x-data="{ openTab: 1 }" class="flex flex-col gap-3 pt-2">
+                    
+                    <!-- Tab 1 -->
+                    <div class="border border-cream rounded-xl p-4 transition-all" :class="openTab === 1 ? 'bg-cream/30 border-caramel/40 shadow-sm' : 'bg-white'">
+                        <button @click="openTab = (openTab === 1 ? null : 1)" class="w-full flex items-center justify-between font-bold text-sm text-brownie text-left focus:outline-none">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ri-shield-star-line text-caramel"></i>
+                                <span>Rigorous Vetting & Police Verification</span>
+                            </span>
+                            <i class="ri-arrow-down-s-line transition-transform duration-300" :class="openTab === 1 ? 'rotate-180 text-caramel' : ''"></i>
+                        </button>
+                        <div x-show="openTab === 1" class="pt-3 text-xs text-brownie/70 leading-relaxed font-medium">
+                            Every candidate recruited into NDS undergoes complete police background checks, medical physical clearance, address verification, and drug testing before deployment.
+                        </div>
                     </div>
 
-                    <!-- Main Title -->
-                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.15]">
-                        Trained Security Force & <span class="text-caramel underline decoration-caramel/40 underline-offset-8">24/7 Tactical Command</span> Protection
-                    </h2>
+                    <!-- Tab 2 -->
+                    <div class="border border-cream rounded-xl p-4 transition-all" :class="openTab === 2 ? 'bg-cream/30 border-caramel/40 shadow-sm' : 'bg-white'">
+                        <button @click="openTab = (openTab === 2 ? null : 2)" class="w-full flex items-center justify-between font-bold text-sm text-brownie text-left focus:outline-none">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ri-customer-service-2-line text-caramel"></i>
+                                <span>24/7 Command Monitoring & Supervision</span>
+                            </span>
+                            <i class="ri-arrow-down-s-line transition-transform duration-300" :class="openTab === 2 ? 'rotate-180 text-caramel' : ''"></i>
+                        </button>
+                        <div x-show="openTab === 2" class="pt-3 text-xs text-brownie/70 leading-relaxed font-medium">
+                            Our Noida head office command center continuously monitors CCTV streams, processes panic alarms, and coordinates GPS-tracked supervisor patrol loops around the clock.
+                        </div>
+                    </div>
+
+                    <!-- Tab 3 -->
+                    <div class="border border-cream rounded-xl p-4 transition-all" :class="openTab === 3 ? 'bg-cream/30 border-caramel/40 shadow-sm' : 'bg-white'">
+                        <button @click="openTab = (openTab === 3 ? null : 3)" class="w-full flex items-center justify-between font-bold text-sm text-brownie text-left focus:outline-none">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ri-fire-line text-caramel"></i>
+                                <span>Fire Hazard & Crisis Management Trained</span>
+                            </span>
+                            <i class="ri-arrow-down-s-line transition-transform duration-300" :class="openTab === 3 ? 'rotate-180 text-caramel' : ''"></i>
+                        </button>
+                        <div x-show="openTab === 3" class="pt-3 text-xs text-brownie/70 leading-relaxed font-medium">
+                            All NDS officers complete Red Cross first-aid training, practice high-rise fire evacuation layouts, and know how to operate commercial fire panels effectively.
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Rotating Circular Contact Badge -->
-                <a href="tel:+919999988888" class="relative shrink-0 group flex items-center justify-center cursor-pointer mt-2 md:mt-0">
-                    <!-- Animated SVG Rotating Circular Text -->
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 animate-[spin_14s_linear_infinite]">
-                        <svg viewBox="0 0 100 100" class="w-full h-full text-cream/80 fill-current">
-                            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
-                            <text class="text-[10px] font-bold uppercase tracking-[2.5px]">
-                                <textPath href="#circlePath">
-                                    Contact Now • Contact Now •
-                                </textPath>
-                            </text>
-                        </svg>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. IMPACT METRICS GRID (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-14 w-full bg-cream/20 border-y border-cream/80 transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                
+                <!-- Stat Card 1 -->
+                <div class="p-6 rounded-2xl bg-white border border-cream hover:border-caramel/40 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-caramel/15 text-caramel flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-caramel group-hover:text-white transition-all">
+                        <i class="ri-shield-user-fill"></i>
                     </div>
-                    <!-- Center Badge Icon -->
-                    <div class="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white shadow-2xl shadow-caramel/30 flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-cream group-hover:text-brownie">
-                        <i class="ri-phone-fill"></i>
+                    <div class="text-3xl sm:text-4xl font-black text-brownie group-hover:text-caramel transition-colors tracking-tight mt-1">500+</div>
+                    <div class="text-xs font-bold text-brownie/70 uppercase tracking-wider">Trained Security Guards</div>
+                    <p class="text-[11px] text-brownie/50 font-medium">PSARA verified personnel across NCR</p>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="p-6 rounded-2xl bg-white border border-cream hover:border-caramel/40 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-caramel/15 text-caramel flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-caramel group-hover:text-white transition-all">
+                        <i class="ri-building-2-fill"></i>
                     </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brownie group-hover:text-caramel transition-colors tracking-tight mt-1">150+</div>
+                    <div class="text-xs font-bold text-brownie/70 uppercase tracking-wider">Corporate Sites Protected</div>
+                    <p class="text-[11px] text-brownie/50 font-medium">Commercial plazas, IT parks & societies</p>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="p-6 rounded-2xl bg-white border border-cream hover:border-caramel/40 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-caramel/15 text-caramel flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-caramel group-hover:text-white transition-all">
+                        <i class="ri-timer-flash-fill"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brownie group-hover:text-caramel transition-colors tracking-tight mt-1">15-Min</div>
+                    <div class="text-xs font-bold text-brownie/70 uppercase tracking-wider">Emergency Response SLA</div>
+                    <p class="text-[11px] text-brownie/50 font-medium">Guaranteed rapid response dispatch</p>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="p-6 rounded-2xl bg-white border border-cream hover:border-caramel/40 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-caramel/15 text-caramel flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-caramel group-hover:text-white transition-all">
+                        <i class="ri-award-fill"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brownie group-hover:text-caramel transition-colors tracking-tight mt-1">100%</div>
+                    <div class="text-xs font-bold text-brownie/70 uppercase tracking-wider">PSARA Vetted & Compliant</div>
+                    <p class="text-[11px] text-brownie/50 font-medium">Full police & medical verification</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SERVICES SHOWCASE (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-cream/20 transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-12">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="flex flex-col gap-2 max-w-xl">
+                    <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Tailored Security Solutions</span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-brownie">
+                        Comprehensive Security Services Built for Enterprise Trust
+                    </h2>
+                </div>
+                <a href="{{ route('services') }}" class="self-start md:self-auto inline-flex items-center gap-2 text-sm font-bold text-caramel hover:text-coffee transition-colors group">
+                    <span>Explore All Services</span>
+                    <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
 
-            <!-- Middle Tier: 4 Feature Items Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-14 border-b border-cream/15">
-                <!-- Feature 1 -->
-                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
-                        <i class="ri-shield-user-fill text-2xl"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
-                        PSARA-Certified Force
-                    </h3>
-                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
-                        Rigorously vetted, background-verified security guards trained for industrial complexes, corporate IT parks, and residential townships.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
-                        <i class="ri-radar-fill text-2xl"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
-                        24/7 Command Patrol
-                    </h3>
-                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
-                        Real-time GPS patrol monitoring, digital incident logging, and a 15-minute rapid emergency response team active round the clock.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
-                        <i class="ri-building-4-fill text-2xl"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
-                        Corporate Protection
-                    </h3>
-                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
-                        Polite front-desk reception guards, automated digital visitor gate-pass management, and multi-tier access control protocols.
-                    </p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="flex flex-col gap-3.5 group p-4 rounded-2xl transition-all duration-300 hover:bg-cream/5 border border-transparent hover:border-caramel/20">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:bg-caramel group-hover:text-white transition-all duration-300 shadow-md">
-                        <i class="ri-shield-star-fill text-2xl"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-black text-cream uppercase tracking-wide group-hover:text-caramel transition-colors">
-                        VVIP & Armed Escorts
-                    </h3>
-                    <p class="text-xs sm:text-sm text-cream/75 leading-relaxed font-medium">
-                        Disciplined ex-servicemen & personal security officers (PSOs) specialized in executive escorts, cash transit, and event safety.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Bottom Tier: 5 Counter Stats with Vertical Separator Lines -->
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12 items-center text-center">
-                <!-- Stat 1 -->
-                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 220, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
-                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
-                        <span x-text="count">0</span>+
-                    </h4>
-                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Residential Townships
-                    </p>
-                </div>
-
-                <!-- Stat 2 -->
-                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 30, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
-                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
-                        <span x-text="count">0</span>+
-                    </h4>
-                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Malls & Complexes
-                    </p>
-                </div>
-
-                <!-- Stat 3 -->
-                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 100, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
-                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
-                        <span x-text="count">0</span>+
-                    </h4>
-                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Corporate Towers
-                    </p>
-                </div>
-
-                <!-- Stat 4 -->
-                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 500, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
-                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
-                        <span x-text="count">0</span>+
-                    </h4>
-                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Guards Deployed
-                    </p>
-                </div>
-
-                <!-- Stat 5 -->
-                <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1"
-                     x-data="{ count: 0, target: 25, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
-                    <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
-                        <span x-text="count">0</span>+
-                    </h4>
-                    <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Years of Trust
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Client Logo Alpine Slider Section (No arrow controls, auto sliding transition) -->
-    <section class="bg-white py-20 border-b border-cream/30 overflow-hidden relative z-10"
-        x-data="{ 
-                 activeIndex: 0, 
-                 totalLogos: 26,
-                 getVisibleLogos() {
-                     if (window.innerWidth >= 1024) return 5;
-                     if (window.innerWidth >= 768) return 3;
-                     return 2;
-                 },
-                 init() {
-                     setInterval(() => {
-                         const maxIndex = this.totalLogos - this.getVisibleLogos();
-                         if (this.activeIndex < maxIndex) {
-                             this.activeIndex++;
-                         } else {
-                             this.activeIndex = 0;
-                         }
-                     }, 2800);
-                 }
-             }"
-        @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
-                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                    Trusted by Noida's Leading Landmarks
-                </h2>
-                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
-            </div>
-
-            <div class="relative w-full overflow-hidden">
-                <div class="flex transition-transform duration-500 ease-out items-center"
-                    :style="'width: ' + (totalLogos / getVisibleLogos() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalLogos)) + '%)'">
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L03-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L04-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L05-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L06-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L07-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L09-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L11-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L13-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L16-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L17-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L18-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L19-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L20-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L21-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Bento Grid Section (Expertise - Clean & Modern Layout) -->
-    <section class="bg-cream/15 py-20 sm:py-24 border-y border-cream/50 relative overflow-hidden">
-        <!-- Subtle Grid Background -->
-        <div class="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="home-services-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(192,133,82,0.12)" stroke-width="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#home-services-grid)" />
-            </svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
-                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
-                    <i class="ri-shield-star-fill text-sm"></i> Services
-                </span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-brownie max-w-2xl leading-tight">
-                    Comprehensive <span class="text-caramel">security</span> and surveillance solutions
-                </h2>
-                <div class="w-12 h-1 bg-caramel mt-2 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-                <!-- Card 1: Physical Guarding -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-100 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://lh3.googleusercontent.com/aida/AP1WRLsV-SoJDZgIiLPzKak3XtVbnVX5XnElfRbSkQYICqCOVcycOg3d1s828xbjfSmsyrTmGlCuMgdu-zYwid1ZkyzhIoGHnuDB1j1j-QfB4LoH0SSgIjOh-u1QbqH63jFLpa-mN1ZboHEE789M-9-4rkZ9GDgmjCDIXcUz4o_fDyJq_wCg7_cXNCwEvpN377TtvamcMDwA22uFkHw6cWJLD9B4Lb5us4ZtbwNemca1asUusaUVYJj8zLe0nbxO"
-                            alt="Security Guard"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-shield-star-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Physical Guarding
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Vigilant, disciplined physical security guards trained for industrial complexes, retail malls, IT parks, and residential neighborhoods.
-                            </p>
+            <!-- Asymmetrical Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Manned Guarding -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-shield-user-line"></i>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2: Corporate Security -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-200 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://lh3.googleusercontent.com/aida/AP1WRLs9GDpOIG8v_zrMNLzN1ZWLKuiXBgbety7WqPbN63CW2rOl2Rqj_Esuv-IOyhAO3lj-XXAbR0jcKTob8wSDGHcJBlbWR4R6Vax643wA2jey5tPsUPI7z3l8kDGjRZA9qS7Qtb6BiCD7pBj2exLlzIuhED9zcJS_YF200wmbHk0RH0PJrIhQOCJESBD4q7wTm_EObRytDfWN5okLtKYiPKG9yvLsERs1GqapQjgjd9znPe2MVlTxL5OO_Gs"
-                            alt="Corporate Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-building-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Corporate Security
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Integrated corporate facility security, digital gate-pass tracking, and front-desk receptionist-guard protocols.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3: Armed Escorts -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-300 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://lh3.googleusercontent.com/aida/AP1WRLvIHW23j_OUjwvXqlEeitUANjVbDzIZZ-FuEFvMemmRCO6egwo9SIXBbo10oOOE2IEZLW27ahSHbum1PyB9o5BoPC9wcAbRpCZ64gwouwKGQisazj2i8n_zRImx_e6tG4nEVR1UTvop7fm45lPEWcHg-1AAbNFMGH4L5xgryo7DPB7YnpbXtPasJt2h5cGoEqfDD_9mNu9UgoGnx0MLTdc9puKJkpwMJU6YlV_8KcHtBjEGxu5zEeXCKtBm"
-                            alt="Escort Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-user-star-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Armed Escorts
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Elite personal protective guards and armed transit protection for executives, VVIPs, and critical cash transit.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 4: Electronic Surveillance -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-200 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="{{ asset('command_center.png') }}"
-                            alt="Electronic Surveillance Control Room"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-radar-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Electronic Surveillance
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                24/7 centralized command monitoring, smart AI-driven CCTV integrations, thermal imaging, and perimeter intrusion detection.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 5: Event Security Management -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-300 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://lh3.googleusercontent.com/aida/AP1WRLsnr0nCqgBFokwmrnxmAUVtAeJNt-nhkcJhehbgISmRSxUV_d5Y--Ep0kBLFtTmbp2noGJ_OXHU5-ucAYqHazKbHOfLh_PElXVh09yjMf67799TggbUrBb8djUWjLXGXy4nRrUcxRg1ka-jV75zhKLGoYfuDiftNVte3InfxGT4eOR8xq4jMZOx2wNPz6TsyqxOvy2OtFrqMcchpTDHAE5aPUfddNOZ_QsQHayyYFpBnJrHW6qWdodo8O1w"
-                            alt="Event Crowd Control Security"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-group-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Event Security
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Tactical crowd management, VIP routing plans, rapid evacuation drills, and comprehensive security coordination for corporate events.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 6: Risk Assessment & Audit -->
-                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                     :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                     class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] delay-400 ease-out flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://lh3.googleusercontent.com/aida/AP1WRLtyBG6H2kDhbY3d3BTw7l3dichQuqW7371O7Sd2S51O2_iLMOBHrjQ_-Ccre68Wcvq8huiXsb7FqveSxZRAIhf-FmBWLbXXkpQpIHbqVqWm6ZDNb5pkqer42NC2QJEkOQ1LRfcENWYgd6Noqi-GFk_17XCVcvZXq7nFUyf5MjGRXuMvSYj55l0qjJFInPJ-i40uXI8M3Mjm8dc6BFyz1eMI2CTqu2fxV7Yo3awlz2PgrGyqV_-mlJ5ujQ1C"
-                            alt="Security Audit Inspection"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-file-shield-2-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Risk Assessment
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Detailed safety audit sweeps, fire-safety protocol checks, perimeter threat assessments, and security compliance reports.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Slider Section (Showing 2 cards at a time, Photo-less design matching theme) -->
-    <section class="bg-gradient-to-b from-cream/20 via-white to-cream/30 py-20 border-t border-cream relative overflow-hidden"
-        x-data="{ 
-                 activeIndex: 0, 
-                 totalCards: 4,
-                 getVisibleCards() {
-                     if (window.innerWidth >= 640) return 2;
-                     return 1;
-                 },
-                 next() {
-                     const visible = this.getVisibleCards();
-                     if (this.activeIndex < this.totalCards - visible) {
-                         this.activeIndex++;
-                     } else {
-                         this.activeIndex = 0; // Loop back
-                     }
-                 },
-                 prev() {
-                     const visible = this.getVisibleCards();
-                     if (this.activeIndex > 0) {
-                         this.activeIndex--;
-                     } else {
-                         this.activeIndex = this.totalCards - visible; // Loop to end
-                     }
-                 },
-                 init() {
-                     setInterval(() => {
-                         this.next();
-                     }, 4500);
-                 }
-             }"
-        @resize.window="if (activeIndex > totalCards - getVisibleCards()) activeIndex = totalCards - getVisibleCards()">
-        <!-- Faint background accent pattern -->
-        <div class="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                    <pattern id="testi-dots" width="24" height="24" patternUnits="userSpaceOnUse">
-                        <circle cx="3" cy="3" r="1.5" fill="rgba(192,133,82,0.15)" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#testi-dots)" />
-            </svg>
-        </div>
-
-        <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-             class="max-w-6xl mx-auto px-6 md:px-12 w-full relative z-10 transition-all duration-[1400ms] ease-out">
-            
-            <!-- Section Header (Matching Reference Design) -->
-            <div class="flex flex-col items-center text-center gap-3 mb-14">
-                <span class="inline-flex items-center gap-1.5 px-4 py-1 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
-                    <i class="ri-chat-voice-fill text-sm"></i> TESTIMONIALS
-                </span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-brownie">
-                    Trusted feedback <span class="text-caramel">from our clients</span>
-                </h2>
-            </div>
-
-            <!-- Card Slider Viewport (2 Cards Visible Side by Side) -->
-            <div class="relative w-full">
-                <div class="overflow-hidden py-3 -mx-3">
-                    <div class="flex transition-transform duration-600 ease-out"
-                        :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'">
-                        
-                        <!-- Card 1: Amit Sharma / DLF Tech Park -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Red Accent Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Amit Sharma
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Chief Executive Officer, DLF Tech Park
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "NDS has been managing our manned guarding and 24/7 command center operations for over 3 years. Their discipline, regular operations audits, and emergency response time are unmatched in Delhi NCR. Highly recommend their services!"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Priya Goel / Gaur City Mall -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Priya Goel
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Operations Director, Gaur City Mall
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "Securing a high-footfall mall requires swift coordination. NDS deployed a highly trained crowd control squad and optimized our parking patrol loop. Their team is always alert and professional."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Rohan Mehta / Emerald Heights -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Rohan Mehta
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                President, RWA Emerald Heights
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "With NDS Security, our township residents feel completely safe. Their digital visitor verification protocols and polite, background-verified guards are outstanding. The best security partner!"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Vikram Singh / Tech Mahindra -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Vikram Singh
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Facility Head, Tech Mahindra Noida
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "The access control systems and manned guarding deployed by NDS have streamlined our corporate visitor tracking. Their 24/7 command center support is top notch."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Bottom Centered Arrow Controls (Matching Reference Screenshot) -->
-                <div class="flex items-center justify-center gap-3 mt-8">
-                    <button @click="prev()"
-                        class="w-10 h-10 rounded-full bg-white border border-cream/90 shadow-sm hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all cursor-pointer">
-                        <i class="ri-arrow-left-s-line text-xl"></i>
-                    </button>
-                    <button @click="next()"
-                        class="w-10 h-10 rounded-full bg-white border border-cream/90 shadow-sm hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all cursor-pointer">
-                        <i class="ri-arrow-right-s-line text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section (SIS & Securitas Interactive Accordion Pattern) -->
-    <section class="bg-white py-16 border-t border-cream/50" x-data="{ activeFaq: null }">
-        <div class="w-full px-6 md:px-12">
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1300ms] ease-out">
-                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Common Queries</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-brownie">
-                    Frequently Asked Questions
-                </h2>
-                <div class="w-12 h-1 bg-caramel mt-1"></div>
-            </div>
-
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                 class="max-w-3xl mx-auto flex flex-col gap-3 transition-all duration-[1400ms] delay-150 ease-out">
-                <!-- FAQ 1 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 1 ? null : 1)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>Are your security guards PSARA certified?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 1 ? 'rotate-180 text-caramel' : ''"></i>
-                    </button>
-                    <div x-show="activeFaq === 1" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Yes, 100% of our security personnel are compliant with the PSARA Act 2005. Every guard undergoes mandatory character validation, medical fitness screening, and a background verification check before deployment.
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">PSARA Manned Guarding</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Rigorously trained physical guarding force for commercial complexes, corporate offices, and residential townships with 24/7 supervisor check-ins.
                         </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">Manned Defense</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Command Center -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-radar-line"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">24/7 Command Center</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Centralized CCTV monitoring, automated alarm processing, and live GPS patrol sync ensuring guaranteed rapid dispatch across all sites.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">Live Surveillance</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Corporate Asset Shield -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-building-2-line"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">Corporate & Industrial Asset Shield</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Visitor entry authorization, turnstile access logs, loading bay inspection, and site risk management tailored for IT parks & factories.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">Facility Protection</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: VIP Executive Protection -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-user-star-line"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">VIP Executive Escort</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Discreet, highly trained Personal Security Officers (PSO) and armored vehicle transit management for corporate executives and delegates.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">PSO & Transit</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Event Security -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-group-line"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">Event & Crowd Control</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Turnkey security management for corporate events, exhibitions, and public gatherings with metal detector screening & stage security.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">Crowd Management</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Electronic CCTV & Access -->
+                <div class="group bg-white p-8 rounded-[28px] border border-cream hover:border-caramel/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 relative overflow-hidden">
+                    <div class="flex flex-col gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-2xl group-hover:bg-caramel group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <i class="ri-eye-line"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-brownie group-hover:text-coffee transition-colors">Electronic CCTV Integration</h3>
+                        <p class="text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                            Supply, setup, and maintenance of high-definition 4K IP cameras, biometric gate access, and automated boom barrier systems.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-cream">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-caramel">Smart Tech</span>
+                        <a href="{{ route('services') }}" class="w-8 h-8 rounded-full bg-cream/60 group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-brownie transition-all">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TACTICAL GUARD ACADEMY (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-brownie text-white relative overflow-hidden transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Image with Clean Rectangle -->
+            <div class="lg:col-span-6 relative group">
+                <div class="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="{{ asset('image/PIC_4855.webp') }}" 
+                         alt="NDS Training Academy" 
+                         class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                </div>
+            </div>
+
+            <!-- Right Content & Process Steps -->
+            <div class="lg:col-span-6 flex flex-col gap-6">
+                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">NDS Training Academy</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+                    Rigorous Physical, Fire Safety & Threat Detection Drills
+                </h2>
+                <p class="text-sm sm:text-base text-cream/80 font-medium leading-relaxed">
+                    A security guard is only as effective as their training. At the NDS Academy, candidates undergo daily physical endurance courses, practice handling high-pressure fire extinguishers, and master digital visitor entry logs.
+                </p>
+
+                <!-- Process Steps Checklist -->
+                <div class="flex flex-col gap-3 pt-2">
+                    <div class="flex items-center gap-3 text-sm font-semibold text-cream group">
+                        <div class="w-6 h-6 rounded-full bg-caramel text-white flex items-center justify-center text-xs font-bold shrink-0 group-hover:scale-110 transition-transform">1</div>
+                        <span>100-Hour Mandatory Physical & Tactical Defense Regimen</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm font-semibold text-cream group">
+                        <div class="w-6 h-6 rounded-full bg-caramel text-white flex items-center justify-center text-xs font-bold shrink-0 group-hover:scale-110 transition-transform">2</div>
+                        <span>Fire Safety Drills, Hydrant Panel Operation & First-Aid</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm font-semibold text-cream group">
+                        <div class="w-6 h-6 rounded-full bg-caramel text-white flex items-center justify-center text-xs font-bold shrink-0 group-hover:scale-110 transition-transform">3</div>
+                        <span>Soft Skills, Conflict De-escalation & Professional Grooming</span>
+                    </div>
+                </div>
+
+                <div class="pt-3">
+                    <a href="{{ route('training') }}" class="inline-flex items-center gap-2 px-7 py-3 bg-caramel hover:bg-coffee text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full shadow-lg transition-all group">
+                        <span>Explore Academy Program</span>
+                        <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. CLIENTELE PORTFOLIO HIGHLIGHTS (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-white transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="flex flex-col gap-2 max-w-xl">
+                    <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Proven Deployment Track Record</span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-brownie">
+                        Securing Commercial, Industrial & Residential Complexes
+                    </h2>
+                </div>
+                <a href="{{ route('clientele') }}" class="self-start md:self-auto inline-flex items-center gap-2 text-sm font-bold text-caramel hover:text-coffee transition-colors group">
+                    <span>View Client Portfolio</span>
+                    <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Portfolio 3 Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Portfolio 1 -->
+                <div class="group bg-cream/20 rounded-2xl overflow-hidden border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div class="h-56 w-full overflow-hidden relative">
+                        <img src="{{ asset('image/PIC_3788.webp') }}" alt="Commercial Plaza" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-brownie/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Commercial Plaza</span>
+                    </div>
+                    <div class="p-6 flex flex-col gap-3">
+                        <h4 class="text-lg font-extrabold text-brownie group-hover:text-coffee transition-colors">Gaur City Commercial Plaza, Noida</h4>
+                        <p class="text-xs text-brownie/70 font-medium leading-relaxed">
+                            24/7 manned guarding deployment, turnstile visitor access log management, and parking patrol loop.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Portfolio 2 -->
+                <div class="group bg-cream/20 rounded-2xl overflow-hidden border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div class="h-56 w-full overflow-hidden relative">
+                        <img src="{{ asset('image/PIC_3792.webp') }}" alt="IT Office Park" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-brownie/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">IT Tech Park</span>
+                    </div>
+                    <div class="p-6 flex flex-col gap-3">
+                        <h4 class="text-lg font-extrabold text-brownie group-hover:text-coffee transition-colors">Sector-62 IT Office Park, Noida</h4>
+                        <p class="text-xs text-brownie/70 font-medium leading-relaxed">
+                            Integrated CCTV command center monitoring, biometric gate security, and executive PSO escorting.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Portfolio 3 -->
+                <div class="group bg-cream/20 rounded-2xl overflow-hidden border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div class="h-56 w-full overflow-hidden relative">
+                        <img src="{{ asset('image/PIC_3795.webp') }}" alt="Gated Residential Society" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-brownie/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Residential Society</span>
+                    </div>
+                    <div class="p-6 flex flex-col gap-3">
+                        <h4 class="text-lg font-extrabold text-brownie group-hover:text-coffee transition-colors">Expressway Residential Township</h4>
+                        <p class="text-xs text-brownie/70 font-medium leading-relaxed">
+                            800+ flats gated security management, RFID vehicle boom barriers, and round-the-clock perimeter patrol.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. CLIENT STORIES & TESTIMONIALS (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-cream/20 border-y border-cream transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-12">
+            
+            <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
+                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Client Satisfaction</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-brownie">
+                    Trusted by Over 150+ Organizations in Delhi NCR
+                </h2>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-[24px] bg-white border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 group">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex text-caramel gap-1 text-sm">
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brownie/80 font-medium italic leading-relaxed">
+                            "NDS has been managing our manned guarding and 24/7 command center operations for 3 years. Their discipline, regular audits, and emergency response time are unmatched in Noida."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cream">
+                        <div class="w-10 h-10 rounded-full bg-caramel/20 text-caramel font-bold flex items-center justify-center text-sm shrink-0 group-hover:bg-caramel group-hover:text-white transition-colors">
+                            RP
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-brownie">Rajesh Puri</div>
+                            <div class="text-[11px] text-brownie/60 font-semibold">Facility Director, Noida Commercial Plaza</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-[24px] bg-white border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 group">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex text-caramel gap-1 text-sm">
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brownie/80 font-medium italic leading-relaxed">
+                            "Vetted guards, PSARA compliance, and polite staff. NDS coordinates gate access control and biometric logs for our Noida IT Park seamlessly with our HR system."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cream">
+                        <div class="w-10 h-10 rounded-full bg-caramel/20 text-caramel font-bold flex items-center justify-center text-sm shrink-0 group-hover:bg-caramel group-hover:text-white transition-colors">
+                            MS
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-brownie">Meenakshi Sharma</div>
+                            <div class="text-[11px] text-brownie/60 font-semibold">VP Admin, Sector-62 Tech Park</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 rounded-[24px] bg-white border border-cream hover:border-caramel/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between gap-6 group">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex text-caramel gap-1 text-sm">
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                            <i class="ri-star-fill group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brownie/80 font-medium italic leading-relaxed">
+                            "With NDS Security, our gated residential society of 800+ flats feels safe. Their guards are well-trained in fire emergencies, polite, and background-verified."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cream">
+                        <div class="w-10 h-10 rounded-full bg-caramel/20 text-caramel font-bold flex items-center justify-center text-sm shrink-0 group-hover:bg-caramel group-hover:text-white transition-colors">
+                            VK
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-brownie">Vikram Kapoor</div>
+                            <div class="text-[11px] text-brownie/60 font-semibold">RWA President, Noida Extension</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. FREQUENTLY ASKED QUESTIONS (Dramatic Slow Scroll Reveal Animation) -->
+    <section x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-16 lg:py-20 w-full bg-white transition-all duration-1000 ease-out">
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-10">
+            
+            <div class="text-center flex flex-col gap-2">
+                <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Got Questions?</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-brownie">
+                    Frequently Asked Security Questions
+                </h2>
+            </div>
+
+            <!-- FAQ Interactive Accordion -->
+            <div x-data="{ activeFaq: 1 }" class="flex flex-col gap-4">
+                
+                <!-- FAQ 1 -->
+                <div class="border border-cream rounded-2xl p-6 transition-all duration-300" :class="activeFaq === 1 ? 'bg-cream/20 border-caramel/40 shadow-sm' : 'bg-white hover:border-caramel/30'">
+                    <button @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full flex items-center justify-between text-left font-bold text-base text-brownie focus:outline-none">
+                        <span>Are NDS security guards PSARA compliant and police verified?</span>
+                        <i class="ri-add-line text-xl transition-transform duration-300" :class="activeFaq === 1 ? 'rotate-45 text-caramel' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 1" class="pt-4 text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                        Yes, 100% of NDS security personnel undergo strict police record verification, address checking, and physical fitness certification in full compliance with the Private Security Agencies (Regulation) Act (PSARA).
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 2 ? null : 2)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>What is the emergency response time in Noida & NCR?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 2 ? 'rotate-180 text-caramel' : ''"></i>
+                <div class="border border-cream rounded-2xl p-6 transition-all duration-300" :class="activeFaq === 2 ? 'bg-cream/20 border-caramel/40 shadow-sm' : 'bg-white hover:border-caramel/30'">
+                    <button @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full flex items-center justify-between text-left font-bold text-base text-brownie focus:outline-none">
+                        <span>What is your emergency response SLA time in Noida?</span>
+                        <i class="ri-add-line text-xl transition-transform duration-300" :class="activeFaq === 2 ? 'rotate-45 text-caramel' : ''"></i>
                     </button>
-                    <div x-show="activeFaq === 2" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            We operate a 24/7 central command room that coordinates quick response alerts. For any emergency at our secured Noida or NCR facilities, backup guards and field operations supervisors respond to the site in under 15 minutes.
-                        </p>
+                    <div x-show="activeFaq === 2" class="pt-4 text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                        NDS operates a 24/7 Command Center in Noida with dedicated mobile rapid response units. We guarantee a maximum 15-minute emergency unit deployment SLA across all contract sites in Noida & Greater Noida.
                     </div>
                 </div>
 
                 <!-- FAQ 3 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 3 ? null : 3)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>How do you monitor guard attendance and patrols?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 3 ? 'rotate-180 text-caramel' : ''"></i>
+                <div class="border border-cream rounded-2xl p-6 transition-all duration-300" :class="activeFaq === 3 ? 'bg-cream/20 border-caramel/40 shadow-sm' : 'bg-white hover:border-caramel/30'">
+                    <button @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full flex items-center justify-between text-left font-bold text-base text-brownie focus:outline-none">
+                        <span>Do you provide security guards for residential gated societies?</span>
+                        <i class="ri-add-line text-xl transition-transform duration-300" :class="activeFaq === 3 ? 'rotate-45 text-caramel' : ''"></i>
                     </button>
-                    <div x-show="activeFaq === 3" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Our security guards use real-time digital logging and biometric devices at client entries. Patrol paths are managed through barcode/RFID tags placed across the facility perimeter, which update the Noida Command Center instantly.
-                        </p>
+                    <div x-show="activeFaq === 3" class="pt-4 text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                        Yes, we specialize in high-density township security. Our guards manage visitor access verification, boom barrier operation, perimeter night patrols, and resident safety.
                     </div>
                 </div>
 
                 <!-- FAQ 4 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 4 ? null : 4)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>Can you customize configurations for retail and high-footfall sites?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 4 ? 'rotate-180 text-caramel' : ''"></i>
+                <div class="border border-cream rounded-2xl p-6 transition-all duration-300" :class="activeFaq === 4 ? 'bg-cream/20 border-caramel/40 shadow-sm' : 'bg-white hover:border-caramel/30'">
+                    <button @click="activeFaq = (activeFaq === 4 ? null : 4)" class="w-full flex items-center justify-between text-left font-bold text-base text-brownie focus:outline-none">
+                        <span>How can I request a site security risk audit?</span>
+                        <i class="ri-add-line text-xl transition-transform duration-300" :class="activeFaq === 4 ? 'rotate-45 text-caramel' : ''"></i>
                     </button>
-                    <div x-show="activeFaq === 4" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Absolutely. We specialize in custom security deployments for high-footfall commercial zones like shopping centers and tech parks (e.g., Gaur City Mall). We coordinate physical guarding, vehicle flow, entry checkpoints, and central CCTV monitoring.
-                        </p>
+                    <div x-show="activeFaq === 4" class="pt-4 text-xs sm:text-sm text-brownie/70 font-medium leading-relaxed">
+                        You can fill out our online contact form or call our helpline (+91 99999 88888). An NDS security engineer will visit your Noida premises to evaluate vulnerabilities and formulate a tailored security model.
                     </div>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- Consultation Call Section (Clean & Lightweight CTA Banner) -->
-    <section class="py-12 px-4 sm:px-6 md:px-12 w-full bg-white relative">
-        <div class="max-w-5xl mx-auto w-full">
-            <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-98 translate-y-8'"
-                 class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-brownie via-[#2e1d11] to-brownie text-white p-6 sm:p-10 shadow-lg border border-caramel/25 overflow-hidden transition-all duration-[1200ms] ease-out">
+    <!-- 11. PREMIUM CALL TO ACTION CARD (Dramatic Slow Scroll Reveal Animation) -->
+    <section id="contact" 
+             x-data="{ shown: false }" 
+             x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
+             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
+             class="py-14 w-full bg-white transition-all duration-1000 ease-out">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full">
+            <div class="bg-gradient-to-r from-brownie via-coffee to-[#2A1B10] rounded-[32px] p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
                 
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                    <div class="flex flex-col gap-2 max-w-xl">
-                        <span class="inline-flex items-center gap-1.5 text-caramel text-xs font-black uppercase tracking-widest self-center md:self-start">
-                            <i class="ri-shield-flash-fill"></i> Instant Consultation & Site Audit
-                        </span>
-                        <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
-                            Need Immediate <span class="text-caramel">Security Deployment</span> in Noida?
-                        </h2>
-                        <p class="text-xs sm:text-sm text-cream/80 font-medium">
-                            Physical site risk assessments delivered within 24 hours across Noida & Delhi NCR.
-                        </p>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-                        <a href="tel:+919999988888" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
-                            <i class="ri-phone-fill"></i>
-                            <span>Call +91 99999 88888</span>
-                        </a>
-                        <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
-                            <i class="ri-file-search-line text-caramel"></i>
-                            <span>Request Audit</span>
-                        </a>
-                    </div>
+                <div class="flex flex-col gap-3 max-w-xl relative z-10 text-center md:text-left">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 bg-caramel/30 border border-caramel/50 text-cream text-xs font-bold uppercase tracking-wider rounded-full self-center md:self-start">
+                        <i class="ri-shield-flash-line text-caramel"></i>
+                        <span>Immediate Security Deployment</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+                        Need Professional Security Guards for Your Noida Site?
+                    </h2>
+                    <p class="text-xs sm:text-sm text-cream/90 font-medium leading-relaxed">
+                        Schedule a complimentary site security risk audit with an NDS Security engineer today.
+                    </p>
                 </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-3.5 relative z-10 w-full md:w-auto shrink-0">
+                    <a href="{{ route('contact') }}" 
+                       class="w-full sm:w-auto bg-caramel hover:bg-white hover:text-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-7 rounded-full shadow-xl transition-all duration-300 text-center cursor-pointer transform hover:-translate-y-0.5">
+                        Get Custom Quote
+                    </a>
+                    
+                    <a href="tel:+919999988888" 
+                       class="w-full sm:w-auto bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-bold tracking-wider py-3.5 px-6 rounded-full border border-white/25 shadow-sm transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer text-center transform hover:-translate-y-0.5">
+                        <i class="ri-phone-fill text-caramel"></i>
+                        <span>Call +91 99999 88888</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
+
 </div>

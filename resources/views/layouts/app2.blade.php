@@ -17,9 +17,11 @@
         @livewireStyles
     </head>
     <body class="min-h-full bg-white text-brownie flex flex-col antialiased">
+        <!-- Floating Header 2 Component -->
+        <x-public.header.header2 />
         
-        <!-- Main Page Content (Hero Video + Floating Header 2 + All Sections) -->
-        <main class="flex-grow">
+        <!-- Main Page Content -->
+        <main class="flex-grow pt-24 sm:pt-28">
             {{ $slot }}
         </main>
 
