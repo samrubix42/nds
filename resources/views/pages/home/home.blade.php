@@ -499,32 +499,12 @@
 
 
 
-    <!-- Client Logo Alpine Slider Section (No arrow controls, auto sliding transition) -->
-    <section class="bg-white py-20 border-b border-cream/30 overflow-hidden relative z-10"
-        x-data="{ 
-                 activeIndex: 0, 
-                 totalLogos: 26,
-                 getVisibleLogos() {
-                     if (window.innerWidth >= 1024) return 5;
-                     if (window.innerWidth >= 768) return 3;
-                     return 2;
-                 },
-                 init() {
-                     setInterval(() => {
-                         const maxIndex = this.totalLogos - this.getVisibleLogos();
-                         if (this.activeIndex < maxIndex) {
-                             this.activeIndex++;
-                         } else {
-                             this.activeIndex = 0;
-                         }
-                     }, 2800);
-                 }
-             }"
-        @resize.window="if (activeIndex > totalLogos - getVisibleLogos()) activeIndex = totalLogos - getVisibleLogos()">
+    <!-- Client Logo Grid Section (Dynamic Grid Format) -->
+    <section class="bg-white py-16 sm:py-20 border-b border-cream/30 relative z-10 select-none">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
                  :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
+                 class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1000ms] ease-out">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
                     Trusted by Noida's Leading Landmarks
@@ -532,88 +512,17 @@
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <div class="relative w-full overflow-hidden">
-                <div class="flex transition-transform duration-500 ease-out items-center"
-                    :style="'width: ' + (totalLogos / getVisibleLogos() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalLogos)) + '%)'">
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
+            <!-- Dynamic Clients Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+                @foreach($clients as $client)
+                    <div class="h-20 sm:h-24 p-3.5 bg-white rounded-xl border border-cream/90 shadow-2xs hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group">
+                        <img 
+                            src="{{ $client->image_url }}" 
+                            alt="Client Partner" 
+                            class="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 select-none" 
+                        />
                     </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L03-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L04-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L05-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L06-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L07-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L09-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L11-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L13-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L16-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L17-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L18-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L19-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L20-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                    <div :style="'width: ' + (100 / totalLogos) + '%'" class="flex justify-center px-6 shrink-0">
-                        <img src="{{ asset('clients/L21-150x150.jpg') }}" alt="Client Logo" class="h-20 md:h-24 w-auto object-contain transition-all duration-300 select-none pointer-events-none hover:scale-105" />
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

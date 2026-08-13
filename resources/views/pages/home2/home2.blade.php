@@ -194,14 +194,14 @@
         </div>
     </div>
 
-    <!-- 3. SLIDING CLIENTELE SECTION (Dramatic Slow Scroll Reveal Animation) -->
+    <!-- 3. CLIENTELE LOGO SECTION (Dynamic Grid Format) -->
     <section x-data="{ shown: false }" 
              x-init="const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { shown = true; obs.disconnect(); } }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); obs.observe($el);"
              :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-[0.97]'"
              class="py-12 w-full bg-white overflow-hidden border-b border-cream select-none relative transition-all duration-1000 ease-out">
         
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-4 mb-6">
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 w-full flex flex-col gap-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-cream/50 pb-4">
                 <div class="flex flex-col gap-1">
                     <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">Our Elite Clientele Portfolio</span>
                     <h2 class="text-2xl sm:text-3xl font-black text-brownie tracking-tight">Trusted by Premier Corporates, Plazas & Townships</h2>
@@ -211,91 +211,18 @@
                     <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
-        </div>
 
-        <!-- Fade Gradients at Edges -->
-        <div class="absolute left-0 top-16 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute right-0 top-16 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
-
-        <!-- Marquee Track Container with FULL COLOR LOGOS inside uniform cards -->
-        <div class="w-full flex overflow-hidden py-2">
-            <div class="flex whitespace-nowrap animate-marquee items-center gap-6 shrink-0 min-w-full justify-around">
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-            </div>
-
-            <!-- Duplicate track for seamless loop -->
-            <div class="flex whitespace-nowrap animate-marquee items-center gap-6 shrink-0 min-w-full justify-around" aria-hidden="true">
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
-                <div class="h-16 w-36 px-4 py-2 bg-white rounded-xl border border-cream/90 shadow-sm hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0">
-                    <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Partner" class="max-h-full max-w-full object-contain" />
-                </div>
+            <!-- Dynamic Clients Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+                @foreach($clients as $client)
+                    <div class="h-20 sm:h-24 p-3.5 bg-white rounded-xl border border-cream/90 shadow-2xs hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group">
+                        <img 
+                            src="{{ $client->image_url }}" 
+                            alt="Client Partner" 
+                            class="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 select-none" 
+                        />
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

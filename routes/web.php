@@ -21,4 +21,6 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::livewire('/gallery', 'admin::gallery')->name('gallery');
     Route::livewire('/faq-list', 'admin::faq-list')->name('faq-list');
     Route::livewire('/testimonial-list', 'admin::testimonial-list')->name('testimonial-list');
+    Route::livewire('/job-posts', 'admin::job-posts')->name('job-posts');
+    Route::livewire('/job-applications', 'admin::job-applications')->name('job-applications');
 });
