@@ -2,44 +2,74 @@
     <!-- Hero Banner: Clean, Modern, Fully Responsive Auto Slider Banner -->
     <section x-data="{ 
         activeSlide: 0, 
-        fallbackImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1920&auto=format&fit=crop',
+        fallbackImage: '{{ asset('image/PIC_3766.webp') }}',
         slides: [
-       
             {
-                title: '24/7 Command Center & Rapid Response',
-                subtitle: 'Real-time CCTV surveillance monitoring and guaranteed 15-minute emergency response unit.',
-                badge: '24/7 TACTICAL COMMAND',
-                badgeIcon: 'ri-radar-line',
-                image: '{{ asset('command_center.png') }}',
-                primaryBtnText: 'Explore Command',
-                primaryBtnLink: '#services',
-                secondaryBtnText: 'Emergency Call',
-                secondaryBtnLink: 'tel:+919999988888'
+                title: 'PSARA Certified Manned Guarding Solutions',
+                subtitle: 'Rigorously trained, background-verified security personnel providing round-the-clock defense for commercial, industrial, and residential premises.',
+                badge: 'PSARA COMPLIANT GUARDING',
+                badgeIcon: 'ri-shield-user-line',
+                image: '{{ asset('image/PIC_3766.webp') }}',
+                primaryBtnText: 'Hire Security Guards',
+                primaryBtnLink: '#contact',
+                secondaryBtnText: 'Our Guarding Services',
+                secondaryBtnLink: '/services'
             },
-       
             {
-                title: 'Commercial & Industrial Asset Shield',
-                subtitle: 'Advanced access control, automated visitor tracking, and site risk management for 150+ corporate sites.',
+                title: 'Commercial & Industrial Asset Protection',
+                subtitle: 'Advanced access control, automated visitor tracking, perimeter security, and site risk management for 150+ corporate sites.',
                 badge: '150+ SITES PROTECTED',
                 badgeIcon: 'ri-building-2-line',
-                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop',
+                image: '{{ asset('image/PIC_3788.webp') }}',
                 primaryBtnText: 'Consult Experts',
                 primaryBtnLink: '#contact',
                 secondaryBtnText: 'About Us',
                 secondaryBtnLink: '/about'
             },
             {
-                title: 'Smart Electronic CCTV Integration',
-                subtitle: 'State-of-the-art IP surveillance cameras, AI perimeter detection, and integrated access control.',
-                badge: 'SMART SURVEILLANCE',
-                badgeIcon: 'ri-eye-line',
-                image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1920&auto=format&fit=crop',
-                primaryBtnText: 'CCTV Solutions',
-                primaryBtnLink: '#services',
-                secondaryBtnText: 'Contact Us',
+                title: '24/7 Perimeter Patrol & Radio Dispatch',
+                subtitle: 'Vigilant guard patrols, synchronized radio dispatch, and rapid inspection units ensuring zero perimeter breach across corporate facilities.',
+                badge: 'PERIMETER PATROL & DISPATCH',
+                badgeIcon: 'ri-walk-line',
+                image: '{{ asset('image/PIC_3792.webp') }}',
+                primaryBtnText: 'Hire Patrol Squad',
+                primaryBtnLink: '#contact',
+                secondaryBtnText: 'Our Services',
+                secondaryBtnLink: '/services'
+            },
+            {
+                title: 'Event Security & Crowd Control Logistics',
+                subtitle: 'Tactical crowd management squads, entry screening, and VIP stage protection for corporate galas, exhibitions, and public gatherings.',
+                badge: 'EVENT & CROWD CONTROL',
+                badgeIcon: 'ri-group-line',
+                image: '{{ asset('image/PIC_3861.webp') }}',
+                primaryBtnText: 'Book Event Security',
+                primaryBtnLink: '#contact',
+                secondaryBtnText: 'Contact NDS',
                 secondaryBtnLink: '#contact'
             },
-          
+            {
+                title: 'Tactical Guard Training & Physical Readiness',
+                subtitle: 'Every NDS security officer undergoes mandatory 100-hour PSARA physical training, threat detection drills, and fire hazard evacuation layouts.',
+                badge: 'STATE-AUTHORIZED ACADEMY',
+                badgeIcon: 'ri-medal-line',
+                image: '{{ asset('image/PIC_4855.webp') }}',
+                primaryBtnText: 'Explore Training',
+                primaryBtnLink: '/training',
+                secondaryBtnText: 'View Gallery',
+                secondaryBtnLink: '/gallery'
+            },
+            {
+                title: 'Smart Electronic CCTV & Access Integration',
+                subtitle: 'State-of-the-art IP surveillance cameras, AI perimeter threat detection, automated boom barriers, and integrated security logs.',
+                badge: 'SMART SURVEILLANCE',
+                badgeIcon: 'ri-eye-line',
+                image: '{{ asset('image/PIC_3845.webp') }}',
+                primaryBtnText: 'CCTV Integration',
+                primaryBtnLink: '/services',
+                secondaryBtnText: 'Contact Us',
+                secondaryBtnLink: '#contact'
+            }
         ],
         timer: null,
         startAutoSlide() {
@@ -69,7 +99,7 @@
     x-init="startAutoSlide()" 
     @mouseenter="stopAutoSlide()" 
     @mouseleave="startAutoSlide()" 
-    class="relative w-full h-auto min-h-[520px] sm:h-[72vh] sm:min-h-[500px] max-h-[680px] py-14 sm:py-0 bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b] overflow-hidden group select-none flex items-center">
+    class="relative w-full h-auto min-h-[600px] sm:h-[82vh] sm:min-h-[600px] max-h-[780px] py-16 sm:py-0 bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b] overflow-hidden group select-none flex items-center">
         
         <!-- Background Image Slides with Automatic Fallback Handling -->
         <template x-for="(slide, index) in slides" :key="index">
@@ -85,7 +115,7 @@
                 <img :src="slide.image" 
                      :alt="slide.title" 
                      x-on:error="handleImageError($event)"
-                     class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-[7000ms] ease-out" />
+                     class="w-full h-full object-cover object-top transform scale-105 transition-transform duration-[7000ms] ease-out" />
                 
                 <!-- Balanced Soft Light Vignette Overlays -->
                 <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20 sm:from-black/65 sm:via-black/35 sm:to-black/10"></div>
