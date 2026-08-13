@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center gap-4 w-full">
             <!-- Logo -->
             <a href="#" class="flex items-center shrink-0 group">
-                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-12 md:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             </a>
 
             <!-- Contact Info (Desktop Only) -->

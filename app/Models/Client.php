@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Client extends Model
 {
@@ -28,11 +30,11 @@ class Client extends Model
     /**
      * Get the client's image URL.
      *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute<string, never>
+     * @return Attribute<string, never>
      */
-    protected function imageUrl(): \Illuminate\Database\Eloquent\Casts\Attribute
+    protected function imageUrl(): Attribute
     {
-        return \Illuminate\Database\Eloquent\Casts\Attribute::get(function (): string {
+        return Attribute::get(function (): string {
             if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
                 return $this->image;
             }
@@ -42,7 +44,7 @@ class Client extends Model
                 return asset($this->image);
             }
 
-            return \Illuminate\Support\Facades\Storage::disk('public')->url($this->image);
+            return Storage::disk('public')->url($this->image);
         });
     }
 }

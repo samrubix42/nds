@@ -15,7 +15,7 @@ class ClientSeeder extends Seeder
     {
         $clientsDir = public_path('clients');
 
-        if (!File::exists($clientsDir)) {
+        if (! File::exists($clientsDir)) {
             return;
         }
 
@@ -27,7 +27,7 @@ class ClientSeeder extends Seeder
 
             if (in_array($extension, ['jpg', 'jpeg', 'png', 'webp', 'gif'])) {
                 Client::updateOrCreate(
-                    ['image' => 'clients/' . $filename],
+                    ['image' => 'clients/'.$filename],
                     ['is_active' => true]
                 );
             }

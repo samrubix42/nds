@@ -6,11 +6,15 @@ use Livewire\Component;
 new #[Title('Contact Us - NDS Security Services')] class extends Component
 {
     public string $name = '';
+
     public string $email = '';
+
     public string $phone = '';
+
     public string $subject = '';
+
     public string $message = '';
-    
+
     public string $successMessage = '';
 
     public function submitForm(): void
@@ -37,9 +41,9 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
 
         // Here we could trigger a mail notification or database log if required.
         // For this task, we will simulate successful submission.
-        
+
         $this->successMessage = 'Thank you! Your message has been sent successfully. Noida\'s Command Center response team will get back to you shortly.';
-        
+
         $this->reset(['name', 'email', 'phone', 'subject', 'message']);
     }
 };

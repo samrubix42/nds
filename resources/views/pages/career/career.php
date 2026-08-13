@@ -6,12 +6,17 @@ use Livewire\Component;
 new #[Title('Careers - Join NDS Security')] class extends Component
 {
     public string $name = '';
+
     public string $email = '';
+
     public string $phone = '';
+
     public string $position = '';
+
     public string $experience = '';
+
     public string $message = '';
-    
+
     public string $successMessage = '';
 
     public function selectJob(string $jobSlug): void
@@ -49,7 +54,7 @@ new #[Title('Careers - Join NDS Security')] class extends Component
         // In a real application, we would handle resume file uploads and database records.
         // For the purposes of this task, we simulate success.
 
-        $this->successMessage = 'Your application for the ' . ucwords(str_replace('-', ' ', $this->position)) . ' position has been logged. The NDS HR Desk will review your application and contact you soon.';
+        $this->successMessage = 'Your application for the '.ucwords(str_replace('-', ' ', $this->position)).' position has been logged. The NDS HR Desk will review your application and contact you soon.';
 
         $this->reset(['name', 'email', 'phone', 'position', 'experience', 'message']);
     }

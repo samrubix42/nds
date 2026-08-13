@@ -98,6 +98,22 @@
                 <span>Gallery Categories</span>
             </a>
 
+            <!-- FAQ List -->
+            <a 
+                href="{{ route('admin.faq-list') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-sm border-l-2 font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.faq-list') ? 'border-[#C08552] bg-[#C08552]/8 text-[#C08552]' : 'border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-questionnaire-line text-sm {{ request()->routeIs('admin.faq-list') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
+                <span>FAQ List</span>
+            </a>
+
+            <!-- Testimonials -->
+            <a 
+                href="{{ route('admin.testimonial-list') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-sm border-l-2 font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.testimonial-list') ? 'border-[#C08552] bg-[#C08552]/8 text-[#C08552]' : 'border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-feedback-line text-sm {{ request()->routeIs('admin.testimonial-list') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
+                <span>Testimonials</span>
+            </a>
+
             <!-- Career -->
             <a 
                 href="#" 
