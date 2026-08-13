@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Client;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -33,6 +34,11 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     public ?int $editingClientId = null;
 
     /**
+     * ID of the client being deleted.
+     */
+    public ?int $deletingClientId = null;
+
+    /**
      * Display URL of the current client image when editing.
      */
     public string $existingImage = '';
@@ -50,9 +56,46 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
      */
     public function resetForm(): void
     {
-        $this->reset(['image', 'is_active', 'editingClientId', 'existingImage']);
+        $this->reset(['image', 'is_active', 'editingClientId', 'existingImage', 'deletingClientId']);
         $this->resetValidation();
         $this->is_active = true;
+    }
+
+    /**
+     * Set client ID for deletion modal.
+     */
+    public function confirmDelete(int $clientId): void
+    {
+        $client = Client::findOrFail($clientId);
+        $this->deletingClientId = $client->id;
+    }
+
+    /**
+     * Execute deletion of confirmed client.
+     */
+    public function deleteConfirmed(): void
+    {
+        if (! $this->deletingClientId) {
+            return;
+        }
+
+        $client = Client::findOrFail($this->deletingClientId);
+
+        // Delete uploaded file from storage if it exists (but do not delete seeded files from public folder)
+        if ($client->image && ! file_exists(public_path($client->image))) {
+            Storage::disk('public')->delete($client->image);
+        }
+
+        $client->delete();
+
+        $this->deletingClientId = null;
+        session()->flash('message', 'Client deleted successfully.');
+        $this->dispatch('toast-show', [
+            'message' => 'Client deleted successfully!',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
+        $this->dispatch('close-delete-modal');
     }
 
     /**
@@ -62,7 +105,7 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     {
         $this->resetForm();
         $client = Client::findOrFail($clientId);
-        
+
         $this->editingClientId = $client->id;
         $this->is_active = $client->is_active;
         $this->existingImage = $client->image_url;
@@ -74,10 +117,15 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     public function toggleStatus(int $clientId): void
     {
         $client = Client::findOrFail($clientId);
-        $client->is_active = !$client->is_active;
+        $client->is_active = ! $client->is_active;
         $client->save();
 
         session()->flash('message', 'Client status updated successfully.');
+        $this->dispatch('toast-show', [
+            'message' => 'Client status updated successfully!',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
     }
 
     /**
@@ -95,8 +143,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
 
             if ($this->image) {
                 // Delete old uploaded file from storage if it exists (but do not delete seeded files from public folder)
-                if ($client->image && !file_exists(public_path($client->image))) {
-                    \Illuminate\Support\Facades\Storage::disk('public')->delete($client->image);
+                if ($client->image && ! file_exists(public_path($client->image))) {
+                    Storage::disk('public')->delete($client->image);
                 }
 
                 $path = $this->image->store('clients', 'public');
@@ -107,6 +155,11 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             $client->save();
 
             session()->flash('message', 'Client updated successfully.');
+            $this->dispatch('toast-show', [
+                'message' => 'Client updated successfully!',
+                'type' => 'success',
+                'position' => 'top-right',
+            ]);
         } else {
             $this->validate([
                 'image' => 'required|image|max:2048',
@@ -121,27 +174,15 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             ]);
 
             session()->flash('message', 'Client added successfully.');
+            $this->dispatch('toast-show', [
+                'message' => 'Client added successfully!',
+                'type' => 'success',
+                'position' => 'top-right',
+            ]);
         }
 
         $this->resetForm();
         $this->dispatch('close-modal');
-    }
-
-    /**
-     * Delete a client.
-     */
-    public function delete(int $clientId): void
-    {
-        $client = Client::findOrFail($clientId);
-
-        // Delete uploaded file from storage if it exists (but do not delete seeded files from public folder)
-        if ($client->image && !file_exists(public_path($client->image))) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($client->image);
-        }
-
-        $client->delete();
-
-        session()->flash('message', 'Client deleted successfully.');
     }
 
     /**
@@ -151,7 +192,7 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     {
         $clients = Client::latest()
             ->when($this->search, function ($query): void {
-                $query->where('image', 'like', '%' . $this->search . '%');
+                $query->where('image', 'like', '%'.$this->search.'%');
             })
             ->paginate(12);
 

@@ -84,10 +84,18 @@
 
             <!-- Gallery -->
             <a 
-                href="#" 
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg border-l-2 border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie font-bold text-xs uppercase tracking-wider transition-all duration-200 group">
-                <i class="ri-image-line text-sm text-brownie/45 group-hover:text-brownie"></i>
+                href="{{ route('admin.gallery') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-sm border-l-2 font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.gallery') ? 'border-[#C08552] bg-[#C08552]/8 text-[#C08552]' : 'border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-image-line text-sm {{ request()->routeIs('admin.gallery') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
                 <span>Gallery</span>
+            </a>
+
+            <!-- Gallery Categories -->
+            <a 
+                href="{{ route('admin.gallery-category') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-sm border-l-2 font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.gallery-category') ? 'border-[#C08552] bg-[#C08552]/8 text-[#C08552]' : 'border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-price-tag-3-line text-sm {{ request()->routeIs('admin.gallery-category') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
+                <span>Gallery Categories</span>
             </a>
 
             <!-- Career -->

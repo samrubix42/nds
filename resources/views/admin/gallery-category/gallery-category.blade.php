@@ -3,26 +3,32 @@
     @close-modal.window="formOpen = false" 
     @close-delete-modal.window="deleteOpen = false" 
     class="space-y-6 font-sans">
-    
-    <!-- Header Section (Minimalist Typography) -->
+
+    <!-- Header Section -->
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center justify-between pb-4 border-b border-[#F3E9DC]/60">
         <div>
-            <h2 class="text-lg font-bold text-brownie tracking-tight uppercase">Clientele Management</h2>
-            <p class="text-xs text-brownie/60 font-medium mt-0.5">Manage client logos and display status on the public portal.</p>
+            <h2 class="text-lg font-bold text-brownie tracking-tight uppercase">Gallery Categories</h2>
+            <p class="text-xs text-brownie/60 font-medium mt-0.5">Manage gallery classifications for organziing showcase images.</p>
         </div>
-        <div class="shrink-0">
+        <div class="flex items-center gap-2">
+            <a 
+                href="{{ route('admin.gallery') }}" 
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 border border-[#F3E9DC] hover:bg-[#FAF9F5] text-brownie font-semibold text-xs uppercase tracking-wider rounded-sm transition-all">
+                <i class="ri-image-line text-sm"></i>
+                <span>Manage Gallery</span>
+            </a>
             <button 
                 @click="formOpen = true; $wire.resetForm()" 
-                class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#C08552] hover:bg-[#895737] text-white font-semibold text-xs uppercase tracking-wider rounded-md transition-all shadow-xs">
+                class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#C08552] hover:bg-[#895737] text-white font-semibold text-xs uppercase tracking-wider rounded-sm transition-all shadow-xs">
                 <i class="ri-add-line text-sm"></i>
-                <span>Add Client</span>
+                <span>Add Category</span>
             </button>
         </div>
     </div>
 
     <!-- Session Messages -->
     @if (session()->has('message'))
-        <div class="p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-between shadow-xs">
+        <div class="p-3 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-between shadow-xs">
             <div class="flex items-center gap-2">
                 <i class="ri-checkbox-circle-fill text-emerald-600 text-sm"></i>
                 <span>{{ session('message') }}</span>
@@ -34,84 +40,91 @@
     @endif
 
     <!-- Controls Bar -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-3 border border-[#F3E9DC]/70 rounded-md">
-        <!-- Search bar -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-3 border border-[#F3E9DC]/70 rounded-sm">
         <div class="relative w-full sm:max-w-xs">
             <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-brownie/45 text-sm"></i>
             <input 
                 wire:model.live="search" 
                 type="search" 
-                placeholder="Search logos..." 
-                class="w-full pl-9 pr-3 py-2 text-xs rounded-sm bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-medium placeholder-brownie/40 transition-colors" 
+                placeholder="Search categories..." 
+                class="w-full pl-9 pr-3 py-2 text-xs rounded-xs bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-medium placeholder-brownie/40 transition-colors" 
             />
         </div>
         
         <div class="text-[10px] text-brownie/60 font-bold uppercase tracking-wider">
-            Total: {{ $clients->total() }} Clients
+            Total: {{ $categories->total() }} Categories
         </div>
     </div>
 
-    <!-- Client Logo Grid -->
-    @if($clients->isEmpty())
-        <div class="bg-white rounded-md border border-[#F3E9DC] p-12 text-center flex flex-col items-center justify-center">
-            <div class="w-10 h-10 rounded-sm bg-[#FAF9F5] flex items-center justify-center text-brownie/40 mb-3 border border-[#F3E9DC]">
-                <i class="ri-team-line text-lg"></i>
+    <!-- Table -->
+    <div class="bg-white border border-[#F3E9DC] rounded-sm overflow-hidden shadow-2xs">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-[#FAF9F5]/60 border-b border-[#F3E9DC] text-[10px] font-bold text-brownie/60 uppercase tracking-wider">
+                    <th class="py-3 px-4">Category Name</th>
+                    <th class="py-3 px-4">Linked Images</th>
+                    <th class="py-3 px-4">Status</th>
+                    <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-[#F3E9DC]/40 text-xs text-brownie">
+                @forelse($categories as $category)
+                    <tr class="hover:bg-[#FAF9F5]/30 transition-colors">
+                        <td class="py-3 px-4 font-semibold text-brownie">
+                            {{ $category->name }}
+                        </td>
+                        <td class="py-3 px-4">
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs text-[10px] font-bold bg-stone-100 text-stone-700 border border-stone-200">
+                                <i class="ri-image-line text-stone-500"></i>
+                                <span>{{ $category->galleries_count }} items</span>
+                            </span>
+                        </td>
+                        <td class="py-3 px-4">
+                            <button 
+                                wire:click="toggleStatus({{ $category->id }})" 
+                                title="Toggle status">
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs text-[10px] font-bold border transition-colors cursor-pointer {{ $category->is_active ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $category->is_active ? 'bg-emerald-500' : 'bg-rose-500' }}"></span>
+                                    <span>{{ $category->is_active ? 'Active' : 'Inactive' }}</span>
+                                </span>
+                            </button>
+                        </td>
+                        <td class="py-3 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1.5">
+                                <button 
+                                    wire:click="edit({{ $category->id }})" 
+                                    @click="formOpen = true" 
+                                    class="p-1 rounded-xs bg-[#FAF9F5] border border-[#F3E9DC] hover:border-[#C08552]/40 text-brownie/70 hover:text-[#C08552] transition-colors" 
+                                    title="Edit">
+                                    <i class="ri-edit-line text-xs"></i>
+                                </button>
+                                <button 
+                                    wire:click="confirmDelete({{ $category->id }})" 
+                                    @click="deleteOpen = true" 
+                                    class="p-1 rounded-xs bg-[#FAF9F5] border border-[#F3E9DC] hover:border-rose-300 text-brownie/70 hover:text-rose-600 transition-colors" 
+                                    title="Delete">
+                                    <i class="ri-delete-bin-line text-xs"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="py-8 text-center text-brownie/50">
+                            <i class="ri-folder-open-line text-2xl block mb-1 text-brownie/30"></i>
+                            <p class="font-semibold text-xs">No categories found</p>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+
+        @if($categories->hasPages())
+            <div class="p-3 border-t border-[#F3E9DC]">
+                {{ $categories->links() }}
             </div>
-            <h4 class="font-bold text-sm text-brownie">No Clients Found</h4>
-            <p class="text-xs text-brownie/50 mt-1">Try matching another search query or add a new client logo.</p>
-        </div>
-    @else
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            @foreach($clients as $client)
-                <div class="relative bg-white border border-[#F3E9DC] hover:border-[#C08552]/40 rounded-md p-3 shadow-2xs hover:shadow-xs flex flex-col justify-between items-center group transition-all duration-200">
-                    
-                    <!-- Status Indicator Toggle -->
-                    <button 
-                        wire:click="toggleStatus({{ $client->id }})" 
-                        class="absolute top-2.5 left-2.5 z-10" 
-                        title="Toggle active status">
-                        <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-[9px] font-bold border transition-colors cursor-pointer {{ $client->is_active ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
-                            <span class="w-1.5 h-1.5 rounded-full {{ $client->is_active ? 'bg-emerald-500' : 'bg-rose-500' }}"></span>
-                            <span>{{ $client->is_active ? 'Active' : 'Inactive' }}</span>
-                        </span>
-                    </button>
-
-                    <!-- Image Preview Area -->
-                    <div class="h-24 w-full flex items-center justify-center bg-[#FAF9F5]/40 rounded-sm overflow-hidden mt-5 mb-2 border border-[#F3E9DC]/40 relative">
-                        <img 
-                            src="{{ $client->image_url }}" 
-                            alt="Client Logo" 
-                            class="max-h-16 max-w-full object-contain p-2 select-none" 
-                            loading="lazy"
-                        />
-                    </div>
-
-                    <!-- Action toolbar -->
-                    <div class="flex items-center gap-1.5 border-t border-[#F3E9DC]/50 pt-2 w-full justify-end">
-                        <button 
-                            wire:click="edit({{ $client->id }})" 
-                            @click="formOpen = true" 
-                            class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-[#C08552]/40 text-brownie/70 hover:text-[#C08552] transition-colors" 
-                            title="Edit">
-                            <i class="ri-edit-line text-xs"></i>
-                        </button>
-                        <button 
-                            wire:click="confirmDelete({{ $client->id }})" 
-                            @click="deleteOpen = true" 
-                            class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-rose-300 text-brownie/70 hover:text-rose-600 transition-colors" 
-                            title="Delete">
-                            <i class="ri-delete-bin-line text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <!-- Pagination -->
-        <div class="mt-6">
-            {{ $clients->links() }}
-        </div>
-    @endif
+        @endif
+    </div>
 
     <!-- Alpine.js Add/Edit Form Modal -->
     <div 
@@ -147,57 +160,33 @@
             <!-- Modal Header -->
             <div class="flex items-center justify-between pb-3 border-b border-[#F3E9DC]">
                 <h3 class="font-bold text-sm text-brownie uppercase tracking-wider">
-                    {{ $editingClientId ? 'Edit Client Logo' : 'Add Client Logo' }}
+                    {{ $editingCategoryId ? 'Edit Category' : 'Add Category' }}
                 </h3>
                 <button 
                     @click="formOpen = false; $wire.resetForm()" 
-                    class="w-6 h-6 rounded-sm hover:bg-[#FAF9F5] border border-transparent hover:border-[#F3E9DC] flex items-center justify-center text-brownie/60 transition-colors">
+                    class="w-6 h-6 rounded-xs hover:bg-[#FAF9F5] border border-transparent hover:border-[#F3E9DC] flex items-center justify-center text-brownie/60 transition-colors">
                     <i class="ri-close-line text-sm"></i>
                 </button>
             </div>
 
             <!-- Modal Form -->
             <form wire:submit.prevent="save" class="space-y-4 mt-4">
-                <!-- Logo File Upload -->
                 <div class="space-y-1.5">
-                    <label class="block text-[10px] font-bold text-brownie/60 uppercase tracking-wider">Logo Image</label>
-                    
-                    <!-- Previews -->
-                    @if ($image)
-                        <div class="h-24 w-full rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] flex items-center justify-center overflow-hidden relative">
-                            <img src="{{ $image->temporaryUrl() }}" class="max-h-18 object-contain p-2" />
-                            <button 
-                                type="button" 
-                                wire:click="$set('image', null)" 
-                                class="absolute top-2 right-2 p-1 rounded-sm bg-white border border-rose-200 text-rose-600 hover:bg-rose-50 transition-colors">
-                                <i class="ri-delete-bin-line text-xs"></i>
-                            </button>
-                        </div>
-                    @elseif ($existingImage)
-                        <div class="h-24 w-full rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] flex items-center justify-center overflow-hidden relative">
-                            <img src="{{ $existingImage }}" class="max-h-18 object-contain p-2" />
-                        </div>
-                    @endif
-
-                    <!-- Upload Input -->
-                    <div class="flex items-center justify-center w-full">
-                        <label class="flex flex-col items-center justify-center w-full h-20 border border-dashed border-[#F3E9DC] hover:border-[#C08552] rounded-sm cursor-pointer bg-[#FAF9F5]/30 hover:bg-[#FAF9F5] transition-colors">
-                            <div class="flex flex-col items-center justify-center pt-3 pb-3">
-                                <i class="ri-upload-cloud-2-line text-base text-brownie/50"></i>
-                                <p class="text-[10px] text-brownie/70 mt-1 font-semibold">Select logo image</p>
-                                <p class="text-[9px] text-brownie/40 font-medium mt-0.5">PNG, JPG, WEBP (Max 2MB)</p>
-                            </div>
-                            <input wire:model="image" type="file" class="hidden" accept="image/*" />
-                        </label>
-                    </div>
-                    @error('image') <span class="text-[10px] text-rose-600 font-semibold block mt-1">{{ $message }}</span> @enderror
+                    <label class="block text-[10px] font-bold text-brownie/60 uppercase tracking-wider">Category Name</label>
+                    <input 
+                        wire:model="name" 
+                        type="text" 
+                        placeholder="e.g. Armed Guards, CCTV Monitoring..." 
+                        class="w-full px-3 py-2 text-xs rounded-xs bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-medium placeholder-brownie/40 transition-colors" 
+                    />
+                    @error('name') <span class="text-[10px] text-rose-600 font-semibold block mt-1">{{ $message }}</span> @enderror
                 </div>
 
                 <!-- Active Status Toggle -->
                 <div class="flex items-center justify-between py-2 border-t border-b border-[#F3E9DC]/40">
                     <div>
                         <label class="block text-[10px] font-bold text-brownie uppercase tracking-wider">Active Status</label>
-                        <p class="text-[9px] text-brownie/50 mt-0.5">Active logos are displayed on public pages.</p>
+                        <p class="text-[9px] text-brownie/50 mt-0.5">Active categories can be assigned to gallery images.</p>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input wire:model="is_active" type="checkbox" class="sr-only peer" />
@@ -263,11 +252,11 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-sm text-brownie uppercase tracking-wider">Confirm Delete</h3>
-                    <p class="text-[10px] text-brownie/50">This action cannot be undone.</p>
+                    <p class="text-[10px] text-brownie/50">This category will be permanently removed.</p>
                 </div>
             </div>
 
-            <p class="text-xs text-brownie/80 font-medium mb-5">Are you sure you want to delete this client logo?</p>
+            <p class="text-xs text-brownie/80 font-medium mb-5">Are you sure you want to delete this category?</p>
 
             <div class="flex items-center justify-end gap-2 border-t border-[#F3E9DC] pt-3">
                 <button 

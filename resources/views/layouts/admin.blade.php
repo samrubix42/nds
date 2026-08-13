@@ -49,6 +49,7 @@
                 x-cloak>
             </div>
         </div>
+        @include('components.toast')
 
         @livewireScripts
     </body>

@@ -17,5 +17,6 @@ Route::livewire('/login', 'pages::auth.login')->name('login')->middleware('guest
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::livewire('/', 'admin::dashboard')->name('dashboard');
     Route::livewire('/clientele', 'admin::clientele')->name('clientele');
+    Route::livewire('/gallery-category', 'admin::gallery-category')->name('gallery-category');
+    Route::livewire('/gallery', 'admin::gallery')->name('gallery');
 });
-
