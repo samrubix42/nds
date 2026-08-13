@@ -37,61 +37,11 @@
 
             <!-- Client Logos Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-                <!-- Group of 12 standard clients + L01-L07 clients -->
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/01-1-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/02-1-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/04-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/05-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/06-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/08-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/09-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/10-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/11-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/12-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L01-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L02-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L03-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L04-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L05-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L06-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <img src="{{ asset('clients/L07-150x150.jpg') }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
-                    <div class="text-[10px] font-black text-caramel tracking-wider text-center uppercase">NDS Premium Partner</div>
-                </div>
+                @foreach($clients as $client)
+                    <div class="bg-white p-4 rounded-2xl border border-cream shadow-sm flex items-center justify-center hover:border-caramel/25 hover:shadow-md transition-all">
+                        <img src="{{ $client->image_url }}" alt="Client Logo" class="h-16 w-auto object-contain select-none pointer-events-none" />
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

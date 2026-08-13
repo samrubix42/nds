@@ -13,4 +13,9 @@ Route::livewire('/career', 'pages::career')->name('career');
 Route::livewire('/gallery', 'pages::gallery')->name('gallery');
 Route::livewire('/training', 'pages::training')->name('training');
 Route::livewire('/login', 'pages::auth.login')->name('login')->middleware('guest');
-Route::livewire('/admin', 'pages::admin.dashboard')->name('admin.dashboard')->middleware('auth');
+
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
+    Route::livewire('/', 'admin::dashboard')->name('dashboard');
+    Route::livewire('/clientele', 'admin::clientele')->name('clientele');
+});
+

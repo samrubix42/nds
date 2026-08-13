@@ -68,9 +68,9 @@
 
             <!-- Clientele -->
             <a 
-                href="#" 
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg border-l-2 border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie font-bold text-xs uppercase tracking-wider transition-all duration-200 group">
-                <i class="ri-team-line text-sm text-brownie/45 group-hover:text-brownie"></i>
+                href="{{ route('admin.clientele') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg border-l-2 font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.clientele') ? 'border-[#C08552] bg-[#C08552]/8 text-[#C08552]' : 'border-transparent text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-team-line text-sm {{ request()->routeIs('admin.clientele') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
                 <span>Clientele</span>
             </a>
 
