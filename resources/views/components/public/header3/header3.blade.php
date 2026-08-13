@@ -9,28 +9,16 @@
     :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 border-b border-cream/50' : 'bg-transparent py-3.5 sm:py-5'">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between gap-2 sm:gap-4">
-        <!-- Left Side: Logo (White when top over hero, Dark when scrolled) -->
-        <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-            <!-- Shield Logo Icon Badge -->
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-bold transition-all duration-500 shadow-sm"
-                 :class="scrolled ? 'bg-[#C08552] text-white border border-[#C08552]/30' : 'bg-white/20 backdrop-blur-md text-white border border-white/40'">
-                <i class="ri-shield-fill text-base sm:text-xl"></i>
-            </div>
-
-            <!-- Logo Text -->
-            <div class="flex flex-col">
-                <span class="font-black text-sm sm:text-lg tracking-tight uppercase transition-colors duration-500"
-                      :class="scrolled ? 'text-brownie' : 'text-white drop-shadow-sm'">
-                    NDS <span :class="scrolled ? 'text-[#C08552]' : 'text-caramel font-extrabold'">SECURITY</span>
-                </span>
-                <span class="text-[8px] sm:text-[9px] font-extrabold tracking-widest uppercase transition-colors duration-500"
-                      :class="scrolled ? 'text-brownie/60' : 'text-white/85'">
-                    SERVICES NOIDA
-                </span>
-            </div>
+        <!-- Left Side: Logo Image (logo-light.png when transparent top, logo-dark.png when scrolled) -->
+        <a href="{{ route('home') }}" class="flex items-center shrink-0 group">
+            <img 
+                :src="scrolled ? '{{ asset('logo-light.png') }}' : '{{ asset('logo-dark.png') }}'" 
+                alt="NDS Security Services Noida" 
+                class="h-9 sm:h-12 w-auto object-contain transition-all duration-500" 
+            />
         </a>
 
-        <!-- Right Side: Navigation Links (Adjusted & Fits All Screen Widths) -->
+        <!-- Right Side: Navigation Links -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5">
             <a href="{{ route('home') }}" 
                class="py-1.5 px-2.5 text-[11px] xl:text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-full shrink-0"
@@ -38,11 +26,7 @@
                 Home
             </a>
 
-            <a href="{{ route('home2') }}" 
-               class="py-1.5 px-2.5 text-[11px] xl:text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-full shrink-0"
-               :class="scrolled ? 'text-brownie/90 hover:bg-caramel/10 hover:text-caramel' : 'text-white/90 hover:bg-white/20 hover:text-white drop-shadow-xs'">
-                Home 2
-            </a>
+        
 
             <a href="{{ route('about') }}" 
                class="py-1.5 px-2.5 text-[11px] xl:text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-full shrink-0"
