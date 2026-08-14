@@ -17,7 +17,7 @@
 
         @livewireStyles
     </head>
-    <body class="min-h-full bg-white text-brownie flex flex-col antialiased">
+    <body class="min-h-full bg-white text-brownie flex flex-col antialiased overflow-x-hidden">
         
         <!-- Header Component (Stretches Full Width) -->
         <x-public.header.header />
