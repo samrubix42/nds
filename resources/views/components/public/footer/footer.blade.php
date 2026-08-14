@@ -11,14 +11,28 @@
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3 mt-3">
-                    <a href="#" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <i class="ri-facebook-fill text-sm"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm">
+                    @if(setting('facebook'))
+                        <a href="{{ setting('facebook') }}" target="_blank" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm" title="Facebook">
+                            <i class="ri-facebook-fill text-sm"></i>
+                        </a>
+                    @endif
+                    @if(setting('instagram'))
+                        <a href="{{ setting('instagram') }}" target="_blank" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm" title="Instagram">
+                            <i class="ri-instagram-line text-sm"></i>
+                        </a>
+                    @endif
+                    @if(setting('x'))
+                        <a href="{{ setting('x') }}" target="_blank" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm" title="X (Twitter)">
+                            <i class="ri-twitter-x-line text-sm"></i>
+                        </a>
+                    @endif
+                    @if(setting('whatsapp_number'))
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', setting('whatsapp_number')) }}" target="_blank" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm" title="WhatsApp">
+                            <i class="ri-whatsapp-line text-sm"></i>
+                        </a>
+                    @endif
+                    <a href="mailto:{{ setting('email', 'info@ndssecurity.com') }}" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm" title="Email">
                         <i class="ri-mail-line text-sm"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-cream/40 border border-cream/80 hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <i class="ri-phone-line text-sm"></i>
                     </a>
                 </div>
             </div>
@@ -53,24 +67,34 @@
                 <div class="flex items-start gap-3 text-xs">
                     <i class="ri-map-pin-line text-caramel text-base mt-0.5"></i>
                     <p class="text-coffee/85 leading-relaxed font-semibold">
-                        Gaur City Mall Road,<br />
-                        Noida, Uttar Pradesh, 201301
+                        {!! nl2br(e(setting('address', 'Gaur City Mall Road, Noida, Uttar Pradesh, 201301'))) !!}
                     </p>
                 </div>
                 <div class="flex items-center gap-3 text-xs">
                     <i class="ri-phone-line text-caramel text-base"></i>
-                    <p class="text-coffee/85 font-bold hover:text-caramel transition-colors">+91 99999 88888</p>
+                    <div class="flex flex-col">
+                        <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="text-coffee/85 font-bold hover:text-caramel transition-colors">{{ setting('phone_number', '+91 88005-93141') }}</a>
+                        @if(setting('phone_number_2'))
+                            <a href="tel:{{ setting('phone_number_2') }}" class="text-coffee/85 font-semibold hover:text-caramel transition-colors">{{ setting('phone_number_2') }}</a>
+                        @endif
+                    </div>
                 </div>
                 <div class="flex items-center gap-3 text-xs">
                     <i class="ri-mail-line text-caramel text-base"></i>
-                    <p class="text-coffee/85 font-semibold hover:text-caramel transition-colors">info@ndssecurity.com</p>
+                    <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="text-coffee/85 font-semibold hover:text-caramel transition-colors">{{ setting('email', 'info@ndssecurityservices.com') }}</a>
                 </div>
+                @if(setting('office_time'))
+                    <div class="flex items-center gap-3 text-xs">
+                        <i class="ri-time-line text-caramel text-base"></i>
+                        <span class="text-coffee/85 font-semibold">{{ setting('office_time') }}</span>
+                    </div>
+                @endif
             </div>
         </div>
 
         <!-- Footer Bottom Bar -->
         <div class="border-t border-cream mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-coffee/70 font-semibold">
-            <p>© {{ date('Y') }} NDS Security Services. All Rights Reserved.</p>
+            <p>© {{ date('Y') }} {{ setting('company_name', 'NDS Security Services') }}. All Rights Reserved.</p>
             <div class="flex gap-4">
                 <a href="#" class="hover:text-caramel transition-colors">Privacy Policy</a>
                 <span>•</span>

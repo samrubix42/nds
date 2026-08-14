@@ -152,9 +152,9 @@
 
             <!-- Settings -->
             <a 
-                href="#" 
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie font-bold text-xs uppercase tracking-wider transition-all duration-200 group">
-                <i class="ri-settings-4-line text-base text-brownie/45 group-hover:text-brownie"></i>
+                href="{{ route('admin.settings') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.settings') ? 'bg-[#C08552]/10 text-[#C08552] shadow-xs' : 'text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-settings-4-line text-base {{ request()->routeIs('admin.settings') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
                 <span>Settings</span>
             </a>
         </div>

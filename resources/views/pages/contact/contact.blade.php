@@ -48,7 +48,7 @@
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Registered Head Office</h4>
                             <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed">
-                                Gaur City Mall Road, Noida, Uttar Pradesh, 201301
+                                {!! nl2br(e(setting('address', 'Gaur City Mall Road, Noida, Uttar Pradesh, 201301'))) !!}
                             </p>
                         </div>
                     </div>
@@ -60,12 +60,19 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">24/7 Command Helpline</h4>
-                            <a href="tel:+919999988888" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
-                                +91 99999 88888 (Emergency Support)
+                            <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
+                                {{ setting('phone_number', '+91 88005-93141') }}
                             </a>
-                            <a href="tel:+911204444333" class="text-xs sm:text-sm text-coffee/80 font-semibold hover:text-caramel transition-colors">
-                                +91 120 4444333 (Corporate Desk)
-                            </a>
+                            @if(setting('phone_number_2'))
+                                <a href="tel:{{ setting('phone_number_2') }}" class="text-xs sm:text-sm text-coffee/90 font-semibold hover:text-caramel transition-colors">
+                                    {{ setting('phone_number_2') }}
+                                </a>
+                            @endif
+                            @if(setting('whatsapp_number'))
+                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', setting('whatsapp_number')) }}" target="_blank" class="text-xs sm:text-sm text-emerald-700 font-semibold hover:text-emerald-800 transition-colors flex items-center gap-1.5 mt-1">
+                                    <i class="ri-whatsapp-line text-sm"></i> WhatsApp: {{ setting('whatsapp_number') }}
+                                </a>
+                            @endif
                         </div>
                     </div>
 
@@ -76,11 +83,8 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Business Queries</h4>
-                            <a href="mailto:info@ndssecurity.com" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
-                                info@ndssecurity.com
-                            </a>
-                            <a href="mailto:support@ndssecurity.com" class="text-xs sm:text-sm text-coffee/80 font-semibold hover:text-caramel transition-colors">
-                                support@ndssecurity.com
+                            <a href="mailto:{{ setting('email', 'info@ndssecurity.com') }}" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
+                                {{ setting('email', 'info@ndssecurity.com') }}
                             </a>
                         </div>
                     </div>
@@ -93,10 +97,7 @@
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Operation Hours</h4>
                             <p class="text-xs sm:text-sm text-coffee font-bold">
-                                Emergency Line: 24/7/365 Active
-                            </p>
-                            <p class="text-xs text-coffee/85 font-semibold">
-                                Corporate Office: Mon - Sat (9:30 AM - 6:30 PM)
+                                {{ setting('office_time', 'Mon - Sat: 9:00 AM - 7:00 PM') }}
                             </p>
                         </div>
                     </div>

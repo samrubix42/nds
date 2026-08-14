@@ -41,32 +41,33 @@
                 <div class="w-12 h-1 bg-caramel mt-2 rounded-full"></div>
             </div>
 
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-
-                <!-- Service Card 1: CCTV Installation -->
+            <!-- Cards Grid: 4 Core Services with Image & Badge Design -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: Essential Services -->
                 <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-                            alt="CCTV Installation"
+                    <div class="relative w-full h-48 overflow-hidden bg-cream">
+                        <img src="{{ asset('image/PIC_3766.webp') }}"
+                            alt="Essential Services"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
                     <!-- Overlapping Center Circular Icon Badge -->
                     <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-camera-lens-fill"></i>
+                        <i class="ri-shield-check-fill"></i>
                     </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                CCTV Installation
+                            <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">01. ESSENTIAL SERVICES</span>
+                            <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
+                                Essential Services
                             </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                We provide professional CCTV installation services offering high-quality cameras, clear night-vision optics, and remote mobile monitoring.
+                            <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
+                                Professional Manned Guarding for corporate and industrial sites, structured gate access control, and secure transport security operations.
                             </p>
                         </div>
-                        <a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
+                            <span>Inquire Now</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
                             </div>
@@ -74,11 +75,11 @@
                     </div>
                 </div>
 
-                <!-- Service Card 2: 24/7 Monitoring Services -->
+                <!-- Card 2: Specialised Services -->
                 <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
+                    <div class="relative w-full h-48 overflow-hidden bg-cream">
                         <img src="{{ asset('command_center.png') }}"
-                            alt="24/7 Monitoring Services"
+                            alt="Specialised Services"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
@@ -86,17 +87,18 @@
                     <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                         <i class="ri-radar-fill"></i>
                     </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                24/7 Monitoring Services
+                            <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">02. SPECIALISED SERVICES</span>
+                            <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
+                                Specialised Services
                             </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Centralized command room oversight with real-time video surveillance analysis and instant dispatch response across Noida.
+                            <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
+                                Mobile Guarding patrols, integrated tech solutions, help desk management, and round-the-clock Command Centre Operations.
                             </p>
                         </div>
-                        <a href="{{ route('service.detail', ['slug' => 'monitoring-services']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
+                            <span>Inquire Now</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
                             </div>
@@ -104,29 +106,30 @@
                     </div>
                 </div>
 
-                <!-- Service Card 3: Home Security Systems -->
+                <!-- Card 3: Threat Mitigation -->
                 <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
-                            alt="Home Security Systems"
+                    <div class="relative w-full h-48 overflow-hidden bg-cream">
+                        <img src="{{ asset('image/PIC_3788.webp') }}"
+                            alt="Threat Mitigation"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
                     <!-- Overlapping Center Circular Icon Badge -->
                     <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-home-shield-fill"></i>
+                        <i class="ri-file-shield-2-fill"></i>
                     </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Home Security Systems
+                            <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">03. THREAT MITIGATION</span>
+                            <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
+                                Threat Mitigation
                             </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Complete residential intruder detection, video doorbells, smart lock control, and app-based entry permissions.
+                            <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
+                                Comprehensive risk assessments, loss prevention strategies, and physical security compliance audits tailored to site vulnerabilities.
                             </p>
                         </div>
-                        <a href="{{ route('service.detail', ['slug' => 'home-security-systems']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
+                            <span>Inquire Now</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
                             </div>
@@ -134,89 +137,30 @@
                     </div>
                 </div>
 
-                <!-- Service Card 4: Access Control Systems -->
+                <!-- Card 4: On-Demand Services -->
                 <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"
-                            alt="Access Control Systems"
+                    <div class="relative w-full h-48 overflow-hidden bg-cream">
+                        <img src="{{ asset('image/PIC_3861.webp') }}"
+                            alt="On-Demand Services"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
                     <!-- Overlapping Center Circular Icon Badge -->
                     <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-fingerprint-fill"></i>
+                        <i class="ri-flashlight-fill"></i>
                     </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Access Control Systems
+                            <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">04. ON-DEMAND SERVICES</span>
+                            <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
+                                On-Demand Services
                             </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Biometric readers, turnstile gates, RFID keycard credentials, and employee time-attendance sync.
+                            <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
+                                High-profile event security management, VIP Executive Protection (Bouncers), and Rapid Response Teams (RRT) for emergency dispatch.
                             </p>
                         </div>
-                        <a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 5: Smart Home & Automation Integration -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
-                            alt="Smart Home Integration"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-cpu-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Smart Home Integration
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Seamless IoT sensor sync, automated lighting triggers, glass-break detectors, and centralized security hubs.
-                            </p>
-                        </div>
-                        <a href="{{ route('service.detail', ['slug' => 'smart-home-integration']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
-                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 6: Alarm Systems Installation -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="relative w-full h-52 overflow-hidden bg-cream">
-                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80"
-                            alt="Alarm Systems Installation"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlapping Center Circular Icon Badge -->
-                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <i class="ri-alarm-warning-fill"></i>
-                    </div>
-                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-black text-brownie tracking-tight mb-2.5 group-hover:text-caramel transition-colors">
-                                Alarm Systems Installation
-                            </h3>
-                            <p class="text-xs sm:text-sm text-coffee/85 leading-relaxed font-medium mb-6">
-                                Fire, smoke, and intrusion alarms connected directly to quick response teams for under 15-minute emergency arrival.
-                            </p>
-                        </div>
-                        <a href="{{ route('service.detail', ['slug' => 'alarm-systems-installation']) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
-                            <span>Discover More</span>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
+                            <span>Inquire Now</span>
                             <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                 <i class="ri-arrow-right-line text-sm"></i>
                             </div>

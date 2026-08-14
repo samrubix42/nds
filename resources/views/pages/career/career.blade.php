@@ -69,6 +69,176 @@
                     </p>
                 </div>
             </div>
+    <!-- Recruitment Eligibility Criteria Section -->
+    <section class="py-16 bg-[#FDFBF7] border-t border-cream/50 w-full">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-10">
+            
+            <div class="flex flex-col items-center text-center gap-3">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">ELIGIBILITY CRITERIA & REQUIREMENTS</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
+                    Recruitment Standards Matrix
+                </h2>
+                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
+                <p class="text-xs sm:text-sm text-coffee/80 max-w-2xl font-semibold mt-1">
+                    Review our minimum educational qualifications, experience levels, age brackets, and physical height requirements across security roles.
+                </p>
+            </div>
+
+            <!-- Desktop & Tablet Table View -->
+            <div class="hidden md:block overflow-hidden bg-white border border-cream rounded-3xl shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-cream/40 border-b border-cream text-brownie uppercase text-xs font-black tracking-wider">
+                            <th class="py-4 px-6">Category</th>
+                            <th class="py-4 px-6"><div class="flex items-center gap-2"><i class="ri-graduation-cap-line text-caramel text-base"></i><span>Min. Education</span></div></th>
+                            <th class="py-4 px-6"><div class="flex items-center gap-2"><i class="ri-time-line text-caramel text-base"></i><span>Min. Experience</span></div></th>
+                            <th class="py-4 px-6"><div class="flex items-center gap-2"><i class="ri-user-3-line text-caramel text-base"></i><span>Age Criteria</span></div></th>
+                            <th class="py-4 px-6"><div class="flex items-center gap-2"><i class="ri-ruler-line text-caramel text-base"></i><span>Min. Height</span></div></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-cream/60 text-xs sm:text-sm font-semibold text-coffee">
+                        <!-- Security Guard -->
+                        <tr class="hover:bg-caramel/5 transition-colors">
+                            <td class="py-4 px-6 font-black text-brownie flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-caramel"></span>
+                                <span>Security Guard</span>
+                            </td>
+                            <td class="py-4 px-6">Matriculate (10<sup>th</sup> Pass)</td>
+                            <td class="py-4 px-6">1+ Years Guarding</td>
+                            <td class="py-4 px-6">20 – 28 Years</td>
+                            <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
+                        </tr>
+
+                        <!-- Supervisor -->
+                        <tr class="hover:bg-caramel/5 transition-colors">
+                            <td class="py-4 px-6 font-black text-brownie flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-caramel"></span>
+                                <span>Supervisor</span>
+                            </td>
+                            <td class="py-4 px-6">Intermediate (12<sup>th</sup> Pass)</td>
+                            <td class="py-4 px-6">2+ Years Supervisory</td>
+                            <td class="py-4 px-6">35 – 45 Years</td>
+                            <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
+                        </tr>
+
+                        <!-- Security Officer -->
+                        <tr class="hover:bg-caramel/5 transition-colors">
+                            <td class="py-4 px-6 font-black text-brownie flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-caramel"></span>
+                                <span>Security Officer</span>
+                            </td>
+                            <td class="py-4 px-6">Graduate Degree</td>
+                            <td class="py-4 px-6">5 – 10 Years Security</td>
+                            <td class="py-4 px-6">35 – 45 Years</td>
+                            <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
+                        </tr>
+
+                        <!-- Security Manager -->
+                        <tr class="hover:bg-caramel/5 transition-colors">
+                            <td class="py-4 px-6 font-black text-brownie flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-caramel"></span>
+                                <span>Security Manager</span>
+                            </td>
+                            <td class="py-4 px-6">Graduate Degree</td>
+                            <td class="py-4 px-6">10 – 15 Years Security</td>
+                            <td class="py-4 px-6">35 – 45 Years</td>
+                            <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Card Layout View -->
+            <div class="grid grid-cols-1 gap-4 md:hidden">
+                <!-- Security Guard -->
+                <div class="bg-white p-5 border border-cream rounded-2xl shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-cream/60 pb-2.5">
+                        <h4 class="font-black text-sm text-brownie uppercase">Security Guard</h4>
+                        <span class="px-2.5 py-0.5 rounded-full bg-caramel/10 text-caramel font-bold text-[10px]">Min. 5' 7"</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Education</span>
+                            <span class="font-semibold text-brownie">Matriculate (10<sup>th</sup> Pass)</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Experience</span>
+                            <span class="font-semibold text-brownie">1+ Years Guarding</span>
+                        </div>
+                        <div class="col-span-2 pt-1">
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Age Criteria</span>
+                            <span class="font-semibold text-brownie">20 – 28 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supervisor -->
+                <div class="bg-white p-5 border border-cream rounded-2xl shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-cream/60 pb-2.5">
+                        <h4 class="font-black text-sm text-brownie uppercase">Supervisor</h4>
+                        <span class="px-2.5 py-0.5 rounded-full bg-caramel/10 text-caramel font-bold text-[10px]">Min. 5' 7"</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Education</span>
+                            <span class="font-semibold text-brownie">Intermediate (12<sup>th</sup> Pass)</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Experience</span>
+                            <span class="font-semibold text-brownie">2+ Years Supervisory</span>
+                        </div>
+                        <div class="col-span-2 pt-1">
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Age Criteria</span>
+                            <span class="font-semibold text-brownie">35 – 45 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Officer -->
+                <div class="bg-white p-5 border border-cream rounded-2xl shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-cream/60 pb-2.5">
+                        <h4 class="font-black text-sm text-brownie uppercase">Security Officer</h4>
+                        <span class="px-2.5 py-0.5 rounded-full bg-caramel/10 text-caramel font-bold text-[10px]">Min. 5' 7"</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Education</span>
+                            <span class="font-semibold text-brownie">Graduate Degree</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Experience</span>
+                            <span class="font-semibold text-brownie">5 – 10 Years Security</span>
+                        </div>
+                        <div class="col-span-2 pt-1">
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Age Criteria</span>
+                            <span class="font-semibold text-brownie">35 – 45 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Manager -->
+                <div class="bg-white p-5 border border-cream rounded-2xl shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-cream/60 pb-2.5">
+                        <h4 class="font-black text-sm text-brownie uppercase">Security Manager</h4>
+                        <span class="px-2.5 py-0.5 rounded-full bg-caramel/10 text-caramel font-bold text-[10px]">Min. 5' 7"</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Education</span>
+                            <span class="font-semibold text-brownie">Graduate Degree</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Experience</span>
+                            <span class="font-semibold text-brownie">10 – 15 Years Security</span>
+                        </div>
+                        <div class="col-span-2 pt-1">
+                            <span class="text-[10px] text-coffee/60 font-bold uppercase block">Age Criteria</span>
+                            <span class="font-semibold text-brownie">35 – 45 Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 

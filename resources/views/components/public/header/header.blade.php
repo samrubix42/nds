@@ -9,22 +9,27 @@
 
             <!-- Contact Info (Desktop Only) -->
             <div class="hidden md:flex items-center gap-8 ml-auto">
-                <a href="tel:+919999988888" class="flex items-center gap-3 group">
+                <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="flex items-center gap-3 group">
                     <div class="w-9 h-9 rounded-full bg-caramel/10 flex items-center justify-center text-caramel transition-all duration-300 group-hover:bg-caramel group-hover:text-white group-hover:rotate-12 shadow-sm">
                         <i class="ri-phone-fill text-sm"></i>
                     </div>
                     <div>
                         <p class="text-xs text-coffee/80 font-medium uppercase tracking-wider">Call 24/7 Support</p>
-                        <p class="text-brownie font-bold text-xs sm:text-sm transition-colors group-hover:text-caramel">+91 99999 88888</p>
+                        <p class="text-brownie font-bold text-xs sm:text-sm transition-colors group-hover:text-caramel">
+                            {{ setting('phone_number', '+91 88005-93141') }}
+                            @if(setting('phone_number_2'))
+                                <span class="text-coffee/60 font-medium text-[11px] block sm:inline"> / {{ setting('phone_number_2') }}</span>
+                            @endif
+                        </p>
                     </div>
                 </a>
-                <a href="mailto:info@ndssecurity.com" class="flex items-center gap-3 group">
+                <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="flex items-center gap-3 group">
                     <div class="w-9 h-9 rounded-full bg-caramel/10 flex items-center justify-center text-caramel transition-all duration-300 group-hover:bg-caramel group-hover:text-white group-hover:-rotate-12 shadow-sm">
                         <i class="ri-mail-fill text-sm"></i>
                     </div>
                     <div>
                         <p class="text-xs text-coffee/80 font-medium uppercase tracking-wider">Email Us</p>
-                        <p class="text-brownie font-bold text-xs sm:text-sm transition-colors group-hover:text-caramel">info@ndssecurity.com</p>
+                        <p class="text-brownie font-bold text-xs sm:text-sm transition-colors group-hover:text-caramel">{{ setting('email', 'info@ndssecurityservices.com') }}</p>
                     </div>
                 </a>
                 <div class="flex items-center gap-3 group">
@@ -33,14 +38,14 @@
                     </div>
                     <div>
                         <p class="text-xs text-coffee/80 font-medium uppercase tracking-wider">Our Office</p>
-                        <p class="text-brownie font-bold text-xs sm:text-sm">Noida, Uttar Pradesh</p>
+                        <p class="text-brownie font-bold text-xs sm:text-sm truncate max-w-[180px]">{{ setting('address', 'Noida, Uttar Pradesh') }}</p>
                     </div>
                 </div>
             </div>
 
             <!-- Mobile Menu Toggle & Contact Button (Mobile Only) -->
             <div class="flex items-center gap-2 md:hidden">
-                <a href="tel:+919999988888" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Call Us">
+                <a href="tel:{{ setting('phone_number', '+91 99999 88888') }}" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Call Us">
                     <i class="ri-phone-fill text-base"></i>
                 </a>
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Toggle Menu">
