@@ -1,6 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/clear-cache', function () {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+
+    return response()->json([
+        'status' => 'success',
+        'message' => 'All application caches (config, cache, route, view) cleared successfully!',
+    ]);
+})->name('clear-cache');
 
 Route::livewire('/', 'pages::home')->name('home');
 Route::livewire('/home-2', 'pages::home2')->name('home2');
