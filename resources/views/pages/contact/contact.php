@@ -53,7 +53,7 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
             'is_read' => false,
         ]);
 
-        $recipientEmail = setting('email', config('mail.contact_recipient', 'samcool3203@gmail.com'));
+        $recipientEmail = config('mail.contact_recipient', 'samcool3203@gmail.com');
 
         try {
             Mail::to($recipientEmail)->send(
@@ -74,7 +74,7 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
             ]);
         }
 
-        $this->successMessage = 'Thank you! Your message has been sent successfully to '.$recipientEmail.'. Noida\'s Command Center response team will get back to you shortly.';
+        $this->successMessage = 'Thank you for contacting NDS Security Services! Our team will get back to you shortly.';
 
         $this->reset(['name', 'email', 'phone', 'subject', 'message']);
     }

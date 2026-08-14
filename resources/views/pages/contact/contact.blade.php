@@ -210,7 +210,7 @@
                          x-data="{ show: true }" x-show="show" x-cloak>
                         <i class="ri-checkbox-circle-fill text-emerald-600 text-2xl shrink-0 mt-0.5"></i>
                         <div class="flex flex-col gap-1">
-                            <span class="text-xs font-black uppercase tracking-wider text-emerald-900">Inquiry Received & Emailed</span>
+                            <span class="text-xs font-black uppercase tracking-wider text-emerald-900">Inquiry Received</span>
                             <p class="text-xs sm:text-sm font-semibold leading-relaxed text-emerald-950">
                                 {{ $successMessage }}
                             </p>
@@ -291,21 +291,19 @@
                     </div>
 
                     <!-- Submit Action Button -->
-                    <button type="submit" wire:loading.attr="disabled"
-                            class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-2xl shadow-md shadow-caramel/25 transition-all inline-flex items-center justify-center gap-2 cursor-pointer mt-2 group active:scale-98 disabled:opacity-85">
+                    <button type="submit" wire:loading.attr="disabled" wire:target="submitForm"
+                            class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-2xl shadow-md shadow-caramel/25 hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer mt-2 group active:scale-98 disabled:opacity-75 disabled:cursor-not-allowed">
                         
-                        <!-- Show normal text and icon when NOT loading -->
-                        <span wire:loading.remove class="inline-flex items-center gap-2">
-                            Submit Inquiry <i class="ri-send-plane-fill text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"></i>
+                        <!-- Show normal text and icon when NOT loading submitForm -->
+                        <span wire:loading.remove wire:target="submitForm" class="inline-flex items-center gap-2">
+                            <span>Submit Inquiry</span>
+                            <i class="ri-send-plane-fill text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"></i>
                         </span>
 
-                        <!-- Show spinner and sending text when loading -->
-                        <span wire:loading class="inline-flex items-center gap-2">
-                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Sending Inquiry...
+                        <!-- Show spinner and sending text ONLY when loading submitForm -->
+                        <span wire:loading wire:target="submitForm" class="inline-flex items-center gap-2">
+                            <i class="ri-loader-4-line text-lg animate-spin"></i>
+                            <span>Sending Inquiry & Email...</span>
                         </span>
                     </button>
                 </form>
