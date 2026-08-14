@@ -24,5 +24,10 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::livewire('/testimonial-list', 'admin::testimonial-list')->name('testimonial-list');
     Route::livewire('/job-posts', 'admin::job-posts')->name('job-posts');
     Route::livewire('/job-applications', 'admin::job-applications')->name('job-applications');
+    Route::prefix('services')->name('services.')->group(function () {
+        Route::livewire('/', 'admin::service.list')->name('index');
+        Route::livewire('/add', 'admin::service.add')->name('add');
+        Route::livewire('/edit/{id}', 'admin::service.update')->name('edit');
+    });
     Route::livewire('/settings', 'admin::setting')->name('settings');
 });

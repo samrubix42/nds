@@ -41,7 +41,7 @@
     <!-- Sidebar Navigation Links with Multi-Level Collapsible Menus (No border-l) -->
     <div 
         x-data="{ 
-            openGroup: '{{ request()->routeIs('admin.clientele', 'admin.gallery*', 'admin.faq-list', 'admin.testimonial-list') ? 'content' : (request()->routeIs('admin.job-posts*') ? 'jobs' : 'console') }}'
+            openGroup: '{{ request()->routeIs('admin.services.*', 'admin.clientele', 'admin.gallery*', 'admin.faq-list', 'admin.testimonial-list') ? 'content' : (request()->routeIs('admin.job-posts*') ? 'jobs' : 'console') }}'
         }"
         class="flex-grow overflow-y-auto px-3 py-5 space-y-5 custom-scrollbar">
         
@@ -72,6 +72,14 @@
 
             <!-- Collapsible Submenu Items (No border-l) -->
             <div x-show="openGroup === 'content'" x-collapse class="pl-4 pr-1 py-1 space-y-1">
+                <!-- Services -->
+                <a 
+                    href="{{ route('admin.services.index') }}" 
+                    class="flex items-center gap-2.5 px-3 py-2 rounded-md font-semibold text-xs transition-all duration-200 {{ request()->routeIs('admin.services.*') ? 'bg-[#C08552] text-white shadow-xs' : 'text-brownie/75 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                    <i class="ri-shield-star-line text-sm"></i>
+                    <span>Services</span>
+                </a>
+
                 <!-- Clientele -->
                 <a 
                     href="{{ route('admin.clientele') }}" 
