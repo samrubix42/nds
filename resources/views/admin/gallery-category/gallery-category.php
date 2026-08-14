@@ -88,7 +88,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Categories - NDS Admin')] class
         $category->delete();
 
         $this->deletingCategoryId = null;
-        session()->flash('message', 'Category deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Category deleted successfully!',
             'type' => 'success',
@@ -106,7 +105,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Categories - NDS Admin')] class
         $category->is_active = ! $category->is_active;
         $category->save();
 
-        session()->flash('message', 'Category status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Category status updated successfully!',
             'type' => 'success',
@@ -130,7 +128,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Categories - NDS Admin')] class
                 'name' => $this->name,
                 'is_active' => $this->is_active,
             ]);
-            session()->flash('message', 'Category updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Category updated successfully!',
                 'type' => 'success',
@@ -141,7 +138,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Categories - NDS Admin')] class
                 'name' => $this->name,
                 'is_active' => $this->is_active,
             ]);
-            session()->flash('message', 'Category added successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Category added successfully!',
                 'type' => 'success',

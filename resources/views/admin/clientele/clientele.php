@@ -89,7 +89,6 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
         $client->delete();
 
         $this->deletingClientId = null;
-        session()->flash('message', 'Client deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Client deleted successfully!',
             'type' => 'success',
@@ -120,7 +119,6 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
         $client->is_active = ! $client->is_active;
         $client->save();
 
-        session()->flash('message', 'Client status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Client status updated successfully!',
             'type' => 'success',
@@ -154,7 +152,6 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             $client->is_active = $this->is_active;
             $client->save();
 
-            session()->flash('message', 'Client updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Client updated successfully!',
                 'type' => 'success',
@@ -173,7 +170,6 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
                 'is_active' => $this->is_active,
             ]);
 
-            session()->flash('message', 'Client added successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Client added successfully!',
                 'type' => 'success',

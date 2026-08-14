@@ -109,7 +109,6 @@ new #[Layout('layouts::admin')] #[Title('Job Posts Management - NDS Admin')] cla
         $jobPost->delete();
 
         $this->deletingJobPostId = null;
-        session()->flash('message', 'Job post deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Job post deleted successfully!',
             'type' => 'success',
@@ -127,7 +126,6 @@ new #[Layout('layouts::admin')] #[Title('Job Posts Management - NDS Admin')] cla
         $jobPost->status = $jobPost->status === 'open' ? 'closed' : 'open';
         $jobPost->save();
 
-        session()->flash('message', 'Job post status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Job post status updated successfully!',
             'type' => 'success',
@@ -157,7 +155,6 @@ new #[Layout('layouts::admin')] #[Title('Job Posts Management - NDS Admin')] cla
                 'shift' => $this->shift,
                 'status' => $this->status,
             ]);
-            session()->flash('message', 'Job post updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Job post updated successfully!',
                 'type' => 'success',
@@ -171,7 +168,6 @@ new #[Layout('layouts::admin')] #[Title('Job Posts Management - NDS Admin')] cla
                 'shift' => $this->shift,
                 'status' => $this->status,
             ]);
-            session()->flash('message', 'Job post created successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Job post created successfully!',
                 'type' => 'success',

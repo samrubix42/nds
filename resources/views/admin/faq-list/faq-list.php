@@ -94,7 +94,6 @@ new #[Layout('layouts::admin')] #[Title('FAQ List Management - NDS Admin')] clas
         $faq->delete();
 
         $this->deletingFaqId = null;
-        session()->flash('message', 'FAQ deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'FAQ deleted successfully!',
             'type' => 'success',
@@ -112,7 +111,6 @@ new #[Layout('layouts::admin')] #[Title('FAQ List Management - NDS Admin')] clas
         $faq->status = ! $faq->status;
         $faq->save();
 
-        session()->flash('message', 'FAQ status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'FAQ status updated successfully!',
             'type' => 'success',
@@ -138,7 +136,6 @@ new #[Layout('layouts::admin')] #[Title('FAQ List Management - NDS Admin')] clas
                 'answer' => $this->answer,
                 'status' => $this->status,
             ]);
-            session()->flash('message', 'FAQ updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'FAQ updated successfully!',
                 'type' => 'success',
@@ -150,7 +147,6 @@ new #[Layout('layouts::admin')] #[Title('FAQ List Management - NDS Admin')] clas
                 'answer' => $this->answer,
                 'status' => $this->status,
             ]);
-            session()->flash('message', 'FAQ added successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'FAQ added successfully!',
                 'type' => 'success',

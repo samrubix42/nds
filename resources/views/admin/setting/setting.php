@@ -104,7 +104,6 @@ new #[Layout('layouts::admin')] #[Title('System Settings - NDS Admin')] class ex
         $this->existing_favicon = '';
         $this->favicon = null;
 
-        session()->flash('message', 'Favicon removed successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Favicon removed successfully!',
             'type' => 'info',
@@ -153,7 +152,6 @@ new #[Layout('layouts::admin')] #[Title('System Settings - NDS Admin')] class ex
         Setting::set('x', $this->x);
         Setting::set('facebook', $this->facebook);
 
-        session()->flash('message', 'Setting configuration updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Setting configuration updated successfully!',
             'type' => 'success',

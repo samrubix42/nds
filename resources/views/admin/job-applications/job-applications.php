@@ -69,7 +69,6 @@ new #[Layout('layouts::admin')] #[Title('Job Applications - NDS Admin')] class e
             $this->selectedApplication->status = $application->status;
         }
 
-        session()->flash('message', 'Application status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Application status updated successfully!',
             'type' => 'success',
@@ -109,7 +108,6 @@ new #[Layout('layouts::admin')] #[Title('Job Applications - NDS Admin')] class e
             $this->resetState();
         }
 
-        session()->flash('message', 'Application deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Application deleted successfully!',
             'type' => 'success',

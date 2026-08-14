@@ -61,8 +61,6 @@ new #[Layout('layouts::admin')] #[Title('Add New Service - NDS Admin')] class ex
             'sort_order' => $this->sort_order,
         ]);
 
-        session()->flash('message', 'Service created successfully!');
-
         return redirect()->route('admin.services.index');
     }
 

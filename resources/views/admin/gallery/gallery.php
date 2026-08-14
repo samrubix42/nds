@@ -127,7 +127,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Management - NDS Admin')] class
         $item->delete();
 
         $this->deletingGalleryId = null;
-        session()->flash('message', 'Gallery item deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Gallery item deleted successfully!',
             'type' => 'success',
@@ -145,7 +144,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Management - NDS Admin')] class
         $item->is_active = ! $item->is_active;
         $item->save();
 
-        session()->flash('message', 'Gallery status updated successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Gallery status updated successfully!',
             'type' => 'success',
@@ -181,7 +179,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Management - NDS Admin')] class
             $item->is_active = $this->is_active;
             $item->save();
 
-            session()->flash('message', 'Gallery item updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Gallery item updated successfully!',
                 'type' => 'success',
@@ -204,7 +201,6 @@ new #[Layout('layouts::admin')] #[Title('Gallery Management - NDS Admin')] class
                 'is_active' => $this->is_active,
             ]);
 
-            session()->flash('message', 'Gallery item added successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Gallery item added successfully!',
                 'type' => 'success',

@@ -100,7 +100,6 @@ new #[Layout('layouts::admin')] #[Title('Testimonial Management - NDS Admin')] c
         $testimonial->delete();
 
         $this->deletingTestimonialId = null;
-        session()->flash('message', 'Testimonial deleted successfully.');
         $this->dispatch('toast-show', [
             'message' => 'Testimonial deleted successfully!',
             'type' => 'success',
@@ -129,7 +128,6 @@ new #[Layout('layouts::admin')] #[Title('Testimonial Management - NDS Admin')] c
                 'rating' => $this->rating,
                 'description' => $this->description,
             ]);
-            session()->flash('message', 'Testimonial updated successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Testimonial updated successfully!',
                 'type' => 'success',
@@ -142,7 +140,6 @@ new #[Layout('layouts::admin')] #[Title('Testimonial Management - NDS Admin')] c
                 'rating' => $this->rating,
                 'description' => $this->description,
             ]);
-            session()->flash('message', 'Testimonial added successfully.');
             $this->dispatch('toast-show', [
                 'message' => 'Testimonial added successfully!',
                 'type' => 'success',

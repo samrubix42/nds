@@ -77,8 +77,6 @@ new #[Layout('layouts::admin')] #[Title('Edit Service - NDS Admin')] class exten
 
         $service->save();
 
-        session()->flash('message', 'Service updated successfully!');
-
         return redirect()->route('admin.services.index');
     }
 

@@ -26,19 +26,6 @@
         </div>
     </div>
 
-    <!-- Session Messages -->
-    @if (session()->has('message'))
-        <div class="p-3 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-between shadow-xs">
-            <div class="flex items-center gap-2">
-                <i class="ri-checkbox-circle-fill text-emerald-600 text-sm"></i>
-                <span>{{ session('message') }}</span>
-            </div>
-            <button @click="this.parentElement.remove()" class="text-emerald-500 hover:text-emerald-800">
-                <i class="ri-close-line"></i>
-            </button>
-        </div>
-    @endif
-
     <!-- Controls Bar -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-3 border border-[#F3E9DC]/70 rounded-sm">
         <div class="relative w-full sm:max-w-xs">

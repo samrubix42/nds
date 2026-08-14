@@ -18,18 +18,6 @@
         </div>
     </div>
 
-    <!-- Session Flash Notification -->
-    @if (session()->has('message'))
-        <div class="p-3.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-between shadow-xs">
-            <div class="flex items-center gap-2">
-                <i class="ri-checkbox-circle-fill text-emerald-600 text-base"></i>
-                <span>{{ session('message') }}</span>
-            </div>
-            <button @click="this.parentElement.remove()" class="text-emerald-500 hover:text-emerald-800 transition-colors">
-                <i class="ri-close-line text-base"></i>
-            </button>
-        </div>
-    @endif
 
     <form wire:submit.prevent="save" class="space-y-6">
 

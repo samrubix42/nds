@@ -1,7 +1,7 @@
 <div class="w-full bg-white flex flex-col font-sans" x-data="{ tab: 'physical' }">
 
     <!-- Hero Banner Section -->
-    <section class="relative bg-gradient-to-br from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-20 overflow-hidden border-b border-caramel/35">
+    <section class="relative bg-gradient-to-br from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-24 overflow-hidden border-b border-caramel/35">
         <div class="absolute -top-12 -left-12 w-64 h-64 bg-caramel/20 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col gap-4 text-center md:text-left">
@@ -16,14 +16,14 @@
                 NDS Training <span class="text-caramel underline decoration-caramel/40 underline-offset-8">Academy</span>
             </h1>
             <p class="text-sm sm:text-base md:text-lg text-cream/80 max-w-2xl font-medium leading-relaxed mt-2">
-                Every NDS security guard is trained, tested, and vetted at our dedicated tactical academy. We maintain compliance with national security guidelines.
+                Every NDS security guard is trained, tested, and vetted at our dedicated tactical academy. We maintain strict compliance with PSARA national security standards.
             </p>
         </div>
     </section>
 
-    <!-- Core Philosophy Section -->
+    <!-- Core Philosophy Section with Featured Training Photo -->
     <section class="py-20 bg-white w-full">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <!-- Left Text (7 columns) -->
             <div class="lg:col-span-7 flex flex-col gap-6">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">ACADEMY OBJECTIVE</span>
@@ -53,26 +53,42 @@
                     </div>
                 </div>
             </div>
-            <!-- Right Card (5 columns) -->
-            <div class="lg:col-span-5 bg-gradient-to-br from-[#2d1e12] to-brownie p-8 rounded-[32px] border border-caramel/20 text-white shadow-lg relative overflow-hidden">
-                <div class="absolute -top-12 -right-12 w-36 h-36 bg-caramel/10 rounded-full blur-xl pointer-events-none"></div>
-                
-                <h3 class="text-base sm:text-lg font-black text-caramel uppercase tracking-widest mb-4">PSARA Training Code</h3>
-                <p class="text-xs sm:text-sm text-cream/70 leading-relaxed font-semibold mb-6">
-                    In compliance with the Private Security Agencies (Regulation) Act, NDS enforces a strict 100-hour training regimen for new recruits covering security, physical defense, and fire hazard evacuation layouts.
-                </p>
-                <div class="flex flex-col gap-4 border-t border-caramel/25 pt-6">
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-cream/60">PHYSICAL DRILLS</span>
-                        <span class="font-black text-caramel">40 HOURS</span>
+            
+            <!-- Right Column with Featured Training Photo & Stats Card (5 columns) -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                <!-- Training Photo Badge -->
+                <div class="relative rounded-[28px] overflow-hidden shadow-lg border-2 border-[#F3E9DC] group">
+                    <img src="{{ asset('image/PIC_4855.webp') }}" 
+                         alt="NDS Guard Physical & Tactical Readiness Training" 
+                         class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-transparent to-transparent flex items-end p-5">
+                        <span class="text-white text-xs font-bold uppercase tracking-wider bg-caramel/90 px-3 py-1.5 rounded-full shadow-sm">
+                            <i class="ri-medal-line mr-1"></i> State-Authorized Academy
+                        </span>
                     </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-cream/60">FIRE & SAFETY SYSTEMS</span>
-                        <span class="font-black text-caramel">30 HOURS</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-cream/60">CUSTOMER SERVICE & CONDUCT</span>
-                        <span class="font-black text-caramel">30 HOURS</span>
+                </div>
+
+                <!-- PSARA Training Code Card -->
+                <div class="bg-gradient-to-br from-[#2d1e12] to-brownie p-6 sm:p-8 rounded-[28px] border border-caramel/20 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-36 h-36 bg-caramel/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <h3 class="text-base sm:text-lg font-black text-caramel uppercase tracking-widest mb-3">PSARA Training Code</h3>
+                    <p class="text-xs sm:text-sm text-cream/70 leading-relaxed font-semibold mb-5">
+                        In compliance with the Private Security Agencies (Regulation) Act, NDS enforces a strict 100-hour training regimen for new recruits covering physical defense, access tech, and hazard drills.
+                    </p>
+                    <div class="flex flex-col gap-3.5 border-t border-caramel/25 pt-5">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-cream/60 uppercase">Physical Drills</span>
+                            <span class="font-black text-caramel">40 Hours</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-cream/60 uppercase">Fire & Safety Systems</span>
+                            <span class="font-black text-caramel">30 Hours</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-cream/60 uppercase">Customer Conduct & Services</span>
+                            <span class="font-black text-caramel">30 Hours</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,8 +149,8 @@
                             <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-caramel"></i> Crowd control and evacuation shielding</li>
                         </ul>
                     </div>
-                    <div class="h-64 rounded-2xl overflow-hidden shadow-sm bg-cream">
-                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80" alt="Physical Training" class="w-full h-full object-cover" />
+                    <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
+                        <img src="{{ asset('image/PIC_4880.webp') }}" alt="NDS Physical Training Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
@@ -151,8 +167,8 @@
                             <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-caramel"></i> QR check point supervisor patrols</li>
                         </ul>
                     </div>
-                    <div class="h-64 rounded-2xl overflow-hidden shadow-sm bg-cream">
-                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Surveillance Tech Training" class="w-full h-full object-cover" />
+                    <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
+                        <img src="{{ asset('image/PIC_3845.webp') }}" alt="Surveillance Tech Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
@@ -169,8 +185,8 @@
                             <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-caramel"></i> High-rise tower smoke evacuation protocols</li>
                         </ul>
                     </div>
-                    <div class="h-64 rounded-2xl overflow-hidden shadow-sm bg-cream">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="First Aid training" class="w-full h-full object-cover" />
+                    <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
+                        <img src="{{ asset('image/PIC_3792.webp') }}" alt="First Aid & Emergency Drill" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
@@ -187,11 +203,62 @@
                             <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-caramel"></i> Daily uniform grooming inspections</li>
                         </ul>
                     </div>
-                    <div class="h-64 rounded-2xl overflow-hidden shadow-sm bg-cream">
-                        <img src="https://images.unsplash.com/photo-1521791136368-1a8682707636?auto=format&fit=crop&w=800&q=80" alt="Grooming and conduct" class="w-full h-full object-cover" />
+                    <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
+                        <img src="{{ asset('image/PIC_3766.webp') }}" alt="Grooming and Squad Parade Inspection" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Academy Live Drill Photo Showcase Gallery -->
+    <section class="py-20 bg-white border-b border-cream/35 w-full">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-12">
+            <div class="flex flex-col items-center text-center gap-3">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">ACADEMY PHOTO GALLERY</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
+                    Live Tactical Training & Parade Squads
+                </h2>
+                <div class="w-12 h-0.5 bg-caramel mt-1"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Gallery Image 1 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('image/PIC_4855.webp') }}" alt="Mandatory PSARA Physical Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Tactical Drills</span>
+                        <h4 class="text-sm font-bold text-white mt-1">PSARA Physical Readiness</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 2 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('image/PIC_3766.webp') }}" alt="Morning Guard Inspection & Lineup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Squad Discipline</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Grooming & Parade Inspection</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 3 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('image/PIC_3788.webp') }}" alt="Commercial Asset Defense Briefing" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Asset Defense</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Corporate Facility Training</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 4 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('image/PIC_3861.webp') }}" alt="Crowd Control & Screening Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Event Tactics</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Crowd Control & Stage Safety</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

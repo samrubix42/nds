@@ -69,6 +69,9 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
     <!-- Recruitment Eligibility Criteria Section -->
     <section class="py-16 bg-[#FDFBF7] border-t border-cream/50 w-full">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-10">
@@ -243,88 +246,84 @@
     </section>
 
     <!-- Split Job Openings & Application Form Section -->
-    <section id="career-portal" class="py-20 bg-cream/10 border-t border-cream/35">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <section id="career-portal" class="py-20 bg-cream/10 border-t border-cream/35 w-full">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            <!-- Left Side: Dynamic Job listings from Database (7 columns) -->
-            <div class="lg:col-span-7 flex flex-col gap-8">
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">ACTIVE VACANCIES</span>
+            <!-- Left Side: Compact Vacancy List (5 columns) -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs font-extrabold tracking-widest text-caramel uppercase">ACTIVE VACANCIES</span>
                     <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-brownie">
-                        Explore Open Positions
+                        Open Positions
                     </h2>
-                    <div class="w-12 h-0.5 bg-caramel mt-1"></div>
-                    <p class="text-xs text-coffee font-semibold mt-2">Click on any vacancy card below to auto-select and start your application form.</p>
+                    <div class="w-10 h-0.5 bg-caramel mt-0.5"></div>
+                    <p class="text-xs text-coffee/80 font-semibold mt-1">Select a vacancy below to auto-populate the application form.</p>
                 </div>
 
-                <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-4">
                     @forelse($jobs as $job)
                         <div wire:click="selectJob({{ $job->id }})"
-                             class="p-6 rounded-2xl border shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer transition-all duration-300 group {{ $position === $job->title ? 'border-caramel bg-caramel/5 ring-1 ring-caramel/30 shadow-md' : 'border-cream bg-white hover:border-caramel/25 hover:bg-[#FDFBF7]' }}">
-                            <div class="flex flex-col gap-1">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <h4 class="text-sm sm:text-base font-black text-brownie uppercase">{{ $job->title }}</h4>
-                                    <span class="px-2 py-0.5 bg-caramel/10 text-caramel font-black text-[9px] uppercase rounded-full">PSARA</span>
-                                </div>
-                                <p class="text-xs text-coffee/90 font-semibold mt-1">
-                                    {{ $job->location }} • {{ $job->shift }} Shift
-                                </p>
-                                <p class="text-xs text-coffee/70 font-normal line-clamp-2 mt-1">
-                                    {{ Str::limit(strip_tags($job->description), 140) }}
-                                </p>
+                             class="p-5 rounded-2xl border shadow-2xs flex flex-col gap-3 cursor-pointer transition-all duration-300 group {{ $position === $job->title ? 'border-caramel bg-caramel/5 ring-1 ring-caramel/30 shadow-sm' : 'border-cream bg-white hover:border-caramel/30 hover:bg-[#FDFBF7]' }}">
+                            <div class="flex items-center justify-between gap-2">
+                                <h4 class="text-sm font-black text-brownie uppercase tracking-tight">{{ $job->title }}</h4>
+                                @if ($position === $job->title)
+                                    <span class="px-2.5 py-1 bg-caramel text-white font-extrabold text-[9px] uppercase rounded-md flex items-center gap-1 shrink-0"><i class="ri-checkbox-circle-fill"></i> Selected</span>
+                                @else
+                                    <span class="px-2.5 py-1 bg-[#FAF7F2] border border-cream text-brownie font-black text-[9px] uppercase rounded-md group-hover:bg-caramel group-hover:text-white transition-all shrink-0">Apply Now</span>
+                                @endif
                             </div>
-                            @if ($position === $job->title)
-                                <span class="px-3.5 py-1.5 bg-caramel text-white font-extrabold text-[10px] uppercase rounded-lg flex items-center gap-1 shadow-sm shrink-0"><i class="ri-checkbox-circle-fill"></i> Selected</span>
-                            @else
-                                <span class="px-3.5 py-1.5 bg-[#FAF7F2] border border-cream text-brownie font-black text-[10px] uppercase rounded-lg group-hover:bg-caramel group-hover:text-white transition-all shrink-0">Apply Now</span>
-                            @endif
+                            <div class="flex items-center gap-3 text-xs font-semibold text-coffee/80">
+                                <span><i class="ri-map-pin-line text-caramel mr-1"></i>{{ $job->location }}</span>
+                                <span>•</span>
+                                <span><i class="ri-time-line text-caramel mr-1"></i>{{ $job->shift }} Shift</span>
+                            </div>
                         </div>
                     @empty
-                        <div class="p-8 border border-cream rounded-2xl bg-white text-center flex flex-col items-center justify-center gap-3">
-                            <i class="ri-briefcase-line text-3xl text-caramel"></i>
-                            <h3 class="text-base font-black text-brownie">No Active Positions Listed Currently</h3>
-                            <p class="text-xs text-coffee/80">Select general application below to submit your resume for future opportunities.</p>
-                            <button type="button" wire:click="selectJob('General Security Application')" class="px-4 py-2 bg-caramel text-white font-black text-xs uppercase rounded-lg">General Application</button>
+                        <div class="p-6 border border-cream rounded-2xl bg-white text-center flex flex-col items-center justify-center gap-3">
+                            <i class="ri-briefcase-line text-2xl text-caramel"></i>
+                            <h3 class="text-sm font-black text-brownie">No Active Openings Currently</h3>
+                            <p class="text-xs text-coffee/80">Submit a general application to register your resume.</p>
+                            <button type="button" wire:click="selectJob('General Security Application')" class="px-3.5 py-1.5 bg-caramel text-white font-black text-xs uppercase rounded-lg">General Application</button>
                         </div>
                     @endforelse
                 </div>
             </div>
 
-            <!-- Right Column: Interactive Form Column (5 columns) -->
-            <div id="application-form" class="lg:col-span-5" x-data="{}" @job-selected.window="document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })">
+            <!-- Right Column: Spacious Application Form (7 columns) -->
+            <div id="application-form" class="lg:col-span-7" x-data="{}" @job-selected.window="document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })">
                 
                 @if ($position === '')
                     <!-- Invitation Placeholder -->
-                    <div class="flex flex-col items-center justify-center text-center p-10 border border-cream rounded-[32px] bg-white shadow-sm gap-4 min-h-[400px]">
-                        <div class="w-16 h-16 rounded-full bg-caramel/10 flex items-center justify-center text-caramel shadow-inner">
+                    <div class="flex flex-col items-center justify-center text-center p-10 border border-cream rounded-[32px] bg-white shadow-xs gap-4 min-h-[420px]">
+                        <div class="w-16 h-16 rounded-2xl bg-caramel/10 flex items-center justify-center text-caramel shadow-inner">
                             <i class="ri-briefcase-line text-3xl"></i>
                         </div>
-                        <h3 class="text-lg font-black text-brownie uppercase tracking-wide">Ready to Apply?</h3>
-                        <p class="text-xs sm:text-sm text-coffee/80 leading-relaxed font-semibold max-w-xs">
-                            Select one of the open positions on the left to start filing your job application form and upload your resume.
+                        <h3 class="text-lg font-black text-brownie uppercase tracking-wide">Select Position to Apply</h3>
+                        <p class="text-xs sm:text-sm text-coffee/80 leading-relaxed font-semibold max-w-sm">
+                            Click on any open vacancy card on the left to activate your application form and submit your resume.
                         </p>
                         <button type="button" wire:click="selectJob('General Security Application')"
                                 class="mt-2 bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs uppercase tracking-wider py-3 px-6 rounded-xl transition-all shadow-md active:scale-98">
-                            General Application
+                            Submit General Application
                         </button>
                     </div>
                 @else
-                    <!-- Actual Application Form (Fades/renders once position is set) -->
-                    <div class="bg-white p-7 sm:p-9 border border-cream/90 rounded-[28px] shadow-xl shadow-caramel/5 flex flex-col">
+                    <!-- Actual Application Form (Wide, Clean, Balanced) -->
+                    <div class="bg-white p-7 sm:p-10 border border-cream rounded-[32px] shadow-xl shadow-caramel/5 flex flex-col">
                         
                         <!-- Selected Job Title Card Header -->
-                        <div class="flex justify-between items-center pb-4 border-b border-cream/70 mb-6 gap-4">
+                        <div class="flex justify-between items-center pb-5 border-b border-cream mb-6 gap-4">
                             <div class="flex flex-col gap-0.5">
                                 <span class="text-[10px] font-black text-caramel uppercase tracking-widest flex items-center gap-1">
-                                    <i class="ri-checkbox-circle-fill"></i> Selected Position
+                                    <i class="ri-checkbox-circle-fill"></i> Selected Vacancy
                                 </span>
-                                <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight leading-tight">
+                                <h3 class="text-base sm:text-xl font-black text-brownie tracking-tight leading-tight">
                                     {{ $position }}
                                 </h3>
                             </div>
                             <button type="button" wire:click="$set('position', '')"
-                                    class="text-xs font-bold text-coffee/60 hover:text-caramel transition-colors uppercase tracking-wider flex items-center gap-1 select-none py-1 px-2.5 rounded-lg bg-cream/30 hover:bg-cream/60">
-                                <i class="ri-refresh-line"></i> Change
+                                    class="text-xs font-bold text-coffee/60 hover:text-caramel transition-colors uppercase tracking-wider flex items-center gap-1 select-none py-1.5 px-3 rounded-lg bg-cream/40 hover:bg-cream/70">
+                                <i class="ri-refresh-line"></i> Change Position
                             </button>
                         </div>
 
@@ -341,7 +340,7 @@
                             </div>
                         @endif
 
-                        <form wire:submit.prevent="submitApplication" class="flex flex-col gap-4.5">
+                        <form wire:submit.prevent="submitApplication" class="flex flex-col gap-5">
                             
                             <!-- Full Name -->
                             <div class="flex flex-col">
@@ -351,7 +350,7 @@
                                 </label>
                                 <input type="text" id="name" wire:model.blur="name"
                                        placeholder="Enter your full name"
-                                       class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-cream/90 rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
+                                       class="w-full px-4 py-3 bg-[#FAF8F5] border border-cream rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
                                 @error('name')
                                     <span class="text-[11px] font-bold text-rose-600 mt-1 flex items-center gap-1">
                                         <i class="ri-error-warning-line"></i> {{ $message }}
@@ -359,8 +358,8 @@
                                 @enderror
                             </div>
 
-                            <!-- Email & Phone -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Email & Phone Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div class="flex flex-col">
                                     <label for="email" class="text-[11px] font-extrabold text-brownie uppercase tracking-wider mb-1.5 flex items-center gap-1">
                                         <span>Email Address</span>
@@ -368,7 +367,7 @@
                                     </label>
                                     <input type="email" id="email" wire:model.blur="email"
                                            placeholder="yourname@gmail.com"
-                                           class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-cream/90 rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
+                                           class="w-full px-4 py-3 bg-[#FAF8F5] border border-cream rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
                                     @error('email')
                                         <span class="text-[11px] font-bold text-rose-600 mt-1 flex items-center gap-1">
                                             <i class="ri-error-warning-line"></i> {{ $message }}
@@ -382,8 +381,8 @@
                                         <span class="text-caramel font-black">*</span>
                                     </label>
                                     <input type="text" id="phone" wire:model.blur="phone"
-                                           placeholder="10-digit phone number"
-                                           class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-cream/90 rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
+                                           placeholder="10-digit mobile number"
+                                           class="w-full px-4 py-3 bg-[#FAF8F5] border border-cream rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
                                     @error('phone')
                                         <span class="text-[11px] font-bold text-rose-600 mt-1 flex items-center gap-1">
                                             <i class="ri-error-warning-line"></i> {{ $message }}
@@ -392,14 +391,14 @@
                                 </div>
                             </div>
 
-                            <!-- Position & Experience -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Position & Experience Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div class="flex flex-col">
                                     <label for="position" class="text-[11px] font-extrabold text-brownie uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                                        <span>Position</span>
+                                        <span>Applying For</span>
                                     </label>
                                     <input type="text" id="position" wire:model="position" readonly
-                                           class="w-full px-3.5 py-2.5 border border-cream/80 rounded-xl bg-cream/25 text-xs font-black text-brownie cursor-not-allowed select-none" />
+                                           class="w-full px-4 py-3 border border-cream rounded-xl bg-cream/30 text-xs sm:text-sm font-black text-brownie cursor-not-allowed select-none" />
                                 </div>
 
                                 <div class="flex flex-col">
@@ -410,7 +409,7 @@
                                     <input type="number" id="experience" wire:model.blur="experience"
                                            placeholder="e.g. 2"
                                            min="0" max="50"
-                                           class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-cream/90 rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
+                                           class="w-full px-4 py-3 bg-[#FAF8F5] border border-cream rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
                                     @error('experience')
                                         <span class="text-[11px] font-bold text-rose-600 mt-1 flex items-center gap-1">
                                             <i class="ri-error-warning-line"></i> {{ $message }}
@@ -426,8 +425,8 @@
                                     <span class="text-caramel font-black">*</span>
                                 </label>
                                 <input type="text" id="address" wire:model.blur="address"
-                                       placeholder="Locality, Sector, City"
-                                       class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-cream/90 rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
+                                       placeholder="Locality, Sector, City, State"
+                                       class="w-full px-4 py-3 bg-[#FAF8F5] border border-cream rounded-xl text-xs sm:text-sm font-semibold text-brownie placeholder:text-coffee/40 focus:bg-white focus:border-caramel focus:ring-2 focus:ring-caramel/20 shadow-2xs transition-all duration-200" />
                                 @error('address')
                                     <span class="text-[11px] font-bold text-rose-600 mt-1 flex items-center gap-1">
                                         <i class="ri-error-warning-line"></i> {{ $message }}
@@ -438,38 +437,38 @@
                             <!-- RESUME UPLOAD CONTAINER -->
                             <div class="flex flex-col mt-1">
                                 <label class="text-[11px] font-extrabold text-brownie uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                                    <span>Attach Resume / CV</span>
+                                    <span>Attach Resume / CV Document</span>
                                     <span class="text-caramel font-black">*</span>
                                 </label>
                                 
-                                <div class="relative border-2 border-dashed border-caramel/35 hover:border-caramel bg-caramel/[0.04] hover:bg-caramel/[0.08] rounded-2xl p-4 text-center transition-all duration-300 cursor-pointer group">
+                                <div class="relative border-2 border-dashed border-caramel/35 hover:border-caramel bg-caramel/[0.03] hover:bg-caramel/[0.08] rounded-2xl p-5 text-center transition-all duration-300 cursor-pointer group">
                                     <input type="file" 
                                            wire:model="resume" 
                                            accept=".pdf,.doc,.docx" 
                                            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
 
-                                    <div class="flex flex-col items-center justify-center gap-1.5">
-                                        <div class="w-10 h-10 rounded-xl bg-caramel/15 text-caramel group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-lg transition-all duration-300 shadow-2xs">
+                                    <div class="flex flex-col items-center justify-center gap-2">
+                                        <div class="w-11 h-11 rounded-xl bg-caramel/15 text-caramel group-hover:bg-caramel group-hover:text-white flex items-center justify-center text-xl transition-all duration-300 shadow-2xs">
                                             <i class="ri-file-pdf-2-fill"></i>
                                         </div>
 
                                         @if($resume)
-                                            <div class="flex items-center gap-1.5 text-xs font-black text-emerald-800 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full shadow-2xs">
-                                                <i class="ri-checkbox-circle-fill text-emerald-600"></i>
+                                            <div class="flex items-center gap-2 text-xs font-black text-emerald-800 bg-emerald-50 border border-emerald-200 px-4 py-1.5 rounded-full shadow-2xs">
+                                                <i class="ri-checkbox-circle-fill text-emerald-600 text-sm"></i>
                                                 <span>{{ $resume->getClientOriginalName() }}</span>
                                             </div>
                                         @else
-                                            <span class="text-xs font-extrabold text-brownie group-hover:text-caramel transition-colors">
-                                                Click to Choose Resume PDF / DOC
+                                            <span class="text-xs sm:text-sm font-extrabold text-brownie group-hover:text-caramel transition-colors">
+                                                Click or Drag Resume PDF / DOC Here
                                             </span>
                                             <span class="text-[10px] text-coffee/60 font-semibold">
-                                                Supports PDF, DOC, DOCX formats (Max 10MB)
+                                                Supports PDF, DOC, DOCX formats (Maximum 10MB)
                                             </span>
                                         @endif
 
                                         <div wire:loading wire:target="resume" class="text-xs font-bold text-caramel flex items-center gap-1 mt-1">
                                             <i class="ri-loader-4-line animate-spin text-sm"></i>
-                                            <span>Uploading file...</span>
+                                            <span>Uploading document...</span>
                                         </div>
                                     </div>
                                 </div>
@@ -482,13 +481,13 @@
 
                             <!-- Submit Button -->
                             <button type="submit" wire:loading.attr="disabled"
-                                    class="w-full bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer mt-2 border border-caramel/30 hover:scale-[1.01] active:scale-95 disabled:opacity-80">
+                                    class="w-full bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer mt-2 border border-caramel/30 hover:scale-[1.01] active:scale-95 disabled:opacity-80">
                                 <span wire:loading.remove wire:target="submitApplication" class="inline-flex items-center gap-2">
                                     <span>Submit Application & Resume</span>
-                                    <i class="ri-arrow-right-line text-sm"></i>
+                                    <i class="ri-arrow-right-line text-base"></i>
                                 </span>
                                 <span wire:loading wire:target="submitApplication" class="inline-flex items-center gap-2">
-                                    <i class="ri-loader-4-line animate-spin text-sm"></i>
+                                    <i class="ri-loader-4-line animate-spin text-base"></i>
                                     <span>Submitting Application...</span>
                                 </span>
                             </button>
