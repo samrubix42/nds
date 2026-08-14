@@ -72,6 +72,14 @@
 
             <!-- Collapsible Submenu Items (No border-l) -->
             <div x-show="openGroup === 'content'" x-collapse class="pl-4 pr-1 py-1 space-y-1">
+                <!-- Home Sliders -->
+                <a 
+                    href="{{ route('admin.homeslider') }}" 
+                    class="flex items-center gap-2.5 px-3 py-2 rounded-md font-semibold text-xs transition-all duration-200 {{ request()->routeIs('admin.homeslider') ? 'bg-[#C08552] text-white shadow-xs' : 'text-brownie/75 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                    <i class="ri-slideshow-line text-sm"></i>
+                    <span>Home Sliders</span>
+                </a>
+
                 <!-- Services -->
                 <a 
                     href="{{ route('admin.services.index') }}" 
@@ -118,6 +126,14 @@
                     class="flex items-center gap-2.5 px-3 py-2 rounded-md font-semibold text-xs transition-all duration-200 {{ request()->routeIs('admin.testimonial-list') ? 'bg-[#C08552] text-white shadow-xs' : 'text-brownie/75 hover:bg-[#FAF9F5] hover:text-brownie' }}">
                     <i class="ri-feedback-line text-sm"></i>
                     <span>Testimonials</span>
+                </a>
+
+                <!-- Contact Inquiries -->
+                <a 
+                    href="{{ route('admin.contact') }}" 
+                    class="flex items-center gap-2.5 px-3 py-2 rounded-md font-semibold text-xs transition-all duration-200 {{ request()->routeIs('admin.contact') ? 'bg-[#C08552] text-white shadow-xs' : 'text-brownie/75 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                    <i class="ri-mail-open-line text-sm"></i>
+                    <span>Contact Inquiries</span>
                 </a>
             </div>
         </div>

@@ -53,14 +53,14 @@
                 </a>
 
                 <!-- Card 2: Email -->
-                <a href="mailto:samcool3203@gmail.com" class="group p-6 bg-white rounded-3xl border border-cream shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-4">
+                <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="group p-6 bg-white rounded-3xl border border-cream shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-4">
                     <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl shrink-0 group-hover:bg-caramel group-hover:text-white transition-all">
                         <i class="ri-mail-fill"></i>
                     </div>
                     <div class="flex flex-col truncate">
-                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">DIRECT EMAIL</span>
+                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">OFFICIAL EMAIL</span>
                         <span class="text-xs sm:text-sm font-bold text-brownie group-hover:text-caramel transition-colors truncate">
-                            samcool3203@gmail.com
+                            {{ setting('email', 'info@ndssecurityservices.com') }}
                         </span>
                     </div>
                 </a>
@@ -72,8 +72,8 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="text-[10px] font-black tracking-wider text-caramel uppercase">HEADQUARTERS</span>
-                        <span class="text-xs font-bold text-brownie truncate max-w-[170px]">
-                            {{ setting('address', 'Gaur City Mall Road, Noida') }}
+                        <span class="text-xs font-bold text-brownie truncate max-w-[170px]" title="{{ setting('address', 'Greater Noida, U.P.') }}">
+                            {{ setting('address', 'Greater Noida, U.P.') }}
                         </span>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 <div class="flex flex-col gap-3">
                     <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">OUR OFFICES</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                        Reach Noida's Premier Security Force
+                        Reach {{ setting('company_name', 'NDS Security Services') }}
                     </h2>
                     <div class="w-12 h-0.5 bg-caramel mt-1"></div>
                     <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-semibold mt-3">
@@ -121,7 +121,7 @@
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Registered Head Office</h4>
                             <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed">
-                                {!! nl2br(e(setting('address', 'Gaur City Mall Road, Noida, Uttar Pradesh, 201301'))) !!}
+                                {!! nl2br(e(setting('address', 'Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)'))) !!}
                             </p>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                                 </a>
                             @endif
                             @if(setting('whatsapp_number'))
-                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', setting('whatsapp_number')) }}" target="_blank" class="text-xs sm:text-sm text-emerald-700 font-bold hover:text-emerald-800 transition-colors flex items-center gap-1.5 mt-1">
+                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', setting('whatsapp_number')) }}?text=Hello%20NDS%20Security%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="text-xs sm:text-sm text-emerald-700 font-bold hover:text-emerald-800 transition-colors flex items-center gap-1.5 mt-1">
                                     <i class="ri-whatsapp-line text-base"></i> WhatsApp: {{ setting('whatsapp_number') }}
                                 </a>
                             @endif
@@ -156,14 +156,36 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Official Email Desk</h4>
-                            <a href="mailto:samcool3203@gmail.com" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
-                                samcool3203@gmail.com
-                            </a>
-                            <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="text-xs sm:text-sm text-coffee/80 font-semibold hover:text-caramel transition-colors">
+                            <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
                                 {{ setting('email', 'info@ndssecurityservices.com') }}
                             </a>
                         </div>
                     </div>
+
+                    <!-- Social Media Links Block -->
+                    @if(setting('facebook') || setting('instagram') || setting('x'))
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-black text-brownie uppercase tracking-wider">Follow Us:</span>
+                            <div class="flex items-center gap-2">
+                                @if(setting('facebook'))
+                                    <a href="{{ setting('facebook') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
+                                        <i class="ri-facebook-fill text-base"></i>
+                                    </a>
+                                @endif
+                                @if(setting('instagram'))
+                                    <a href="{{ setting('instagram') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
+                                        <i class="ri-instagram-line text-base"></i>
+                                    </a>
+                                @endif
+                                @if(setting('x'))
+                                    <a href="{{ setting('x') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
+                                        <i class="ri-twitter-x-line text-base"></i>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
@@ -274,7 +296,7 @@
                         
                         <!-- Show normal text and icon when NOT loading -->
                         <span wire:loading.remove class="inline-flex items-center gap-2">
-                            Submit Inquiry & Send Email <i class="ri-send-plane-fill text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"></i>
+                            Submit Inquiry <i class="ri-send-plane-fill text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"></i>
                         </span>
 
                         <!-- Show spinner and sending text when loading -->
@@ -283,7 +305,7 @@
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            Sending Email to samcool3203@gmail.com...
+                            Sending Inquiry...
                         </span>
                     </button>
                 </form>
@@ -301,7 +323,7 @@
                     </div>
                     <h3 class="text-base sm:text-lg font-black text-brownie uppercase">Command Center Map Location</h3>
                 </div>
-                <span class="text-xs font-bold text-coffee/80 hidden sm:inline">Noida, Uttar Pradesh</span>
+                <span class="text-xs font-bold text-coffee/80 hidden sm:inline">Greater Noida, Uttar Pradesh</span>
             </div>
             <div class="w-full h-[420px] rounded-[32px] overflow-hidden border-2 border-cream shadow-md relative z-10">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.286377759604!2d77.412467!3d28.627622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef9012f5a6f9%3A0xe54e63bb70d58097!2sGaur%20City%20Mall!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 

@@ -17,11 +17,13 @@ Route::livewire('/login', 'pages::auth.login')->name('login')->middleware('guest
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::livewire('/', 'admin::dashboard')->name('dashboard');
+    Route::livewire('/homeslider', 'admin::homeslider')->name('homeslider');
     Route::livewire('/clientele', 'admin::clientele')->name('clientele');
     Route::livewire('/gallery-category', 'admin::gallery-category')->name('gallery-category');
     Route::livewire('/gallery', 'admin::gallery')->name('gallery');
     Route::livewire('/faq-list', 'admin::faq-list')->name('faq-list');
     Route::livewire('/testimonial-list', 'admin::testimonial-list')->name('testimonial-list');
+    Route::livewire('/contact', 'admin::contact')->name('contact');
     Route::livewire('/job-posts', 'admin::job-posts')->name('job-posts');
     Route::livewire('/job-applications', 'admin::job-applications')->name('job-applications');
     Route::prefix('services')->name('services.')->group(function () {

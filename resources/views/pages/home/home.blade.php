@@ -4,72 +4,33 @@
         activeSlide: 0, 
         fallbackImage: '{{ asset('image/PIC_3766.webp') }}',
         slides: [
-            {
-                title: 'PSARA Certified Manned Guarding Solutions',
-                subtitle: 'Rigorously trained, background-verified security personnel providing round-the-clock defense for commercial, industrial, and residential premises.',
-                badge: 'PSARA COMPLIANT GUARDING',
-                badgeIcon: 'ri-shield-user-line',
-                image: '{{ asset('image/PIC_3766.webp') }}',
-                primaryBtnText: 'Hire Security Guards',
-                primaryBtnLink: '#contact',
-                secondaryBtnText: 'Our Guarding Services',
-                secondaryBtnLink: '/services'
-            },
-            {
-                title: 'Commercial & Industrial Asset Protection',
-                subtitle: 'Advanced access control, automated visitor tracking, perimeter security, and site risk management for 150+ corporate sites.',
-                badge: '150+ SITES PROTECTED',
-                badgeIcon: 'ri-building-2-line',
-                image: '{{ asset('image/PIC_3788.webp') }}',
-                primaryBtnText: 'Consult Experts',
-                primaryBtnLink: '#contact',
-                secondaryBtnText: 'About Us',
-                secondaryBtnLink: '/about'
-            },
-            {
-                title: '24/7 Perimeter Patrol & Radio Dispatch',
-                subtitle: 'Vigilant guard patrols, synchronized radio dispatch, and rapid inspection units ensuring zero perimeter breach across corporate facilities.',
-                badge: 'PERIMETER PATROL & DISPATCH',
-                badgeIcon: 'ri-walk-line',
-                image: '{{ asset('image/PIC_3792.webp') }}',
-                primaryBtnText: 'Hire Patrol Squad',
-                primaryBtnLink: '#contact',
-                secondaryBtnText: 'Our Services',
-                secondaryBtnLink: '/services'
-            },
-            {
-                title: 'Event Security & Crowd Control Logistics',
-                subtitle: 'Tactical crowd management squads, entry screening, and VIP stage protection for corporate galas, exhibitions, and public gatherings.',
-                badge: 'EVENT & CROWD CONTROL',
-                badgeIcon: 'ri-group-line',
-                image: '{{ asset('image/PIC_3861.webp') }}',
-                primaryBtnText: 'Book Event Security',
-                primaryBtnLink: '#contact',
-                secondaryBtnText: 'Contact NDS',
-                secondaryBtnLink: '#contact'
-            },
-            {
-                title: 'Tactical Guard Training & Physical Readiness',
-                subtitle: 'Every NDS security officer undergoes mandatory 100-hour PSARA physical training, threat detection drills, and fire hazard evacuation layouts.',
-                badge: 'STATE-AUTHORIZED ACADEMY',
-                badgeIcon: 'ri-medal-line',
-                image: '{{ asset('image/PIC_4855.webp') }}',
-                primaryBtnText: 'Explore Training',
-                primaryBtnLink: '/training',
-                secondaryBtnText: 'View Gallery',
-                secondaryBtnLink: '/gallery'
-            },
-            {
-                title: 'Smart Electronic CCTV & Access Integration',
-                subtitle: 'State-of-the-art IP surveillance cameras, AI perimeter threat detection, automated boom barriers, and integrated security logs.',
-                badge: 'SMART SURVEILLANCE',
-                badgeIcon: 'ri-eye-line',
-                image: '{{ asset('image/PIC_3845.webp') }}',
-                primaryBtnText: 'CCTV Integration',
-                primaryBtnLink: '/services',
-                secondaryBtnText: 'Contact Us',
-                secondaryBtnLink: '#contact'
-            }
+            @if(isset($sliders) && $sliders->count() > 0)
+                @foreach($sliders as $slider)
+                    {
+                        title: @js($slider->title),
+                        subtitle: @js($slider->description),
+                        badge: 'NDS SECURITY FORCE',
+                        badgeIcon: 'ri-shield-star-line',
+                        image: @js(str_starts_with($slider->image ?? '', 'http') ? $slider->image : (str_starts_with($slider->image ?? '', 'image/') ? asset($slider->image) : ($slider->image ? asset('storage/' . $slider->image) : asset('image/PIC_3766.webp')))),
+                        primaryBtnText: @js($slider->button_text1 ?: 'Explore Services'),
+                        primaryBtnLink: @js($slider->button_link1 ?: '/services'),
+                        secondaryBtnText: @js($slider->button_text2 ?: 'Contact Support'),
+                        secondaryBtnLink: @js($slider->button_link2 ?: '/contact')
+                    },
+                @endforeach
+            @else
+                {
+                    title: 'PSARA Certified Manned Guarding Solutions',
+                    subtitle: 'Rigorously trained, background-verified security personnel providing round-the-clock defense.',
+                    badge: 'PSARA COMPLIANT GUARDING',
+                    badgeIcon: 'ri-shield-user-line',
+                    image: '{{ asset('image/PIC_3766.webp') }}',
+                    primaryBtnText: 'Hire Security Guards',
+                    primaryBtnLink: '/contact',
+                    secondaryBtnText: 'Our Guarding Services',
+                    secondaryBtnLink: '/services'
+                }
+            @endif
         ],
         timer: null,
         startAutoSlide() {
