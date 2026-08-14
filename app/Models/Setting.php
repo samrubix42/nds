@@ -30,28 +30,44 @@ class Setting extends Model
     }
 
     /**
-     * Save or update a setting key-value pair.
+     * Save or update a setting key-value pair safely without SQL ON CONFLICT syntax issues.
      */
     public static function set(string $key, ?string $value): void
     {
-        static::updateOrCreate(
-            ['key' => $key],
-            ['value' => $value ?? '']
-        );
+        $setting = static::where('key', $key)->first();
 
-        Cache::forget('app_settings');
+        if ($setting) {
+            $setting->value = $value ?? '';
+            $setting->save();
+        } else {
+            static::create([
+                'key' => $key,
+                'value' => $value ?? '',
+            ]);
+        }
+
+        try {
+            Cache::forget('app_settings');
+        } catch (\Throwable $e) {
+            // Ignore cache storage failure on older database engines
+        }
     }
 
     /**
-     * Retrieve all settings as a key-value collection, cached.
+     * Retrieve all settings as a key-value collection, cached with direct database fallback.
      *
      * @return Collection<string, string>
      */
     public static function getAllSettings(): Collection
     {
-        $settings = Cache::remember('app_settings', 3600, function (): array {
-            return static::pluck('value', 'key')->toArray();
-        });
+        try {
+            $settings = Cache::remember('app_settings', 3600, function (): array {
+                return static::pluck('value', 'key')->toArray();
+            });
+        } catch (\Throwable $e) {
+            // Fallback directly to database query if cache driver throws syntax error on older SQLite engines
+            $settings = static::pluck('value', 'key')->toArray();
+        }
 
         return collect($settings);
     }
