@@ -88,12 +88,10 @@
                 @click="userMenuOpen = !userMenuOpen"
                 class="flex items-center gap-2 p-1 rounded-lg hover:bg-[#FAF9F5] border border-transparent hover:border-[#F3E9DC]/60 transition-all duration-150 group"
                 aria-label="User profile">
-                <img 
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" 
-                    alt="NDS Admin" 
-                    class="w-6 h-6 rounded-md object-cover"
-                />
-                <span class="hidden sm:inline font-bold text-xs text-brownie group-hover:text-[#895737] transition-colors">NDS Admin</span>
+                <div class="w-7 h-7 rounded-lg bg-[#C08552]/15 text-[#C08552] flex items-center justify-center font-black text-xs">
+                    <i class="ri-user-3-fill"></i>
+                </div>
+                <span class="hidden sm:inline font-bold text-xs text-brownie group-hover:text-[#895737] transition-colors">{{ auth()->user()->name ?? 'NDS Admin' }}</span>
                 <i class="ri-arrow-down-s-line text-xs text-brownie/45 group-hover:text-brownie"></i>
             </button>
 
@@ -110,24 +108,30 @@
                 class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-[#F3E9DC]/60 py-1.5 z-50 overflow-hidden"
                 x-cloak>
                 
-                <a href="#" class="flex items-center gap-3 px-4 py-2 text-xs text-brownie hover:bg-[#FAF9F5] transition-colors font-semibold">
-                    <i class="ri-user-line text-sm text-[#C08552]"></i>
-                    <span>My Profile</span>
+                <a href="{{ route('admin.profile') }}" class="flex items-center gap-3 px-4 py-2 text-xs text-brownie hover:bg-[#FAF9F5] transition-colors font-semibold">
+                    <i class="ri-user-3-line text-sm text-[#C08552]"></i>
+                    <span>Profile & Password</span>
                 </a>
                 
-                <a href="#" class="flex items-center gap-3 px-4 py-2 text-xs text-brownie hover:bg-[#FAF9F5] transition-colors font-semibold">
+                <a href="{{ route('admin.settings') }}" class="flex items-center gap-3 px-4 py-2 text-xs text-brownie hover:bg-[#FAF9F5] transition-colors font-semibold">
                     <i class="ri-settings-3-line text-sm text-[#C08552]"></i>
-                    <span>Settings</span>
+                    <span>System Settings</span>
                 </a>
 
                 <div class="h-px bg-[#F3E9DC]/25 my-1"></div>
 
-                <a href="#" class="flex items-center gap-3 px-4 py-2 text-xs text-red-600 hover:bg-red-50 transition-colors font-bold">
+                <button type="button" wire:click="logout" class="w-full flex items-center gap-3 px-4 py-2 text-xs text-rose-600 hover:bg-rose-50 transition-colors font-bold text-left cursor-pointer">
                     <i class="ri-logout-box-r-line text-sm"></i>
                     <span>Sign Out</span>
-                </a>
+                </button>
             </div>
         </div>
+
+        <!-- Direct Logout Action Button -->
+        <button type="button" wire:click="logout" title="Sign Out"
+                class="w-8 h-8 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200/60 flex items-center justify-center transition-all duration-150 active:scale-95 cursor-pointer ml-1">
+            <i class="ri-logout-box-r-line text-sm"></i>
+        </button>
 
     </div>
 </header>

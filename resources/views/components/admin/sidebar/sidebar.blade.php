@@ -41,7 +41,7 @@
     <!-- Sidebar Navigation Links with Multi-Level Collapsible Menus (No border-l) -->
     <div 
         x-data="{ 
-            openGroup: '{{ request()->routeIs('admin.services.*', 'admin.clientele', 'admin.gallery*', 'admin.faq-list', 'admin.testimonial-list') ? 'content' : (request()->routeIs('admin.job-posts*') ? 'jobs' : 'console') }}'
+            openGroup: '{{ request()->routeIs('admin.job-posts*', 'admin.job-applications*') ? 'jobs' : 'content' }}'
         }"
         class="flex-grow overflow-y-auto px-3 py-5 space-y-5 custom-scrollbar">
         
@@ -174,6 +174,14 @@
         <div class="space-y-1">
             <p class="px-3 text-[9px] font-bold text-brownie/35 tracking-widest uppercase mb-1.5">Controls</p>
 
+            <!-- Profile & Security -->
+            <a 
+                href="{{ route('admin.profile') }}" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-200 group {{ request()->routeIs('admin.profile') ? 'bg-[#C08552]/10 text-[#C08552] shadow-xs' : 'text-brownie/65 hover:bg-[#FAF9F5] hover:text-brownie' }}">
+                <i class="ri-user-3-line text-base {{ request()->routeIs('admin.profile') ? 'text-[#C08552]' : 'text-brownie/45 group-hover:text-brownie' }}"></i>
+                <span>Profile & Password</span>
+            </a>
+
             <!-- Settings -->
             <a 
                 href="{{ route('admin.settings') }}" 
@@ -185,12 +193,19 @@
     </div>
 
     <!-- Sidebar Footer -->
-    <div class="p-3 border-t border-[#F3E9DC]/35 bg-[#FAF9F5]/20">
+    <div class="p-3 border-t border-[#F3E9DC]/35 bg-[#FAF9F5]/20 flex flex-col gap-2">
         <a 
             href="{{ route('home') }}" 
             class="flex items-center justify-center gap-1.5 w-full px-3 py-2 rounded-lg border border-[#F3E9DC] hover:bg-[#FAF9F5] text-brownie/85 font-semibold text-xs transition-all duration-200">
             <i class="ri-arrow-left-line"></i>
             <span>Public Website</span>
         </a>
+        <button 
+            type="button"
+            wire:click="logout" 
+            class="flex items-center justify-center gap-1.5 w-full px-3 py-2 rounded-lg bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-600 font-bold text-xs transition-all duration-200 cursor-pointer active:scale-98">
+            <i class="ri-logout-box-r-line"></i>
+            <span>Sign Out</span>
+        </button>
     </div>
 </aside>

@@ -45,4 +45,5 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::livewire('/edit/{id}', 'admin::service.update')->name('edit');
     });
     Route::livewire('/settings', 'admin::setting')->name('settings');
+    Route::livewire('/profile', 'admin::profile')->name('profile');
 });

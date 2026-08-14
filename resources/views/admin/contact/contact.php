@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\Contact;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-new #[Title('Contact Inquiries Management - NDS Security Admin')] class extends Component
+new #[Layout('layouts.admin')] #[Title('Contact Inquiries Management - NDS Security Admin')] class extends Component
 {
     use WithPagination;
 
