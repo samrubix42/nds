@@ -28,11 +28,11 @@
         <div class="flex items-center gap-3">
             <img 
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" 
-                alt="Alex Carter" 
+                alt="NDS Admin" 
                 class="w-8 h-8 rounded-full object-cover border border-[#F3E9DC]"
             />
             <div class="min-w-0">
-                <p class="font-bold text-xs text-brownie truncate leading-tight">Alex Carter</p>
+                <p class="font-bold text-xs text-brownie truncate leading-tight">NDS Admin</p>
                 <p class="text-[10px] text-brownie/50 font-medium truncate mt-0.5">Administrator</p>
             </div>
         </div>

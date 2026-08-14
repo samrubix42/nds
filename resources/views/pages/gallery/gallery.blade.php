@@ -1,14 +1,13 @@
-<div class="w-full bg-white flex flex-col font-sans" 
+<div class="w-full bg-white flex flex-col font-sans select-none" 
      x-data="{ 
-         filter: 'all', 
          modalOpen: false, 
          activeImg: '', 
          activeTitle: '',
-         activeDesc: '',
-         openLightbox(img, title, desc) {
+         activeCategory: '',
+         openLightbox(img, title, category) {
              this.activeImg = img;
              this.activeTitle = title;
-             this.activeDesc = desc;
+             this.activeCategory = category;
              this.modalOpen = true;
          }
      }">
@@ -29,7 +28,7 @@
                 Operations <span class="text-caramel underline decoration-caramel/40 underline-offset-8">Gallery</span>
             </h1>
             <p class="text-sm sm:text-base md:text-lg text-cream/80 max-w-2xl font-medium leading-relaxed mt-2">
-                A visual showcase of NDS Security operations: physical training drills, command center technology, corporate deployments, and VIP escorts.
+                A visual showcase of NDS Security operations: physical training drills, command center technology, corporate site deployments, and VIP escorts.
             </p>
         </div>
     </section>
@@ -38,131 +37,49 @@
     <section class="py-20 bg-white w-full">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-12">
             
-            <!-- Category Filter Bar (UX friendly) -->
+            <!-- Category Filter Bar -->
             <div class="flex flex-wrap justify-center items-center gap-3">
-                <button @click="filter = 'all'" 
-                        :class="filter === 'all' ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15'"
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300">
+                <button wire:click="selectCategory(null)" 
+                        type="button"
+                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300 cursor-pointer {{ is_null($selectedCategory) ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15' }}">
                     Show All
                 </button>
-                <button @click="filter = 'drills'" 
-                        :class="filter === 'drills' ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15'"
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300">
-                    Guard Drills
-                </button>
-                <button @click="filter = 'tech'" 
-                        :class="filter === 'tech' ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15'"
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300">
-                    Command & Tech
-                </button>
-                <button @click="filter = 'corp'" 
-                        :class="filter === 'corp' ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15'"
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300">
-                    Corporate Sites
-                </button>
-                <button @click="filter = 'vip'" 
-                        :class="filter === 'vip' ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15'"
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300">
-                    VIP Protection
-                </button>
+                @foreach($categories as $category)
+                    <button wire:click="selectCategory({{ $category->id }})" 
+                            type="button"
+                            class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300 cursor-pointer {{ $selectedCategory === $category->id ? 'bg-caramel text-white shadow-md' : 'bg-cream/40 text-coffee hover:bg-caramel/15' }}">
+                        {{ $category->name }}
+                    </button>
+                @endforeach
             </div>
 
-            <!-- Photos Grid -->
+            <!-- Dynamic Photos Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                
-                <!-- Image 1 -->
-                <div x-show="filter === 'all' || filter === 'tech'" x-cloak
-                     @click="openLightbox('{{ asset('command_center.png') }}', 'NDS Central Command Center', 'Our state-of-the-art Noida head office command center operating 24/7 with redundant networks.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="{{ asset('command_center.png') }}" alt="Command Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Command & Tech</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Central Command Center</h4>
+                @forelse($galleries as $item)
+                    <div @click="openLightbox('{{ $item->image_url }}', '{{ addslashes($item->title) }}', '{{ addslashes($item->category ? $item->category->name : 'NDS Operations') }}')"
+                         class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-square transition-all duration-300">
+                        <img src="{{ $item->image_url }}" alt="{{ $item->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                            <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">{{ $item->category ? $item->category->name : 'NDS Operations' }}</span>
+                            <h4 class="text-xs sm:text-sm font-black text-white uppercase">{{ $item->title }}</h4>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Image 2 -->
-                <div x-show="filter === 'all' || filter === 'drills'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80', 'Tactical Fire safety Drills', 'Guards undergoing fire hydrant and high-pressure chemical extinguisher testing training.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80" alt="Fire Safety" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Guard Drills</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Fire Safety Training</h4>
+                @empty
+                    <div class="col-span-full text-center py-16 text-coffee/60 font-semibold">
+                        No photos found for this category.
                     </div>
-                </div>
-
-                <!-- Image 3 -->
-                <div x-show="filter === 'all' || filter === 'corp'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', 'Commercial Lobby Guarding', 'NDS officers managing main lobby access verification logs at Gaur City, Noida.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Lobby Security" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Corporate Sites</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Commercial Lobby Guarding</h4>
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div x-show="filter === 'all' || filter === 'vip'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1521791136368-1a8682707636?auto=format&fit=crop&w=800&q=80', 'Executive VIP Protection Escort', 'Our certified Personal Security Officers (PSO) ensuring safety during high-profile corporate board operations.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1521791136368-1a8682707636?auto=format&fit=crop&w=800&q=80" alt="VIP Escort" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">VIP Protection</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Executive VIP Protection</h4>
-                    </div>
-                </div>
-
-                <!-- Image 5 -->
-                <div x-show="filter === 'all' || filter === 'drills'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', 'Classroom Threat & Security Theory', 'Our classroom training room sessions for theoretical security codes, emergency logs, and first-aid lessons.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Classroom Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Guard Drills</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Classroom Theory Drills</h4>
-                    </div>
-                </div>
-
-                <!-- Image 6 -->
-                <div x-show="filter === 'all' || filter === 'tech'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80', 'IP Dome Surveillance Testing', 'Installing and testing motorized optical zoom 4K IP cameras for premium boundary control.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="CCTV installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Command & Tech</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Surveillance Installation</h4>
-                    </div>
-                </div>
-
-                <!-- Image 7 -->
-                <div x-show="filter === 'all' || filter === 'corp'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80', 'Biometric Turnstiles Integration', 'Secure entrance turnstiles configured with RFID readers for Noida office parks.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="Access Gates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">Corporate Sites</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Biometric Access Gates</h4>
-                    </div>
-                </div>
-
-                <!-- Image 8 -->
-                <div x-show="filter === 'all' || filter === 'vip'" x-cloak
-                     @click="openLightbox('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80', 'Secured Diplomatic Fleet Escort', 'Premium black SUV convoy transit management for delegates and executive figures in Noida.')"
-                     class="group relative overflow-hidden rounded-[24px] border border-cream shadow-sm hover:shadow-md cursor-pointer aspect-video sm:aspect-square transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Transit Escort" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/90 via-brownie/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                        <span class="text-[9px] font-black text-caramel uppercase tracking-widest mb-1">VIP Protection</span>
-                        <h4 class="text-xs sm:text-sm font-black text-white uppercase">Secure Vehicle Escort</h4>
-                    </div>
-                </div>
-
+                @endforelse
             </div>
+
+            <!-- Pagination Bar -->
+            <div class="mt-6 flex justify-center">
+                {{ $galleries->links() }}
+            </div>
+
         </div>
     </section>
 
-    <!-- Overlay Lightbox Modal (Premium modal popup) -->
+    <!-- Overlay Lightbox Modal -->
     <div x-show="modalOpen" x-cloak 
          class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/90 backdrop-blur-sm transition-all duration-300">
         
@@ -192,10 +109,12 @@
             <!-- Content Details Panel -->
             <div class="w-full md:w-2/5 p-8 flex flex-col justify-between gap-6 text-left">
                 <div class="flex flex-col gap-3">
-                    <span class="text-[10px] font-black text-caramel uppercase tracking-widest">NDS Operations Log</span>
+                    <span class="text-[10px] font-black text-caramel uppercase tracking-widest" x-text="activeCategory"></span>
                     <h3 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide leading-tight" x-text="activeTitle"></h3>
                     <div class="w-10 h-0.5 bg-caramel"></div>
-                    <p class="text-xs sm:text-sm text-cream/70 leading-relaxed font-semibold mt-2" x-text="activeDesc"></p>
+                    <p class="text-xs sm:text-sm text-cream/70 leading-relaxed font-semibold mt-2">
+                        Official site operational photo from NDS Security Services deployments across corporate hubs, industrial sites, and command centers.
+                    </p>
                 </div>
 
                 <div class="flex items-center gap-2 pt-4 border-t border-caramel/20">

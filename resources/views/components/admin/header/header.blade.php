@@ -90,10 +90,10 @@
                 aria-label="User profile">
                 <img 
                     src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" 
-                    alt="Alex Carter" 
+                    alt="NDS Admin" 
                     class="w-6 h-6 rounded-md object-cover"
                 />
-                <span class="hidden sm:inline font-bold text-xs text-brownie group-hover:text-[#895737] transition-colors">Alex Carter</span>
+                <span class="hidden sm:inline font-bold text-xs text-brownie group-hover:text-[#895737] transition-colors">NDS Admin</span>
                 <i class="ri-arrow-down-s-line text-xs text-brownie/45 group-hover:text-brownie"></i>
             </button>
 
