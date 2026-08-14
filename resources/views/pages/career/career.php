@@ -8,7 +8,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 
 new #[Title('Careers - Join NDS Security')]
-#[Layout('layouts.app3')]
+
 class extends Component
 {
     use WithFileUploads;

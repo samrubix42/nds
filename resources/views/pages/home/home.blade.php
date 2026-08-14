@@ -499,7 +499,7 @@
 
 
 
-    <!-- Client Logo Grid Section (Dynamic Grid Format) -->
+    <!-- Client Logo Grid Section (Clean Logo Showcase) -->
     <section class="bg-white py-16 sm:py-20 border-b border-cream/30 relative z-10 select-none">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
@@ -512,14 +512,14 @@
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <!-- Dynamic Clients Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+            <!-- Dynamic Clients Grid (Bigger Client Logos & Pure Hover Scale) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-8 sm:gap-12 items-center justify-items-center">
                 @foreach($clients as $client)
-                    <div class="h-20 sm:h-24 p-3.5 bg-white rounded-xl border border-cream/90 shadow-2xs hover:shadow-md hover:border-caramel/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group">
+                    <div class="flex items-center justify-center p-3 group cursor-pointer w-full h-32 sm:h-40 md:h-44">
                         <img 
                             src="{{ $client->image_url }}" 
                             alt="Client Partner" 
-                            class="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 select-none" 
+                            class="max-h-full max-w-full h-28 sm:h-36 md:h-40 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-130 select-none" 
                         />
                     </div>
                 @endforeach

@@ -3,7 +3,7 @@
     <div class="w-full py-3.5 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center gap-4 w-full">
             <!-- Logo -->
-            <a href="#" class="flex items-center shrink-0 group">
+            <a href="{{ route('home') }}" class="flex items-center shrink-0 group">
                 <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             </a>
 
@@ -45,7 +45,7 @@
 
             <!-- Mobile Menu Toggle & Contact Button (Mobile Only) -->
             <div class="flex items-center gap-2 md:hidden">
-                <a href="tel:{{ setting('phone_number', '+91 99999 88888') }}" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Call Us">
+                <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Call Us">
                     <i class="ri-phone-fill text-base"></i>
                 </a>
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="w-10 h-10 rounded-full bg-caramel/15 text-brownie hover:bg-caramel hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm" title="Toggle Menu">
@@ -61,12 +61,12 @@
             <!-- Navigation Links -->
             <nav class="hidden md:flex items-center gap-1 sm:gap-1.5 py-1">
             
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
-                    Who We Are
+                <a href="{{ route('home') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    Home
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
-                    Leadership
+                <a href="{{ route('about') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                    About Us
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
 
@@ -87,46 +87,50 @@
                          x-transition:leave-start="opacity-100 translate-y-0 scale-100" 
                          x-transition:leave-end="opacity-0 -translate-y-2 scale-95" 
                          class="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-md text-brownie shadow-2xl rounded-2xl p-2 ring-1 ring-caramel/20 z-50">
-                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="{{ route('services') }}" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-extrabold text-caramel rounded-xl hover:bg-caramel/10 transition-all duration-200 border-b border-cream/50 mb-1">
+                            <span>All Security Services</span>
+                            <i class="ri-arrow-right-s-line text-caramel transition-all duration-200"></i>
+                        </a>
+                        <a href="{{ route('service.detail', ['slug' => 'essential-services']) }}" class="group/item flex items-center justify-between px-3.5 py-2 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Security Guard Services</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="{{ route('service.detail', ['slug' => 'specialised-services']) }}" class="group/item flex items-center justify-between px-3.5 py-2 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Corporate Security</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="group/item flex items-center justify-between px-3.5 py-2 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>CCTV & Surveillance</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                        <a href="{{ route('service.detail', ['slug' => 'on-demand-services']) }}" class="group/item flex items-center justify-between px-3.5 py-2 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
                             <span>Executive Escort Guard</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
-                        <a href="#" class="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
-                            <span>Facility Management</span>
+                        <a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="group/item flex items-center justify-between px-3.5 py-2 text-xs sm:text-[13px] font-bold text-brownie rounded-xl hover:bg-caramel/10 transition-all duration-200">
+                            <span>Access Control Systems</span>
                             <i class="ri-arrow-right-s-line text-caramel opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"></i>
                         </a>
                     </div>
                 </div>
 
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                <a href="{{ route('training') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
                     Training
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                <a href="{{ route('clientele') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
                     Clientele
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                <a href="{{ route('career') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
                     Career
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                <a href="{{ route('gallery') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
                     Gallery
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
-                <a href="#" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
+                <a href="{{ route('contact') }}" class="relative group py-2 px-3 text-xs sm:text-sm font-bold text-brownie/90 tracking-wider uppercase transition-all duration-300 rounded-full hover:bg-caramel/15 hover:text-brownie">
                     Contact Us
                     <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-caramel rounded-full transition-all duration-300 group-hover:w-4 opacity-0 group-hover:opacity-100"></span>
                 </a>
@@ -134,7 +138,7 @@
 
             <!-- CTA Button -->
             <div class="hidden xl:block py-1.5">
-                <a href="#" class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2 px-5 rounded-full shadow-md shadow-caramel/25 hover:shadow-caramel/40 transition-all duration-300 inline-flex items-center gap-1.5 hover:scale-105 active:scale-95 group">
+                <a href="{{ route('contact') }}" class="bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2 px-5 rounded-full shadow-md shadow-caramel/25 hover:shadow-caramel/40 transition-all duration-300 inline-flex items-center gap-1.5 hover:scale-105 active:scale-95 group">
                     <span>Get a Quote</span>
                     <i class="ri-arrow-right-up-line text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
@@ -151,12 +155,11 @@
          x-transition:leave-start="opacity-100 translate-y-0" 
          x-transition:leave-end="opacity-0 -translate-y-4" 
          class="md:hidden w-full bg-white/95 backdrop-blur-lg text-brownie shadow-xl flex flex-col py-4 px-6 gap-2 z-40">
-        <a href="#" class="py-2.5 px-3.5 rounded-xl bg-caramel/20 text-brownie font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-between">
+        <a href="{{ route('home') }}" class="py-2.5 px-3.5 rounded-xl bg-caramel/20 text-brownie font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-between">
             <span>Home</span>
             <i class="ri-home-5-fill text-caramel"></i>
         </a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Who We Are</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Leadership</a>
+        <a href="{{ route('about') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">About Us</a>
 
         <!-- Mobile Dropdown Services -->
         <div x-data="{ mobileServicesOpen: false }" class="flex flex-col">
@@ -165,22 +168,23 @@
                 <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="mobileServicesOpen ? 'rotate-180 text-caramel' : ''"></i>
             </button>
             <div x-show="mobileServicesOpen" x-cloak class="flex flex-col pl-4 mt-1 gap-1 border-l-2 border-caramel/40 py-2">
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
-                <a href="#" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Facility Management</a>
+                <a href="{{ route('services') }}" class="py-1.5 px-3 text-xs font-bold text-caramel hover:bg-caramel/10 rounded-lg transition-all">All Security Services</a>
+                <a href="{{ route('service.detail', ['slug' => 'essential-services']) }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Security Guard Services</a>
+                <a href="{{ route('service.detail', ['slug' => 'specialised-services']) }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Corporate Security</a>
+                <a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">CCTV & Surveillance</a>
+                <a href="{{ route('service.detail', ['slug' => 'on-demand-services']) }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Executive Escort Guard</a>
+                <a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="py-1.5 px-3 text-xs font-semibold text-brownie/90 hover:text-brownie hover:bg-caramel/10 rounded-lg transition-all">Access Control Systems</a>
             </div>
         </div>
 
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Training</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Clientele</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Career</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Gallery</a>
-        <a href="#" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Contact Us</a>
+        <a href="{{ route('training') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Training</a>
+        <a href="{{ route('clientele') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Clientele</a>
+        <a href="{{ route('career') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Career</a>
+        <a href="{{ route('gallery') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Gallery</a>
+        <a href="{{ route('contact') }}" class="py-2.5 px-3.5 rounded-xl hover:bg-caramel/10 text-brownie font-bold text-xs sm:text-sm uppercase tracking-wide hover:translate-x-1 transition-all">Contact Us</a>
 
         <div class="mt-3 pt-3 border-t border-cream">
-            <a href="#" class="w-full text-center bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2.5 rounded-xl shadow-md transition-all active:scale-95 block">
+            <a href="{{ route('contact') }}" class="w-full text-center bg-gradient-to-r from-caramel via-[#c78b57] to-coffee hover:from-coffee hover:to-brownie text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-2.5 rounded-xl shadow-md transition-all active:scale-95 block">
                 Get a Quote
             </a>
         </div>

@@ -30,29 +30,7 @@
         </div>
     </section>
 
-    <!-- Key Highlights Stats Strip -->
-    <section class="relative w-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-12 border-b border-caramel/35">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
-                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4">
-                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">15+ Years</h4>
-                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Established in 2009</p>
-                </div>
-                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4">
-                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">24/7</h4>
-                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Command Center Ops</p>
-                </div>
-                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4">
-                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">100%</h4>
-                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Statutory Compliance</p>
-                </div>
-                <div class="flex flex-col items-center justify-center">
-                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">Pan-India</h4>
-                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Operational Reach</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Company Overview Section -->
     <section class="py-20 w-full bg-white">
@@ -94,6 +72,30 @@
                         <span><strong>Client Centricity:</strong> Fostering long-lasting client partnerships built on transparency, integrity, and result-oriented execution.</span>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+        <!-- Key Highlights Stats Strip -->
+    <section class="relative w-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#2a1b10] text-white py-12 border-b border-caramel/35">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
+                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4">
+                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">15+ Years</h4>
+                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Established in 2009</p>
+                </div>
+                <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4">
+                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">24/7</h4>
+                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Command Center Ops</p>
+                </div>
+                <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4">
+                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">100%</h4>
+                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Statutory Compliance</p>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">Pan-India</h4>
+                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Operational Reach</p>
+                </div>
             </div>
         </div>
     </section>
