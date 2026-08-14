@@ -593,11 +593,11 @@
         </div>
     </section>
 
-    <!-- Testimonial Slider Section (Showing 2 cards at a time, Photo-less design matching theme) -->
+    <!-- Testimonial Slider Section -->
     <section class="bg-gradient-to-b from-cream/20 via-white to-cream/30 py-20 border-t border-cream relative overflow-hidden"
         x-data="{ 
                  activeIndex: 0, 
-                 totalCards: 4,
+                 totalCards: {{ $testimonials->count() > 0 ? $testimonials->count() : 1 }},
                  getVisibleCards() {
                      if (window.innerWidth >= 640) return 2;
                      return 1;
@@ -615,16 +615,16 @@
                      if (this.activeIndex > 0) {
                          this.activeIndex--;
                      } else {
-                         this.activeIndex = this.totalCards - visible; // Loop to end
+                         this.activeIndex = Math.max(0, this.totalCards - visible); // Loop to end
                      }
                  },
                  init() {
                      setInterval(() => {
                          this.next();
-                     }, 4500);
+                     }, 5000);
                  }
-             }"
-        @resize.window="if (activeIndex > totalCards - getVisibleCards()) activeIndex = totalCards - getVisibleCards()">
+              }"
+        @resize.window="if (activeIndex > Math.max(0, totalCards - getVisibleCards())) activeIndex = Math.max(0, totalCards - getVisibleCards())">
         <!-- Faint background accent pattern -->
         <div class="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -641,7 +641,7 @@
              :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
              class="max-w-6xl mx-auto px-6 md:px-12 w-full relative z-10 transition-all duration-[1400ms] ease-out">
             
-            <!-- Section Header (Matching Reference Design) -->
+            <!-- Section Header -->
             <div class="flex flex-col items-center text-center gap-3 mb-14">
                 <span class="inline-flex items-center gap-1.5 px-4 py-1 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
                     <i class="ri-chat-voice-fill text-sm"></i> TESTIMONIALS
@@ -651,160 +651,51 @@
                 </h2>
             </div>
 
-            <!-- Card Slider Viewport (2 Cards Visible Side by Side) -->
+            <!-- Card Slider Viewport -->
             <div class="relative w-full">
                 <div class="overflow-hidden py-3 -mx-3">
                     <div class="flex transition-transform duration-600 ease-out"
                         :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'">
                         
-                        <!-- Card 1: Amit Sharma / DLF Tech Park -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Red Accent Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Amit Sharma
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Chief Executive Officer, DLF Tech Park
-                                            </p>
+                        @foreach($testimonials as $testimonial)
+                            <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
+                                <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
+                                    <div>
+                                        <!-- Top Row: Name & Title -->
+                                        <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                            <div>
+                                                <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                    {{ $testimonial->name }}
+                                                </h3>
+                                                <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                    {{ $testimonial->designation }}
+                                                </p>
+                                            </div>
+                                            <div class="text-caramel/80 shrink-0">
+                                                <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+                                            </div>
                                         </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
+
+                                        <!-- Rating Stars -->
+                                        <div class="flex gap-1 text-caramel my-5">
+                                            @for($i = 0; $i < ($testimonial->rating ?? 5); $i++)
+                                                <i class="ri-star-fill text-sm"></i>
+                                            @endfor
                                         </div>
-                                    </div>
 
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
+                                        <!-- Testimonial Quote -->
+                                        <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                            "{{ $testimonial->description }}"
+                                        </p>
                                     </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "NDS has been managing our manned guarding and 24/7 command center operations for over 3 years. Their discipline, regular operations audits, and emergency response time are unmatched in Delhi NCR. Highly recommend their services!"
-                                    </p>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Card 2: Priya Goel / Gaur City Mall -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Priya Goel
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Operations Director, Gaur City Mall
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "Securing a high-footfall mall requires swift coordination. NDS deployed a highly trained crowd control squad and optimized our parking patrol loop. Their team is always alert and professional."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Rohan Mehta / Emerald Heights -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Rohan Mehta
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                President, RWA Emerald Heights
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "With NDS Security, our township residents feel completely safe. Their digital visitor verification protocols and polite, background-verified guards are outstanding. The best security partner!"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Vikram Singh / Tech Mahindra -->
-                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <!-- Top Row: Name & Title (Left) + Quote Icon (Right) - NO PHOTO -->
-                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                        <div>
-                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                Vikram Singh
-                                            </h3>
-                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                Facility Head, Tech Mahindra Noida
-                                            </p>
-                                        </div>
-                                        <div class="text-caramel/80 shrink-0">
-                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Middle: 5 Stars Rating -->
-                                    <div class="flex gap-1 text-caramel my-5">
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                        <i class="ri-star-fill text-sm"></i>
-                                    </div>
-
-                                    <!-- Bottom: Testimonial Quote -->
-                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                        "The access control systems and manned guarding deployed by NDS have streamlined our corporate visitor tracking. Their 24/7 command center support is top notch."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>
 
-                <!-- Bottom Centered Arrow Controls (Matching Reference Screenshot) -->
+                <!-- Bottom Centered Arrow Controls -->
                 <div class="flex items-center justify-center gap-3 mt-8">
                     <button @click="prev()"
                         class="w-10 h-10 rounded-full bg-white border border-cream/90 shadow-sm hover:bg-caramel hover:text-white hover:border-caramel text-coffee flex items-center justify-center transition-all cursor-pointer">
@@ -819,7 +710,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section (SIS & Securitas Interactive Accordion Pattern) -->
+    <!-- FAQ Section -->
     <section class="bg-white py-16 border-t border-cream/50" x-data="{ activeFaq: null }">
         <div class="w-full px-6 md:px-12">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
@@ -835,64 +726,23 @@
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
                  :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
                  class="max-w-3xl mx-auto flex flex-col gap-3 transition-all duration-[1400ms] delay-150 ease-out">
-                <!-- FAQ 1 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 1 ? null : 1)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>Are your security guards PSARA certified?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 1 ? 'rotate-180 text-caramel' : ''"></i>
-                    </button>
-                    <div x-show="activeFaq === 1" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Yes, 100% of our security personnel are compliant with the PSARA Act 2005. Every guard undergoes mandatory character validation, medical fitness screening, and a background verification check before deployment.
-                        </p>
+                @foreach($faqs as $index => $faq)
+                    <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
+                        <button @click="activeFaq = (activeFaq === {{ $index }} ? null : {{ $index }})"
+                            class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                            <span>{{ $faq->question }}</span>
+                            <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === {{ $index }} ? 'rotate-180 text-caramel' : ''"></i>
+                        </button>
+                        <div x-show="activeFaq === {{ $index }}" x-cloak x-transition class="p-4 border-t border-cream bg-white">
+                            <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
+                                {{ $faq->answer }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 2 ? null : 2)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>What is the emergency response time in Noida & NCR?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 2 ? 'rotate-180 text-caramel' : ''"></i>
-                    </button>
-                    <div x-show="activeFaq === 2" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            We operate a 24/7 central command room that coordinates quick response alerts. For any emergency at our secured Noida or NCR facilities, backup guards and field operations supervisors respond to the site in under 15 minutes.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 3 ? null : 3)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>How do you monitor guard attendance and patrols?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 3 ? 'rotate-180 text-caramel' : ''"></i>
-                    </button>
-                    <div x-show="activeFaq === 3" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Our security guards use real-time digital logging and biometric devices at client entries. Patrol paths are managed through barcode/RFID tags placed across the facility perimeter, which update the Noida Command Center instantly.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                    <button @click="activeFaq = (activeFaq === 4 ? null : 4)"
-                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                        <span>Can you customize configurations for retail and high-footfall sites?</span>
-                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === 4 ? 'rotate-180 text-caramel' : ''"></i>
-                    </button>
-                    <div x-show="activeFaq === 4" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                            Absolutely. We specialize in custom security deployments for high-footfall commercial zones like shopping centers and tech parks (e.g., Gaur City Mall). We coordinate physical guarding, vehicle flow, entry checkpoints, and central CCTV monitoring.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </section>
+    </section>ion>
 
     <!-- Consultation Call Section (Clean & Lightweight CTA Banner) -->
     <section class="py-12 px-4 sm:px-6 md:px-12 w-full bg-white relative">

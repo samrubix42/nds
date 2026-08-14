@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\ContactFormSubmitted;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -39,10 +42,28 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
             'message.min' => 'Message must be at least 10 characters.',
         ]);
 
-        // Here we could trigger a mail notification or database log if required.
-        // For this task, we will simulate successful submission.
+        $recipientEmail = config('mail.contact_recipient', 'samcool3203@gmail.com');
 
-        $this->successMessage = 'Thank you! Your message has been sent successfully. Noida\'s Command Center response team will get back to you shortly.';
+        try {
+            Mail::to($recipientEmail)->send(
+                new ContactFormSubmitted(
+                    name: $this->name,
+                    email: $this->email,
+                    phone: $this->phone,
+                    subjectText: $this->subject,
+                    messageContent: $this->message
+                )
+            );
+        } catch (\Throwable $e) {
+            Log::error('Contact form mail sending error: '.$e->getMessage(), [
+                'name' => $this->name,
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'subject' => $this->subject,
+            ]);
+        }
+
+        $this->successMessage = 'Thank you! Your message has been sent successfully to samcool3203@gmail.com. Noida\'s Command Center response team will get back to you shortly.';
 
         $this->reset(['name', 'email', 'phone', 'subject', 'message']);
     }
