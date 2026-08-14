@@ -742,7 +742,7 @@
                 @endforeach
             </div>
         </div>
-    </section>ion>
+    </section>
 
     <!-- Consultation Call Section (Clean & Lightweight CTA Banner) -->
     <section class="py-12 px-4 sm:px-6 md:px-12 w-full bg-white relative">
