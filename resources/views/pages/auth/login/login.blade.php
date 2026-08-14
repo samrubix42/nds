@@ -111,6 +111,7 @@
     <div class="text-center mt-6">
         <a 
             href="{{ route('home') }}" 
+            wire:navigate
             class="inline-flex items-center gap-1.5 text-xs font-bold text-brownie/60 hover:text-brownie transition-colors duration-150">
             <i class="ri-arrow-left-line"></i>
             <span>Return to Public Website</span>

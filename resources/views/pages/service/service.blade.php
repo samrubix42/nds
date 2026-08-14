@@ -7,9 +7,9 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col gap-4 text-center md:text-left">
             <!-- Breadcrumbs -->
             <div class="flex items-center justify-center md:justify-start gap-2 text-xs font-black uppercase tracking-wider text-cream/70">
-                <a href="{{ route('home') }}" class="hover:text-caramel transition-colors">Home</a>
+                <a href="{{ route('home') }}" wire:navigate class="hover:text-caramel transition-colors">Home</a>
                 <span class="text-caramel/50">•</span>
-                <a href="{{ route('services') }}" class="hover:text-caramel transition-colors">Services</a>
+                <a href="{{ route('services') }}" wire:navigate class="hover:text-caramel transition-colors">Services</a>
                 <span class="text-caramel/50">•</span>
                 <span class="text-cream">{{ $service ? $service->title : 'Service Detail' }}</span>
             </div>
@@ -61,6 +61,7 @@
                     <div class="flex flex-col gap-2.5">
                         @foreach($allServices as $item)
                             <a href="{{ route('service.detail', ['slug' => $item->slug]) }}"
+                               wire:navigate
                                class="flex justify-between items-center px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 {{ $slug === $item->slug ? 'bg-caramel/15 border border-caramel/30 text-brownie font-black shadow-sm' : 'hover:bg-cream/40 text-coffee hover:translate-x-1' }}">
                                 <div class="flex items-center gap-2">
                                     <i class="{{ $item->icon ?? 'ri-shield-check-line' }} text-caramel"></i>
@@ -91,7 +92,7 @@
                         <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="w-full py-3 bg-white text-brownie font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-sm text-center block transition-all hover:bg-cream active:scale-98">
                             <i class="ri-phone-fill mr-1"></i> Call {{ setting('phone_number', '+91 88005-93141') }}
                         </a>
-                        <a href="{{ route('contact') }}" class="w-full py-3 border border-white/40 hover:bg-white/10 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-xl text-center block transition-all active:scale-98">
+                        <a href="{{ route('contact') }}" wire:navigate class="w-full py-3 border border-white/40 hover:bg-white/10 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-xl text-center block transition-all active:scale-98">
                             Inquire Online
                         </a>
                     </div>

@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
             <!-- Brand & Tagline -->
             <div class="flex flex-col gap-4">
-                <a href="{{ route('home') }}" class="flex items-center gap-3">
+                <a href="{{ route('home') }}" wire:navigate class="flex items-center gap-3">
                     <img src="{{ asset('logo.png') }}" alt="NDS Security Logo" class="h-10 w-auto object-contain" />
                 </a>
                 <p class="text-xs text-coffee/95 leading-relaxed font-medium">
@@ -41,14 +41,14 @@
             <div>
                 <h4 class="text-xs font-black tracking-widest text-brownie uppercase mb-5">Quick Links</h4>
                 <ul class="flex flex-col gap-2.5 text-xs font-semibold text-coffee/85">
-                    <li><a href="{{ route('home') }}" class="hover:text-caramel transition-colors">Home</a></li>
-                    <li><a href="{{ route('about') }}" class="hover:text-caramel transition-colors">About Us</a></li>
-                    <li><a href="{{ route('services') }}" class="hover:text-caramel transition-colors">Services</a></li>
-                    <li><a href="{{ route('training') }}" class="hover:text-caramel transition-colors">Training</a></li>
-                    <li><a href="{{ route('clientele') }}" class="hover:text-caramel transition-colors">Clientele</a></li>
-                    <li><a href="{{ route('career') }}" class="hover:text-caramel transition-colors">Career & Jobs</a></li>
-                    <li><a href="{{ route('gallery') }}" class="hover:text-caramel transition-colors">Gallery</a></li>
-                    <li><a href="{{ route('contact') }}" class="hover:text-caramel transition-colors">Contact Us</a></li>
+                    <li><a href="{{ route('home') }}" wire:navigate class="hover:text-caramel transition-colors">Home</a></li>
+                    <li><a href="{{ route('about') }}" wire:navigate class="hover:text-caramel transition-colors">About Us</a></li>
+                    <li><a href="{{ route('services') }}" wire:navigate class="hover:text-caramel transition-colors">Services</a></li>
+                    <li><a href="{{ route('training') }}" wire:navigate class="hover:text-caramel transition-colors">Training</a></li>
+                    <li><a href="{{ route('clientele') }}" wire:navigate class="hover:text-caramel transition-colors">Clientele</a></li>
+                    <li><a href="{{ route('career') }}" wire:navigate class="hover:text-caramel transition-colors">Career & Jobs</a></li>
+                    <li><a href="{{ route('gallery') }}" wire:navigate class="hover:text-caramel transition-colors">Gallery</a></li>
+                    <li><a href="{{ route('contact') }}" wire:navigate class="hover:text-caramel transition-colors">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -56,12 +56,12 @@
             <div>
                 <h4 class="text-xs font-black tracking-widest text-brownie uppercase mb-5">Our Services</h4>
                 <ul class="flex flex-col gap-2.5 text-xs font-semibold text-coffee/85">
-                    <li><a href="{{ route('service.detail', ['slug' => 'essential-services']) }}" class="hover:text-caramel transition-colors">Security Guard Services</a></li>
-                    <li><a href="{{ route('service.detail', ['slug' => 'specialised-services']) }}" class="hover:text-caramel transition-colors">Corporate Security</a></li>
-                    <li><a href="{{ route('service.detail', ['slug' => 'threat-mitigation']) }}" class="hover:text-caramel transition-colors">Threat Mitigation & Audits</a></li>
-                    <li><a href="{{ route('service.detail', ['slug' => 'on-demand-services']) }}" class="hover:text-caramel transition-colors">VIP Bouncers & Escorts</a></li>
-                    <li><a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" class="hover:text-caramel transition-colors">CCTV & Surveillance</a></li>
-                    <li><a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" class="hover:text-caramel transition-colors">Access Control Systems</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'essential-services']) }}" wire:navigate class="hover:text-caramel transition-colors">Security Guard Services</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'specialised-services']) }}" wire:navigate class="hover:text-caramel transition-colors">Corporate Security</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'threat-mitigation']) }}" wire:navigate class="hover:text-caramel transition-colors">Threat Mitigation & Audits</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'on-demand-services']) }}" wire:navigate class="hover:text-caramel transition-colors">VIP Bouncers & Escorts</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'cctv-installation']) }}" wire:navigate class="hover:text-caramel transition-colors">CCTV & Surveillance</a></li>
+                    <li><a href="{{ route('service.detail', ['slug' => 'access-control-systems']) }}" wire:navigate class="hover:text-caramel transition-colors">Access Control Systems</a></li>
                 </ul>
             </div>
 
@@ -100,11 +100,11 @@
         <div class="border-t border-cream mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-coffee/70 font-semibold">
             <p>© {{ date('Y') }} {{ setting('company_name', 'NDS Security Services') }}. All Rights Reserved.</p>
             <div class="flex gap-4">
-                <a href="{{ route('contact') }}" class="hover:text-caramel transition-colors">Privacy Policy</a>
+                <a href="{{ route('contact') }}" wire:navigate class="hover:text-caramel transition-colors">Privacy Policy</a>
                 <span>•</span>
-                <a href="{{ route('contact') }}" class="hover:text-caramel transition-colors">Terms of Service</a>
+                <a href="{{ route('contact') }}" wire:navigate class="hover:text-caramel transition-colors">Terms of Service</a>
                 <span>•</span>
-                <a href="{{ route('about') }}" class="hover:text-caramel transition-colors">ISO Certifications</a>
+                <a href="{{ route('about') }}" wire:navigate class="hover:text-caramel transition-colors">ISO Certifications</a>
             </div>
         </div>
     </div>

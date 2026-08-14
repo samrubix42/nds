@@ -218,7 +218,7 @@
 
                 <!-- Gradient pill button -->
                 <div class="self-start">
-                    <a href="#" class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-8 rounded-full shadow-md shadow-caramel/25 transition-all inline-flex items-center gap-2 cursor-pointer mt-4">
+                    <a href="{{ route('about') }}" wire:navigate class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 px-8 rounded-full shadow-md shadow-caramel/25 transition-all inline-flex items-center gap-2 cursor-pointer mt-4">
                         Learn More <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>

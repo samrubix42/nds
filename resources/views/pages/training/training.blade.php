@@ -7,7 +7,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col gap-4 text-center md:text-left">
             <!-- Breadcrumbs -->
             <div class="flex items-center justify-center md:justify-start gap-2 text-xs font-black uppercase tracking-wider text-cream/70">
-                <a href="{{ route('home') }}" class="hover:text-caramel transition-colors">Home</a>
+                <a href="{{ route('home') }}" wire:navigate class="hover:text-caramel transition-colors">Home</a>
                 <span class="text-caramel/50">•</span>
                 <span class="text-cream">Training</span>
             </div>

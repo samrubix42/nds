@@ -7,7 +7,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col gap-4 text-center md:text-left">
             <!-- Breadcrumbs -->
             <div class="flex items-center justify-center md:justify-start gap-2 text-xs font-black uppercase tracking-wider text-cream/70">
-                <a href="{{ route('home') }}" class="hover:text-caramel transition-colors">Home</a>
+                <a href="{{ route('home') }}" wire:navigate class="hover:text-caramel transition-colors">Home</a>
                 <span class="text-caramel/50">•</span>
                 <span class="text-cream">Services</span>
             </div>
@@ -69,7 +69,7 @@
                                     {{ $service->short_description ?? 'Professional PSARA compliant security operations for corporate and commercial sites.' }}
                                 </p>
                             </div>
-                            <a href="{{ route('service.detail', ['slug' => $service->slug]) }}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
+                            <a href="{{ route('service.detail', ['slug' => $service->slug]) }}" wire:navigate class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-caramel hover:text-brownie transition-all group/btn">
                                 <span>Discover More</span>
                                 <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
                                     <i class="ri-arrow-right-line text-sm"></i>
@@ -98,11 +98,10 @@
                 <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="bg-caramel hover:bg-[#c78b57] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-7 rounded-full transition-all shadow-md flex items-center justify-center gap-2">
                     <i class="ri-phone-fill"></i> {{ setting('phone_number', '+91 88005-93141') }}
                 </a>
-                <a href="{{ route('contact') }}" class="border border-cream/40 hover:bg-white/10 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-7 rounded-full transition-all flex items-center justify-center">
+                <a href="{{ route('contact') }}" wire:navigate class="border border-cream/40 hover:bg-white/10 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-7 rounded-full transition-all flex items-center justify-center">
                     Request Security Audit
                 </a>
             </div>
         </div>
     </section>
 </div>
-
