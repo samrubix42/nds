@@ -16,8 +16,6 @@ Route::get('/clear-cache', function () {
 })->name('clear-cache');
 
 Route::livewire('/', 'pages::home')->name('home');
-Route::livewire('/home-2', 'pages::home2')->name('home2');
-Route::livewire('/home-3', 'pages::home3')->name('home3');
 Route::livewire('/about', 'pages::about')->name('about');
 Route::livewire('/contact', 'pages::contact')->name('contact');
 Route::livewire('/services', 'pages::services')->name('services');
