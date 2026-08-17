@@ -324,7 +324,7 @@
                 </div>
 
                 <!-- Rotating Circular Contact Badge -->
-                <a href="tel:+919999988888" class="relative shrink-0 group flex items-center justify-center cursor-pointer mt-2 md:mt-0">
+                <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="relative shrink-0 group flex items-center justify-center cursor-pointer mt-2 md:mt-0">
                     <!-- Animated SVG Rotating Circular Text -->
                     <div class="w-24 h-24 sm:w-28 sm:h-28 animate-[spin_14s_linear_infinite]">
                         <svg viewBox="0 0 100 100" class="w-full h-full text-cream/80 fill-current">
@@ -726,9 +726,9 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-                        <a href="tel:+919999988888" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                        <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="bg-gradient-to-r from-caramel via-[#d49964] to-caramel hover:brightness-110 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
                             <i class="ri-phone-fill"></i>
-                            <span>Call +91 99999 88888</span>
+                            <span>Call {{ setting('phone_number', '+91 88005-93141') }}</span>
                         </a>
                         <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
                             <i class="ri-file-search-line text-caramel"></i>

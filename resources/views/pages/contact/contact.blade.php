@@ -324,11 +324,11 @@
                 <span class="text-xs font-bold text-coffee/80 hidden sm:inline">Greater Noida, Uttar Pradesh</span>
             </div>
             <div class="w-full h-[420px] rounded-[32px] overflow-hidden border-2 border-cream shadow-md relative z-10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.286377759604!2d77.412467!3d28.627622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef9012f5a6f9%3A0xe54e63bb70d58097!2sGaur%20City%20Mall!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.655923218129!2d77.4276549!3d28.610097299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5900b942d4f%3A0xcb8eeabb60fb701f!2sNDS%20Security%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1786968203226!5m2!1sen!2sin" 
                         class="w-full h-full border-0 select-none" 
                         allowfullscreen="" 
                         loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
             </div>
         </div>

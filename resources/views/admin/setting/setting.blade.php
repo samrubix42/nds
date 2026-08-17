@@ -172,7 +172,7 @@
                         <input 
                             wire:model="whatsapp_number" 
                             type="text" 
-                            placeholder="+91 99999 88888" 
+                            placeholder="+91 88005-93141" 
                             class="w-full pl-9 pr-3 py-2 text-xs rounded-md bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-semibold placeholder-brownie/40 transition-colors"
                         />
                     </div>
@@ -206,7 +206,7 @@
                         <textarea 
                             wire:model="address" 
                             rows="3" 
-                            placeholder="Gaur City Mall Road, Noida, Uttar Pradesh, 201301" 
+                            placeholder="Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)" 
                             class="w-full pl-9 pr-3 py-2 text-xs rounded-md bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-semibold placeholder-brownie/40 transition-colors resize-none"></textarea>
                     </div>
                     @error('address') <span class="text-[10px] text-rose-600 font-semibold block mt-1">{{ $message }}</span> @enderror

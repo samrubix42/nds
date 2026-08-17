@@ -71,7 +71,7 @@
                 <div class="flex items-start gap-3 text-xs">
                     <i class="ri-map-pin-line text-caramel text-base mt-0.5"></i>
                     <p class="text-coffee/85 leading-relaxed font-semibold">
-                        {!! nl2br(e(setting('address', 'Gaur City Mall Road, Noida, Uttar Pradesh, 201301'))) !!}
+                        {!! nl2br(e(setting('address', 'Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)'))) !!}
                     </p>
                 </div>
                 <div class="flex items-center gap-3 text-xs">
@@ -99,12 +99,8 @@
         <!-- Footer Bottom Bar -->
         <div class="border-t border-cream mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-coffee/70 font-semibold">
             <p>© {{ date('Y') }} {{ setting('company_name', 'NDS Security Services') }}. All Rights Reserved.</p>
-            <div class="flex gap-4">
-                <a href="{{ route('contact') }}" wire:navigate class="hover:text-caramel transition-colors">Privacy Policy</a>
-                <span>•</span>
-                <a href="{{ route('contact') }}" wire:navigate class="hover:text-caramel transition-colors">Terms of Service</a>
-                <span>•</span>
-                <a href="{{ route('about') }}" wire:navigate class="hover:text-caramel transition-colors">ISO Certifications</a>
+            <div class="flex gap-4 items-center">
+                <span>Powered by <a href="https://techonika.com" target="_blank" rel="noopener noreferrer" class="hover:text-caramel text-brownie font-bold transition-colors">Techonika</a></span>
             </div>
         </div>
     </div>
