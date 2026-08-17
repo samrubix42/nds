@@ -187,7 +187,7 @@
 
                 <!-- Main Image -->
                 <div class="relative z-10 w-full h-[380px] rounded-[24px] overflow-hidden border border-cream shadow-md">
-                    <img src="{{ asset('image/image1.webp') }}"
+                    <img src="{{ asset('image/4B9A3724.webp') }}"
                         alt="NDS Security Operations"
                         class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-103" />
                 </div>
@@ -473,14 +473,14 @@
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <!-- Dynamic Clients Grid (Bigger Client Logos & Pure Hover Scale) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-8 sm:gap-12 items-center justify-items-center">
+            <!-- Dynamic Clients Grid (Optimized Client Logos & 6 per row) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-center justify-items-center">
                 @foreach($clients as $client)
-                    <div class="flex items-center justify-center p-3 group cursor-pointer w-full h-32 sm:h-40 md:h-44">
+                    <div class="flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
                         <img 
                             src="{{ $client->image_url }}" 
                             alt="Client Partner" 
-                            class="max-h-full max-w-full h-28 sm:h-36 md:h-40 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-130 select-none" 
+                            class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" 
                         />
                     </div>
                 @endforeach
@@ -730,7 +730,7 @@
                             <i class="ri-phone-fill"></i>
                             <span>Call {{ setting('phone_number', '+91 88005-93141') }}</span>
                         </a>
-                        <a href="#" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+                        <a href="{{ route('contact') }}" class="bg-white/10 hover:bg-white/20 border border-cream/30 text-cream font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 px-6 rounded-full backdrop-blur-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
                             <i class="ri-file-search-line text-caramel"></i>
                             <span>Request Audit</span>
                         </a>

@@ -298,8 +298,8 @@
         </div>
     </section>
 
-    <!-- Key Corporate Clients Safeguarded Section -->
-    <section class="py-20 bg-[#FDFBF7] border-t border-cream/50 w-full">
+
+    <!-- <section class="py-20 bg-[#FDFBF7] border-t border-cream/50 w-full">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-10">
             <div class="flex flex-col items-center text-center gap-3">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">CLIENT PORTFOLIO BY SECTOR</span>
@@ -338,6 +338,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 </div>

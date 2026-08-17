@@ -35,11 +35,11 @@
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <!-- Client Logos Grid (Bigger Client Logos & Pure Hover Scale) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-8 sm:gap-12 items-center justify-items-center">
+            <!-- Client Logos Grid (Optimized Client Logos & 6 per row) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-center justify-items-center">
                 @foreach($clients as $client)
-                    <div class="flex items-center justify-center p-3 group cursor-pointer w-full h-32 sm:h-40 md:h-44">
-                        <img src="{{ $client->image_url }}" alt="Client Logo" class="max-h-full max-w-full h-28 sm:h-36 md:h-40 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-130 select-none" />
+                    <div class="flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
+                        <img src="{{ $client->image_url }}" alt="Client Logo" class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" />
                     </div>
                 @endforeach
             </div>
