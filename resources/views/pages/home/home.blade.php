@@ -1,4 +1,5 @@
 <div class="w-full bg-white flex flex-col">
+    {{-- 
     <!-- Hero Banner: Clean, Modern, Fully Responsive Auto Slider Banner -->
     <section x-data="{ 
         activeSlide: 0, 
@@ -160,6 +161,23 @@
                 </template>
             </div>
         </div>
+    </section>
+    --}}
+
+    <!-- YouTube Video Hero Banner: Plays continuously in full screen -->
+    <section class="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+            <iframe 
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full scale-125 pointer-events-none" 
+                src="https://www.youtube.com/embed/VxCMR4cImQo?autoplay=1&mute=1&loop=1&playlist=VxCMR4cImQo&controls=0&disablekb=1&fs=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1" 
+                title="NDS Security Service Promo Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Premium vignette overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none"></div>
     </section>
 
 
