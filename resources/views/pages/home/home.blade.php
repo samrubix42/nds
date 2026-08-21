@@ -267,7 +267,7 @@
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">150+ Corporate</strong> Sites Noida
+                    <strong class="text-cream font-black">50+ Residential</strong> Tower
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-focus-3-fill text-cream text-sm"></i>
@@ -294,7 +294,7 @@
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">150+ Corporate</strong> Sites Noida
+                    <strong class="text-cream font-black">50+ Residential</strong> Towers
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-focus-3-fill text-cream text-sm"></i>
@@ -420,29 +420,29 @@
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12 items-center text-center">
                 <!-- Stat 1 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 220, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                     x-data="{ count: 0, target: 50, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
                     <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Residential Townships
+                        Residential Towers
                     </p>
                 </div>
 
                 <!-- Stat 2 -->
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 30, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                     x-data="{ count: 0, target: 23, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
                     <p class="text-xs sm:text-sm font-bold text-cream/85 uppercase tracking-wider mt-1 sm:mt-2">
-                        Malls & Complexes
+                        Malls & Hospitals
                     </p>
                 </div>
 
                 <!-- Stat 3 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 100, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                     x-data="{ count: 0, target: 10, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -453,7 +453,7 @@
 
                 <!-- Stat 4 -->
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 500, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                     x-data="{ count: 0, target: 5000, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -464,7 +464,7 @@
 
                 <!-- Stat 5 -->
                 <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1"
-                     x-data="{ count: 0, target: 25, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                     x-data="{ count: 0, target: 10, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -492,16 +492,30 @@
             </div>
 
             <!-- Dynamic Clients Grid (Optimized Client Logos & 6 per row) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-center justify-items-center">
-                @foreach($clients as $client)
-                    <div class="flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
-                        <img 
-                            src="{{ $client->image_url }}" 
-                            alt="Client Partner" 
-                            class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" 
-                        />
-                    </div>
-                @endforeach
+            <div x-data="{ expanded: false }" :class="{ 'show-all': expanded }" class="clients-wrapper flex flex-col items-center w-full">
+                <div class="clients-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-center justify-items-center w-full">
+                    @foreach($clients as $client)
+                        <div class="client-logo flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
+                            <img 
+                                src="{{ $client->image_url }}" 
+                                alt="Client Partner" 
+                                class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" 
+                            />
+                        </div>
+                    @endforeach
+                </div>
+
+                <!-- Show More / Show Less Buttons -->
+                <div class="mt-8 flex justify-center button-container">
+                    <button @click="expanded = true" class="show-more-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer hover:underline underline-offset-4">
+                        <span>Show More</span>
+                        <i class="ri-arrow-down-s-line text-base sm:text-lg"></i>
+                    </button>
+                    <button @click="expanded = false" class="show-less-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer hover:underline underline-offset-4">
+                        <span>Show Less</span>
+                        <i class="ri-arrow-up-s-line text-base sm:text-lg"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>

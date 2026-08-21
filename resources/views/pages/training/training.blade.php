@@ -41,7 +41,7 @@
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i class="ri-checkbox-circle-fill text-caramel text-base shrink-0 mt-0.5"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-coffee/90 leading-relaxed">100+ Hours of mandatory testing</span>
+                        <span class="text-xs sm:text-sm font-semibold text-coffee/90 leading-relaxed">72+ Hours of mandatory testing</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i class="ri-checkbox-circle-fill text-caramel text-base shrink-0 mt-0.5"></i>
@@ -74,20 +74,20 @@
                     
                     <h3 class="text-base sm:text-lg font-black text-caramel uppercase tracking-widest mb-3">PSARA Training Code</h3>
                     <p class="text-xs sm:text-sm text-cream/70 leading-relaxed font-semibold mb-5">
-                        In compliance with the Private Security Agencies (Regulation) Act, NDS enforces a strict 100-hour training regimen for new recruits covering physical defense, access tech, and hazard drills.
+                        In compliance with the Private Security Agencies (Regulation) Act, NDS enforces a strict 72-hour training regimen for new recruits covering physical defense, access tech, and hazard drills.
                     </p>
                     <div class="flex flex-col gap-3.5 border-t border-caramel/25 pt-5">
                         <div class="flex justify-between items-center text-xs">
                             <span class="font-bold text-cream/60 uppercase">Physical Drills</span>
-                            <span class="font-black text-caramel">40 Hours</span>
+                            <span class="font-black text-caramel">30 Hours</span>
                         </div>
                         <div class="flex justify-between items-center text-xs">
                             <span class="font-bold text-cream/60 uppercase">Fire & Safety Systems</span>
-                            <span class="font-black text-caramel">30 Hours</span>
+                            <span class="font-black text-caramel">17 Hours</span>
                         </div>
                         <div class="flex justify-between items-center text-xs">
                             <span class="font-bold text-cream/60 uppercase">Customer Conduct & Services</span>
-                            <span class="font-black text-caramel">30 Hours</span>
+                            <span class="font-black text-caramel">25 Hours</span>
                         </div>
                     </div>
                 </div>

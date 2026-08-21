@@ -38,3 +38,122 @@ body {
 [x-cloak] {
     display: none !important;
 }
+
+/* Homepage Clientele Grid Show More / Show Less Styles */
+.clients-wrapper:not(.show-all) .client-logo:nth-child(n+9) {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+9) {
+        display: flex;
+    }
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+13) {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+13) {
+        display: flex;
+    }
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+17) {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+17) {
+        display: flex;
+    }
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+21) {
+        display: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+21) {
+        display: flex;
+    }
+    .clients-wrapper:not(.show-all) .client-logo:nth-child(n+25) {
+        display: none;
+    }
+}
+
+.clients-wrapper .show-more-btn,
+.clients-wrapper .show-less-btn {
+    display: none;
+}
+
+/* Mobile: show if >= 9 clients */
+.clients-wrapper:not(.show-all):has(.client-logo:nth-child(9)) .show-more-btn {
+    display: inline-flex;
+}
+.clients-wrapper.show-all:has(.client-logo:nth-child(9)) .show-less-btn {
+    display: inline-flex;
+}
+
+/* sm (3 cols): show if >= 13 clients */
+@media (min-width: 640px) {
+    .clients-wrapper:not(.show-all) .show-more-btn {
+        display: none;
+    }
+    .clients-wrapper:not(.show-all):has(.client-logo:nth-child(13)) .show-more-btn {
+        display: inline-flex;
+    }
+    .clients-wrapper.show-all .show-less-btn {
+        display: none;
+    }
+    .clients-wrapper.show-all:has(.client-logo:nth-child(13)) .show-less-btn {
+        display: inline-flex;
+    }
+}
+
+/* md (4 cols): show if >= 17 clients */
+@media (min-width: 768px) {
+    .clients-wrapper:not(.show-all) .show-more-btn {
+        display: none;
+    }
+    .clients-wrapper:not(.show-all):has(.client-logo:nth-child(17)) .show-more-btn {
+        display: inline-flex;
+    }
+    .clients-wrapper.show-all .show-less-btn {
+        display: none;
+    }
+    .clients-wrapper.show-all:has(.client-logo:nth-child(17)) .show-less-btn {
+        display: inline-flex;
+    }
+}
+
+/* lg (5 cols): show if >= 21 clients */
+@media (min-width: 1024px) {
+    .clients-wrapper:not(.show-all) .show-more-btn {
+        display: none;
+    }
+    .clients-wrapper:not(.show-all):has(.client-logo:nth-child(21)) .show-more-btn {
+        display: inline-flex;
+    }
+    .clients-wrapper.show-all .show-less-btn {
+        display: none;
+    }
+    .clients-wrapper.show-all:has(.client-logo:nth-child(21)) .show-less-btn {
+        display: inline-flex;
+    }
+}
+
+/* xl (6 cols): show if >= 25 clients */
+@media (min-width: 1280px) {
+    .clients-wrapper:not(.show-all) .show-more-btn {
+        display: none;
+    }
+    .clients-wrapper:not(.show-all):has(.client-logo:nth-child(25)) .show-more-btn {
+        display: inline-flex;
+    }
+    .clients-wrapper.show-all .show-less-btn {
+        display: none;
+    }
+    .clients-wrapper.show-all:has(.client-logo:nth-child(25)) .show-less-btn {
+        display: inline-flex;
+    }
+}
+

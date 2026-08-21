@@ -108,7 +108,7 @@
                             </td>
                             <td class="py-4 px-6">Matriculate (10<sup>th</sup> Pass)</td>
                             <td class="py-4 px-6">1+ Years Guarding</td>
-                            <td class="py-4 px-6">20 – 28 Years</td>
+                            <td class="py-4 px-6">22 – 45 Years</td>
                             <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
                         </tr>
 
@@ -120,7 +120,7 @@
                             </td>
                             <td class="py-4 px-6">Intermediate (12<sup>th</sup> Pass)</td>
                             <td class="py-4 px-6">2+ Years Supervisory</td>
-                            <td class="py-4 px-6">35 – 45 Years</td>
+                            <td class="py-4 px-6">30 – 42 Years</td>
                             <td class="py-4 px-6 font-bold text-brownie">5' 7"</td>
                         </tr>
 
