@@ -1,178 +1,178 @@
 <div class="w-full bg-white flex flex-col">
-    {{-- 
+    {{--
     <!-- Hero Banner: Clean, Modern, Fully Responsive Auto Slider Banner -->
     <section x-data="{ 
         activeSlide: 0, 
         fallbackImage: '{{ asset('image/PIC_3766.webp') }}',
-        slides: [
-            @if(isset($sliders) && $sliders->count() > 0)
-                @foreach($sliders as $slider)
-                    {
-                        title: @js($slider->title),
-                        subtitle: @js($slider->description),
-                        badge: 'NDS SECURITY FORCE',
-                        badgeIcon: 'ri-shield-star-line',
-                        image: @js(str_starts_with($slider->image ?? '', 'http') ? $slider->image : (str_starts_with($slider->image ?? '', 'image/') ? asset($slider->image) : ($slider->image ? asset('storage/' . $slider->image) : asset('image/PIC_3766.webp')))),
-                        primaryBtnText: @js($slider->button_text1 ?: 'Explore Services'),
-                        primaryBtnLink: @js($slider->button_link1 ?: '/services'),
-                        secondaryBtnText: @js($slider->button_text2 ?: 'Contact Support'),
-                        secondaryBtnLink: @js($slider->button_link2 ?: '/contact')
-                    },
-                @endforeach
-            @else
-                {
-                    title: 'PSARA Certified Manned Guarding Solutions',
-                    subtitle: 'Rigorously trained, background-verified security personnel providing round-the-clock defense.',
-                    badge: 'PSARA COMPLIANT GUARDING',
-                    badgeIcon: 'ri-shield-user-line',
-                    image: '{{ asset('image/PIC_3766.webp') }}',
-                    primaryBtnText: 'Hire Security Guards',
-                    primaryBtnLink: '/contact',
-                    secondaryBtnText: 'Our Guarding Services',
-                    secondaryBtnLink: '/services'
-                }
-            @endif
-        ],
-        timer: null,
-        startAutoSlide() {
-            this.stopAutoSlide();
-            this.timer = setInterval(() => {
-                this.nextSlide();
-            }, 5500);
-        },
-        stopAutoSlide() {
-            if(this.timer) clearInterval(this.timer);
-        },
-        nextSlide() {
-            this.activeSlide = (this.activeSlide + 1) % this.slides.length;
-        },
-        prevSlide() {
-            this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
-        },
-        goToSlide(index) {
-            this.activeSlide = index;
-            this.startAutoSlide();
-        },
-        handleImageError(event) {
-            event.target.onerror = null;
-            event.target.src = this.fallbackImage;
-        }
-    }" 
-    x-init="startAutoSlide()" 
-    @mouseenter="stopAutoSlide()" 
-    @mouseleave="startAutoSlide()" 
+    slides: [
+    @if(isset($sliders) && $sliders->count() > 0)
+    @foreach($sliders as $slider)
+    {
+    title: @js($slider->title),
+    subtitle: @js($slider->description),
+    badge: 'NDS SECURITY FORCE',
+    badgeIcon: 'ri-shield-star-line',
+    image: @js(str_starts_with($slider->image ?? '', 'http') ? $slider->image : (str_starts_with($slider->image ?? '', 'image/') ? asset($slider->image) : ($slider->image ? asset('storage/' . $slider->image) : asset('image/PIC_3766.webp')))),
+    primaryBtnText: @js($slider->button_text1 ?: 'Explore Services'),
+    primaryBtnLink: @js($slider->button_link1 ?: '/services'),
+    secondaryBtnText: @js($slider->button_text2 ?: 'Contact Support'),
+    secondaryBtnLink: @js($slider->button_link2 ?: '/contact')
+    },
+    @endforeach
+    @else
+    {
+    title: 'PSARA Certified Manned Guarding Solutions',
+    subtitle: 'Rigorously trained, background-verified security personnel providing round-the-clock defense.',
+    badge: 'PSARA COMPLIANT GUARDING',
+    badgeIcon: 'ri-shield-user-line',
+    image: '{{ asset('image/PIC_3766.webp') }}',
+    primaryBtnText: 'Hire Security Guards',
+    primaryBtnLink: '/contact',
+    secondaryBtnText: 'Our Guarding Services',
+    secondaryBtnLink: '/services'
+    }
+    @endif
+    ],
+    timer: null,
+    startAutoSlide() {
+    this.stopAutoSlide();
+    this.timer = setInterval(() => {
+    this.nextSlide();
+    }, 5500);
+    },
+    stopAutoSlide() {
+    if(this.timer) clearInterval(this.timer);
+    },
+    nextSlide() {
+    this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+    },
+    prevSlide() {
+    this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+    },
+    goToSlide(index) {
+    this.activeSlide = index;
+    this.startAutoSlide();
+    },
+    handleImageError(event) {
+    event.target.onerror = null;
+    event.target.src = this.fallbackImage;
+    }
+    }"
+    x-init="startAutoSlide()"
+    @mouseenter="stopAutoSlide()"
+    @mouseleave="startAutoSlide()"
     class="relative w-full h-auto min-h-[600px] sm:h-[82vh] sm:min-h-[600px] max-h-[780px] py-16 sm:py-0 bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b] overflow-hidden group select-none flex items-center">
-        
-        <!-- Background Image Slides with Automatic Fallback Handling -->
-        <template x-for="(slide, index) in slides" :key="index">
-            <div x-show="activeSlide === index"
-                 x-transition:enter="transition ease-out duration-1000"
-                 x-transition:enter-start="opacity-0 scale-105"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-700"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
-                 class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b]">
-                <!-- Main Image with Error Fallback -->
-                <img :src="slide.image" 
-                     :alt="slide.title" 
-                     x-on:error="handleImageError($event)"
-                     class="w-full h-full object-cover object-top transform scale-105 transition-transform duration-[7000ms] ease-out" />
-                
-                <!-- Balanced Soft Light Vignette Overlays -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20 sm:from-black/65 sm:via-black/35 sm:to-black/10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
-            </div>
-        </template>
 
-        <!-- Slide Content Overlay Container (Proportionate & Responsive layout) -->
-        <div class="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-6 md:px-12 flex flex-col justify-center">
-            <div class="max-w-2xl flex flex-col gap-3.5 sm:gap-4">
-                <template x-for="(slide, index) in slides" :key="index">
-                    <div x-show="activeSlide === index"
-                         x-transition:enter="transition ease-out duration-600 delay-200"
-                         x-transition:enter-start="opacity-0 translate-y-6"
-                         x-transition:enter-end="opacity-100 translate-y-0"
-                         x-transition:leave="transition ease-in duration-200"
-                         x-transition:leave-start="opacity-100 translate-y-0"
-                         x-transition:leave-end="opacity-0 -translate-y-4"
-                         class="flex flex-col gap-3.5 sm:gap-4">
-                        
-                        <!-- Balanced Pill Chip Tag -->
-                        <div class="self-start">
-                            <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 bg-caramel/30 border border-caramel/50 backdrop-blur-md text-cream text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-full shadow-sm">
-                                <i :class="slide.badgeIcon" class="text-caramel text-xs sm:text-sm"></i>
-                                <span x-text="slide.badge"></span>
-                            </span>
-                        </div>
+    <!-- Background Image Slides with Automatic Fallback Handling -->
+    <template x-for="(slide, index) in slides" :key="index">
+        <div x-show="activeSlide === index"
+            x-transition:enter="transition ease-out duration-1000"
+            x-transition:enter-start="opacity-0 scale-105"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-700"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2a1b10] via-brownie to-[#1a120b]">
+            <!-- Main Image with Error Fallback -->
+            <img :src="slide.image"
+                :alt="slide.title"
+                x-on:error="handleImageError($event)"
+                class="w-full h-full object-cover object-top transform scale-105 transition-transform duration-[7000ms] ease-out" />
 
-                        <!-- Fully Responsive & Harmonized Title -->
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight drop-shadow-sm" x-text="slide.title"></h1>
+            <!-- Balanced Soft Light Vignette Overlays -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20 sm:from-black/65 sm:via-black/35 sm:to-black/10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
+        </div>
+    </template>
 
-                        <!-- Fully Responsive Subtitle -->
-                        <p class="text-xs sm:text-base md:text-lg text-cream/90 font-medium leading-relaxed max-w-xl drop-shadow-sm" x-text="slide.subtitle"></p>
+    <!-- Slide Content Overlay Container (Proportionate & Responsive layout) -->
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-6 md:px-12 flex flex-col justify-center">
+        <div class="max-w-2xl flex flex-col gap-3.5 sm:gap-4">
+            <template x-for="(slide, index) in slides" :key="index">
+                <div x-show="activeSlide === index"
+                    x-transition:enter="transition ease-out duration-600 delay-200"
+                    x-transition:enter-start="opacity-0 translate-y-6"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-4"
+                    class="flex flex-col gap-3.5 sm:gap-4">
 
-                        <!-- Mobile & Desktop Responsive Buttons -->
-                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mt-2">
-                            <!-- Primary Button -->
-                            <a :href="slide.primaryBtnLink" 
-                               class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full shadow-md transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer border border-caramel/40 active:scale-95 text-center">
-                                <span x-text="slide.primaryBtnText"></span>
-                                <i class="ri-arrow-right-line text-sm"></i>
-                            </a>
-                            
-                            <!-- Secondary Button -->
-                            <a :href="slide.secondaryBtnLink" 
-                               class="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs sm:text-sm font-medium tracking-wider py-3 px-6 rounded-full border border-white/25 shadow-sm transition-all duration-200 inline-flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 text-center">
-                                <span x-text="slide.secondaryBtnText"></span>
-                                <i class="ri-arrow-right-s-line text-sm opacity-70"></i>
-                            </a>
-                        </div>
+                    <!-- Balanced Pill Chip Tag -->
+                    <div class="self-start">
+                        <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 bg-caramel/30 border border-caramel/50 backdrop-blur-md text-cream text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-full shadow-sm">
+                            <i :class="slide.badgeIcon" class="text-caramel text-xs sm:text-sm"></i>
+                            <span x-text="slide.badge"></span>
+                        </span>
                     </div>
-                </template>
-            </div>
+
+                    <!-- Fully Responsive & Harmonized Title -->
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight drop-shadow-sm" x-text="slide.title"></h1>
+
+                    <!-- Fully Responsive Subtitle -->
+                    <p class="text-xs sm:text-base md:text-lg text-cream/90 font-medium leading-relaxed max-w-xl drop-shadow-sm" x-text="slide.subtitle"></p>
+
+                    <!-- Mobile & Desktop Responsive Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mt-2">
+                        <!-- Primary Button -->
+                        <a :href="slide.primaryBtnLink"
+                            class="bg-gradient-to-r from-caramel to-coffee hover:from-coffee hover:to-brownie text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 px-6 rounded-full shadow-md transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer border border-caramel/40 active:scale-95 text-center">
+                            <span x-text="slide.primaryBtnText"></span>
+                            <i class="ri-arrow-right-line text-sm"></i>
+                        </a>
+
+                        <!-- Secondary Button -->
+                        <a :href="slide.secondaryBtnLink"
+                            class="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white text-xs sm:text-sm font-medium tracking-wider py-3 px-6 rounded-full border border-white/25 shadow-sm transition-all duration-200 inline-flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 text-center">
+                            <span x-text="slide.secondaryBtnText"></span>
+                            <i class="ri-arrow-right-s-line text-sm opacity-70"></i>
+                        </a>
+                    </div>
+                </div>
+            </template>
         </div>
+    </div>
 
-        <!-- Slider Controls: Previous & Next Arrow Buttons (HIDDEN ON PHONE VIEW, SHOWN ON TABLET & DESKTOP) -->
-        <button @click="prevSlide()" 
-                type="button"
-                aria-label="Previous Slide"
-                class="hidden sm:flex absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
-            <i class="ri-arrow-left-s-line"></i>
-        </button>
+    <!-- Slider Controls: Previous & Next Arrow Buttons (HIDDEN ON PHONE VIEW, SHOWN ON TABLET & DESKTOP) -->
+    <button @click="prevSlide()"
+        type="button"
+        aria-label="Previous Slide"
+        class="hidden sm:flex absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
+        <i class="ri-arrow-left-s-line"></i>
+    </button>
 
-        <button @click="nextSlide()" 
-                type="button"
-                aria-label="Next Slide"
-                class="hidden sm:flex absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
-            <i class="ri-arrow-right-s-line"></i>
-        </button>
+    <button @click="nextSlide()"
+        type="button"
+        aria-label="Next Slide"
+        class="hidden sm:flex absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-caramel border border-white/25 text-white backdrop-blur-md items-center justify-center text-xl transition-all duration-200 hover:scale-105 focus:outline-none">
+        <i class="ri-arrow-right-s-line"></i>
+    </button>
 
-        <!-- Bottom Controls Bar (Sleek Clean Bullets) -->
-        <div class="absolute bottom-4 sm:bottom-6 inset-x-0 z-30 flex items-center justify-center pointer-events-none">
-            <div class="flex items-center gap-2 sm:gap-2.5 pointer-events-auto bg-black/30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border border-white/10">
-                <template x-for="(slide, index) in slides" :key="index">
-                    <button @click="goToSlide(index)"
-                            type="button"
-                            :aria-label="'Go to slide ' + (index + 1)"
-                            class="h-2 sm:h-2.5 rounded-full transition-all duration-300 focus:outline-none"
-                            :class="activeSlide === index ? 'w-6 sm:w-8 bg-caramel shadow-md' : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/70'">
-                    </button>
-                </template>
-            </div>
+    <!-- Bottom Controls Bar (Sleek Clean Bullets) -->
+    <div class="absolute bottom-4 sm:bottom-6 inset-x-0 z-30 flex items-center justify-center pointer-events-none">
+        <div class="flex items-center gap-2 sm:gap-2.5 pointer-events-auto bg-black/30 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border border-white/10">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="goToSlide(index)"
+                    type="button"
+                    :aria-label="'Go to slide ' + (index + 1)"
+                    class="h-2 sm:h-2.5 rounded-full transition-all duration-300 focus:outline-none"
+                    :class="activeSlide === index ? 'w-6 sm:w-8 bg-caramel shadow-md' : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/70'">
+                </button>
+            </template>
         </div>
+    </div>
     </section>
     --}}
 
     <!-- YouTube Video Hero Banner: Plays continuously in full screen -->
     <section class="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-            <iframe 
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full scale-125 pointer-events-none" 
-                src="https://www.youtube.com/embed/OJSXLzgPmK8?autoplay=1&mute=1&loop=1&playlist=OJSXLzgPmK8&controls=0&disablekb=1&fs=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&vq=hd1080" 
-                title="NDS Security Service Promo Video" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            <iframe
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full scale-125 pointer-events-none"
+                src="https://www.youtube.com/embed/OJSXLzgPmK8?autoplay=1&mute=1&loop=1&playlist=OJSXLzgPmK8&controls=0&disablekb=1&fs=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&vq=hd1080"
+                title="NDS Security Service Promo Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
             </iframe>
         </div>
@@ -187,8 +187,8 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
             <!-- Left Side: Image with dot decoration (5 columns) -->
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
-                 class="lg:col-span-5 relative flex items-center justify-center p-4 transition-all duration-[1400ms] ease-out">
+                :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
+                class="lg:col-span-5 relative flex items-center justify-center p-4 transition-all duration-[1400ms] ease-out">
                 <!-- Dotted Grid Decoration (Reference details) -->
                 <div class="absolute -top-4 -right-4 w-32 h-44 z-0 opacity-30 select-none hidden sm:block">
                     <svg width="120" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -213,8 +213,8 @@
 
             <!-- Right Side: Content with Left Accent Border (7 columns) -->
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
-                 class="lg:col-span-7 flex flex-col gap-6 transition-all duration-[1400ms] ease-out">
+                :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
+                class="lg:col-span-7 flex flex-col gap-6 transition-all duration-[1400ms] ease-out">
                 <!-- Pill chip -->
                 <div class="self-start">
                     <span class="inline-block px-5 py-2 bg-white text-coffee font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-md shadow-caramel/10 border border-cream/80">
@@ -322,8 +322,8 @@
         <div class="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-coffee/25 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-             class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full transition-all duration-[1400ms] ease-out">
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+            class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full transition-all duration-[1400ms] ease-out">
 
             <!-- Top Tier: Headline + Animated Circular Contact Badge -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-16">
@@ -346,7 +346,7 @@
                     <!-- Animated SVG Rotating Circular Text -->
                     <div class="w-24 h-24 sm:w-28 sm:h-28 animate-[spin_14s_linear_infinite]">
                         <svg viewBox="0 0 100 100" class="w-full h-full text-cream/80 fill-current">
-                            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+                            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                             <text class="text-[10px] font-bold uppercase tracking-[2.5px]">
                                 <textPath href="#circlePath">
                                     Contact Now • Contact Now •
@@ -420,7 +420,7 @@
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12 items-center text-center">
                 <!-- Stat 1 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 50, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 50, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -431,7 +431,7 @@
 
                 <!-- Stat 2 -->
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 23, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 23, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -442,7 +442,7 @@
 
                 <!-- Stat 3 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                     x-data="{ count: 0, target: 10, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 10, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -453,7 +453,7 @@
 
                 <!-- Stat 4 -->
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                     x-data="{ count: 0, target: 5000, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 5000, duration: 2000, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -464,7 +464,7 @@
 
                 <!-- Stat 5 -->
                 <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1"
-                     x-data="{ count: 0, target: 10, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 10, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -482,8 +482,8 @@
     <section class="bg-white py-16 sm:py-20 border-b border-cream/30 relative z-10 select-none">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1000ms] ease-out">
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1000ms] ease-out">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Elite Partners</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
                     Trusted by Noida's Leading Landmarks
@@ -495,13 +495,12 @@
             <div x-data="{ expanded: false }" :class="{ 'show-all': expanded }" class="clients-wrapper flex flex-col items-center w-full">
                 <div class="clients-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 items-center justify-items-center w-full">
                     @foreach($clients as $client)
-                        <div class="client-logo flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
-                            <img 
-                                src="{{ $client->image_url }}" 
-                                alt="Client Partner" 
-                                class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" 
-                            />
-                        </div>
+                    <div class="client-logo flex items-center justify-center p-2 group cursor-pointer w-full h-28 sm:h-36 md:h-40">
+                        <img
+                            src="{{ $client->image_url }}"
+                            alt="Client Partner"
+                            class="max-h-full max-w-full h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 ease-out transform group-hover:scale-115 select-none" />
+                    </div>
                     @endforeach
                 </div>
 
@@ -536,8 +535,8 @@
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                class="flex flex-col items-center text-center gap-3 mb-16 transition-all duration-[1300ms] ease-out">
                 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
                     <i class="ri-shield-star-fill text-sm"></i> Services
                 </span>
@@ -550,37 +549,37 @@
             <!-- Dynamic 3-Column Cards Grid: Services from Database -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                 @foreach($services as $index => $service)
-                    <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
-                         :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-                         class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] ease-out flex flex-col items-center text-center">
-                        <div class="relative w-full h-48 overflow-hidden bg-cream">
-                            <img src="{{ $service->image_url }}"
-                                alt="{{ $service->title }}"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
-                        </div>
-                        <!-- Overlapping Center Circular Icon Badge -->
-                        <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                            <i class="{{ $service->icon ?? 'ri-shield-check-fill' }}"></i>
-                        </div>
-                        <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
-                            <div>
-                                <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">0{{ $index + 1 }}. SERVICE</span>
-                                <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
-                                    {{ $service->title }}
-                                </h3>
-                                <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
-                                    {{ $service->short_description ?? 'Professional PSARA-compliant security operations.' }}
-                                </p>
-                            </div>
-                            <a href="{{ route('service.detail', ['slug' => $service->slug]) }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
-                                <span>Discover More</span>
-                                <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
-                                    <i class="ri-arrow-right-line text-sm"></i>
-                                </div>
-                            </a>
-                        </div>
+                <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.1 }); obs.observe(this.$el); } }"
+                    :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+                    class="group bg-white rounded-3xl overflow-hidden border border-cream/90 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-[1300ms] ease-out flex flex-col items-center text-center">
+                    <div class="relative w-full h-48 overflow-hidden bg-cream">
+                        <img src="{{ $service->image_url }}"
+                            alt="{{ $service->title }}"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brownie/40 via-transparent to-transparent"></div>
                     </div>
+                    <!-- Overlapping Center Circular Icon Badge -->
+                    <div class="relative -mt-7 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-caramel to-coffee text-white border-4 border-white shadow-lg flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <i class="{{ $service->icon ?? 'ri-shield-check-fill' }}"></i>
+                    </div>
+                    <div class="p-6 pt-4 flex flex-col items-center text-center flex-grow w-full justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] font-black text-caramel uppercase tracking-widest block mb-1">0{{ $index + 1 }}. SERVICE</span>
+                            <h3 class="text-lg font-black text-brownie tracking-tight mb-2 group-hover:text-caramel transition-colors">
+                                {{ $service->title }}
+                            </h3>
+                            <p class="text-xs text-coffee/85 leading-relaxed font-semibold">
+                                {{ $service->short_description ?? 'Professional PSARA-compliant security operations.' }}
+                            </p>
+                        </div>
+                        <a href="{{ route('service.detail', ['slug' => $service->slug]) }}" class="inline-flex items-center gap-2 text-xs font-extrabold text-caramel hover:text-brownie transition-all group/btn mt-2">
+                            <span>Discover More</span>
+                            <div class="w-7 h-7 rounded-full bg-caramel text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:bg-brownie shadow-sm">
+                                <i class="ri-arrow-right-line text-sm"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -631,9 +630,9 @@
         </div>
 
         <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-             :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
-             class="max-w-6xl mx-auto px-6 md:px-12 w-full relative z-10 transition-all duration-[1400ms] ease-out">
-            
+            :class="shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'"
+            class="max-w-6xl mx-auto px-6 md:px-12 w-full relative z-10 transition-all duration-[1400ms] ease-out">
+
             <!-- Section Header -->
             <div class="flex flex-col items-center text-center gap-3 mb-14">
                 <span class="inline-flex items-center gap-1.5 px-4 py-1 bg-caramel/10 border border-caramel/25 text-caramel text-xs font-extrabold tracking-widest uppercase rounded-full shadow-sm">
@@ -649,40 +648,40 @@
                 <div class="overflow-hidden py-3 -mx-3">
                     <div class="flex transition-transform duration-600 ease-out"
                         :style="'width: ' + (totalCards / getVisibleCards() * 100) + '%; transform: translateX(-' + (activeIndex * (100 / totalCards)) + '%)'">
-                        
+
                         @foreach($testimonials as $testimonial)
-                            <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
-                                <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
-                                    <div>
-                                        <!-- Top Row: Name & Title -->
-                                        <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
-                                            <div>
-                                                <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
-                                                    {{ $testimonial->name }}
-                                                </h3>
-                                                <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
-                                                    {{ $testimonial->designation }}
-                                                </p>
-                                            </div>
-                                            <div class="text-caramel/80 shrink-0">
-                                                <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
-                                            </div>
+                        <div :style="'width: ' + (100 / totalCards) + '%'" class="shrink-0 px-3">
+                            <div class="bg-white border border-cream/90 rounded-[24px] p-6 sm:p-8 shadow-md shadow-caramel/5 hover:shadow-xl hover:border-caramel/30 transition-all duration-300 flex flex-col justify-between h-full">
+                                <div>
+                                    <!-- Top Row: Name & Title -->
+                                    <div class="flex items-start justify-between gap-4 pb-5 border-b border-cream/80">
+                                        <div>
+                                            <h3 class="text-base sm:text-lg font-black text-brownie tracking-tight">
+                                                {{ $testimonial->name }}
+                                            </h3>
+                                            <p class="text-xs sm:text-sm font-semibold text-coffee/70 mt-0.5">
+                                                {{ $testimonial->designation }}
+                                            </p>
                                         </div>
-
-                                        <!-- Rating Stars -->
-                                        <div class="flex gap-1 text-caramel my-5">
-                                            @for($i = 0; $i < ($testimonial->rating ?? 5); $i++)
-                                                <i class="ri-star-fill text-sm"></i>
-                                            @endfor
+                                        <div class="text-caramel/80 shrink-0">
+                                            <i class="ri-double-quotes-r text-3xl sm:text-4xl"></i>
                                         </div>
-
-                                        <!-- Testimonial Quote -->
-                                        <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
-                                            "{{ $testimonial->description }}"
-                                        </p>
                                     </div>
+
+                                    <!-- Rating Stars -->
+                                    <div class="flex gap-1 text-caramel my-5">
+                                        @for($i = 0; $i < ($testimonial->rating ?? 5); $i++)
+                                            <i class="ri-star-fill text-sm"></i>
+                                            @endfor
+                                    </div>
+
+                                    <!-- Testimonial Quote -->
+                                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-medium">
+                                        "{{ $testimonial->description }}"
+                                    </p>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
 
                     </div>
@@ -707,8 +706,8 @@
     <section class="bg-white py-16 border-t border-cream/50" x-data="{ activeFaq: null }">
         <div class="w-full px-6 md:px-12">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
-                 class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1300ms] ease-out">
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-14'"
+                class="flex flex-col items-center text-center gap-3 mb-12 transition-all duration-[1300ms] ease-out">
                 <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">Common Queries</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-brownie">
                     Frequently Asked Questions
@@ -717,21 +716,21 @@
             </div>
 
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                 class="max-w-3xl mx-auto flex flex-col gap-3 transition-all duration-[1400ms] delay-150 ease-out">
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
+                class="max-w-3xl mx-auto flex flex-col gap-3 transition-all duration-[1400ms] delay-150 ease-out">
                 @foreach($faqs as $index => $faq)
-                    <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
-                        <button @click="activeFaq = (activeFaq === {{ $index }} ? null : {{ $index }})"
-                            class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
-                            <span>{{ $faq->question }}</span>
-                            <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === {{ $index }} ? 'rotate-180 text-caramel' : ''"></i>
-                        </button>
-                        <div x-show="activeFaq === {{ $index }}" x-cloak x-transition class="p-4 border-t border-cream bg-white">
-                            <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
-                                {{ $faq->answer }}
-                            </p>
-                        </div>
+                <div class="border border-cream rounded-[4px] bg-cream/10 overflow-hidden">
+                    <button @click="activeFaq = (activeFaq === {{ $index }} ? null : {{ $index }})"
+                        class="w-full flex justify-between items-center p-4 text-left text-sm sm:text-base font-bold uppercase tracking-wider text-brownie hover:bg-cream/20 transition-colors cursor-pointer">
+                        <span>{{ $faq->question }}</span>
+                        <i class="ri-arrow-down-s-line text-base transition-transform duration-300" :class="activeFaq === {{ $index }} ? 'rotate-180 text-caramel' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === {{ $index }}" x-cloak x-transition class="p-4 border-t border-cream bg-white">
+                        <p class="text-sm sm:text-base text-coffee leading-relaxed font-medium">
+                            {{ $faq->answer }}
+                        </p>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -741,9 +740,9 @@
     <section class="py-12 px-4 sm:px-6 md:px-12 w-full bg-white relative">
         <div class="max-w-5xl mx-auto w-full">
             <div x-data="{ shown: false, init() { let obs = new IntersectionObserver(([e]) => { if(e.isIntersecting) { this.shown = true; obs.disconnect(); } }, { threshold: 0.15 }); obs.observe(this.$el); } }"
-                 :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-98 translate-y-8'"
-                 class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-brownie via-[#2e1d11] to-brownie text-white p-6 sm:p-10 shadow-lg border border-caramel/25 overflow-hidden transition-all duration-[1200ms] ease-out">
-                
+                :class="shown ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-98 translate-y-8'"
+                class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-brownie via-[#2e1d11] to-brownie text-white p-6 sm:p-10 shadow-lg border border-caramel/25 overflow-hidden transition-all duration-[1200ms] ease-out">
+
                 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
                     <div class="flex flex-col gap-2 max-w-xl">
                         <span class="inline-flex items-center gap-1.5 text-caramel text-xs font-black uppercase tracking-widest self-center md:self-start">
