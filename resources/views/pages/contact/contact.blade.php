@@ -34,59 +34,51 @@
         </div>
     </section>
 
-    <!-- Quick Contact Cards Strip -->
-    <section class="py-12 bg-[#FDFBF7] border-b border-cream/50">
+    <!-- Prominent Contact Info Section (Increased Size, 3 Cards: Phone, Email, Address) -->
+    <section class="py-16 bg-[#FAF9F5] border-b border-cream/40">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Card 1: Helpline -->
-                <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="group p-6 bg-white rounded-3xl border border-cream shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl shrink-0 group-hover:bg-caramel group-hover:text-white transition-all">
+                <!-- Phone Helpline Card -->
+                <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="group p-8 bg-white rounded-[32px] border border-cream/60 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col gap-4 text-center items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-3xl shrink-0 group-hover:bg-caramel group-hover:text-white transition-all duration-300">
                         <i class="ri-phone-fill"></i>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">24/7 HELPLINE</span>
-                        <span class="text-xs sm:text-sm font-bold text-brownie group-hover:text-caramel transition-colors">
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-[11px] font-black tracking-widest text-caramel uppercase">24/7 Command Helpline</span>
+                        <span class="text-base sm:text-lg font-black text-brownie group-hover:text-caramel transition-colors duration-300">
                             {{ setting('phone_number', '+91 88005-93141') }}
                         </span>
+                        @if(setting('phone_number_2'))
+                            <span class="text-xs sm:text-sm font-bold text-coffee/70">
+                                {{ setting('phone_number_2') }}
+                            </span>
+                        @endif
                     </div>
                 </a>
 
-                <!-- Card 2: Email -->
-                <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="group p-6 bg-white rounded-3xl border border-cream shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl shrink-0 group-hover:bg-caramel group-hover:text-white transition-all">
+                <!-- Email Desk Card -->
+                <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="group p-8 bg-white rounded-[32px] border border-cream/60 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col gap-4 text-center items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-3xl shrink-0 group-hover:bg-caramel group-hover:text-white transition-all duration-300">
                         <i class="ri-mail-fill"></i>
                     </div>
-                    <div class="flex flex-col truncate">
-                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">OFFICIAL EMAIL</span>
-                        <span class="text-xs sm:text-sm font-bold text-brownie group-hover:text-caramel transition-colors truncate">
+                    <div class="flex flex-col gap-1.5 w-full">
+                        <span class="text-[11px] font-black tracking-widest text-caramel uppercase">Official Email Desk</span>
+                        <span class="text-base sm:text-lg font-black text-brownie group-hover:text-caramel transition-colors duration-300 truncate w-full px-2" title="{{ setting('email', 'info@ndssecurityservices.com') }}">
                             {{ setting('email', 'info@ndssecurityservices.com') }}
                         </span>
                     </div>
                 </a>
 
-                <!-- Card 3: Location -->
-                <div class="p-6 bg-white rounded-3xl border border-cream shadow-sm flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl shrink-0">
+                <!-- Head Office Address Card -->
+                <div class="group p-8 bg-white rounded-[32px] border border-cream/60 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col gap-4 text-center items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-3xl shrink-0">
                         <i class="ri-map-pin-2-fill"></i>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">HEADQUARTERS</span>
-                        <span class="text-xs font-bold text-brownie truncate max-w-[170px]" title="{{ setting('address', 'Greater Noida, U.P.') }}">
-                            {{ setting('address', 'Greater Noida, U.P.') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 4: Hours -->
-                <div class="p-6 bg-white rounded-3xl border border-cream shadow-sm flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl shrink-0">
-                        <i class="ri-time-fill"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] font-black tracking-wider text-caramel uppercase">WORKING HOURS</span>
-                        <span class="text-xs font-bold text-brownie">
-                            {{ setting('office_time', 'Mon - Sat: 9 AM - 7 PM') }}
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-[11px] font-black tracking-widest text-caramel uppercase">Registered Head Office</span>
+                        <span class="text-xs sm:text-sm font-bold text-brownie leading-relaxed px-4">
+                            {!! nl2br(e(setting('address', 'Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)'))) !!}
                         </span>
                     </div>
                 </div>
@@ -99,93 +91,22 @@
     <section class="py-20 bg-white w-full">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             
-            <!-- Left Column: Company Info Details (5 columns) -->
-            <div class="lg:col-span-5 flex flex-col gap-8">
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">OUR OFFICES</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-brownie">
-                        Reach {{ setting('company_name', 'NDS Security Services') }}
+            <!-- Left Column: Google Map Location (5 columns) -->
+            <div class="lg:col-span-5 flex flex-col gap-6 w-full h-full lg:sticky lg:top-8">
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">OUR LOCATION</span>
+                    <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-brownie">
+                        Command Center Map
                     </h2>
                     <div class="w-12 h-0.5 bg-caramel mt-1"></div>
-                    <p class="text-xs sm:text-sm text-coffee/90 leading-relaxed font-semibold mt-3">
-                        Whether you need corporate site guarding, residential patrols, VIP escorts, or security system setups, get in touch with our team today.
-                    </p>
                 </div>
-
-                <div class="flex flex-col gap-5">
-                    <!-- Address Info Card -->
-                    <div class="flex gap-4 p-5 bg-[#FDFBF7] border border-cream rounded-3xl shadow-sm hover:border-caramel/30 transition-all">
-                        <div class="w-11 h-11 shrink-0 rounded-2xl bg-caramel/10 flex items-center justify-center text-caramel">
-                            <i class="ri-building-4-fill text-xl"></i>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Registered Head Office</h4>
-                            <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed">
-                                {!! nl2br(e(setting('address', 'Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)'))) !!}
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Phone Helpline Card -->
-                    <div class="flex gap-4 p-5 bg-[#FDFBF7] border border-cream rounded-3xl shadow-sm hover:border-caramel/30 transition-all">
-                        <div class="w-11 h-11 shrink-0 rounded-2xl bg-caramel/10 flex items-center justify-center text-caramel">
-                            <i class="ri-phone-fill text-xl"></i>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <h4 class="text-xs font-black tracking-wider text-brownie uppercase">24/7 Command Helpline</h4>
-                            <a href="tel:{{ setting('phone_number', '+91 88005-93141') }}" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
-                                {{ setting('phone_number', '+91 88005-93141') }}
-                            </a>
-                            @if(setting('phone_number_2'))
-                                <a href="tel:{{ setting('phone_number_2') }}" class="text-xs sm:text-sm text-coffee/90 font-semibold hover:text-caramel transition-colors">
-                                    {{ setting('phone_number_2') }}
-                                </a>
-                            @endif
-                            @if(setting('whatsapp_number'))
-                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', setting('whatsapp_number')) }}?text=Hello%20NDS%20Security%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="text-xs sm:text-sm text-emerald-700 font-bold hover:text-emerald-800 transition-colors flex items-center gap-1.5 mt-1">
-                                    <i class="ri-whatsapp-line text-base"></i> WhatsApp: {{ setting('whatsapp_number') }}
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Email Business Card -->
-                    <div class="flex gap-4 p-5 bg-[#FDFBF7] border border-cream rounded-3xl shadow-sm hover:border-caramel/30 transition-all">
-                        <div class="w-11 h-11 shrink-0 rounded-2xl bg-caramel/10 flex items-center justify-center text-caramel">
-                            <i class="ri-mail-send-fill text-xl"></i>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <h4 class="text-xs font-black tracking-wider text-brownie uppercase">Official Email Desk</h4>
-                            <a href="mailto:{{ setting('email', 'info@ndssecurityservices.com') }}" class="text-xs sm:text-sm text-coffee font-bold hover:text-caramel transition-colors">
-                                {{ setting('email', 'info@ndssecurityservices.com') }}
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Social Media Links Block -->
-                    @if(setting('facebook') || setting('instagram') || setting('x'))
-                        <div class="flex items-center gap-3 pt-2">
-                            <span class="text-xs font-black text-brownie uppercase tracking-wider">Follow Us:</span>
-                            <div class="flex items-center gap-2">
-                                @if(setting('facebook'))
-                                    <a href="{{ setting('facebook') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
-                                        <i class="ri-facebook-fill text-base"></i>
-                                    </a>
-                                @endif
-                                @if(setting('instagram'))
-                                    <a href="{{ setting('instagram') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
-                                        <i class="ri-instagram-line text-base"></i>
-                                    </a>
-                                @endif
-                                @if(setting('x'))
-                                    <a href="{{ setting('x') }}" target="_blank" class="w-9 h-9 rounded-xl bg-cream/40 border border-cream text-coffee hover:bg-caramel hover:text-white flex items-center justify-center transition-all">
-                                        <i class="ri-twitter-x-line text-base"></i>
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    @endif
-
+                <div class="w-full h-[350px] lg:h-[450px] rounded-[32px] overflow-hidden border border-cream shadow-md relative z-10">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.655923218129!2d77.4276549!3d28.610097299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5900b942d4f%3A0xcb8eeabb60fb701f!2sNDS%20Security%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1786968203226!5m2!1sen!2sin" 
+                            class="w-full h-full border-0 select-none" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
                 </div>
             </div>
 
@@ -311,25 +232,93 @@
         </div>
     </section>
 
-    <!-- Google Maps Location Frame -->
-    <section class="w-full px-6 md:px-12 pb-20 bg-white">
-        <div class="max-w-7xl mx-auto w-full flex flex-col gap-6">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-caramel/10 flex items-center justify-center text-caramel">
-                        <i class="ri-map-pin-line text-lg"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-black text-brownie uppercase">Command Center Map Location</h3>
-                </div>
-                <span class="text-xs font-bold text-coffee/80 hidden sm:inline">Greater Noida, Uttar Pradesh</span>
+    <!-- NDS Branch Offices Section (In place of the map) -->
+    <section class="w-full px-6 md:px-12 pb-24 bg-white">
+        <div class="max-w-7xl mx-auto w-full flex flex-col gap-10">
+            <div class="flex flex-col items-center text-center gap-3">
+                <span class="text-xs sm:text-sm font-extrabold tracking-widest text-caramel uppercase">OUR NETWORK</span>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-brownie uppercase">NDS Branch Offices</h3>
+                <div class="w-12 h-1 bg-caramel rounded-full mt-1"></div>
             </div>
-            <div class="w-full h-[420px] rounded-[32px] overflow-hidden border-2 border-cream shadow-md relative z-10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.655923218129!2d77.4276549!3d28.610097299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5900b942d4f%3A0xcb8eeabb60fb701f!2sNDS%20Security%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1786968203226!5m2!1sen!2sin" 
-                        class="w-full h-full border-0 select-none" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="strict-origin-when-cross-origin">
-                </iframe>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Branch 1: Greater Noida (Headquarters) -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            01
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Greater Noida (Headquarters)</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Registered & Command Center</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>info@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 2: Noida Branch -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            02
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Noida Branch</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Corporate & Sales Office</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            C-56/A2, Sector 62, Noida - 201309 (U.P.)
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>noida@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 3: Delhi Regional Branch -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            03
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Delhi Branch</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Regional Operations Office</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            Phase-III, Okhla Industrial Area, New Delhi - 110020 (Delhi)
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>delhi@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
