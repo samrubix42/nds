@@ -11,7 +11,7 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
 {
     public string $name = '';
 
-    public string $email = '';
+    public ?string $email = null;
 
     public string $phone = '';
 
@@ -25,14 +25,13 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
     {
         $this->validate([
             'name' => 'required|min:3|max:100',
-            'email' => 'required|email|max:100',
+            'email' => 'nullable|email|max:100',
             'phone' => 'required|numeric|digits_between:10,15',
             'subject' => 'required|min:3|max:150',
             'message' => 'required|min:10|max:1000',
         ], [
             'name.required' => 'Please enter your full name.',
             'name.min' => 'Name must be at least 3 characters.',
-            'email.required' => 'Please enter your email address.',
             'email.email' => 'Please enter a valid email address.',
             'phone.required' => 'Please enter your phone number.',
             'phone.numeric' => 'Phone number must contain only numbers.',
@@ -65,7 +64,7 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
                     messageContent: $this->message
                 )
             );
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             Log::error('Contact form mail sending error: '.$e->getMessage(), [
                 'name' => $this->name,
                 'email' => $this->email,

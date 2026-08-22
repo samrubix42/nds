@@ -363,7 +363,6 @@
                                 <div class="flex flex-col">
                                     <label for="email" class="text-[11px] font-extrabold text-brownie uppercase tracking-wider mb-1.5 flex items-center gap-1">
                                         <span>Email Address</span>
-                                        <span class="text-caramel font-black">*</span>
                                     </label>
                                     <input type="email" id="email" wire:model.blur="email"
                                            placeholder="yourname@gmail.com"

@@ -2,7 +2,6 @@
 
 use App\Models\AppliedJobs;
 use App\Models\JobPost;
-use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -19,7 +18,7 @@ class extends Component
 
     public string $name = '';
 
-    public string $email = '';
+    public ?string $email = null;
 
     public string $phone = '';
 
@@ -57,7 +56,7 @@ class extends Component
     {
         $this->validate([
             'name' => 'required|string|min:3|max:100',
-            'email' => 'required|email|max:100',
+            'email' => 'nullable|email|max:100',
             'phone' => 'required|numeric|digits_between:10,15',
             'position' => 'required|string',
             'experience' => 'required|numeric|min:0|max:50',
@@ -66,7 +65,6 @@ class extends Component
         ], [
             'name.required' => 'Please enter your full name.',
             'name.min' => 'Name must be at least 3 characters.',
-            'email.required' => 'Please enter your email address.',
             'email.email' => 'Please enter a valid email address.',
             'phone.required' => 'Please enter your contact number.',
             'phone.numeric' => 'Phone number must contain only numbers.',

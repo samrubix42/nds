@@ -158,7 +158,7 @@
 
                         <!-- Email Address -->
                         <div class="flex flex-col">
-                            <label for="email" class="text-xs font-bold text-coffee uppercase tracking-wider mb-2">Email Address <span class="text-caramel">*</span></label>
+                            <label for="email" class="text-xs font-bold text-coffee uppercase tracking-wider mb-2">Email Address</label>
                             <input type="email" id="email" wire:model.blur="email"
                                    placeholder="Enter your email"
                                    class="w-full px-4.5 py-3.5 border border-cream rounded-2xl bg-white text-xs sm:text-sm font-semibold text-brownie focus:outline-none focus:border-caramel focus:ring-2 focus:ring-caramel/30 shadow-xs transition-all" />
