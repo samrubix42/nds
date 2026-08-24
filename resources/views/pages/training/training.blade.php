@@ -56,9 +56,9 @@
             
             <!-- Right Column with Featured Training Photo & Stats Card (5 columns) -->
             <div class="lg:col-span-5 flex flex-col gap-6">
-                <!-- Training Photo Badge -->
+                <!-- Training Photo Badge (Image 1) -->
                 <div class="relative rounded-[28px] overflow-hidden shadow-lg border-2 border-[#F3E9DC] group">
-                    <img src="{{ asset('image/PIC_4855.webp') }}" 
+                    <img src="{{ asset('training-images/TRAINING PHOTOS.jpg') }}" 
                          alt="NDS Guard Physical & Tactical Readiness Training" 
                          class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-transparent to-transparent flex items-end p-5">
@@ -136,7 +136,7 @@
             <!-- Tab Panels -->
             <div class="w-full bg-white border border-cream p-8 md:p-10 rounded-[32px] shadow-sm min-h-[300px]">
                 
-                <!-- Physical Tab Panel -->
+                <!-- Physical Tab Panel (Image 2) -->
                 <div x-show="tab === 'physical'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-2" class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                     <div class="flex flex-col gap-4">
                         <h3 class="text-xl font-black text-brownie uppercase">Stamina, Agility, & Self-Defense</h3>
@@ -150,11 +150,11 @@
                         </ul>
                     </div>
                     <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
-                        <img src="{{ asset('image/PIC_4880.webp') }}" alt="NDS Physical Training Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                        <img src="{{ asset('training-images/TRAINING 2.jpg') }}" alt="NDS Physical Training Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
-                <!-- Tech Tab Panel -->
+                <!-- Tech Tab Panel (Image 3) -->
                 <div x-show="tab === 'tech'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-2" class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                     <div class="flex flex-col gap-4">
                         <h3 class="text-xl font-black text-brownie uppercase">CCTV & Hazard Safety Panels</h3>
@@ -168,11 +168,11 @@
                         </ul>
                     </div>
                     <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
-                        <img src="{{ asset('image/PIC_3845.webp') }}" alt="Surveillance Tech Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                        <img src="{{ asset('training-images/TRAINING 3.jpg') }}" alt="Surveillance Tech Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
-                <!-- Medical Tab Panel -->
+                <!-- Medical Tab Panel (Image 4) -->
                 <div x-show="tab === 'medical'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-2" class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                     <div class="flex flex-col gap-4">
                         <h3 class="text-xl font-black text-brownie uppercase">First-Aid & Evacuation</h3>
@@ -186,11 +186,11 @@
                         </ul>
                     </div>
                     <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
-                        <img src="{{ asset('image/PIC_3792.webp') }}" alt="First Aid & Emergency Drill" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                        <img src="{{ asset('training-images/TRAINING 4.jpg') }}" alt="First Aid & Emergency Drill" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
-                <!-- Conduct Tab Panel -->
+                <!-- Conduct Tab Panel (Image 5) -->
                 <div x-show="tab === 'conduct'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-2" class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                     <div class="flex flex-col gap-4">
                         <h3 class="text-xl font-black text-brownie uppercase">Grooming & Client Relations</h3>
@@ -204,7 +204,7 @@
                         </ul>
                     </div>
                     <div class="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-cream border border-[#F3E9DC] group">
-                        <img src="{{ asset('image/PIC_3766.webp') }}" alt="Grooming and Squad Parade Inspection" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                        <img src="{{ asset('training-images/TRAINING 5.jpg') }}" alt="Grooming and Squad Parade Inspection" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                     </div>
                 </div>
 
@@ -212,7 +212,7 @@
         </div>
     </section>
 
-    <!-- Academy Live Drill Photo Showcase Gallery -->
+    <!-- Academy Live Drill Photo Showcase Gallery (All 6 Images in Grid) -->
     <section class="py-20 bg-white border-b border-cream/35 w-full">
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-12">
             <div class="flex flex-col items-center text-center gap-3">
@@ -223,40 +223,58 @@
                 <div class="w-12 h-0.5 bg-caramel mt-1"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Gallery Image 1 -->
                 <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
-                    <img src="{{ asset('image/PIC_4855.webp') }}" alt="Mandatory PSARA Physical Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <img src="{{ asset('training-images/TRAINING PHOTOS.jpg') }}" alt="Mandatory PSARA Physical Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
                     <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                        <span class="text-xs font-bold text-caramel uppercase">Tactical Drills</span>
+                        <span class="text-xs font-bold text-caramel uppercase">Academy Drill 1</span>
                         <h4 class="text-sm font-bold text-white mt-1">PSARA Physical Readiness</h4>
                     </div>
                 </div>
 
                 <!-- Gallery Image 2 -->
                 <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
-                    <img src="{{ asset('image/PIC_3766.webp') }}" alt="Morning Guard Inspection & Lineup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <img src="{{ asset('training-images/TRAINING 2.jpg') }}" alt="Tactical Readiness Training" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
                     <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                        <span class="text-xs font-bold text-caramel uppercase">Squad Discipline</span>
-                        <h4 class="text-sm font-bold text-white mt-1">Grooming & Parade Inspection</h4>
+                        <span class="text-xs font-bold text-caramel uppercase">Tactical Drill 2</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Endurance & Defense Training</h4>
                     </div>
                 </div>
 
                 <!-- Gallery Image 3 -->
                 <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
-                    <img src="{{ asset('image/PIC_3788.webp') }}" alt="Commercial Asset Defense Briefing" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <img src="{{ asset('training-images/TRAINING 3.jpg') }}" alt="Surveillance & Access Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
                     <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                        <span class="text-xs font-bold text-caramel uppercase">Asset Defense</span>
-                        <h4 class="text-sm font-bold text-white mt-1">Corporate Facility Training</h4>
+                        <span class="text-xs font-bold text-caramel uppercase">Surveillance Tech 3</span>
+                        <h4 class="text-sm font-bold text-white mt-1">CCTV & Hazard Panel Ops</h4>
                     </div>
                 </div>
 
                 <!-- Gallery Image 4 -->
                 <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
-                    <img src="{{ asset('image/PIC_3861.webp') }}" alt="Crowd Control & Screening Drills" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <img src="{{ asset('training-images/TRAINING 4.jpg') }}" alt="First-Aid & Evacuation" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
                     <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                        <span class="text-xs font-bold text-caramel uppercase">Event Tactics</span>
-                        <h4 class="text-sm font-bold text-white mt-1">Crowd Control & Stage Safety</h4>
+                        <span class="text-xs font-bold text-caramel uppercase">Emergency Drill 4</span>
+                        <h4 class="text-sm font-bold text-white mt-1">First-Aid & Emergency Response</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 5 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('training-images/TRAINING 5.jpg') }}" alt="Morning Guard Inspection & Lineup" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Squad Discipline 5</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Grooming & Parade Inspection</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 6 -->
+                <div class="group relative h-64 rounded-2xl overflow-hidden shadow-sm border border-[#F3E9DC]">
+                    <img src="{{ asset('training-images/TRAINING 6.jpg') }}" alt="Field Security Tactics & Patrol" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brownie/85 via-brownie/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-caramel uppercase">Field Operations 6</span>
+                        <h4 class="text-sm font-bold text-white mt-1">Tactical Security Operations</h4>
                     </div>
                 </div>
             </div>
