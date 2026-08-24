@@ -12,7 +12,7 @@ new #[Title('Our Clientele - NDS Security Services')] class extends Component
     public function render(): mixed
     {
         return view('pages.clientele.clientele', [
-            'clients' => Client::where('is_active', true)->get(),
+            'clients' => Client::where('is_active', true)->orderBy('sort_order')->orderBy('id', 'desc')->get(),
         ]);
     }
 };

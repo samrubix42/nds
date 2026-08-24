@@ -16,6 +16,8 @@ class Client extends Model
     protected $fillable = [
         'image',
         'is_active',
+        'sort_order',
+        'is_featured',
     ];
 
     /**
@@ -25,6 +27,8 @@ class Client extends Model
      */
     protected $casts = [
         'is_active' => 'boolean',
+        'sort_order' => 'integer',
+        'is_featured' => 'boolean',
     ];
 
     /**

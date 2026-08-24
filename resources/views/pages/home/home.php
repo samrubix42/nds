@@ -12,7 +12,7 @@ new class extends Component
     public function render(): mixed
     {
         $sliders = Homeslider::where('is_active', true)->get();
-        $clients = Client::where('is_active', true)->get();
+        $clients = Client::where('is_active', true)->where('is_featured', true)->orderBy('sort_order')->orderBy('id', 'desc')->get();
         $services = Service::where('is_active', true)->orderBy('sort_order')->take(6)->get();
         $testimonials = Testimonial::all();
         $faqs = Faq::where('status', true)->get();

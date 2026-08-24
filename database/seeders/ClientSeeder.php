@@ -28,7 +28,11 @@ class ClientSeeder extends Seeder
             if (in_array($extension, ['jpg', 'jpeg', 'png', 'webp', 'gif'])) {
                 Client::updateOrCreate(
                     ['image' => 'clients/'.$filename],
-                    ['is_active' => true]
+                    [
+                        'is_active' => true,
+                        'is_featured' => true,
+                        'sort_order' => 0,
+                    ]
                 );
             }
         }

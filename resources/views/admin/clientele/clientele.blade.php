@@ -32,9 +32,25 @@
                 class="w-full pl-9 pr-3 py-2 text-xs rounded-sm bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-medium placeholder-brownie/40 transition-colors" 
             />
         </div>
-        
-        <div class="text-[10px] text-brownie/60 font-bold uppercase tracking-wider">
-            Total: {{ $clients->total() }} Clients
+
+        <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+            <!-- Per Page Quantity Dropdown -->
+            <div class="flex items-center gap-2">
+                <label for="perPageSelect" class="text-[10px] text-brownie/60 font-bold uppercase tracking-wider whitespace-nowrap">Per Page:</label>
+                <select 
+                    id="perPageSelect"
+                    wire:model.live="perPage" 
+                    class="px-2.5 py-1.5 text-xs rounded-sm bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-semibold transition-colors cursor-pointer">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="48">48</option>
+                    <option value="96">96</option>
+                </select>
+            </div>
+            
+            <div class="text-[10px] text-brownie/60 font-bold uppercase tracking-wider">
+                Total: {{ $clients->total() }} Clients
+            </div>
         </div>
     </div>
 
@@ -48,23 +64,42 @@
             <p class="text-xs text-brownie/50 mt-1">Try matching another search query or add a new client logo.</p>
         </div>
     @else
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div wire:sort="updateOrder" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             @foreach($clients as $client)
-                <div class="relative bg-white border border-[#F3E9DC] hover:border-[#C08552]/40 rounded-md p-3 shadow-2xs hover:shadow-xs flex flex-col justify-between items-center group transition-all duration-200">
+                <div wire:sort:item="{{ $client->id }}" wire:key="client-{{ $client->id }}" class="relative bg-white border border-[#F3E9DC] hover:border-[#C08552]/40 rounded-md p-3 shadow-2xs hover:shadow-xs flex flex-col justify-between items-center group transition-all duration-200">
                     
-                    <!-- Status Indicator Toggle -->
-                    <button 
-                        wire:click="toggleStatus({{ $client->id }})" 
-                        class="absolute top-2.5 left-2.5 z-10" 
-                        title="Toggle active status">
-                        <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-[9px] font-bold border transition-colors cursor-pointer {{ $client->is_active ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
-                            <span class="w-1.5 h-1.5 rounded-full {{ $client->is_active ? 'bg-emerald-500' : 'bg-rose-500' }}"></span>
-                            <span>{{ $client->is_active ? 'Active' : 'Inactive' }}</span>
+                    <!-- Top Badge Controls -->
+                    <div class="flex items-center justify-between w-full z-10 mb-1">
+                        <!-- Drag Handle -->
+                        <span wire:sort:handle class="cursor-grab active:cursor-grabbing text-brownie/40 hover:text-[#C08552] transition-colors p-0.5" title="Drag to reorder client">
+                            <i class="ri-drag-move-2-line text-xs sm:text-sm"></i>
                         </span>
-                    </button>
+
+                        <div class="flex items-center gap-1">
+                            <!-- Active Status Toggle -->
+                            <button 
+                                wire:click="toggleStatus({{ $client->id }})" 
+                                title="Toggle active status">
+                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-[9px] font-bold border transition-colors cursor-pointer {{ $client->is_active ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $client->is_active ? 'bg-emerald-500' : 'bg-rose-500' }}"></span>
+                                    <span>{{ $client->is_active ? 'Active' : 'Inactive' }}</span>
+                                </span>
+                            </button>
+
+                            <!-- Featured Toggle -->
+                            <button 
+                                wire:click="toggleFeatured({{ $client->id }})" 
+                                title="Toggle featured status for home page">
+                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-[9px] font-bold border transition-colors cursor-pointer {{ $client->is_featured ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-stone-50 text-stone-500 border-stone-200' }}">
+                                    <i class="ri-star-line {{ $client->is_featured ? 'text-amber-500' : 'text-stone-400' }}"></i>
+                                    <span>{{ $client->is_featured ? 'Featured' : 'Regular' }}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
 
                     <!-- Image Preview Area -->
-                    <div class="h-24 w-full flex items-center justify-center bg-[#FAF9F5]/40 rounded-sm overflow-hidden mt-5 mb-2 border border-[#F3E9DC]/40 relative">
+                    <div class="h-24 w-full flex items-center justify-center bg-[#FAF9F5]/40 rounded-sm overflow-hidden my-2 border border-[#F3E9DC]/40 relative">
                         <img 
                             src="{{ $client->image_url }}" 
                             alt="Client Logo" 
@@ -74,21 +109,26 @@
                     </div>
 
                     <!-- Action toolbar -->
-                    <div class="flex items-center gap-1.5 border-t border-[#F3E9DC]/50 pt-2 w-full justify-end">
-                        <button 
-                            wire:click="edit({{ $client->id }})" 
-                            @click="formOpen = true" 
-                            class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-[#C08552]/40 text-brownie/70 hover:text-[#C08552] transition-colors" 
-                            title="Edit">
-                            <i class="ri-edit-line text-xs"></i>
-                        </button>
-                        <button 
-                            wire:click="confirmDelete({{ $client->id }})" 
-                            @click="deleteOpen = true" 
-                            class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-rose-300 text-brownie/70 hover:text-rose-600 transition-colors" 
-                            title="Delete">
-                            <i class="ri-delete-bin-line text-xs"></i>
-                        </button>
+                    <div class="flex items-center gap-1.5 border-t border-[#F3E9DC]/50 pt-2 w-full justify-between">
+                        <span class="text-[9px] font-bold text-brownie/50 bg-[#FAF9F5] px-1.5 py-0.5 rounded-sm border border-[#F3E9DC]">
+                            Order: {{ $client->sort_order }}
+                        </span>
+                        <div class="flex items-center gap-1.5">
+                            <button 
+                                wire:click="edit({{ $client->id }})" 
+                                @click="formOpen = true" 
+                                class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-[#C08552]/40 text-brownie/70 hover:text-[#C08552] transition-colors" 
+                                title="Edit">
+                                <i class="ri-edit-line text-xs"></i>
+                            </button>
+                            <button 
+                                wire:click="confirmDelete({{ $client->id }})" 
+                                @click="deleteOpen = true" 
+                                class="p-1 rounded-sm bg-[#FAF9F5] border border-[#F3E9DC] hover:border-rose-300 text-brownie/70 hover:text-rose-600 transition-colors" 
+                                title="Delete">
+                                <i class="ri-delete-bin-line text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -180,6 +220,14 @@
                     @error('image') <span class="text-[10px] text-rose-600 font-semibold block mt-1">{{ $message }}</span> @enderror
                 </div>
 
+                <!-- Sort Order -->
+                <div class="space-y-1">
+                    <label class="block text-[10px] font-bold text-brownie uppercase tracking-wider">Sort Order</label>
+                    <input wire:model="sort_order" type="number" min="0" class="w-full px-3 py-2 text-xs rounded-sm bg-[#FAF9F5]/40 border border-[#F3E9DC] focus:outline-none focus:border-[#C08552] text-brownie font-semibold" placeholder="0" />
+                    <p class="text-[9px] text-brownie/50">Lower numbers appear first (0, 1, 2...).</p>
+                    @error('sort_order') <span class="text-[10px] text-rose-600 font-semibold block mt-1">{{ $message }}</span> @enderror
+                </div>
+
                 <!-- Active Status Toggle -->
                 <div class="flex items-center justify-between py-2 border-t border-b border-[#F3E9DC]/40">
                     <div>
@@ -188,6 +236,18 @@
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input wire:model="is_active" type="checkbox" class="sr-only peer" />
+                        <div class="w-8 h-4 bg-stone-200 peer-focus:outline-none rounded-sm peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-xs after:h-3 after:w-3.5 after:transition-all peer-checked:bg-[#C08552]"></div>
+                    </label>
+                </div>
+
+                <!-- Featured Toggle -->
+                <div class="flex items-center justify-between py-2 border-b border-[#F3E9DC]/40">
+                    <div>
+                        <label class="block text-[10px] font-bold text-brownie uppercase tracking-wider">Featured on Home Page</label>
+                        <p class="text-[9px] text-brownie/50 mt-0.5">Display this client logo in the main Home Page showcase.</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input wire:model="is_featured" type="checkbox" class="sr-only peer" />
                         <div class="w-8 h-4 bg-stone-200 peer-focus:outline-none rounded-sm peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-xs after:h-3 after:w-3.5 after:transition-all peer-checked:bg-[#C08552]"></div>
                     </label>
                 </div>

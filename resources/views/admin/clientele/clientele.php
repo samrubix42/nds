@@ -29,6 +29,16 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     public bool $is_active = true;
 
     /**
+     * Client featured status (shows on home page).
+     */
+    public bool $is_featured = true;
+
+    /**
+     * Client display sort order.
+     */
+    public int $sort_order = 0;
+
+    /**
      * ID of the client being edited.
      */
     public ?int $editingClientId = null;
@@ -44,9 +54,19 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     public string $existingImage = '';
 
     /**
-     * Reset pagination when searching.
+     * Items per page quantity.
+     */
+    public int $perPage = 12;
+
+    /**
+     * Reset pagination when search or perPage changes.
      */
     public function updatingSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatingPerPage(): void
     {
         $this->resetPage();
     }
@@ -56,9 +76,11 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
      */
     public function resetForm(): void
     {
-        $this->reset(['image', 'is_active', 'editingClientId', 'existingImage', 'deletingClientId']);
+        $this->reset(['image', 'is_active', 'is_featured', 'sort_order', 'editingClientId', 'existingImage', 'deletingClientId']);
         $this->resetValidation();
         $this->is_active = true;
+        $this->is_featured = true;
+        $this->sort_order = 0;
     }
 
     /**
@@ -107,6 +129,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
 
         $this->editingClientId = $client->id;
         $this->is_active = $client->is_active;
+        $this->is_featured = $client->is_featured;
+        $this->sort_order = $client->sort_order;
         $this->existingImage = $client->image_url;
     }
 
@@ -127,6 +151,61 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
     }
 
     /**
+     * Toggle a client's featured status.
+     */
+    public function toggleFeatured(int $clientId): void
+    {
+        $client = Client::findOrFail($clientId);
+        $client->is_featured = ! $client->is_featured;
+        $client->save();
+
+        $this->dispatch('toast-show', [
+            'message' => 'Client featured status updated successfully!',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
+    }
+
+    /**
+     * Reorder client items via wire:sort drag and drop.
+     */
+    public function updateOrder(mixed $item = null, ?int $position = null): void
+    {
+        $page = $this->getPage();
+        $perPage = $this->perPage;
+        $offset = ($page - 1) * $perPage;
+
+        if (is_array($item)) {
+            foreach ($item as $index => $itemData) {
+                $id = is_array($itemData) ? ($itemData['id'] ?? $itemData['value'] ?? null) : $itemData;
+                $order = is_array($itemData) ? ($itemData['order'] ?? $itemData['position'] ?? ($offset + $index)) : ($offset + $index);
+                if ($id) {
+                    Client::where('id', $id)->update(['sort_order' => (int) $order]);
+                }
+            }
+        } elseif ($item !== null && $position !== null) {
+            $targetPosition = $offset + $position;
+            $allClients = Client::orderBy('sort_order', 'asc')->orderBy('id', 'desc')->get();
+            $movedClient = $allClients->firstWhere('id', (int) $item);
+
+            if ($movedClient) {
+                $remainingClients = $allClients->reject(fn ($c) => $c->id === (int) $item)->values();
+                $remainingClients->splice($targetPosition, 0, [$movedClient]);
+
+                foreach ($remainingClients as $newIndex => $clientRecord) {
+                    $clientRecord->update(['sort_order' => $newIndex]);
+                }
+            }
+        }
+
+        $this->dispatch('toast-show', [
+            'message' => 'Client order updated successfully!',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
+    }
+
+    /**
      * Create or update a client.
      */
     public function save(): void
@@ -135,6 +214,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             $this->validate([
                 'image' => 'nullable|image|max:2048',
                 'is_active' => 'required|boolean',
+                'is_featured' => 'required|boolean',
+                'sort_order' => 'required|integer|min:0',
             ]);
 
             $client = Client::findOrFail($this->editingClientId);
@@ -150,6 +231,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             }
 
             $client->is_active = $this->is_active;
+            $client->is_featured = $this->is_featured;
+            $client->sort_order = $this->sort_order;
             $client->save();
 
             $this->dispatch('toast-show', [
@@ -161,6 +244,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             $this->validate([
                 'image' => 'required|image|max:2048',
                 'is_active' => 'required|boolean',
+                'is_featured' => 'required|boolean',
+                'sort_order' => 'required|integer|min:0',
             ]);
 
             $path = $this->image->store('clients', 'public');
@@ -168,6 +253,8 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
             Client::create([
                 'image' => $path,
                 'is_active' => $this->is_active,
+                'is_featured' => $this->is_featured,
+                'sort_order' => $this->sort_order,
             ]);
 
             $this->dispatch('toast-show', [
@@ -186,11 +273,12 @@ new #[Layout('layouts::admin')] #[Title('Clientele Management - NDS Admin')] cla
      */
     public function render(): mixed
     {
-        $clients = Client::latest()
+        $clients = Client::orderBy('sort_order', 'asc')
+            ->orderBy('id', 'desc')
             ->when($this->search, function ($query): void {
                 $query->where('image', 'like', '%'.$this->search.'%');
             })
-            ->paginate(12);
+            ->paginate($this->perPage);
 
         return view('admin.clientele.clientele', [
             'clients' => $clients,
