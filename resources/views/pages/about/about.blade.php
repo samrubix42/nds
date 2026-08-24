@@ -51,13 +51,13 @@
                 </div>
 
                 <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-brownie leading-tight">
-                    15+ Years of Uncompromising <span class="text-caramel">Protection & Trust</span>
+                    10+ Years of Uncompromising <span class="text-caramel">Protection & Trust</span>
                 </h2>
 
                 <ul class="flex flex-col gap-3 text-xs sm:text-sm text-coffee font-semibold leading-relaxed">
                     <li class="flex items-start gap-3">
                         <i class="ri-checkbox-circle-fill text-caramel text-base mt-0.5 shrink-0"></i>
-                        <span><strong>Established in 2009:</strong> Over 15 years of proven excellence in delivering comprehensive, tailored security solutions.</span>
+                        <span><strong>Established in 2013:</strong> Over 10 years of proven excellence in delivering comprehensive, tailored security solutions.</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ri-checkbox-circle-fill text-caramel text-base mt-0.5 shrink-0"></i>
@@ -81,8 +81,8 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4">
-                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">15+ Years</h4>
-                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Established in 2009</p>
+                    <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">10+ Years</h4>
+                    <p class="text-[10px] sm:text-xs font-bold text-cream/85 uppercase tracking-wider mt-1">Established in 2013</p>
                 </div>
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4">
                     <h4 class="text-3xl sm:text-4xl font-black text-caramel tracking-tight">24/7</h4>
