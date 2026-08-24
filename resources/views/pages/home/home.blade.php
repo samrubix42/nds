@@ -506,11 +506,11 @@
 
                 <!-- Show More / Show Less Buttons -->
                 <div class="mt-8 flex justify-center button-container">
-                    <button @click="expanded = true" class="show-more-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer hover:underline underline-offset-4">
+                    <button @click="expanded = true" class="show-more-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer no-underline">
                         <span>Show More</span>
                         <i class="ri-arrow-down-s-line text-base sm:text-lg"></i>
                     </button>
-                    <button @click="expanded = false" class="show-less-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer hover:underline underline-offset-4">
+                    <button @click="expanded = false" class="show-less-btn inline-flex items-center gap-1.5 text-caramel hover:text-coffee font-bold text-xs sm:text-sm uppercase tracking-widest transition-colors duration-300 cursor-pointer no-underline">
                         <span>Show Less</span>
                         <i class="ri-arrow-up-s-line text-base sm:text-lg"></i>
                     </button>
