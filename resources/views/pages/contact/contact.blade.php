@@ -277,7 +277,7 @@
                             <h4 class="text-base font-black text-brownie uppercase">Greater Noida Branch Office</h4>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            Office No-16, 17 3rd Floor, Delta City Center, Delta-1, Greater Noida, Gautam Buddha Nagar, U.P. - 201306 
+                            Office No-16, 17, 3rd Floor, Delta City Center, Delta-1, Greater Noida, Gautam Buddha Nagar, U.P. - 201306 
                         </p>
                     </div>
                     <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
