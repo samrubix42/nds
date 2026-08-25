@@ -241,19 +241,19 @@
                 <div class="w-12 h-1 bg-caramel rounded-full mt-1"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Branch 1: Greater Noida (Headquarters) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Branch 1: Noida Branch Office -->
                 <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4 text-left">
                         <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
                             01
                         </div>
                         <div class="flex flex-col gap-1 text-left">
-                            <h4 class="text-base font-black text-brownie uppercase">Greater Noida (Headquarters)</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Registered & Command Center</p>
+                            <h4 class="text-base font-black text-brownie uppercase">Noida Branch Office</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Corporate & Sales Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            Plot No. 128, Haibatpur, Near Gaur City Mall, Greater Noida - 201318 (U.P.)
+                            C-56/A2, Sector 62, Noida - 201309 (U.P.)
                         </p>
                     </div>
                     <div class="border-t border-cream pt-4 flex flex-col gap-2">
@@ -268,18 +268,18 @@
                     </div>
                 </div>
 
-                <!-- Branch 2: Noida Branch -->
+                <!-- Branch 2: Greater Noida Branch Office -->
                 <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4 text-left">
                         <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
                             02
                         </div>
                         <div class="flex flex-col gap-1 text-left">
-                            <h4 class="text-base font-black text-brownie uppercase">Noida Branch</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Corporate & Sales Office</p>
+                            <h4 class="text-base font-black text-brownie uppercase">Greater Noida Branch Office</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Headquarters & Registered Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            C-56/A2, Sector 62, Noida - 201309 (U.P.)
+                            Office No-16, 3rd Floor, Delta City Center, Delta-1, Greater Noida, Gautam Buddha Nagar - 201306 (U.P.)
                         </p>
                     </div>
                     <div class="border-t border-cream pt-4 flex flex-col gap-2">
@@ -289,23 +289,23 @@
                         </div>
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-mail-line text-caramel text-sm"></i>
-                            <span>noida@ndssecurityservices.com</span>
+                            <span>info@ndssecurityservices.com</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Branch 3: Delhi Regional Branch -->
+                <!-- Branch 3: Delhi Branch Office -->
                 <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4 text-left">
                         <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
                             03
                         </div>
                         <div class="flex flex-col gap-1 text-left">
-                            <h4 class="text-base font-black text-brownie uppercase">Delhi Branch</h4>
+                            <h4 class="text-base font-black text-brownie uppercase">Delhi Branch Office</h4>
                             <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Regional Operations Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            Phase-III, Okhla Industrial Area, New Delhi - 110020 (Delhi)
+                            KH NO 250, H NO. 66, Village Kondli, Near Main Road, New Delhi - 110096
                         </p>
                     </div>
                     <div class="border-t border-cream pt-4 flex flex-col gap-2">
@@ -315,7 +315,85 @@
                         </div>
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-mail-line text-caramel text-sm"></i>
-                            <span>delhi@ndssecurityservices.com</span>
+                            <span>info@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 4: Haryana Branch Office -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            04
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Haryana Branch Office</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">State Operations Hub</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            418, 1st Floor, Ganpati Arcade, Gurugram, Haryana
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>info@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 5: Rajasthan Branch Office -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            05
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Rajasthan Branch Office</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Regional Operations Office</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            B-17, Sindhi Colony, Bani Park, Jaipur - 302016 (Rajasthan)
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>info@ndssecurityservices.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 6: Maharashtra Branch Office -->
+                <div class="bg-[#FAF9F5] p-8 rounded-[32px] border border-cream shadow-xs hover:border-caramel/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4 text-left">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-xl font-bold">
+                            06
+                        </div>
+                        <div class="flex flex-col gap-1 text-left">
+                            <h4 class="text-base font-black text-brownie uppercase">Maharashtra Branch Office</h4>
+                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Western Zone Hub</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
+                            Flat No. 205, Rachana Mathura Apartment, Mankapur Chowk, Nagpur, Maharashtra - 440030
+                        </p>
+                    </div>
+                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-phone-line text-caramel text-sm"></i>
+                            <span>+91 88005-93141</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-bold text-coffee">
+                            <i class="ri-mail-line text-caramel text-sm"></i>
+                            <span>info@ndssecurityservices.com</span>
                         </div>
                     </div>
                 </div>

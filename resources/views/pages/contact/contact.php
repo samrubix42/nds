@@ -52,7 +52,7 @@ new #[Title('Contact Us - NDS Security Services')] class extends Component
             'is_read' => false,
         ]);
 
-        $recipientEmail = config('mail.contact_recipient', 'samcool3203@gmail.com');
+        $recipientEmail = config('mail.contact_recipient', 'info@ndssecurityservices.com');
 
         try {
             Mail::to($recipientEmail)->send(

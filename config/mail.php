@@ -111,6 +111,6 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
-    'contact_recipient' => env('CONTACT_MAIL_RECIPIENT', env('CONTACT_FORM_EMAIL', 'samcool3203@gmail.com')),
+    'contact_recipient' => env('CONTACT_MAIL_RECIPIENT', env('CONTACT_FORM_EMAIL', 'info@ndssecurityservices.com')),
 
 ];
