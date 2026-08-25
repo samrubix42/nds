@@ -249,14 +249,13 @@
                             01
                         </div>
                         <div class="flex flex-col gap-1 text-left">
-                            <h4 class="text-base font-black text-brownie uppercase">Noida Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Corporate & Sales Office</p>
+                            <h4 class="text-base font-black text-brownie uppercase">Noida Headquarter</h4>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            C-56/A2, Sector 62, Noida - 201309 (U.P.)
+                            Plot No. 128, New Haibatpur, Near Gaur City Mall, Greater Noida West, U.P. - 201318 
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -265,7 +264,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Branch 2: Greater Noida Branch Office -->
@@ -276,13 +275,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-left">
                             <h4 class="text-base font-black text-brownie uppercase">Greater Noida Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Headquarters & Registered Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            Office No-16, 3rd Floor, Delta City Center, Delta-1, Greater Noida, Gautam Buddha Nagar - 201306 (U.P.)
+                            Office No-16, 3rd Floor, Delta City Center, Delta-1, Greater Noida, Gautam Buddha Nagar, U.P. - 201306 
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -291,7 +289,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Branch 3: Delhi Branch Office -->
@@ -302,13 +300,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-left">
                             <h4 class="text-base font-black text-brownie uppercase">Delhi Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Regional Operations Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
                             KH NO 250, H NO. 66, Village Kondli, Near Main Road, New Delhi - 110096
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -317,7 +314,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Branch 4: Haryana Branch Office -->
@@ -328,13 +325,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-left">
                             <h4 class="text-base font-black text-brownie uppercase">Haryana Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">State Operations Hub</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            418, 1st Floor, Ganpati Arcade, Gurugram, Haryana
+                            418, 1st Floor, Ganpati Arcade, Gurugram, Haryana - 122001
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -343,7 +339,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Branch 5: Rajasthan Branch Office -->
@@ -354,13 +350,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-left">
                             <h4 class="text-base font-black text-brownie uppercase">Rajasthan Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Regional Operations Office</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            B-17, Sindhi Colony, Bani Park, Jaipur - 302016 (Rajasthan)
+                            B-17, Sindhi Colony, Bani Park, Jaipur Rajasthan - 302016
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -369,7 +364,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Branch 6: Maharashtra Branch Office -->
@@ -380,13 +375,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-left">
                             <h4 class="text-base font-black text-brownie uppercase">Maharashtra Branch Office</h4>
-                            <p class="text-xs font-semibold text-caramel uppercase tracking-wider">Western Zone Hub</p>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
                             Flat No. 205, Rachana Mathura Apartment, Mankapur Chowk, Nagpur, Maharashtra - 440030
                         </p>
                     </div>
-                    <div class="border-t border-cream pt-4 flex flex-col gap-2">
+                    <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
                         <div class="flex items-center gap-2 text-xs font-bold text-coffee">
                             <i class="ri-phone-line text-caramel text-sm"></i>
                             <span>+91 88005-93141</span>
@@ -395,7 +389,7 @@
                             <i class="ri-mail-line text-caramel text-sm"></i>
                             <span>info@ndssecurityservices.com</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
