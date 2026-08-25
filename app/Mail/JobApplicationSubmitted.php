@@ -5,11 +5,13 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
-class ContactFormSubmitted extends Mailable
+class JobApplicationSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,8 +19,11 @@ class ContactFormSubmitted extends Mailable
         public string $name,
         public ?string $email,
         public string $phone,
-        public string $subjectText,
-        public string $messageContent
+        public string $position,
+        public string $experience,
+        public string $address,
+        public ?string $resumePath = null,
+        public ?string $messageContent = null
     ) {}
 
     public function envelope(): Envelope
@@ -29,7 +34,7 @@ class ContactFormSubmitted extends Mailable
         }
 
         return new Envelope(
-            subject: 'New Inquiry: '.$this->subjectText.' - '.$this->name,
+            subject: 'New Job Application: '.$this->position.' - '.$this->name,
             replyTo: $replyTo
         );
     }
@@ -37,12 +42,14 @@ class ContactFormSubmitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-form',
+            view: 'emails.job-application',
             with: [
                 'name' => $this->name,
                 'email' => $this->email ?? 'Not Provided',
                 'phone' => $this->phone,
-                'subject' => $this->subjectText,
+                'position' => $this->position,
+                'experience' => $this->experience,
+                'address' => $this->address,
                 'messageContent' => $this->messageContent,
             ]
         );
@@ -50,6 +57,13 @@ class ContactFormSubmitted extends Mailable
 
     public function attachments(): array
     {
+        if ($this->resumePath && Storage::disk('public')->exists($this->resumePath)) {
+            return [
+                Attachment::fromStorageDisk('public', $this->resumePath)
+                    ->as('Resume-'.preg_replace('/[^A-Za-z0-9_\-]/', '_', $this->name).'.'.pathinfo($this->resumePath, PATHINFO_EXTENSION)),
+            ];
+        }
+
         return [];
     }
 }

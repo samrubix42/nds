@@ -1,7 +1,10 @@
 <?php
 
+use App\Mail\JobApplicationSubmitted;
 use App\Models\AppliedJobs;
 use App\Models\JobPost;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -89,6 +92,29 @@ class extends Component
             'resume' => $resumePath,
             'status' => 'open',
         ]);
+
+        $recipientEmail = config('mail.contact_recipient', env('CONTACT_FORM_EMAIL', 'info@ndssecurityservices.com'));
+
+        try {
+            Mail::to($recipientEmail)->send(
+                new JobApplicationSubmitted(
+                    name: $this->name,
+                    email: $this->email,
+                    phone: $this->phone,
+                    position: $this->position,
+                    experience: (string) $this->experience,
+                    address: $this->address,
+                    resumePath: $resumePath,
+                    messageContent: $this->message
+                )
+            );
+        } catch (Throwable $e) {
+            Log::error('Job application mail sending error: '.$e->getMessage(), [
+                'name' => $this->name,
+                'email' => $this->email,
+                'position' => $this->position,
+            ]);
+        }
 
         $this->successMessage = 'Your application and resume for the "'.$this->position.'" position have been successfully submitted. The NDS HR Desk will review your resume and contact you soon.';
 

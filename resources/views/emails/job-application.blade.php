@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact Inquiry - NDS Security Services</title>
+    <title>New Job Application - NDS Security Services</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -80,7 +80,7 @@
         .label {
             font-weight: 700;
             color: #5c4436;
-            width: 30%;
+            width: 35%;
             text-transform: uppercase;
             font-size: 11px;
             letter-spacing: 0.5px;
@@ -133,16 +133,20 @@
         <div class="container">
             <!-- Header -->
             <div class="header">
-                <div class="badge">New Contact Query</div>
+                <div class="badge">New Job Application</div>
                 <h1>NDS Security Services</h1>
-                <p>Website Inquiry Received via Contact Form</p>
+                <p>Candidate Application Received via Career Portal</p>
             </div>
 
             <!-- Content -->
             <div class="content">
                 <table class="info-table">
                     <tr>
-                        <td class="label">Sender Name:</td>
+                        <td class="label">Position Applied:</td>
+                        <td class="value"><strong style="color: #c08552;">{{ $position }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Applicant Name:</td>
                         <td class="value">{{ $name }}</td>
                     </tr>
                     <tr>
@@ -160,8 +164,12 @@
                         <td class="value"><a href="tel:{{ $phone }}">{{ $phone }}</a></td>
                     </tr>
                     <tr>
-                        <td class="label">Subject / Service:</td>
-                        <td class="value">{{ $subject }}</td>
+                        <td class="label">Experience:</td>
+                        <td class="value">{{ $experience }} {{ Str::plural('year', (float)$experience) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Address / Location:</td>
+                        <td class="value">{{ $address }}</td>
                     </tr>
                     <tr>
                         <td class="label">Received At:</td>
@@ -169,16 +177,18 @@
                     </tr>
                 </table>
 
-                <div class="message-box">
-                    <h3>Query Details:</h3>
-                    <p>{{ $messageContent }}</p>
-                </div>
+                @if (!empty($messageContent))
+                    <div class="message-box">
+                        <h3>Applicant Cover Note / Message:</h3>
+                        <p>{{ $messageContent }}</p>
+                    </div>
+                @endif
             </div>
 
             <!-- Footer -->
             <div class="footer">
-                <p><strong>NDS Security Services Noida</strong> • 24/7 Command Center Operations</p>
-                <p>This automated message was sent from your website's contact form.</p>
+                <p><strong>NDS Security Services HR Desk</strong> • Career & Recruitment Operations</p>
+                <p>The candidate's resume has been attached to this email (if provided).</p>
             </div>
         </div>
     </div>
