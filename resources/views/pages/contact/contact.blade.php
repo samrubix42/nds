@@ -352,7 +352,7 @@
                             <h4 class="text-base font-black text-brownie uppercase">Rajasthan Branch Office</h4>
                         </div>
                         <p class="text-xs sm:text-sm text-coffee font-semibold leading-relaxed text-left">
-                            B-17, Sindhi Colony, Bani Park, Jaipur Rajasthan - 302016
+                            B-17, Sindhi Colony, Bani Park, Rajasthan Jaipur - 302016
                         </p>
                     </div>
                     <!-- <div class="border-t border-cream pt-4 flex flex-col gap-2">
