@@ -267,7 +267,7 @@
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">50+ Residential</strong> Tower
+                    <strong class="text-cream font-black">100+ Residential</strong> Tower
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-focus-3-fill text-cream text-sm"></i>
@@ -294,7 +294,7 @@
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-building-2-fill text-cream text-sm"></i>
-                    <strong class="text-cream font-black">50+ Residential</strong> Towers
+                    <strong class="text-cream font-black">100+ Residential</strong> Towers
                 </span>
                 <span class="flex items-center gap-2">
                     <i class="ri-focus-3-fill text-cream text-sm"></i>
@@ -420,7 +420,7 @@
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12 items-center text-center">
                 <!-- Stat 1 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                    x-data="{ count: 0, target: 50, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 100, duration: 1800, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -431,7 +431,7 @@
 
                 <!-- Stat 2 -->
                 <div class="flex flex-col items-center justify-center border-r-0 md:border-r border-cream/15 pr-0 md:pr-4"
-                    x-data="{ count: 0, target: 23, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 50, duration: 1500, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
@@ -442,7 +442,7 @@
 
                 <!-- Stat 3 -->
                 <div class="flex flex-col items-center justify-center border-r-0 sm:border-r border-cream/15 pr-0 sm:pr-4"
-                    x-data="{ count: 0, target: 10, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
+                    x-data="{ count: 0, target: 20, duration: 1600, startCounter() { let start = null; const step = (t) => { if (!start) start = t; const p = Math.min((t - start) / this.duration, 1); this.count = Math.floor(p * this.target); if (p < 1) window.requestAnimationFrame(step); else this.count = this.target; }; window.requestAnimationFrame(step); }, init() { let obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { this.startCounter(); obs.disconnect(); } }); }, { threshold: 0.1 }); obs.observe(this.$el); } }">
                     <h4 class="text-3xl sm:text-4xl md:text-5xl font-black text-caramel tracking-tight">
                         <span x-text="count">0</span>+
                     </h4>
